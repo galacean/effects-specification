@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "baseUrl": ".",
+    "lib": [
+      "DOM",
+      "ES2015",
+      "ES2016"
+    ],
+    "allowJs": true,
+    "declaration": true,
+    "declarationDir": ".",
+    "removeComments": true,
+    "noEmit": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "strictNullChecks": true,
+    // "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "skipLibCheck": true,
+    "strictPropertyInitialization": false
+  },
+  "include": [
+    "./fallback",
+    "./src",
+    "./test"
+  ],
+  "exclude": [
+    "node_modules",
+    "temp",
+    "dist"
+  ]
+}

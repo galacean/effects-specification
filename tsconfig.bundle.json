@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "removeComments": false,
+    "target": "ES5"
+  },
+  "exclude": [
+    "**/dist/**",
+    "node_modules",
+    "**/*.test.ts"
+  ]
+}

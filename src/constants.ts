@@ -1,0 +1,13 @@
+export const END_BEHAVIOR_DESTROY = 0;
+export const END_BEHAVIOR_PAUSE = 1;
+export const END_BEHAVIOR_FORWARD = 2;
+export const END_BEHAVIOR_PAUSE_AND_DESTROY = 3;
+export const END_BEHAVIOR_FREEZE = 4;
+export const END_BEHAVIOR_RESTART = 5;
+export const END_BEHAVIOR_DESTROY_CHILDREN = 6;
+
+export const CAMERA_CLIP_MODE_VERTICAL = 1;
+export const CAMERA_CLIP_MODE_NORMAL = 0;
+
+export const MESSAGE_ITEM_PHRASE_BEGIN = 2;
+export const MESSAGE_ITEM_PHRASE_END = 1;
