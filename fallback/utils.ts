@@ -184,8 +184,8 @@ export function ensureFixedVec3 (a: any): FixedVec3Expression | undefined {
 }
 
 export function objectValueToNumber (o: Record<string, any>): object {
-  for (const [key, value] of Object.entries(o)) {
-    o[key] = Number(value);
+  for (const key of Object.keys(o)) {
+    o[key] = Number(o[key]);
   }
 
   return o;

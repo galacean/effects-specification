@@ -21,9 +21,11 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:promise/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:compat/recommended",
   ],
   plugins: [
     "@typescript-eslint",
+    "compat",
   ],
   rules: {
     "arrow-parens": ["error", "as-needed"],
@@ -134,5 +136,14 @@ module.exports = {
         "disallowTypeAnnotations": false,
       },
     ],
+    "compat/compat": "error",
   },
+  overrides: [
+    {
+      "files": ["**/test/**/*.ts", "**/demo/**/*.ts"],
+      "rules": {
+        "compat/compat": "off"
+      }
+    }
+  ]
 };
