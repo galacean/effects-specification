@@ -14,8 +14,8 @@ export interface JSONScene {
   /**
    * JSON 版本
    *
-   * 1.1 增加数据模板 https://yuque.antfin.com/ndl7nd/mars/ib13fw
-   * 1.2 增加 anchor https://yuque.antfin.com/ndl7nd/mars/dyccyr
+   * 1.1 增加数据模板
+   * 1.2 增加 anchor
    * 1.3 增加二进制文件格式
    * 1.5 增加 Spine 数据
    * 2.0 改造升级
