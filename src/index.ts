@@ -20,3 +20,4 @@ export * from './item/text-item';
 export * from './item/model';
 export * from './binary';
 export * from './text';
+export * from "./components"

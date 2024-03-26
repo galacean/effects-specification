@@ -15,6 +15,7 @@ import type { vec3, vec4 } from '../numberExpression';
 import type { CameraContent } from './camera-item';
 import type { FilterContent } from '../../src/item/filter-item';
 import type { TextContent } from './text-item';
+import { ComponentData } from '../components';
 
 export enum ItemEndBehavior {
   destroy = END_BEHAVIOR_DESTROY,
@@ -92,6 +93,10 @@ export interface BaseItem {
    * 元素的基础位置
    */
   transform?: BaseItemTransform,
+  /**
+   * 元素的组件数据
+   */
+  components: ComponentData[],
 }
 
 export interface BaseItemTransform {
