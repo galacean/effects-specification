@@ -1,6 +1,7 @@
 import type { RGBAColorValue } from '../../numberExpression';
 import type { BaseItem, ItemEndBehavior } from '../base-item';
 import type { RotationOverLifetime, PositionOverLifetime, ItemType } from '../../type';
+import type { ComponentData } from '../../components';
 
 export interface ModelLightBaseOptions {
   /**
@@ -85,4 +86,19 @@ export interface ModelLightItem extends BaseItem {
   pluginName: 'model',
   content: ModelLightContent,
   endBehavior: ItemEndBehavior,
+}
+
+export interface ModelLightComponentData extends ComponentData {
+  /**
+   * 灯光元素基础属性
+   */
+  options: ModelLightOptions,
+  /**
+   * 灯光元素旋转变化属性
+   */
+  rotationOverLifetime?: RotationOverLifetime,
+  /**
+   * 灯光元素位置变化属性
+   */
+  positionOverLifetime?: PositionOverLifetime,
 }

@@ -2,6 +2,7 @@ import type { BaseItem, ItemEndBehavior } from '../base-item';
 import type { BinaryEnv } from '../../binary';
 import type { SkyboxCubeTexturePointer } from './binary';
 import type { ItemType } from 'src/type';
+import type { ComponentData, DataPath } from '../../components';
 
 export interface SkyboxOptions<T extends BinaryEnv> {
   // Skybox 是否渲染，UI显示"可见"
@@ -60,3 +61,26 @@ export interface ModelSkyboxItem<T extends BinaryEnv> extends BaseItem {
  * },
  * bins:[{url:'https://big/bin/'}]
  */
+
+export interface SkyboxComponentOptions {
+  // Skybox 是否渲染，UI显示"可见"
+  renderable: boolean,
+  // Diffuse 强度，UI显示"环境光强度"
+  intensity: number,
+  // Specular 强度，UI显示"环境反射强度"
+  reflectionsIntensity: number,
+  // SH 系数，先不在UI面板上显示（原先为二维数组，注意兼容性！！！）
+  irradianceCoeffs?: number[],
+  // 漫反射贴图，UI显示"漫反射贴图"
+  diffuseImage?: DataPath,
+  // 高光贴图，UI显示"高光贴图"
+  specularImage: DataPath,
+  // 高光贴图大小，UI不显示
+  specularImageSize: number,
+  // 高光贴图 mipmap 数，UI不显示
+  specularMipCount: number,
+}
+
+export interface SkyboxComponentData extends ComponentData {
+  options: SkyboxComponentOptions,
+}
