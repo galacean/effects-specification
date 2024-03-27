@@ -64,12 +64,12 @@ export interface GeometryData extends EffectsObjectData {
   vertexData: VertexData,
   indexFormat: number,
   indexOffset: number,
-  buffer: string,
+  buffer: string, // 存放 position, uv, normal, indices 的打包数据
 }
 
 export interface VertexData {
   vertexCount: number,
-  channels: VertexChannel[],
+  channels: VertexChannel[],  // channel 存放顺序 position, uv, normal
 }
 
 export interface VertexChannel {
