@@ -8,6 +8,7 @@ import {
   END_BEHAVIOR_PAUSE_AND_DESTROY,
   END_BEHAVIOR_RESTART,
 } from './constants';
+import { DataPath } from './components';
 
 export enum CameraClipMode {
   /**
@@ -112,6 +113,53 @@ export interface Composition {
    * 元素信息
    */
   items: Item[],
+  /**
+   * 合成视窗预览大小
+   * 如果没有提供，默认为 player 的 container 大小
+   * @default [0,0]
+   */
+  previewSize?: [width: number, height: number],
+  /**
+   * 降级图
+   */
+  fallbackImage?: string,
+}
+
+
+/**
+ * 合成数据
+ */
+export interface CompositionData {
+  /**
+   * 合成ID
+   */
+  id: string,
+  /**
+   * 合成名称
+   */
+  name: string,
+  /**
+   * 合成持续时间
+   */
+  duration: number,
+
+  /**
+   * 合成开始播放的时间，单位妙
+   * @default 0
+   */
+  startTime?: number,
+  /**
+   * 合成结束行为
+   */
+  endBehavior: CompositionEndBehavior,
+  /**
+   * 合成相机信息
+   */
+  camera: CameraOptions,
+  /**
+   * 元素信息
+   */
+  items: DataPath[],
   /**
    * 合成视窗预览大小
    * 如果没有提供，默认为 player 的 container 大小

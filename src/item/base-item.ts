@@ -1,10 +1,4 @@
-import type { ItemType, RenderLevel } from '../type';
-import type { NullContent } from './null-item';
-import type { PluginContent } from './plugin-item';
-import type { SpriteContent } from './sprite-item';
-import type { InteractContent } from './interact-item';
-import type { ParticleContent } from './particle-item';
-import type { CompositionContent } from './composition-item';
+import type { FilterContent } from '../../src/item/filter-item';
 import {
   END_BEHAVIOR_DESTROY,
   END_BEHAVIOR_DESTROY_CHILDREN,
@@ -12,10 +6,15 @@ import {
   END_BEHAVIOR_RESTART,
 } from '../constants';
 import type { vec3, vec4 } from '../numberExpression';
+import type { ItemType, RenderLevel } from '../type';
 import type { CameraContent } from './camera-item';
-import type { FilterContent } from '../../src/item/filter-item';
+import type { CompositionContent } from './composition-item';
+import type { InteractContent } from './interact-item';
+import type { NullContent } from './null-item';
+import type { ParticleContent } from './particle-item';
+import type { PluginContent } from './plugin-item';
+import type { SpriteContent } from './sprite-item';
 import type { TextContent } from './text-item';
-import { ComponentData } from '../components';
 
 export enum ItemEndBehavior {
   destroy = END_BEHAVIOR_DESTROY,
@@ -93,10 +92,6 @@ export interface BaseItem {
    * 元素的基础位置
    */
   transform?: BaseItemTransform,
-  /**
-   * 元素的组件数据
-   */
-  components: ComponentData[],
 }
 
 export interface BaseItemTransform {
