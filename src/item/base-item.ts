@@ -137,7 +137,7 @@ export interface EulerData{
 
 export interface TransformData {
   position: Vector3Data;
-  rotation: EulerData;
+  eulerHint: EulerData;
   scale: Vector3Data;
   size?: Vector2Data,
   anchor?: Vector2Data,
