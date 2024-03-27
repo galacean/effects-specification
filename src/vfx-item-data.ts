@@ -1,5 +1,5 @@
 import { ComponentData, EffectsObjectData } from "./components";
-import { ItemEndBehavior, ParentItemEndBehavior, BaseContent, BaseItemTransform } from "./item/base-item";
+import { ItemEndBehavior, ParentItemEndBehavior, BaseContent, BaseItemTransform, TransformData } from "./item/base-item";
 import { ItemType, RenderLevel } from "./type";
 
 export interface VFXItemData extends EffectsObjectData {
@@ -67,7 +67,7 @@ export interface VFXItemData extends EffectsObjectData {
     /**
      * 元素的基础位置
      */
-    transform?: BaseItemTransform,
+    transform?: TransformData,
     /**
      * 元素的组件数据
      */

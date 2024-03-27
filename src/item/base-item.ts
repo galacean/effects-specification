@@ -118,6 +118,31 @@ export interface BaseItemTransform {
   quat?: vec4,
 }
 
+export interface Vector3Data {
+  x: number,
+  y: number,
+  z: number,
+}
+
+export interface Vector2Data {
+  x: number,
+  y: number,
+}
+
+export interface EulerData{
+  x: number,
+  y: number,
+  z: number,
+}
+
+export interface TransformData {
+  position: Vector3Data;
+  rotation: EulerData;
+  scale: Vector3Data;
+  size?: Vector2Data,
+  anchor?: Vector2Data,
+}
+
 export type BaseContent =
   | SpriteContent
   | ParticleContent
