@@ -64,7 +64,7 @@ export interface GeometryData extends EffectsObjectData {
   vertexData: VertexData,
   indexFormat: number,
   indexOffset: number,
-  buffer: string, // 数据顺序 position, uv, normal
+  buffer: string, // 存放 position, uv, normal, indices 的打包数据
 }
 
 export interface VertexData {
