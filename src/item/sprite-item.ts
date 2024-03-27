@@ -13,6 +13,7 @@ import type {
 import type {
   RGBAColorValue,
 } from '../numberExpression';
+import { ComponentData } from 'src/components';
 
 /**
  * 图层元素
@@ -44,6 +45,55 @@ export interface SpriteContentOptions {
  * 图层元素渲染属性
  */
 export interface SpriteContent {
+  /**
+   * added by loader
+   * @default null
+   */
+  splits?: SplitParameter[],
+  /**
+   * 图层元素基础属性
+   */
+  options: SpriteContentOptions,
+  /**
+   * 图层元素材质渲染属性
+   */
+  renderer: RendererOptions,
+  /**
+   * 图层元素大小变化属性
+   */
+  sizeOverLifetime?: SizeOverLifetime,
+  /**
+   * 图层元素旋转变化属性
+   */
+  rotationOverLifetime?: RotationOverLifetime,
+  /**
+   * 图层元素位置变化属性
+   */
+  positionOverLifetime?: PositionOverLifetime,
+  /**
+   * 图层元素色彩变化属性
+   */
+  colorOverLifetime?: ColorOverLifetime,
+  /**
+   * 图层元素贴图变化属性
+   */
+  textureSheetAnimation?: TextureSheetAnimation,
+  /**
+   * 图层交互
+   */
+  interaction?: {
+    /**
+     * 交互行为
+     */
+    behavior: InteractBehavior,
+  },
+}
+
+
+/**
+ * 图层组件属性
+ */
+export interface SpriteComponentData extends ComponentData {
   /**
    * added by loader
    * @default null

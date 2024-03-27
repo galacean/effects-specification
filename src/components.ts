@@ -53,11 +53,11 @@ export interface MaterialData extends EffectsObjectData {
   blending?: boolean,
   zWrite?: boolean,
   zTest?: boolean,
-  floats: Record<string, number>,
   ints: Record<string, number>,
+  floats: Record<string, number>,
   vector4s: Record<string, Vector4Data>,
   colors: Record<string, ColorData>,
-  textures?: Record<string, DataPath>,
+  textures: Record<string, DataPath>,
 }
 
 export interface GeometryData extends EffectsObjectData {
