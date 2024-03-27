@@ -9,7 +9,6 @@ import type {
   RenderLevel,
   SpriteItem,
   TemplateImage,
-  VideoImage,
   FilterItem,
 } from '../src';
 import { CAMERA_CLIP_MODE_NORMAL, ItemEndBehavior, ItemType } from '../src';
@@ -93,7 +92,7 @@ function getStandardJSONFromV0 (json: any): JSONScene {
   return ret;
 }
 
-export function getStandardImage (image: any, index: number, imageTags: RenderLevel[]): TemplateImage | Image | CompressedImage | VideoImage {
+export function getStandardImage (image: any, index: number, imageTags: RenderLevel[]): TemplateImage | Image | CompressedImage {
   const renderLevel = imageTags[index];
 
   const oriY = image.oriY;
@@ -126,11 +125,9 @@ export function getStandardImage (image: any, index: number, imageTags: RenderLe
   } else if (image.url) {
     return {
       url: image.url,
-      type: image.type,
       webp: image.webp,
       renderLevel,
       oriY,
-      loop: image.loop,
     };
   } else if (image && image.sourceType) {
     return image;
