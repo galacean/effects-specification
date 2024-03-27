@@ -7,7 +7,7 @@ import type {
 } from '../type';
 import type { RGBAColorValue } from '../numberExpression';
 import type { BaseItem } from './base-item';
-import { ComponentData, EffectsObjectData } from 'src/components';
+import { ComponentData, EffectsObjectData } from '../components';
 /**
  * 空节点元素
  */
