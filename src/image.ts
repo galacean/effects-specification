@@ -76,7 +76,7 @@ export interface TemplateContentV1 extends TemplateContentBase {
 
 /**
  * 动态换图类型
- * @since 1.3
+ * @since 1.3.0
  */
 export enum BackgroundType {
   video = 'video',
