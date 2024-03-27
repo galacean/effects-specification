@@ -1,6 +1,7 @@
 import type { InteractBehavior, InteractType, ItemType } from '../type';
 import type { RGBAColor } from '../numberExpression';
 import type { BaseItem, ItemEndBehavior } from './base-item';
+import { ComponentData } from 'src/components';
 
 /**
  * 交互元素
@@ -21,6 +22,16 @@ export interface InteractItem extends BaseItem {
  * 交互元素渲染属性
  */
 export interface InteractContent {
+  /**
+   * 交互元素基础属性
+   */
+  options: InteractOption,
+}
+
+/**
+ * 交互元素渲染属性
+ */
+export interface InteractComponentData extends ComponentData{
   /**
    * 交互元素基础属性
    */
