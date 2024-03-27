@@ -1,7 +1,7 @@
 import type { BaseItem, ItemEndBehavior } from '../base-item';
 import type { CameraOptions } from '../../composition';
 import type { RotationOverLifetime, PositionOverLifetime } from '../../type';
-import type { ComponentData } from 'src/components';
+import type { ComponentData } from '../../components';
 
 export interface ModelCameraOptions extends CameraOptions {
   parent?: number,

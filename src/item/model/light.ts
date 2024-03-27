@@ -1,7 +1,7 @@
 import type { RGBAColorValue } from '../../numberExpression';
 import type { BaseItem, ItemEndBehavior } from '../base-item';
 import type { RotationOverLifetime, PositionOverLifetime, ItemType } from '../../type';
-import type { ComponentData } from 'src/components';
+import type { ComponentData } from '../../components';
 
 export interface ModelLightBaseOptions {
   /**

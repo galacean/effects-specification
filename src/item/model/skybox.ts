@@ -2,7 +2,7 @@ import type { BaseItem, ItemEndBehavior } from '../base-item';
 import type { BinaryEnv } from '../../binary';
 import type { SkyboxCubeTexturePointer } from './binary';
 import type { ItemType } from 'src/type';
-import type { ComponentData, DataPath } from 'src/components';
+import type { ComponentData, DataPath } from '../../components';
 
 export interface SkyboxOptions<T extends BinaryEnv> {
   // Skybox 是否渲染，UI显示"可见"
