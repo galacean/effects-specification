@@ -7,7 +7,7 @@ import type {
 } from '../type';
 import type { RGBAColorValue } from '../numberExpression';
 import type { BaseItem } from './base-item';
-import { ComponentData, EffectsObjectData } from '../components';
+import { ComponentData, DataPath, EffectsObjectData } from '../components';
 /**
  * 空节点元素
  */
@@ -68,7 +68,19 @@ export interface TrackData {
 export interface TimelineClipData {
   start: number,
   duration: number,
-  asset: EffectsObjectData,
+  clipAsset: DataPath, // playableAsset
+}
+
+export interface playableAsset extends EffectsObjectData {
+
+}
+
+export interface TransformAnimationPlayableData extends playableAsset {
+  animationClip: DataPath, // TransformAnimationClipData
+}
+
+export interface SpriteColorAnimationPlayableData extends playableAsset {
+  animationClip: DataPath, // SpriteColorAnimationClipData
 }
 
 export interface TransformAnimationClipData extends EffectsObjectData {
