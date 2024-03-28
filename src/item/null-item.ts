@@ -57,15 +57,14 @@ export interface TimelineComponentData extends ComponentData {
   /**
    * 轨道数据
    */
-  tracks: TrackData[];
+  tracks: TrackAssetData[];
 }
 
-
-export interface PlayableData {
-  type: string,
+export interface PlayableAssetData {
+  dataType: string,
 }
 
-export interface TrackData extends PlayableData {
+export interface TrackAssetData extends PlayableAssetData {
   clips: TimelineClipData[],
 }
 
@@ -75,11 +74,11 @@ export interface TimelineClipData {
   clipAsset: DataPath, // PlayableData
 }
 
-export interface TransformAnimationPlayableData extends PlayableData {
+export interface TransformAnimationPlayableAssetData extends PlayableAssetData {
   animationClip: DataPath, // TransformAnimationClipData
 }
 
-export interface SpriteColorAnimationPlayableData extends PlayableData {
+export interface SpriteColorAnimationPlayableAssetData extends PlayableAssetData {
   animationClip: DataPath, // SpriteColorAnimationClipData
 }
 
