@@ -60,26 +60,26 @@ export interface TimelineComponentData extends ComponentData {
   tracks: TrackData[];
 }
 
-export interface TrackData {
+
+export interface PlayableData {
   type: string,
+}
+
+export interface TrackData extends PlayableData {
   clips: TimelineClipData[],
 }
 
 export interface TimelineClipData {
   start: number,
   duration: number,
-  clipAsset: DataPath, // playableAsset
+  clipAsset: DataPath, // PlayableData
 }
 
-export interface playableAsset extends EffectsObjectData {
-
-}
-
-export interface TransformAnimationPlayableData extends playableAsset {
+export interface TransformAnimationPlayableData extends PlayableData {
   animationClip: DataPath, // TransformAnimationClipData
 }
 
-export interface SpriteColorAnimationPlayableData extends playableAsset {
+export interface SpriteColorAnimationPlayableData extends PlayableData {
   animationClip: DataPath, // SpriteColorAnimationClipData
 }
 
