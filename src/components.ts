@@ -1,25 +1,25 @@
-import { Vector2Data } from "./item/base-item"
+import type { Vector2Data } from './item/base-item';
 
 export enum DataType {
-  VFXItemData = "VFXItemData",
-  EffectComponent = "EffectComponent",
-  Material = "Material",
-  Shader = "Shader",
-  SpriteComponent = "SpriteComponent",
-  ParticleSystem = "ParticleSystem",
-  InteractComponent = "InteractComponent",
-  CameraController = "CameraController",
-  Geometry = "Geometry",
-  Texture = "Texture",
-  TextComponent = "TextComponent",
+  VFXItemData = 'VFXItemData',
+  EffectComponent = 'EffectComponent',
+  Material = 'Material',
+  Shader = 'Shader',
+  SpriteComponent = 'SpriteComponent',
+  ParticleSystem = 'ParticleSystem',
+  InteractComponent = 'InteractComponent',
+  CameraController = 'CameraController',
+  Geometry = 'Geometry',
+  Texture = 'Texture',
+  TextComponent = 'TextComponent',
 
   // FIXME: 先完成ECS的场景转换，后面移到spec中
-  MeshComponent = "MeshComponent",
-  SkyboxComponent = "SkyboxComponent",
-  LightComponent = "LightComponent",
-  CameraComponent = "CameraComponent",
-  ModelPluginComponent = "ModelPluginComponent",
-  TreeComponent = "TreeComponent",
+  MeshComponent = 'MeshComponent',
+  SkyboxComponent = 'SkyboxComponent',
+  LightComponent = 'LightComponent',
+  CameraComponent = 'CameraComponent',
+  ModelPluginComponent = 'ModelPluginComponent',
+  TreeComponent = 'TreeComponent',
 }
 
 export interface DataPath {
@@ -36,24 +36,24 @@ export interface ComponentData {
   item: DataPath,
 }
 
-export interface ColorData{
-  r: number, 
-  g: number, 
-  b: number, 
-  a: number
+export interface ColorData {
+  r: number,
+  g: number,
+  b: number,
+  a: number,
 }
 
-export interface Vector4Data{
-  x: number, 
-  y: number, 
-  z: number, 
-  w: number
+export interface Vector4Data {
+  x: number,
+  y: number,
+  z: number,
+  w: number,
 }
 
-export interface MaterialTextureProperty{
+export interface MaterialTextureProperty {
   texture: DataPath,
   offset: Vector2Data,
-  scale: Vector2Data
+  scale: Vector2Data,
 }
 
 export interface MaterialData extends EffectsObjectData {
@@ -105,5 +105,5 @@ export interface EffectsPackageData {
 
 export interface FileSummary {
   guid: string,
-  assetType: string
+  assetType: string,
 }
