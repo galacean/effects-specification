@@ -1,3 +1,5 @@
+import { Vector2Data } from "./item/base-item"
+
 export enum DataType {
   VFXItemData = "VFXItemData",
   EffectComponent = "EffectComponent",
@@ -48,6 +50,12 @@ export interface Vector4Data{
   w: number
 }
 
+export interface MaterialTextureProperty{
+  texture: DataPath,
+  offset: Vector2Data,
+  scale: Vector2Data
+}
+
 export interface MaterialData extends EffectsObjectData {
   shader: DataPath,
   blending?: boolean,
@@ -57,7 +65,7 @@ export interface MaterialData extends EffectsObjectData {
   floats: Record<string, number>,
   vector4s: Record<string, Vector4Data>,
   colors: Record<string, ColorData>,
-  textures: Record<string, DataPath>,
+  textures: Record<string, MaterialTextureProperty>,
 }
 
 export interface GeometryData extends EffectsObjectData {
