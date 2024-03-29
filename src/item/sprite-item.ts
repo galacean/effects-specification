@@ -13,7 +13,7 @@ import type {
 import type {
   RGBAColorValue,
 } from '../numberExpression';
-import { ComponentData } from 'src/components';
+import type { ComponentData } from 'src/components';
 
 /**
  * 图层元素
@@ -88,7 +88,6 @@ export interface SpriteContent {
     behavior: InteractBehavior,
   },
 }
-
 
 /**
  * 图层组件属性

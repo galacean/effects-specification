@@ -16,7 +16,7 @@ import type {
 import type { BaseItem, ItemEndBehavior } from './base-item';
 import type { ParticleShape } from './particle-shape';
 import type { DistortionFilterParams } from './filter-item';
-import { ComponentData } from 'src/components';
+import type { ComponentData } from 'src/components';
 
 /**
  * 粒子交互行为

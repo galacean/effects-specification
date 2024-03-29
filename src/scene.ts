@@ -4,8 +4,8 @@ import type { PlayerVersion, Shape } from './type';
 import type { TemplateImage, Image, CompressedImage, TextureDefine } from './image';
 import type { FontBase, FontDefine } from './text';
 import type { BinaryFile } from './binary';
-import { ComponentData, GeometryData, MaterialData, ShaderData } from './components';
-import { VFXItemData } from './vfx-item-data';
+import type { ComponentData, GeometryData, MaterialData, ShaderData } from './components';
+import type { VFXItemData } from './vfx-item-data';
 
 /**
  * 场景信息
@@ -95,7 +95,6 @@ export interface JSONScene {
  * 如果是内置模块，但是需要额外的代码引入，比如滤镜则会加入 requires 数组中
  */
 export type SceneRequire = 'filter';
-
 
 /**
  * 2.0 场景信息
