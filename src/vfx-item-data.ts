@@ -1,6 +1,5 @@
 import type { ComponentData, EffectsObjectData } from './components';
 import type { ItemEndBehavior, ParentItemEndBehavior, BaseContent, TransformData } from './item/base-item';
-import { BaseItemTransform } from './item/base-item';
 import type { ItemType, RenderLevel } from './type';
 
 export interface VFXItemData extends EffectsObjectData {
