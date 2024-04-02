@@ -23,7 +23,7 @@ export enum MaterialBlending {
   opaque = 100, // 不透明
   masked = 101, // 遮罩
   translucent = 102, // 半透明
-  additive = 103, // 叠
+  additive = 103, // 叠加
 }
 
 export type MaterialOptions<T extends BinaryEnv> = MaterialUnlitOptions<T> | MaterialPBROptions<T>;
