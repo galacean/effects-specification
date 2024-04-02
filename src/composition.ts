@@ -8,7 +8,7 @@ import {
   END_BEHAVIOR_PAUSE_AND_DESTROY,
   END_BEHAVIOR_RESTART,
 } from './constants';
-import { DataPath } from './components';
+import type { DataPath } from './components';
 
 export enum CameraClipMode {
   /**
@@ -124,7 +124,6 @@ export interface Composition {
    */
   fallbackImage?: string,
 }
-
 
 /**
  * 合成数据

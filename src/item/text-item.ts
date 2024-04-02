@@ -13,7 +13,7 @@ import type {
   RGBAColorValue,
 } from '../numberExpression';
 import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight } from 'src/text';
-import { ComponentData } from 'src/components';
+import type { ComponentData } from 'src/components';
 
 /**
  * 文本元素
@@ -186,7 +186,6 @@ export interface TextContent {
     behavior: InteractBehavior,
   },
 }
-
 
 /**
  * 文本元素渲染属性
