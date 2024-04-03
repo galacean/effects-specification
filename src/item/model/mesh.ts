@@ -5,7 +5,7 @@ import type { GeometryPointer } from './binary';
 import type { vec3 } from '../../numberExpression';
 import type { InteractBehavior, ItemType } from '../../type';
 import type { ModelAnimationTrackDataPointer } from './binary';
-import type { ComponentData, GeometryData, MaterialData } from '../../components';
+import type { ComponentData, DataPath, GeometryData, MaterialData } from '../../components';
 import type { VFXItemData } from 'src/vfx-item-data';
 
 export type BufferType =
@@ -99,8 +99,8 @@ export interface PrimitiveData {
 
 export interface SkinData {
   name?: string,
-  joints: VFXItemData[],
-  skeleton?: VFXItemData,
+  joints: DataPath[],
+  skeleton?: DataPath,
   // 数据量会很大
   inverseBindMatrices: number[],
 }
