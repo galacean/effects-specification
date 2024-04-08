@@ -567,6 +567,10 @@ export enum ItemType {
    * 天空盒元素
    */
   skybox = 'skybox',
+  /**
+   * 特效元素
+   */
+  effect = 'effect',
 }
 
 /**

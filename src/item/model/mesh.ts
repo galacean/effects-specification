@@ -5,8 +5,7 @@ import type { GeometryPointer } from './binary';
 import type { vec3 } from '../../numberExpression';
 import type { InteractBehavior, ItemType } from '../../type';
 import type { ModelAnimationTrackDataPointer } from './binary';
-import type { ComponentData, DataPath, GeometryData, MaterialData } from '../../components';
-import type { VFXItemData } from 'src/vfx-item-data';
+import type { ComponentData, GeometryData, MaterialData } from '../../components';
 
 export type BufferType =
   | WebGLRenderingContext['FLOAT']
@@ -92,33 +91,17 @@ export interface ModelMeshItem<T extends BinaryEnv> extends BaseItem {
   endBehavior: ItemEndBehavior,
 }
 
-export interface PrimitiveData {
+export interface PrimitiveComponentOptions {
   geometry: GeometryData,
   material: MaterialData,
 }
 
-export interface SkinData {
-  name?: string,
-  joints: DataPath[],
-  skeleton?: DataPath,
-  // 数据量会很大
-  inverseBindMatrices: number[],
-}
-
-export interface MorphData {
-  weights: number[],
+export interface ModelMeshComponentOptions {
+  primitives: PrimitiveComponentOptions[],
+  hide?: boolean,
 }
 
 export interface ModelMeshComponentData extends ComponentData {
-  hide?: boolean,
-  /**
-   * 蒙皮数据
-   */
-  skin?: SkinData,
-  /**
-   * Morph数据
-   */
-  morph?: MorphData,
-  primitives: PrimitiveData[],
+  options: ModelMeshComponentOptions,
   interaction?: ModelItemBounding,
 }

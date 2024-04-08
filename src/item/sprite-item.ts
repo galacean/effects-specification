@@ -13,7 +13,7 @@ import type {
 import type {
   RGBAColorValue,
 } from '../numberExpression';
-import type { ComponentData } from 'src/components';
+import { type ComponentData } from 'src/components';
 
 /**
  * 图层元素
