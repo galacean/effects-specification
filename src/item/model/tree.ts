@@ -72,7 +72,7 @@ export interface ModelTreeItem<T extends BinaryEnv> extends BaseItem {
   content: ModelTreeContent<T>,
 }
 
-export interface ModelAnimTrackData {
+export interface ModelAnimationTrackData {
   item: DataPath,
   input: number[],
   output: number[],
@@ -82,7 +82,7 @@ export interface ModelAnimTrackData {
 
 export interface ModelAnimationData {
   name?: string,
-  tracks: ModelAnimTrackData[],
+  tracks: ModelAnimationTrackData[],
 }
 
 export interface ModelAnimationComponentData extends ComponentData {
