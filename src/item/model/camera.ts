@@ -1,5 +1,5 @@
 import type { BaseItem, ItemEndBehavior } from '../base-item';
-import type { CameraOptions } from '../../composition';
+import type { CameraClipMode, CameraOptions } from '../../composition';
 import type { RotationOverLifetime, PositionOverLifetime } from '../../type';
 import type { ComponentData } from '../../components';
 
@@ -39,15 +39,23 @@ export interface ModelCameraItem extends BaseItem {
 
 export interface ModelCameraComponentData extends ComponentData {
   /**
-   * 3D相机元素基础属性
+   * 视角属性
    */
-  options: ModelCameraOptions,
+  fov: number,
   /**
-   * 3D相机元素旋转变化属性
+   * 相机远平面
    */
-  rotationOverLifetime?: RotationOverLifetime,
+  far: number,
   /**
-   * 3D相机元素位置变化属性
+   * 相机近平面
    */
-  positionOverLifetime?: PositionOverLifetime,
+  near: number,
+  /**
+   * 默认不提供，等于 canvas 的 `width/height`
+   */
+  aspect?: number,
+  /**
+   * 相机剪裁模式
+   */
+  clipMode: CameraClipMode,
 }
