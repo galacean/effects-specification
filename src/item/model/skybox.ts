@@ -1,7 +1,7 @@
 import type { BaseItem, ItemEndBehavior } from '../base-item';
 import type { BinaryEnv } from '../../binary';
 import type { SkyboxCubeTexturePointer } from './binary';
-import type { ItemType } from 'src/type';
+import type { ItemType } from '../../type';
 import type { ComponentData, DataPath } from '../../components';
 
 export interface SkyboxOptions<T extends BinaryEnv> {

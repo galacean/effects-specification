@@ -2,7 +2,7 @@ import type { BinaryEnv } from '../../binary';
 import type { BaseItem, ItemEndBehavior } from '../base-item';
 import type { MaterialOptions } from './material';
 import type { GeometryPointer } from './binary';
-import type { vec3 } from '../../numberExpression';
+import type { vec3 } from '../../number-expression';
 import type { InteractBehavior, ItemType } from '../../type';
 import type { ModelAnimationTrackDataPointer } from './binary';
 import type { ComponentData, DataPath, GeometryData, MaterialData } from '../../components';

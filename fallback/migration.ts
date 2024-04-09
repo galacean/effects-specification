@@ -1,4 +1,4 @@
-import type { JSONScene, JSONSceneVersion3 } from '../src/scene';
+import type { JSONScene, JSONSceneVersion3 } from '../src';
 import { ItemType, ItemEndBehavior, END_BEHAVIOR_PAUSE_AND_DESTROY, END_BEHAVIOR_FREEZE, END_BEHAVIOR_PAUSE, DataType } from '../src';
 import { convertAnchor, generateGUID } from './utils';
 
@@ -43,7 +43,7 @@ export function version22Migration (json: JSONScene): JSONScene {
 }
 
 /**
- * 3.0 以下版本数据适配(runtime 2.0及以上版本支持)
+ * 3.0 以下版本数据适配（runtime 2.0及以上版本支持）
  */
 export function version30Migration (json: JSONScene): JSONSceneVersion3 {
   const result: JSONSceneVersion3 = Object.assign({}, json, {

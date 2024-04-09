@@ -33,7 +33,7 @@ export function getStandardJSON (json: any): JSONSceneVersion3 {
     throw Error('expect a json object');
   }
 
-  // 修正老版本数据中，meshItem以及lightItem结束行为错误问题
+  // 修正老版本数据中，meshItem 以及 lightItem 结束行为错误问题
   version22Migration(json);
 
   if (v0.test(json.version)) {

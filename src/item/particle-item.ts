@@ -1,9 +1,5 @@
 import type {
-  ItemType,
-  RendererOptions,
-  TextureSheetAnimation,
-  BlendingMode,
-  SplitParameter,
+  ItemType, RendererOptions, TextureSheetAnimation, BlendingMode, SplitParameter,
 } from '../type';
 import type {
   FixedNumberExpression,
@@ -12,11 +8,11 @@ import type {
   vec3, FixedVec3Expression,
   ColorExpression,
   FunctionExpression,
-} from '../numberExpression';
+} from '../number-expression';
 import type { BaseItem, ItemEndBehavior } from './base-item';
 import type { ParticleShape } from './particle-shape';
 import type { DistortionFilterParams } from './filter-item';
-import type { ComponentData } from 'src/components';
+import type { ComponentData } from '../components';
 
 /**
  * 粒子交互行为

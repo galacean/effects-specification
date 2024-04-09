@@ -1,6 +1,6 @@
 import type { BaseItem, ItemEndBehavior } from './base-item';
 import type { ItemType, RotationOverLifetime } from '../type';
-import type { FixedNumberExpression, FixedVec3Expression } from '../numberExpression';
+import type { FixedNumberExpression, FixedVec3Expression } from '../number-expression';
 import type { CameraClipMode } from '../composition';
 
 export interface CameraItem extends BaseItem {
