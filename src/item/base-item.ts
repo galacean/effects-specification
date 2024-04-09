@@ -129,15 +129,9 @@ export interface Vector2Data {
   y: number,
 }
 
-export interface EulerData {
-  x: number,
-  y: number,
-  z: number,
-}
-
 export interface TransformData {
   position: Vector3Data,
-  eulerHint: EulerData,
+  eulerHint: Vector3Data,
   scale: Vector3Data,
   size?: Vector2Data,
   anchor?: Vector2Data,
