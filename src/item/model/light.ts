@@ -1,4 +1,4 @@
-import type { RGBAColorValue } from '../../numberExpression';
+import type { RGBAColorValue } from '../../number-expression';
 import type { BaseItem, ItemEndBehavior } from '../base-item';
 import type { RotationOverLifetime, PositionOverLifetime, ItemType } from '../../type';
 import type { ColorData, ComponentData } from '../../components';

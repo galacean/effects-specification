@@ -1,11 +1,7 @@
 import type {
-  SizeOverLifetime,
-  RotationOverLifetime,
-  PositionOverLifetime,
-  ColorOverLifetime,
-  ItemType,
+  SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime, ItemType,
 } from '../type';
-import type { RGBAColorValue } from '../numberExpression';
+import type { RGBAColorValue } from '../number-expression';
 import type { BaseItem } from './base-item';
 import type { ComponentData, DataPath, EffectsObjectData } from '../components';
 /**

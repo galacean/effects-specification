@@ -1,12 +1,4 @@
-import type { BinaryPointer } from '../binary';
-import type {
-  SizeOverLifetime,
-  RotationOverLifetime,
-  PositionOverLifetime,
-  ColorOverLifetime,
-  RendererOptions,
-  ItemType,
-} from '../type';
+import type { ItemType } from '../type';
 import type { BaseItem, ItemEndBehavior } from './base-item';
 
 /**
