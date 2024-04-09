@@ -423,10 +423,10 @@ describe('particle base', () => {
       ],
     };
     const res = getStandardJSON(oldParticle);
-    const pt = res.compositions[0].items[0];
+    const pt = res.items.find(item => item.id === res.compositions[0].items[0].id);
     const r2 = pt.transform.rotation;
 
-    expect([+r2[0].toFixed(1), +r2[1].toFixed(1), +r2[2].toFixed(1)]).to.eql([-90.0, -20.0, 30.0], 'oldParticle rotation');
+    expect([+r2.x.toFixed(1), +r2.y.toFixed(1), +r2.z.toFixed(1)]).to.eql([-90.0, -20.0, 30.0], 'oldParticle rotation');
   });
 
   it('particle emitter transform path linear, constant, bezier', () => {
