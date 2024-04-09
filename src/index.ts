@@ -21,3 +21,4 @@ export * from './item/model';
 export * from './binary';
 export * from './text';
 export * from './components';
+export * from './vfx-item-data';
