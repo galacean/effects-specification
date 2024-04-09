@@ -54,12 +54,26 @@ export function version30Migration (json: JSONScene): JSONSceneVersion3 {
     geometries: [],
   });
 
-  result.textures?.forEach(textureOptions => {
+  // 兼容老版本数据中不存在textures的情况
+  result.textures ??= [];
+  result.textures.forEach(textureOptions => {
     Object.assign(textureOptions, {
       id: generateGUID(),
       dataType: DataType.Texture,
     });
   });
+
+  if (result.textures.length < result.images.length) {
+    for (let i = result.textures.length; i < result.images.length; i++) {
+      result.textures.push({
+        //@ts-expect-error
+        id: generateGUID(),
+        dataType: DataType.Texture,
+        source: i,
+        flipY: true,
+      });
+    }
+  }
 
   // 更正Composition.endBehavior
   for (const composition of json.compositions) {
@@ -105,7 +119,7 @@ export function version30Migration (json: JSONScene): JSONSceneVersion3 {
             const oldTextureId = item.content.renderer.texture;
 
             //@ts-expect-error
-            item.content.renderer.texture = { id: scene.textureOptions[oldTextureId].id };
+            item.content.renderer.texture = { id: result.textures[oldTextureId].id };
           }
         }
 
@@ -114,7 +128,7 @@ export function version30Migration (json: JSONScene): JSONSceneVersion3 {
             const oldTextureId = item.content.trails.texture;
 
             //@ts-expect-error
-            item.content.trails.texture = { id: scene.textureOptions[oldTextureId].id };
+            item.content.trails.texture = { id: result.textures[oldTextureId].id };
           }
         }
       }
@@ -174,11 +188,6 @@ export function version30Migration (json: JSONScene): JSONSceneVersion3 {
         const renderer = content.renderer;
 
         content.renderer.anchor = convertAnchor(renderer.anchor, renderer.particleOrigin);
-      }
-
-      // item 的 endbehaviour 兼容
-      if (item.endBehavior === END_BEHAVIOR_PAUSE_AND_DESTROY || item.endBehavior === END_BEHAVIOR_PAUSE) {
-        item.endBehavior = END_BEHAVIOR_FREEZE;
       }
 
       // 动画数据转化 TODO: 动画数据移到 TimelineComponentData
