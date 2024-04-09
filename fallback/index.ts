@@ -11,7 +11,7 @@ import type {
   TemplateImage,
   VideoImage,
   FilterItem,
-  JSONSceneVersion3,
+  JSONSceneLegacy,
 } from '../src';
 import { CAMERA_CLIP_MODE_NORMAL, ItemEndBehavior, ItemType } from '../src';
 import { getStandardParticleContent } from './particle';
@@ -28,7 +28,7 @@ const v0 = /^(\d+)\.(\d+)\.(\d+)(-(\w+)\.\d+)?$/;
 const standardVersion = /^(\d+)\.(\d+)$/;
 let reverseParticle = false;
 
-export function getStandardJSON (json: any): JSONSceneVersion3 {
+export function getStandardJSON (json: any): JSONScene {
   if (!json || typeof json !== 'object') {
     throw Error('expect a json object');
   }
@@ -57,7 +57,7 @@ export function getStandardJSON (json: any): JSONSceneVersion3 {
 
 let currentVersion: '1.0' | '1.1' | '1.3' = '1.0';
 
-function getStandardJSONFromV0 (json: any): JSONScene {
+function getStandardJSONFromV0 (json: any): JSONSceneLegacy {
   currentVersion = '1.0';
   const plugins = json.plugins || [];
 
@@ -67,7 +67,7 @@ function getStandardJSONFromV0 (json: any): JSONScene {
   const requires: string[] = (json.requires || []).slice();
   const images = json.images.map((img: any, index: number) => getStandardImage(img, index, json.imageTags || []));
   const textures = json.textures || images.map((img: any, i: number) => ({ source: i, flipY: true }));
-  const ret: JSONScene = {
+  const ret: JSONSceneLegacy = {
     plugins: plugins,
     shapes: json.shapes || [],
     type: 'ge',

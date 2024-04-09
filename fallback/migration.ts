@@ -1,11 +1,11 @@
-import type { JSONScene, JSONSceneVersion3 } from '../src';
+import type { JSONScene, JSONSceneLegacy } from '../src';
 import { ItemType, ItemEndBehavior, END_BEHAVIOR_PAUSE_AND_DESTROY, END_BEHAVIOR_FREEZE, END_BEHAVIOR_PAUSE, DataType } from '../src';
 import { convertAnchor, generateGUID } from './utils';
 
 /**
  * 2.1 以下版本数据适配（mars-player@2.4.0 及以上版本支持 2.1 以下数据的适配）
  */
-export function version21Migration (json: JSONScene): JSONScene {
+export function version21Migration (json: JSONSceneLegacy): JSONSceneLegacy {
   json.compositions.forEach(composition => {
     composition.items.forEach(item => {
       if (item.type === ItemType.null) {
@@ -24,7 +24,7 @@ export function version21Migration (json: JSONScene): JSONScene {
 /**
  * 2.2 以下版本数据适配（mars-player@2.5.0 及以上版本支持 2.2 以下数据的适配）
  */
-export function version22Migration (json: JSONScene): JSONScene {
+export function version22Migration (json: JSONSceneLegacy): JSONSceneLegacy {
   const singleVersion = json.version?.split('.');
 
   if (!singleVersion || Number(singleVersion[0]) > 2 || (Number(singleVersion[0]) === 2 && Number(singleVersion[1]) >= 2)) {
@@ -45,8 +45,8 @@ export function version22Migration (json: JSONScene): JSONScene {
 /**
  * 3.0 以下版本数据适配（runtime 2.0及以上版本支持）
  */
-export function version30Migration (json: JSONScene): JSONSceneVersion3 {
-  const result: JSONSceneVersion3 = Object.assign({}, json, {
+export function version30Migration (json: JSONSceneLegacy): JSONScene {
+  const result: JSONScene = Object.assign({}, json, {
     items: [],
     components: [],
     materials: [],

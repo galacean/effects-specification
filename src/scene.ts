@@ -8,10 +8,11 @@ import type { ComponentData, GeometryData, MaterialData, ShaderData } from './co
 import type { VFXItemData } from './vfx-item-data';
 
 /**
- * 场景信息
+ * runtime 2.0 之前的场景信息
  * 素材信息存放于统一数据结构中
+ * @deprecated
  */
-export interface JSONScene {
+export interface JSONSceneLegacy {
   /************** 文件版本不是 Player 版本，应用于文件变更后在 editor/player 中加载时的分类处理 **************/
   /**
    * JSON 版本
@@ -97,21 +98,15 @@ export interface JSONScene {
 export type SceneRequire = 'filter';
 
 /**
- * 2.0 场景信息
+ * 场景信息
  * 素材信息存放于统一数据结构中
  */
-export interface JSONSceneVersion3 {
+export interface JSONScene {
   /************** 文件版本不是 Player 版本，应用于文件变更后在 editor/player 中加载时的分类处理 **************/
   /**
    * JSON 版本
    *
-   * 1.1 增加数据模板
-   * 1.2 增加 anchor
-   * 1.3 增加二进制文件格式
-   * 1.5 增加 Spine 数据
-   * 2.0 改造升级
-   * 2.1 增加文本元素
-   * 2.2 数据类型兼容
+   * 3.0 EC 改造
    */
   version: string,
   /**
