@@ -11,6 +11,7 @@ import type {
   TemplateImage,
   VideoImage,
   FilterItem,
+  JSONSceneVersion3,
 } from '../src';
 import { CAMERA_CLIP_MODE_NORMAL, ItemEndBehavior, ItemType } from '../src';
 import { getStandardParticleContent } from './particle';
@@ -19,7 +20,7 @@ import { getStandardInteractContent } from './interact';
 import { arrAdd, quatFromXYZRotation, rotationZYXFromQuat } from './utils';
 import { getStandardCameraContent } from './camera';
 import { getStandardFilterContent } from './filter';
-import { version21Migration, version22Migration } from './migration';
+import { version21Migration, version22Migration, version30Migration } from './migration';
 
 export * from './utils';
 
@@ -27,7 +28,7 @@ const v0 = /^(\d+)\.(\d+)\.(\d+)(-(\w+)\.\d+)?$/;
 const standardVersion = /^(\d+)\.(\d+)$/;
 let reverseParticle = false;
 
-export function getStandardJSON (json: any): JSONScene {
+export function getStandardJSON (json: any): JSONSceneVersion3 {
   if (!json || typeof json !== 'object') {
     throw Error('expect a json object');
   }
@@ -38,14 +39,14 @@ export function getStandardJSON (json: any): JSONScene {
   if (v0.test(json.version)) {
     reverseParticle = (/^(\d+)/).exec(json.version)?.[0] === '0';
 
-    return version21Migration(getStandardJSONFromV0(json));
+    return version30Migration(version21Migration(getStandardJSONFromV0(json)));
   }
 
   const mainVersion = standardVersion.exec(json.version)?.[1];
 
   if (mainVersion) {
-    if (Number(mainVersion) < 2) {
-      return version21Migration(json);
+    if (Number(mainVersion) < 3) {
+      return version30Migration(version21Migration(json));
     }
 
     return json;

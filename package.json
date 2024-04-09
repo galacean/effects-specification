@@ -60,7 +60,8 @@
     "rollup": "^2.70.1",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-serve": "^1.1.0",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.2",
+    "uuid": "9.0.1"
   },
   "author": "Ant Group CO., Ltd.",
   "license": "MIT",

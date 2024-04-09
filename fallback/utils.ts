@@ -8,8 +8,10 @@ import type {
   FixedVec3Expression,
   vec4,
   vec3,
+  vec2,
 } from '../src';
-import { ValueType } from '../src';
+import { ValueType, ParticleOrigin } from '../src';
+import { v4 as uuidV4 } from 'uuid';
 
 export function arrAdd<T> (arr: T[], item: T): boolean | undefined {
   if (!arr.includes(item)) {
@@ -259,3 +261,32 @@ export function rotationZYXFromQuat (out: vec3 | number[], quat: vec4): vec3 {
 
   return out as vec3;
 }
+
+export function generateGUID (): string {
+  return uuidV4().replace(/-/g, '');
+}
+
+/**
+ * 提取并转换 JSON 数据中的 anchor 值
+ */
+export function convertAnchor (anchor?: vec2, particleOrigin?: ParticleOrigin): vec2 {
+  if (anchor) {
+    return [anchor[0] - 0.5, 0.5 - anchor[1]];
+  } else if (particleOrigin) {
+    return particleOriginTranslateMap[particleOrigin];
+  } else {
+    return [0, 0];
+  }
+}
+
+export const particleOriginTranslateMap: Record<number, vec2> = {
+  [ParticleOrigin.PARTICLE_ORIGIN_CENTER]: [0, 0],
+  [ParticleOrigin.PARTICLE_ORIGIN_CENTER_BOTTOM]: [0, -0.5],
+  [ParticleOrigin.PARTICLE_ORIGIN_CENTER_TOP]: [0, 0.5],
+  [ParticleOrigin.PARTICLE_ORIGIN_LEFT_TOP]: [-0.5, 0.5],
+  [ParticleOrigin.PARTICLE_ORIGIN_LEFT_CENTER]: [-0.5, 0],
+  [ParticleOrigin.PARTICLE_ORIGIN_LEFT_BOTTOM]: [-0.5, -0.5],
+  [ParticleOrigin.PARTICLE_ORIGIN_RIGHT_CENTER]: [0.5, 0],
+  [ParticleOrigin.PARTICLE_ORIGIN_RIGHT_BOTTOM]: [0.5, -0.5],
+  [ParticleOrigin.PARTICLE_ORIGIN_RIGHT_TOP]: [0.5, 0.5],
+};

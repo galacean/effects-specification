@@ -4,6 +4,7 @@ import {
   CAMERA_CLIP_MODE_VERTICAL,
   END_BEHAVIOR_DESTROY,
   END_BEHAVIOR_FORWARD,
+  END_BEHAVIOR_FREEZE,
   END_BEHAVIOR_PAUSE,
   END_BEHAVIOR_PAUSE_AND_DESTROY,
   END_BEHAVIOR_RESTART,
@@ -77,6 +78,10 @@ export enum CompositionEndBehavior {
    * 销毁并保留最后一帧
    */
   pause_destroy = END_BEHAVIOR_PAUSE_AND_DESTROY,
+  /**
+   * 冻结
+   */
+  freeze = END_BEHAVIOR_FREEZE,
 }
 
 /**
