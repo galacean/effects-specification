@@ -1,9 +1,4 @@
-import type {
-  ItemType,
-  PluginGyroscopeTarget,
-  PluginType,
-  RendererOptions,
-} from '../type';
+import type { ItemType, PluginGyroscopeTarget, PluginType, RendererOptions } from '../type';
 import type { BaseItem, ItemEndBehavior } from './base-item';
 
 /**

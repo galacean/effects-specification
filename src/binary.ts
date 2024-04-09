@@ -1,5 +1,5 @@
 import type { RenderLevel } from './type';
-import type { ValueType } from './numberExpression';
+import type { ValueType } from './number-expression';
 
 /**
  * index: 指向 json 中 bins 数组

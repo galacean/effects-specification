@@ -10,10 +10,8 @@ import type {
   SplitParameter,
   InteractBehavior,
 } from '../type';
-import type {
-  RGBAColorValue,
-} from '../numberExpression';
-import type { ComponentData } from 'src/components';
+import type { RGBAColorValue } from '../number-expression';
+import type { ComponentData } from '../components';
 
 /**
  * 图层元素

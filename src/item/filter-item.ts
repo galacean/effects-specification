@@ -1,7 +1,7 @@
 import type {
-  BaseItem, ColorOverLifetime, FixedNumberExpression, FixedVec3Expression, FunctionExpression, ItemEndBehavior, ItemType,
-  MaskMode, NumberExpression, RenderMode, RotationOverLifetime, ShapeGeometry,
-  SideMode, SizeOverLifetime, SpriteContentOptions, vec2, vec3,
+  BaseItem, ColorOverLifetime, FixedNumberExpression, FixedVec3Expression, FunctionExpression,
+  ItemEndBehavior, ItemType, MaskMode, NumberExpression, RenderMode, RotationOverLifetime,
+  ShapeGeometry, SideMode, SizeOverLifetime, SpriteContentOptions, vec2, vec3,
 } from '../index';
 
 export interface FilterItem extends BaseItem {

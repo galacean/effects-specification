@@ -1,5 +1,5 @@
 // 纹理坐标变换
-import type { RGBAColorValue, vec2 } from '../../numberExpression';
+import type { RGBAColorValue, vec2 } from '../../number-expression';
 import type { BinaryEnv } from '../../binary';
 import type { SideMode } from '../../type';
 import type { TexturePointer } from './binary';
