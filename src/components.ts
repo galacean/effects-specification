@@ -61,6 +61,7 @@ export interface MaterialData extends EffectsObjectData {
   blending?: boolean,
   zWrite?: boolean,
   zTest?: boolean,
+  stringTags: Record<string, string>,
   ints: Record<string, number>,
   floats: Record<string, number>,
   vector4s: Record<string, Vector4Data>,
