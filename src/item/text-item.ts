@@ -9,11 +9,9 @@ import type {
   RendererOptions,
   InteractBehavior,
 } from '../type';
-import type {
-  RGBAColorValue,
-} from '../numberExpression';
-import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight } from 'src/text';
-import type { ComponentData } from 'src/components';
+import type { RGBAColorValue } from '../number-expression';
+import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight } from '../text';
+import type { ComponentData } from '../components';
 
 /**
  * 文本元素

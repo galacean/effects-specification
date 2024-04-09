@@ -1,8 +1,9 @@
+export * from 'uuid/dist/esm-browser/v4';
 export * from './type';
 export * from './composition';
 export * from './image';
 export * from './constants';
-export * from './numberExpression';
+export * from './number-expression';
 export * from './scene';
 export * from './item';
 export * from './item/base-item';
@@ -21,3 +22,4 @@ export * from './item/model';
 export * from './binary';
 export * from './text';
 export * from './components';
+export * from './vfx-item-data';

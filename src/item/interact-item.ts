@@ -1,7 +1,7 @@
 import type { InteractBehavior, InteractType, ItemType } from '../type';
-import type { RGBAColor } from '../numberExpression';
+import type { RGBAColor } from '../number-expression';
 import type { BaseItem, ItemEndBehavior } from './base-item';
-import type { ComponentData } from 'src/components';
+import type { ComponentData } from '../components';
 
 /**
  * 交互元素

@@ -1,4 +1,4 @@
-import type { RGBAColor } from './numberExpression';
+import type { RGBAColor } from './number-expression';
 
 export interface StringTemplate {
   fonts: FontBase[],

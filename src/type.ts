@@ -1,4 +1,6 @@
-import type { FixedVec3Expression, vec2, vec3, GradientColor, ShapePoints, ShapeSplits, FixedNumberExpression } from './numberExpression';
+import type {
+  FixedVec3Expression, vec2, vec3, GradientColor, ShapePoints, ShapeSplits, FixedNumberExpression,
+} from './number-expression';
 
 /**
  * 播放器版本
@@ -567,6 +569,10 @@ export enum ItemType {
    * 天空盒元素
    */
   skybox = 'skybox',
+  /**
+   * 特效元素
+   */
+  effect = 'effect',
 }
 
 /**

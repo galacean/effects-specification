@@ -1,11 +1,11 @@
-import type { FilterContent } from '../../src/item/filter-item';
+import type { FilterContent } from './filter-item';
 import {
   END_BEHAVIOR_DESTROY,
   END_BEHAVIOR_DESTROY_CHILDREN,
   END_BEHAVIOR_FREEZE,
   END_BEHAVIOR_RESTART,
 } from '../constants';
-import type { vec3, vec4 } from '../numberExpression';
+import type { vec3, vec4 } from '../number-expression';
 import type { ItemType, RenderLevel } from '../type';
 import type { CameraContent } from './camera-item';
 import type { CompositionContent } from './composition-item';
@@ -129,15 +129,9 @@ export interface Vector2Data {
   y: number,
 }
 
-export interface EulerData {
-  x: number,
-  y: number,
-  z: number,
-}
-
 export interface TransformData {
   position: Vector3Data,
-  eulerHint: EulerData,
+  eulerHint: Vector3Data,
   scale: Vector3Data,
   size?: Vector2Data,
   anchor?: Vector2Data,

@@ -2,7 +2,7 @@ import type { BaseItem, ItemEndBehavior } from './base-item';
 import type {
   SizeOverLifetime, RotationOverLifetime, ColorOverLifetime, ItemType,
 } from '../type';
-import type { RGBAColorValue, vec3 } from '../numberExpression';
+import type { RGBAColorValue, vec3 } from '../number-expression';
 import type { PositionOverLifetime } from '../type';
 
 /**

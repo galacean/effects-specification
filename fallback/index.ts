@@ -11,6 +11,7 @@ import type {
   TemplateImage,
   VideoImage,
   FilterItem,
+  JSONSceneLegacy,
 } from '../src';
 import { CAMERA_CLIP_MODE_NORMAL, ItemEndBehavior, ItemType } from '../src';
 import { getStandardParticleContent } from './particle';
@@ -19,7 +20,7 @@ import { getStandardInteractContent } from './interact';
 import { arrAdd, quatFromXYZRotation, rotationZYXFromQuat } from './utils';
 import { getStandardCameraContent } from './camera';
 import { getStandardFilterContent } from './filter';
-import { version21Migration, version22Migration } from './migration';
+import { version21Migration, version22Migration, version30Migration } from './migration';
 
 export * from './utils';
 
@@ -32,20 +33,20 @@ export function getStandardJSON (json: any): JSONScene {
     throw Error('expect a json object');
   }
 
-  // 修正老版本数据中，meshItem以及lightItem结束行为错误问题
+  // 修正老版本数据中，meshItem 以及 lightItem 结束行为错误问题
   version22Migration(json);
 
   if (v0.test(json.version)) {
     reverseParticle = (/^(\d+)/).exec(json.version)?.[0] === '0';
 
-    return version21Migration(getStandardJSONFromV0(json));
+    return version30Migration(version21Migration(getStandardJSONFromV0(json)));
   }
 
   const mainVersion = standardVersion.exec(json.version)?.[1];
 
   if (mainVersion) {
-    if (Number(mainVersion) < 2) {
-      return version21Migration(json);
+    if (Number(mainVersion) < 3) {
+      return version30Migration(version21Migration(json));
     }
 
     return json;
@@ -56,7 +57,7 @@ export function getStandardJSON (json: any): JSONScene {
 
 let currentVersion: '1.0' | '1.1' | '1.3' = '1.0';
 
-function getStandardJSONFromV0 (json: any): JSONScene {
+function getStandardJSONFromV0 (json: any): JSONSceneLegacy {
   currentVersion = '1.0';
   const plugins = json.plugins || [];
 
@@ -66,7 +67,7 @@ function getStandardJSONFromV0 (json: any): JSONScene {
   const requires: string[] = (json.requires || []).slice();
   const images = json.images.map((img: any, index: number) => getStandardImage(img, index, json.imageTags || []));
   const textures = json.textures || images.map((img: any, i: number) => ({ source: i, flipY: true }));
-  const ret: JSONScene = {
+  const ret: JSONSceneLegacy = {
     plugins: plugins,
     shapes: json.shapes || [],
     type: 'ge',

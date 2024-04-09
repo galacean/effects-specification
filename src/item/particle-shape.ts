@@ -1,5 +1,5 @@
 import type { ShapeType } from '../type';
-import type { NumberExpression, vec3 } from '../numberExpression';
+import type { NumberExpression, vec3 } from '../number-expression';
 
 export enum ShapeArcMode {
   /**
