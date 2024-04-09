@@ -11,7 +11,7 @@ import type {
   vec2,
 } from '../src';
 import { ValueType, ParticleOrigin } from '../src';
-import { v4 as uuidV4 } from 'uuid';
+import uuidV4 from 'uuid/dist/esm-browser/v4';
 
 export function arrAdd<T> (arr: T[], item: T): boolean | undefined {
   if (!arr.includes(item)) {
