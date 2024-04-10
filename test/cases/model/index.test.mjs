@@ -108,11 +108,15 @@ describe('model plugin items', () => {
       ],
     });
 
+    const item0 = scn.items.find(item => item.id === scn.compositions[0].items[0].id);
+    const item1 = scn.items.find(item => item.id === scn.compositions[0].items[1].id);
+
     expect(scn.plugins).to.deep.equal(['model']);
     expect(scn.compositions[0].items.length).to.eql(2);
-    expect(scn.compositions[0].items[0].pn).to.eql(0);
-    expect(scn.compositions[0].items[0].endBehavior).to.eql(5);
-    expect(scn.compositions[0].items[1].pn).to.eql(0);
+    expect(scn.items.length).to.eql(2);
+    expect(item0.pn).to.eql(0);
+    expect(item0.endBehavior).to.eql(5);
+    expect(item1.pn).to.eql(0);
 
     const scn08MeshFix = getStandardJSON({
       compositionId: 0,
@@ -193,10 +197,15 @@ describe('model plugin items', () => {
       ],
     });
 
-    expect(scn08MeshFix.compositions[0].items[0].endBehavior).to.eql(0);
-    expect(scn08MeshFix.compositions[0].items[1].endBehavior).to.eql(4);
-    expect(scn08MeshFix.compositions[0].items[2].endBehavior).to.eql(0);
-    expect(scn08MeshFix.compositions[0].items[3].endBehavior).to.eql(4);
+    const item0From08 = scn08MeshFix.items.find(item => item.id === scn08MeshFix.compositions[0].items[0].id);
+    const item1From08 = scn08MeshFix.items.find(item => item.id === scn08MeshFix.compositions[0].items[1].id);
+    const item2From08 = scn08MeshFix.items.find(item => item.id === scn08MeshFix.compositions[0].items[2].id);
+    const item3From08 = scn08MeshFix.items.find(item => item.id === scn08MeshFix.compositions[0].items[3].id);
+
+    expect(item0From08.endBehavior).to.eql(0);
+    expect(item1From08.endBehavior).to.eql(4);
+    expect(item2From08.endBehavior).to.eql(0);
+    expect(item3From08.endBehavior).to.eql(4);
 
     const scn18MeshFix = getStandardJSON({
       compositionId: 0,
@@ -276,11 +285,15 @@ describe('model plugin items', () => {
         },
       ],
     });
+    const item0From18 = scn18MeshFix.items.find(item => item.id === scn18MeshFix.compositions[0].items[0].id);
+    const item1From18 = scn18MeshFix.items.find(item => item.id === scn18MeshFix.compositions[0].items[1].id);
+    const item2From18 = scn18MeshFix.items.find(item => item.id === scn18MeshFix.compositions[0].items[2].id);
+    const item3From18 = scn18MeshFix.items.find(item => item.id === scn18MeshFix.compositions[0].items[3].id);
 
-    expect(scn18MeshFix.compositions[0].items[0].endBehavior).to.eql(0);
-    expect(scn18MeshFix.compositions[0].items[1].endBehavior).to.eql(4);
-    expect(scn18MeshFix.compositions[0].items[2].endBehavior).to.eql(0);
-    expect(scn18MeshFix.compositions[0].items[3].endBehavior).to.eql(4);
+    expect(item0From18.endBehavior).to.eql(0);
+    expect(item1From18.endBehavior).to.eql(4);
+    expect(item2From18.endBehavior).to.eql(0);
+    expect(item3From18.endBehavior).to.eql(4);
 
     const scn21MeshFix = getStandardJSON({
       compositionId: 0,
@@ -360,11 +373,15 @@ describe('model plugin items', () => {
         },
       ],
     });
+    const item0From21 = scn21MeshFix.items.find(item => item.id === scn21MeshFix.compositions[0].items[0].id);
+    const item1From21 = scn21MeshFix.items.find(item => item.id === scn21MeshFix.compositions[0].items[1].id);
+    const item2From21 = scn21MeshFix.items.find(item => item.id === scn21MeshFix.compositions[0].items[2].id);
+    const item3From21 = scn21MeshFix.items.find(item => item.id === scn21MeshFix.compositions[0].items[3].id);
 
-    expect(scn21MeshFix.compositions[0].items[0].endBehavior).to.eql(0);
-    expect(scn21MeshFix.compositions[0].items[1].endBehavior).to.eql(4);
-    expect(scn21MeshFix.compositions[0].items[2].endBehavior).to.eql(0);
-    expect(scn21MeshFix.compositions[0].items[3].endBehavior).to.eql(4);
+    expect(item0From21.endBehavior).to.eql(0);
+    expect(item1From21.endBehavior).to.eql(4);
+    expect(item2From21.endBehavior).to.eql(0);
+    expect(item3From21.endBehavior).to.eql(4);
 
     const scn22MeshFix = getStandardJSON({
       compositionId: 0,
@@ -444,10 +461,14 @@ describe('model plugin items', () => {
         },
       ],
     });
+    const item0From22 = scn22MeshFix.items.find(item => item.id === scn22MeshFix.compositions[0].items[0].id);
+    const item1From22 = scn22MeshFix.items.find(item => item.id === scn22MeshFix.compositions[0].items[1].id);
+    const item2From22 = scn22MeshFix.items.find(item => item.id === scn22MeshFix.compositions[0].items[2].id);
+    const item3From22 = scn22MeshFix.items.find(item => item.id === scn22MeshFix.compositions[0].items[3].id);
 
-    expect(scn22MeshFix.compositions[0].items[0].endBehavior).to.eql(1);
-    expect(scn22MeshFix.compositions[0].items[1].endBehavior).to.eql(4);
-    expect(scn22MeshFix.compositions[0].items[2].endBehavior).to.eql(1);
-    expect(scn22MeshFix.compositions[0].items[3].endBehavior).to.eql(4);
+    expect(item0From22.endBehavior).to.eql(1);
+    expect(item1From22.endBehavior).to.eql(4);
+    expect(item2From22.endBehavior).to.eql(1);
+    expect(item3From22.endBehavior).to.eql(4);
   });
 });

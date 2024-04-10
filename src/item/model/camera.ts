@@ -37,25 +37,42 @@ export interface ModelCameraItem extends BaseItem {
   endBehavior: ItemEndBehavior,
 }
 
+export enum CameraType {
+  orthographic = 'orthographic',
+  perspective = 'perspective',
+}
+
 export interface ModelCameraComponentData extends ComponentData {
+  /**
+   * 相机类型，默认是透视相机
+   */
+  type?: CameraType,
   /**
    * 视角属性
    */
-  fov: number,
+  fov?: number,
   /**
    * 相机远平面
    */
-  far: number,
+  far?: number,
   /**
    * 相机近平面
    */
-  near: number,
+  near?: number,
   /**
    * 默认不提供，等于 canvas 的 `width/height`
    */
   aspect?: number,
   /**
+   * x轴上范围（正交相机）
+   */
+  xmag?: number,
+  /**
+   * y轴上范围（正交相机）
+   */
+  ymag?: number,
+  /**
    * 相机剪裁模式
    */
-  clipMode: CameraClipMode,
+  clipMode?: CameraClipMode,
 }

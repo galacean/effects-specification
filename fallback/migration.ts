@@ -1,11 +1,11 @@
-import type { JSONScene, JSONSceneVersion3 } from '../src';
+import type { JSONScene, JSONSceneLegacy } from '../src';
 import { ItemType, ItemEndBehavior, END_BEHAVIOR_PAUSE_AND_DESTROY, END_BEHAVIOR_FREEZE, END_BEHAVIOR_PAUSE, DataType } from '../src';
 import { convertAnchor, generateGUID } from './utils';
 
 /**
  * 2.1 以下版本数据适配（mars-player@2.4.0 及以上版本支持 2.1 以下数据的适配）
  */
-export function version21Migration (json: JSONScene): JSONScene {
+export function version21Migration (json: JSONSceneLegacy): JSONSceneLegacy {
   json.compositions.forEach(composition => {
     composition.items.forEach(item => {
       if (item.type === ItemType.null) {
@@ -24,7 +24,7 @@ export function version21Migration (json: JSONScene): JSONScene {
 /**
  * 2.2 以下版本数据适配（mars-player@2.5.0 及以上版本支持 2.2 以下数据的适配）
  */
-export function version22Migration (json: JSONScene): JSONScene {
+export function version22Migration (json: JSONSceneLegacy): JSONSceneLegacy {
   const singleVersion = json.version?.split('.');
 
   if (!singleVersion || Number(singleVersion[0]) > 2 || (Number(singleVersion[0]) === 2 && Number(singleVersion[1]) >= 2)) {
@@ -45,8 +45,8 @@ export function version22Migration (json: JSONScene): JSONScene {
 /**
  * 3.0 以下版本数据适配（runtime 2.0及以上版本支持）
  */
-export function version30Migration (json: JSONScene): JSONSceneVersion3 {
-  const result: JSONSceneVersion3 = Object.assign({}, json, {
+export function version30Migration (json: JSONSceneLegacy): JSONScene {
+  const result: JSONScene = Object.assign({}, json, {
     items: [],
     components: [],
     materials: [],
@@ -54,12 +54,26 @@ export function version30Migration (json: JSONScene): JSONSceneVersion3 {
     geometries: [],
   });
 
-  result.textures?.forEach(textureOptions => {
+  // 兼容老版本数据中不存在textures的情况
+  result.textures ??= [];
+  result.textures.forEach(textureOptions => {
     Object.assign(textureOptions, {
       id: generateGUID(),
       dataType: DataType.Texture,
     });
   });
+
+  if (result.textures.length < result.images.length) {
+    for (let i = result.textures.length; i < result.images.length; i++) {
+      result.textures.push({
+        //@ts-expect-error
+        id: generateGUID(),
+        dataType: DataType.Texture,
+        source: i,
+        flipY: true,
+      });
+    }
+  }
 
   // 更正Composition.endBehavior
   for (const composition of json.compositions) {
@@ -105,7 +119,7 @@ export function version30Migration (json: JSONScene): JSONSceneVersion3 {
             const oldTextureId = item.content.renderer.texture;
 
             //@ts-expect-error
-            item.content.renderer.texture = { id: scene.textureOptions[oldTextureId].id };
+            item.content.renderer.texture = { id: result.textures[oldTextureId].id };
           }
         }
 
@@ -114,7 +128,7 @@ export function version30Migration (json: JSONScene): JSONSceneVersion3 {
             const oldTextureId = item.content.trails.texture;
 
             //@ts-expect-error
-            item.content.trails.texture = { id: scene.textureOptions[oldTextureId].id };
+            item.content.trails.texture = { id: result.textures[oldTextureId].id };
           }
         }
       }
@@ -155,13 +169,10 @@ export function version30Migration (json: JSONScene): JSONSceneVersion3 {
 
           // 兼容旧JSON（anchor和particleOrigin可能同时存在）
           if (!renderer.anchor && renderer.particleOrigin !== undefined) {
-            //@ts-expect-error
-            item.transform.position.x += -realAnchor[0] * startSize.x;
-            //@ts-expect-error
-            item.transform.position.y += -realAnchor[1] * startSize.y;
+            item.transform.position.x += -realAnchor[0] * (startSize?.x ?? 1);
+            item.transform.position.y += -realAnchor[1] * (startSize?.y ?? 1);
           }
-          //@ts-expect-error
-          item.transform.anchor = { x: realAnchor[0] * startSize.x, y: realAnchor[1] * startSize.y };
+          item.transform.anchor = { x: realAnchor[0] * (startSize?.x ?? 1), y: realAnchor[1] * (startSize?.y ?? 1) };
         }
       }
 
@@ -174,11 +185,6 @@ export function version30Migration (json: JSONScene): JSONSceneVersion3 {
         const renderer = content.renderer;
 
         content.renderer.anchor = convertAnchor(renderer.anchor, renderer.particleOrigin);
-      }
-
-      // item 的 endbehaviour 兼容
-      if (item.endBehavior === END_BEHAVIOR_PAUSE_AND_DESTROY || item.endBehavior === END_BEHAVIOR_PAUSE) {
-        item.endBehavior = END_BEHAVIOR_FREEZE;
       }
 
       // 动画数据转化 TODO: 动画数据移到 TimelineComponentData
