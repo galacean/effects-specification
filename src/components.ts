@@ -52,8 +52,8 @@ export interface Vector4Data {
 
 export interface MaterialTextureProperty {
   texture: DataPath,
-  offset: Vector2Data,
-  scale: Vector2Data,
+  offset?: Vector2Data,
+  scale?: Vector2Data,
 }
 
 export interface MaterialData extends EffectsObjectData {
