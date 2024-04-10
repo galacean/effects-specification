@@ -32,7 +32,7 @@ export interface EffectsObjectData {
   dataType: string,
 }
 
-export interface ComponentData {
+export interface ComponentData extends EffectsObjectData {
   item: DataPath,
 }
 
