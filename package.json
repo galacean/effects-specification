@@ -1,6 +1,6 @@
 {
-  "name": "srm-effects-specification",
-  "version": "1.0.1-alpha.2",
+  "name": "@galacean/effects-specification",
+  "version": "1.0.1",
   "description": "Galacean Effects JSON Specification",
   "module": "./dist/index.mjs",
   "main": "./dist/index.js",
