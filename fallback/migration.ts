@@ -169,13 +169,10 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
 
           // 兼容旧JSON（anchor和particleOrigin可能同时存在）
           if (!renderer.anchor && renderer.particleOrigin !== undefined) {
-            //@ts-expect-error
-            item.transform.position.x += -realAnchor[0] * startSize.x;
-            //@ts-expect-error
-            item.transform.position.y += -realAnchor[1] * startSize.y;
+            item.transform.position.x += -realAnchor[0] * (startSize?.x ?? 1);
+            item.transform.position.y += -realAnchor[1] * (startSize?.y ?? 1);
           }
-          //@ts-expect-error
-          item.transform.anchor = { x: realAnchor[0] * startSize.x, y: realAnchor[1] * startSize.y };
+          item.transform.anchor = { x: realAnchor[0] * (startSize?.x ?? 1), y: realAnchor[1] * (startSize?.y ?? 1) };
         }
       }
 
