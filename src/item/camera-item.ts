@@ -39,7 +39,7 @@ export interface CameraContent {
     clipMode?: CameraClipMode,
 
     /**
-     * 默认不提供，等于canvas width/height
+     * 默认不提供，等于 canvas width/height
      */
     aspect?: number,
   },

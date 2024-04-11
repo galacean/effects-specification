@@ -1,11 +1,3 @@
-import type { RGBAColor } from './number-expression';
-
-export interface StringTemplate {
-  fonts: FontBase[],
-  texts: Text[],
-  colors: RGBAColor[], //rgba rgba(0-255), a default 255
-}
-
 /**
  * 字体资源
  * @version 2.3
