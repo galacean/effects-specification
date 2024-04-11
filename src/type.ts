@@ -642,37 +642,37 @@ export interface PluginGyroscopeTarget {
    */
   name: string,
   /**
-   * x轴位移最小值
+   * x 轴位移最小值
    */
   xMin: number,
   /**
-   * x轴位移最大值
+   * x 轴位移最大值
    */
   xMax: number,
   /**
-   * y轴位移最小值
+   * y 轴位移最小值
    */
   yMin: number,
   /**
-   * y轴位移最大值
+   * y 轴位移最大值
    */
   yMax: number,
   /**
-   * 绕x轴（水平）旋转角度最小值
+   * 绕 x 轴（水平）旋转角度最小值
    */
   hMin: number,
   /**
-   * 绕x轴（水平）旋转角度最大值
+   * 绕 x 轴（水平）旋转角度最大值
    */
   hMax: number,
   /**
-   * 绕y轴（垂直）旋转角度最小值
+   * 绕 y 轴（垂直）旋转角度最小值
    */
   vMin: number,
   /**
-   * 绕y轴（垂直）旋转角度最大值
+   * 绕 y 轴（垂直）旋转角度最大值
    */
-  vMax: number
+  vMax: number,
 }
 
 /**
