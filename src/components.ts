@@ -78,28 +78,40 @@ export interface GeometryData extends EffectsObjectData {
    * @default GeometryType.TRIANGLES
    */
   mode: GeometryType,
-  buffer: string, // 存放 position, uv, normal, indices 的打包数据
+  /**
+   * 存放 position, uv, normal, indices 的打包数据
+   */
+  buffer: string,
 }
 
 export enum GeometryType {
-  /** Draw single points. */
+  /**
+   * Draw single points.
+   */
   POINTS,
-  /** Draw lines. Each vertex connects to the one after it. */
+  /**
+   * Draw lines. Each vertex connects to the one after it.
+   */
   LINES,
   /**
    * Draw lines. Each set of two vertices is treated as a separate line segment.
    */
   LINE_LOOP,
-  /** Draw a connected group of line segments from the first vertex to the last,  */
+  /**
+   * Draw a connected group of line segments from the first vertex to the last.
+   */
   LINE_STRIP,
-  /** Draw triangles. Each set of three vertices creates a separate triangle. */
+  /**
+   * Draw triangles. Each set of three vertices creates a separate triangle.
+   */
   TRIANGLES,
-  /** Draw a connected strip of triangles. */
+  /**
+   * Draw a connected strip of triangles.
+   */
   TRIANGLE_STRIP,
   /**
-    * Draw a connected group of triangles. Each vertex connects to the previous and the first
-    * vertex in the fan.
-    */
+   * Draw a connected group of triangles. Each vertex connects to the previous and the first vertex in the fan.
+   */
   TRIANGLE_FAN,
 }
 export interface VertexData {
