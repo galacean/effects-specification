@@ -93,8 +93,8 @@ export interface ModelMeshItem<T extends BinaryEnv> extends BaseItem {
 }
 
 export interface PrimitiveData {
-  geometry: GeometryData,
-  material: MaterialData,
+  geometry: DataPath,
+  material: DataPath,
 }
 
 export interface SkinData {
