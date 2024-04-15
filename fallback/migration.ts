@@ -148,7 +148,7 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         Object.assign(item, {
           transform: {
             position: { x: position[0], y: position[1], z: position[2] },
-            rotation: { x: rotation[0], y: rotation[1], z: rotation[2] },
+            eulerHint: { x: rotation[0], y: rotation[1], z: rotation[2] },
             scale: { x: scale[0], y: scale[1], z: scale[0] },
           },
         });
@@ -231,86 +231,67 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
       // item 的 content 转为 component data 加入 JSONScene.components
       const uuid = generateGUID();
 
-      if (item.type === ItemType.sprite) {
+      if (
+        item.type === ItemType.sprite ||
+        item.type === ItemType.particle ||
+        item.type === ItemType.mesh ||
+        item.type === ItemType.skybox ||
+        item.type === ItemType.light ||
+        item.type === 'camera' ||
+        item.type === ItemType.tree ||
+        item.type === ItemType.interact ||
+        item.type === ItemType.camera ||
+        item.type === ItemType.text
+      ) {
         item.components = [];
         result.components.push(item.content);
         item.content.id = uuid;
-        item.content.dataType = DataType.SpriteComponent;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
         item.components.push({ id: item.content.id });
-      } else if (item.type === ItemType.particle) {
-        item.components = [];
-        result.components.push(item.content);
-        item.content.id = uuid;
-        item.content.dataType = DataType.ParticleSystem;
-        item.content.item = { id: item.id };
-        item.dataType = DataType.VFXItemData;
-        item.components.push({ id: item.content.id });
-      } else if (item.type === ItemType.mesh) {
-        item.components = [];
-        result.components.push(item.content);
-        item.content.id = uuid;
-        item.content.dataType = DataType.MeshComponent;
-        item.content.item = { id: item.id };
-        item.dataType = DataType.VFXItemData;
-        item.components.push({ id: item.content.id });
-      } else if (item.type === ItemType.skybox) {
-        item.components = [];
-        result.components.push(item.content);
-        item.content.id = uuid;
-        item.content.dataType = DataType.SkyboxComponent;
-        item.content.item = { id: item.id };
-        item.dataType = DataType.VFXItemData;
-        item.components.push({ id: item.content.id });
-      } else if (item.type === ItemType.light) {
-        item.components = [];
-        result.components.push(item.content);
-        item.content.id = uuid;
-        item.content.dataType = DataType.LightComponent;
-        item.content.item = { id: item.id };
-        item.dataType = DataType.VFXItemData;
-        item.components.push({ id: item.content.id });
-      } else if (item.type === 'camera') {
-        item.components = [];
-        result.components.push(item.content);
-        item.content.id = uuid;
-        item.content.dataType = DataType.CameraComponent;
-        item.content.item = { id: item.id };
-        item.dataType = DataType.VFXItemData;
-        item.components.push({ id: item.content.id });
-      } else if (item.type === ItemType.tree) {
-        item.components = [];
-        result.components.push(item.content);
-        item.content.id = uuid;
-        item.content.dataType = DataType.TreeComponent;
-        item.content.item = { id: item.id };
-        item.dataType = DataType.VFXItemData;
-        item.components.push({ id: item.content.id });
-      } else if (item.type === ItemType.interact) {
-        item.components = [];
-        result.components.push(item.content);
-        item.content.id = uuid;
-        item.content.dataType = DataType.InteractComponent;
-        item.content.item = { id: item.id };
-        item.dataType = DataType.VFXItemData;
-        item.components.push({ id: item.content.id });
-      } else if (item.type === ItemType.camera) {
-        item.components = [];
-        result.components.push(item.content);
-        item.content.id = uuid;
-        item.content.dataType = DataType.CameraController;
-        item.content.item = { id: item.id };
-        item.dataType = DataType.VFXItemData;
-        item.components.push({ id: item.content.id });
-      } else if (item.type === ItemType.text) {
-        item.components = [];
-        result.components.push(item.content);
-        item.content.id = uuid;
-        item.content.dataType = DataType.TextComponent;
-        item.content.item = { id: item.id };
-        item.dataType = DataType.VFXItemData;
-        item.components.push({ id: item.content.id });
+      }
+
+      switch (item.type) {
+        case ItemType.sprite:
+          item.content.dataType = DataType.SpriteComponent;
+
+          break;
+        case ItemType.particle:
+          item.content.dataType = DataType.ParticleSystem;
+
+          break;
+        case ItemType.mesh:
+          item.content.dataType = DataType.MeshComponent;
+
+          break;
+        case ItemType.skybox:
+          item.content.dataType = DataType.SkyboxComponent;
+
+          break;
+        case ItemType.light:
+          item.content.dataType = DataType.LightComponent;
+
+          break;
+        case 'camera':
+          item.content.dataType = DataType.CameraComponent;
+
+          break;
+        case ItemType.tree:
+          item.content.dataType = DataType.TreeComponent;
+
+          break;
+        case ItemType.interact:
+          item.content.dataType = DataType.InteractComponent;
+
+          break;
+        case ItemType.camera:
+          item.content.dataType = DataType.CameraController;
+
+          break;
+        case ItemType.text:
+          item.content.dataType = DataType.TextComponent;
+
+          break;
       }
     }
   }
