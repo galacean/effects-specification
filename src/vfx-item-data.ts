@@ -1,4 +1,4 @@
-import type { ComponentData, EffectsObjectData } from './components';
+import type { ComponentData, DataPath, EffectsObjectData } from './components';
 import type { ItemEndBehavior, ParentItemEndBehavior, BaseContent, TransformData } from './item/base-item';
 import type { ItemType, RenderLevel } from './type';
 
@@ -71,5 +71,5 @@ export interface VFXItemData extends EffectsObjectData {
   /**
    * 元素的组件数据
    */
-  components: ComponentData[],
+  components: DataPath[],
 }
