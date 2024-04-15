@@ -235,7 +235,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         item.content.dataType = DataType.SpriteComponent;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
-        //@ts-expect-error
         item.components.push({ id: item.content.id });
       } else if (item.type === ItemType.particle) {
         item.components = [];
@@ -244,7 +243,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         item.content.dataType = DataType.ParticleSystem;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
-        //@ts-expect-error
         item.components.push({ id: item.content.id });
       } else if (item.type === ItemType.mesh) {
         item.components = [];
@@ -253,7 +251,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         item.content.dataType = DataType.MeshComponent;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
-        //@ts-expect-error
         item.components.push({ id: item.content.id });
       } else if (item.type === ItemType.skybox) {
         item.components = [];
@@ -262,7 +259,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         item.content.dataType = DataType.SkyboxComponent;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
-        //@ts-expect-error
         item.components.push({ id: item.content.id });
       } else if (item.type === ItemType.light) {
         item.components = [];
@@ -271,7 +267,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         item.content.dataType = DataType.LightComponent;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
-        //@ts-expect-error
         item.components.push({ id: item.content.id });
       } else if (item.type === 'camera') {
         item.components = [];
@@ -280,7 +275,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         item.content.dataType = DataType.CameraComponent;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
-        //@ts-expect-error
         item.components.push({ id: item.content.id });
       } else if (item.type === ItemType.tree) {
         item.components = [];
@@ -289,7 +283,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         item.content.dataType = DataType.TreeComponent;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
-        //@ts-expect-error
         item.components.push({ id: item.content.id });
       } else if (item.type === ItemType.interact) {
         item.components = [];
@@ -298,7 +291,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         item.content.dataType = DataType.InteractComponent;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
-        //@ts-expect-error
         item.components.push({ id: item.content.id });
       } else if (item.type === ItemType.camera) {
         item.components = [];
@@ -307,7 +299,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         item.content.dataType = DataType.CameraController;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
-        //@ts-expect-error
         item.components.push({ id: item.content.id });
       } else if (item.type === ItemType.text) {
         item.components = [];
@@ -316,7 +307,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
         item.content.dataType = DataType.TextComponent;
         item.content.item = { id: item.id };
         item.dataType = DataType.VFXItemData;
-        //@ts-expect-error
         item.components.push({ id: item.content.id });
       }
     }
