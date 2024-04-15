@@ -46,21 +46,24 @@ export function version22Migration (json: JSONSceneLegacy): JSONSceneLegacy {
  * 3.0 以下版本数据适配（runtime 2.0及以上版本支持）
  */
 export function version30Migration (json: JSONSceneLegacy): JSONScene {
-  const result: JSONScene = Object.assign({}, json, {
+  const result: JSONScene = {
+    ...json,
     items: [],
     components: [],
     materials: [],
     shaders: [],
     geometries: [],
-  });
+  };
 
   // 兼容老版本数据中不存在textures的情况
   result.textures ??= [];
   result.textures.forEach(textureOptions => {
-    Object.assign(textureOptions, {
+    textureOptions = {
+      ...textureOptions,
+      // @ts-expect-error
       id: generateGUID(),
       dataType: DataType.Texture,
-    });
+    };
   });
 
   if (result.textures.length < result.images.length) {
