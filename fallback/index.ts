@@ -142,7 +142,7 @@ export function getStandardImage (image: any, index: number, imageTags: RenderLe
 export function getStandardComposition (composition: any, opt: { plugins?: string[], requires?: string[] } = {}): Composition {
   const ret: Composition = {
     id: composition.id + '',
-    camera: Object.assign({ clipMode: CAMERA_CLIP_MODE_NORMAL }, composition.camera),
+    camera: { clipMode: CAMERA_CLIP_MODE_NORMAL, ...composition.camera },
     duration: composition.duration,
     endBehavior: composition.endBehavior,
     items: composition.items.map((item: any) => getStandardItem(item, opt)),
