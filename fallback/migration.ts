@@ -58,12 +58,10 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
   // 兼容老版本数据中不存在textures的情况
   result.textures ??= [];
   result.textures.forEach(textureOptions => {
-    textureOptions = {
-      ...textureOptions,
-      // @ts-expect-error
-      id: generateGUID(),
-      dataType: DataType.Texture,
-    };
+    //@ts-expect-error
+    textureOptions.id = generateGUID();
+    //@ts-expect-error
+    textureOptions.dataType = DataType.Texture;
   });
 
   if (result.textures.length < result.images.length) {
