@@ -74,11 +74,20 @@ export interface TemplateContentV1 extends TemplateContentBase {
   backgroundHeight: number,
 }
 
+/**
+ * 动态换图类型
+ * @since 1.3.0
+ */
+export enum BackgroundType {
+  video = 'video',
+  image = 'image',
+}
+
 export interface TemplateContentV2 extends TemplateContentBase {
   v: 2,
   content?: StringTemplate,
-  // 绘制 canvas 的背景图片，替换掉原来的那张图片，如果没有就不替换
   background?: {
+    type: BackgroundType,
     name: string,
     url: string,
   },
@@ -134,9 +143,4 @@ export interface CompressedImage extends Image {
     astc?: string, // 安卓
     pvrtc?: string,
   },
-}
-
-export interface VideoImage extends Image {
-  type: 'video',
-  loop?: boolean,
 }
