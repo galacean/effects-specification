@@ -1,16 +1,8 @@
 import type {
-  FixedNumberExpression,
-  RGBAColorValue,
-  ColorExpression,
-  NumberExpression,
-  GradientColor,
-  GradientStop,
-  FixedVec3Expression,
-  vec4,
-  vec3, BezierKeyframeValue } from '../src';
-import { BezierKeyframeType,
+  FixedNumberExpression, RGBAColorValue, ColorExpression, NumberExpression, GradientColor,
+  GradientStop, FixedVec3Expression, vec4, vec3, BezierKeyframeValue,
 } from '../src';
-import { ValueType } from '../src';
+import { BezierKeyframeType, ValueType } from '../src';
 
 export function arrAdd<T> (arr: T[], item: T): boolean | undefined {
   if (!arr.includes(item)) {
@@ -64,7 +56,7 @@ export function ensureFixedNumber (a: any): FixedNumberExpression | undefined {
       return [ValueType.BEZIER_CURVE, keyframes];
     }
     if (valueType === 'curve' || valueType === ValueType.CURVE) {
-      return [ValueType.BEZIER_CURVE, getBezierCurveFromHermiteInMars(valueData)];
+      return [ValueType.BEZIER_CURVE, getBezierCurveFromHermiteInGE(valueData)];
     }
 
     return a;
@@ -199,12 +191,17 @@ export function ensureFixedVec3 (a: any): FixedVec3Expression | undefined {
     }
     const valueType = a[0];
 
-    if (valueType === 'path' || valueType === 'bezier' || valueType === ValueType.BEZIER_PATH || valueType === ValueType.LINEAR_PATH) {
+    if (
+      valueType === 'path' ||
+      valueType === 'bezier' ||
+      valueType === ValueType.BEZIER_PATH ||
+      valueType === ValueType.LINEAR_PATH
+    ) {
       const valueData = a[1];
       const easing = valueData[0];
       const points = valueData[1];
       let controlPoints = valueData[2];
-      const bezierEasing = getBezierCurveFromHermiteInMars(easing);
+      const bezierEasing = getBezierCurveFromHermiteInGE(easing);
 
       // linear path没有controlPoints
       if (!controlPoints) {
@@ -321,40 +318,40 @@ function getBezierCurveFromHermite (m0: number, m1: number, p0: number[], p3: nu
   return bezierControlPoints;
 }
 
-export function getBezierCurveFromHermiteInMars (marsHermiteCurves: number[][]): BezierKeyframeValue[] {
+export function getBezierCurveFromHermiteInGE (geHermiteCurves: number[][]): BezierKeyframeValue[] {
   let ymax = -1000000;
   let ymin = 1000000;
 
-  for (let i = 0; i < marsHermiteCurves.length; i++) {
-    ymax = Math.max(ymax, marsHermiteCurves[i][1]);
-    ymin = Math.min(ymin, marsHermiteCurves[i][1]);
+  for (let i = 0; i < geHermiteCurves.length; i++) {
+    ymax = Math.max(ymax, geHermiteCurves[i][1]);
+    ymin = Math.min(ymin, geHermiteCurves[i][1]);
   }
-  const marsBezierCurves = [[marsHermiteCurves[0][0], marsHermiteCurves[0][1]]];
+  const geBezierCurves = [[geHermiteCurves[0][0], geHermiteCurves[0][1]]];
 
-  for (let i = 0; i < marsHermiteCurves.length - 1; i++) {
-    const m0 = marsHermiteCurves[i][3] * (ymax - ymin);
-    const m1 = marsHermiteCurves[i + 1][2] * (ymax - ymin);
-    const p0 = [marsHermiteCurves[i][0], marsHermiteCurves[i][1]];
-    const p3 = [marsHermiteCurves[i + 1][0], marsHermiteCurves[i + 1][1]];
+  for (let i = 0; i < geHermiteCurves.length - 1; i++) {
+    const m0 = geHermiteCurves[i][3] * (ymax - ymin);
+    const m1 = geHermiteCurves[i + 1][2] * (ymax - ymin);
+    const p0 = [geHermiteCurves[i][0], geHermiteCurves[i][1]];
+    const p3 = [geHermiteCurves[i + 1][0], geHermiteCurves[i + 1][1]];
 
     if (p0[0] != p3[0]) {
       const bezierControlPoints = getBezierCurveFromHermite(m0, m1, p0, p3);
       const p1 = bezierControlPoints[0];
       const p2 = bezierControlPoints[1];
 
-      marsBezierCurves[marsBezierCurves.length - 1].push(p1[0]);
-      marsBezierCurves[marsBezierCurves.length - 1].push(p1[1]);
-      marsBezierCurves.push([p2[0], p2[1], p3[0], p3[1]]);
+      geBezierCurves[geBezierCurves.length - 1].push(p1[0]);
+      geBezierCurves[geBezierCurves.length - 1].push(p1[1]);
+      geBezierCurves.push([p2[0], p2[1], p3[0], p3[1]]);
     } else {
-      marsBezierCurves[marsBezierCurves.length - 1].push(p3[0]);
-      marsBezierCurves[marsBezierCurves.length - 1].push(p3[1]);
+      geBezierCurves[geBezierCurves.length - 1].push(p3[0]);
+      geBezierCurves[geBezierCurves.length - 1].push(p3[1]);
     }
   }
 
   // 添加关键帧类型
-  return marsBezierCurves.map((curve, index) => {
+  return geBezierCurves.map((curve, index) => {
     return index === 0 ? [BezierKeyframeType.EASE_OUT, curve as [number, number, number, number]]
-      : index === marsBezierCurves.length - 1 ? [BezierKeyframeType.EASE_IN, curve as [number, number, number, number]]
+      : index === geBezierCurves.length - 1 ? [BezierKeyframeType.EASE_IN, curve as [number, number, number, number]]
         : [BezierKeyframeType.EASE, curve as [number, number, number, number, number, number]];
   });
 }

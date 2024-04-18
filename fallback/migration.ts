@@ -47,7 +47,7 @@ export function version22Migration (json: JSONScene): JSONScene {
  * 2.5 以下版本 赫尔米特数据转换成贝塞尔数据
  */
 export function version24Migration (json: JSONScene): JSONScene {
-// 曲线转换成贝塞尔
+  // 曲线转换成贝塞尔
   json.compositions.map((comp: any) => {
     for (const item of comp.items) {
       convertParam(item.content);
