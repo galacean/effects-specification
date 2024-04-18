@@ -38,7 +38,7 @@ describe('particle base', () => {
           'turbulenceX': 45,
           'turbulenceY': ['lines', [[0, 0], [1, 30]]],
           'turbulenceZ': ['random', [0, 30]],
-          'start3DRotation': false,
+          'start3DRotation': true,
           'endBehavior': 4,
           'startRotation': ['curve', [[0, 360, 0, -3], [0.5, 0, 0, 0], [1, 360, 3, 0]]],
           'startRotationY': ['curve', [[0, 360, 0, -3], [0.5, 0, 0, 0], [1, 360, 3, 0]]],
