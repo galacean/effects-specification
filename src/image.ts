@@ -1,6 +1,7 @@
 import type { RenderLevel } from './type';
 import type { StringTemplate } from './text';
 import type { BinaryPointer } from './binary';
+import type { DataType } from './components';
 
 export interface TextureFormatOptions {
   format?: GLenum,
@@ -9,6 +10,9 @@ export interface TextureFormatOptions {
 }
 
 export interface TextureConfigOptionsBase {
+  generateMipmap?: boolean,
+  id?: string,
+  dataType?: DataType.Texture,
   name?: string,
   wrapS?: GLenum,
   wrapT?: GLenum,
