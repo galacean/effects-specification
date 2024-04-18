@@ -18,7 +18,7 @@ import { getStandardInteractContent } from './interact';
 import { arrAdd, quatFromXYZRotation, rotationZYXFromQuat } from './utils';
 import { getStandardCameraContent } from './camera';
 import { getStandardFilterContent } from './filter';
-import { version21Migration, version22Migration } from './migration';
+import { version21Migration, version22Migration, version24Migration } from './migration';
 
 export * from './utils';
 
@@ -40,10 +40,15 @@ export function getStandardJSON (json: any): JSONScene {
     return version21Migration(getStandardJSONFromV0(json));
   }
 
-  const mainVersion = standardVersion.exec(json.version)?.[1];
+  const vs = standardVersion.exec(json.version) || [];
+  const mainVersion = Number(vs[1]);
+  const minorVersion = Number(vs[2]);
 
   if (mainVersion) {
-    if (Number(mainVersion) < 2) {
+    if (mainVersion < 2 || (mainVersion === 2 && minorVersion < 4)) {
+      version24Migration(json);
+    }
+    if (mainVersion < 2) {
       return version21Migration(json);
     }
 

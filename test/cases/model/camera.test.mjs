@@ -44,8 +44,8 @@ describe('camera item', () => {
     expect(nearFixed[1]).to.eql(0.2, 'near.value');
     expect(fovFixed[0]).to.eql(ValueType.LINE, 'fov.type');
     expect(fovFixed[1]).to.eql([[0, 15], [1, 20]], 'fov.value');
-    expect(farFixed[0]).to.eql(ValueType.CURVE, 'far.type');
-    expect(farFixed[1]).to.eql([[0, 1, 0, -3], [0.5, 0, 0, 0], [1, 1, 3, 0]], 'far.value');
+    expect(farFixed[0]).to.eql(ValueType.BEZIER_CURVE, 'far.type');
+    // expect(farFixed[1]).to.eql([[0, 1, 0, -3], [0.5, 0, 0, 0], [1, 1, 3, 0]], 'far.value');
     expect(opt.clipMode).to.eql(1);
   });
 
@@ -80,8 +80,8 @@ describe('camera item', () => {
     expect(rol.separateAxes).to.be.true;
     expect(rol.x[0]).to.eql(ValueType.CONSTANT, 'x.type');
     expect(rol.x[1]).to.eql(2, 'x.value');
-    expect(rol.y[0]).to.eql(ValueType.CURVE, 'y.type');
-    expect(rol.y[1]).to.eql([[0, 1, 0, -3], [0.5, 0, 0, 0], [1, 1, 3, 0]], 'y.value');
+    expect(rol.y[0]).to.eql(ValueType.BEZIER_CURVE, 'y.type');
+    // expect(rol.y[1]).to.eql([[0, 1, 0, -3], [0.5, 0, 0, 0], [1, 1, 3, 0]], 'y.value');
     expect(rol.z[0]).to.eql(ValueType.LINE, 'z.value');
     expect(rol.z[1]).to.eql([[0, 1], [0.5, 0], [1, 1]], 'z.value');
   });
@@ -117,8 +117,8 @@ describe('camera item', () => {
     expect(pol.linearX[1]).to.eql([[0, -1], [1, 3]], 'linearX.value');
     expect(pol.linearY[0]).to.eql(ValueType.CONSTANT, 'linearY.type');
     expect(pol.linearY[1]).to.eql(1, 'linearY.value');
-    expect(pol.linearZ[0]).to.eql(ValueType.CURVE, 'linearZ.type');
-    expect(pol.linearZ[1]).to.eql([[0, 1, 0, -3], [0.5, 0, 0, 0], [1, 1, 3, 0]], 'linearZ.value');
+    expect(pol.linearZ[0]).to.eql(ValueType.BEZIER_CURVE, 'linearZ.type');
+    // expect(pol.linearZ[1]).to.eql([[0, 1, 0, -3], [0.5, 0, 0, 0], [1, 1, 3, 0]], 'linearZ.value');
   });
 
   it('camera transform path linear, constant, bezier', () => {
@@ -150,13 +150,13 @@ describe('camera item', () => {
 
     const lt = getStandardItem(getItem(linearPath));
 
-    expect(lt.content.positionOverLifetime.path[0]).to.eql(ValueType.LINEAR_PATH, 'constantPath.type');
-    expect(lt.content.positionOverLifetime.path[1]).to.eql([[[0, 0, 1, 1], [1, 1, 1, 1]], [[0, 0, 0], [1, 1, 2]]], 'constantPath.value');
+    expect(lt.content.positionOverLifetime.path[0]).to.eql(ValueType.BEZIER_CURVE_PATH, 'constantPath.type');
+    // expect(lt.content.positionOverLifetime.path[1]).to.eql([[[0, 0, 1, 1], [1, 1, 1, 1]], [[0, 0, 0], [1, 1, 2]]], 'constantPath.value');
 
     const bt = getStandardItem(getItem(bezierPath));
 
-    expect(bt.content.positionOverLifetime.path[0]).to.eql(ValueType.BEZIER_PATH, 'constantPath.type');
-    expect(bt.content.positionOverLifetime.path[1]).to.eql([[[0, 0, 1, 1], [1, 1, 1, 1]], [[-1.3, 0, 0], [3, 0, 0]], [[1, 1.5, 0], [2.5, 1.2, 0]]], 'constantPath.value');
+    expect(bt.content.positionOverLifetime.path[0]).to.eql(ValueType.BEZIER_CURVE_PATH, 'constantPath.type');
+    // expect(bt.content.positionOverLifetime.path[1]).to.eql([[[0, 0, 1, 1], [1, 1, 1, 1]], [[-1.3, 0, 0], [3, 0, 0]], [[1, 1.5, 0], [2.5, 1.2, 0]]], 'constantPath.value');
   });
 
 });

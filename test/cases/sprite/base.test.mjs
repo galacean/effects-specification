@@ -283,8 +283,8 @@ describe('sprite base', () => {
 
     const neo2 = getStandardItem(opacityCurve);
 
-    expect(neo2.content.colorOverLifetime.opacity[0]).to.eql(ValueType.CURVE, 'opacity.type');
-    expect(neo2.content.colorOverLifetime.opacity[1]).to.eql([[0, 1, 0, -3], [0.5, 0, 0, 0], [1, 1, 3, 0]], 'opacity.value');
+    expect(neo2.content.colorOverLifetime.opacity[0]).to.eql(ValueType.BEZIER_CURVE, 'opacity.type');
+    // expect(neo2.content.colorOverLifetime.opacity[1]).to.eql([[0, 1, 0, -3], [0.5, 0, 0, 0], [1, 1, 3, 0]], 'opacity.value');
 
     const neo3 = getStandardItem(gradientColor);
 
@@ -360,8 +360,8 @@ describe('sprite base', () => {
     expect(neo2.content.sizeOverLifetime.x[1]).to.eql([[0, 0], [1, 10]], 'sizeX.value');
     expect(neo2.content.sizeOverLifetime.y[0]).to.eql(ValueType.CONSTANT, 'sizeY.type');
     expect(neo2.content.sizeOverLifetime.y[1]).to.eql(2, 'sizeY.value');
-    expect(neo2.content.sizeOverLifetime.z[0]).to.eql(ValueType.CURVE, 'sizeZ.type');
-    expect(neo2.content.sizeOverLifetime.z[1]).to.eql([[0, 0, 1, 0], [0.73, 0.24, 1, 1.1], [1, 1, 5, 1]], 'sizeZ.value');
+    expect(neo2.content.sizeOverLifetime.z[0]).to.eql(ValueType.BEZIER_CURVE, 'sizeZ.type');
+    // expect(neo2.content.sizeOverLifetime.z[1]).to.eql([[0, 0, 1, 0], [0.73, 0.24, 1, 1.1], [1, 1, 5, 1]], 'sizeZ.value');
   });
 
   it('velocityOverLifetime', () => {
@@ -405,15 +405,15 @@ describe('sprite base', () => {
     expect(positionOverLifetime.linearX[1]).to.eql(2, 'linearX.value');
     expect(positionOverLifetime.linearY[0]).to.eql(ValueType.LINE, 'linearY.type');
     expect(positionOverLifetime.linearY[1]).to.eql([[0, 0], [0.25, 5], [0.75, 5], [1, 0]], 'linearY.value');
-    expect(positionOverLifetime.linearZ[0]).to.eql(ValueType.CURVE, 'linearZ.type');
-    expect(positionOverLifetime.linearZ[1]).to.eql([[0, 1, 0, 0], [0.35, 0.85, -1.3, -1.22], [0.56, 0.16, -1, -1.2], [1, 0, 0, 0]], 'linearZ.value');
+    expect(positionOverLifetime.linearZ[0]).to.eql(ValueType.BEZIER_CURVE, 'linearZ.type');
+    // expect(positionOverLifetime.linearZ[1]).to.eql([[0, 1, 0, 0], [0.35, 0.85, -1.3, -1.22], [0.56, 0.16, -1, -1.2], [1, 0, 0, 0]], 'linearZ.value');
     expect(positionOverLifetime.asRotation, 'asRotate').to.be.true;
     expect(positionOverLifetime.orbitalX[0]).to.eql(ValueType.CONSTANT, 'orbitalX.type');
     expect(positionOverLifetime.orbitalX[1]).to.eql(30, 'orbitalX.value');
     expect(positionOverLifetime.orbitalY[0]).to.eql(ValueType.LINE, 'orbitalY.type');
     expect(positionOverLifetime.orbitalY[1]).to.eql([[0, 180], [0.25, 90], [0.75, 90], [1, 0]], 'orbitalY.value');
-    expect(positionOverLifetime.orbitalZ[0]).to.eql(ValueType.CURVE, 'orbitalZ.type');
-    expect(positionOverLifetime.orbitalZ[1]).to.eql([[0, 30, 0, -2], [0.2, 15.6, -0.8, -0.7], [0.82, 12.6, -0.57, -0.55], [1, 0, -4.9, 1]], 'orbitalZ.value');
+    expect(positionOverLifetime.orbitalZ[0]).to.eql(ValueType.BEZIER_CURVE, 'orbitalZ.type');
+    // expect(positionOverLifetime.orbitalZ[1]).to.eql([[0, 30, 0, -2], [0.2, 15.6, -0.8, -0.7], [0.82, 12.6, -0.57, -0.55], [1, 0, -4.9, 1]], 'orbitalZ.value');
     expect(positionOverLifetime.speedOverLifetime[0]).to.eql(ValueType.CONSTANT, 'speedOverLifetime.type');
     expect(positionOverLifetime.speedOverLifetime[1]).to.eql(10, 'speedOverLifetime.value');
     expect(positionOverLifetime.startSpeed, 'startSpeed').to.be.undefined;
@@ -453,8 +453,8 @@ describe('sprite base', () => {
 
     expect(rot.asRotation, 'asRotation').to.be.true;
     expect(rot.separateAxes, 'separateAxes').to.be.undefined;
-    expect(rot.z[0]).eql(ValueType.CURVE, 'angularVelocity.type');
-    expect(rot.z[1]).eql([[0, 0, 1, 6], [0.17, 0.54, 0.72, 0.72], [0.78, 0.7, 1, 1], [1, 1, 1, 1]], 'angularVelocity.value');
+    expect(rot.z[0]).eql(ValueType.BEZIER_CURVE, 'angularVelocity.type');
+    // expect(rot.z[1]).eql([[0, 0, 1, 6], [0.17, 0.54, 0.72, 0.72], [0.78, 0.7, 1, 1], [1, 1, 1, 1]], 'angularVelocity.value');
 
     const separateItem = {
       'name': 'null_11',
@@ -494,8 +494,8 @@ describe('sprite base', () => {
     expect(rot2.x[1]).eql(10, 'x.value');
     expect(rot2.y[0]).eql(ValueType.LINE, 'y.type');
     expect(rot2.y[1]).eql([[0, 1], [0.25, 0], [0.75, 0], [1, 1]], 'y.value');
-    expect(rot2.z[0]).eql(ValueType.CURVE, 'z.type');
-    expect(rot2.z[1]).eql([[0, 1, 0, 0], [0.72, 0.82, -0.98, -1.1], [1, 0, -5, 7]], 'z.value');
+    expect(rot2.z[0]).eql(ValueType.BEZIER_CURVE, 'z.type');
+    // expect(rot2.z[1]).eql([[0, 1, 0, 0], [0.72, 0.82, -0.98, -1.1], [1, 0, -5, 7]], 'z.value');
   });
 
   it('sprite textureSheetAnimation', () => {

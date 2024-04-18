@@ -7,7 +7,8 @@ import type {
   GradientStop,
   FixedVec3Expression,
   vec4,
-  vec3,
+  vec3, BezierKeyframeValue } from '../src';
+import { BezierKeyframeType,
 } from '../src';
 import { ValueType } from '../src';
 
@@ -42,15 +43,31 @@ export function ensureFixedNumber (a: any): FixedNumberExpression | undefined {
     return [ValueType.CONSTANT, a];
   }
   if (a) {
-    if (a[0] === 'lines') {
-      return [ValueType.LINE, a[1]];
+    const valueType = a[0];
+    const valueData = a[1];
+
+    if (Array.isArray(valueType)) {
+      // 没有数据类型的数据
+      return;
     }
-    if (a[0] === 'curve') {
-      return [ValueType.CURVE, a[1]];
-    }
-    if (a[0] === 'static') {
+
+    if (valueType === 'static' || valueType === ValueType.CONSTANT) {
       return [ValueType.CONSTANT, a[1]];
     }
+    if (valueType === 'lines') {
+      return [ValueType.LINE, a[1]];
+    }
+    if (valueType === ValueType.LINE) {
+      // @ts-expect-error
+      const keyframes: LineKeyframeValue[] = valueData.map(data => [BezierKeyframeType.LINE, data]);
+
+      return [ValueType.BEZIER_CURVE, keyframes];
+    }
+    if (valueType === 'curve' || valueType === ValueType.CURVE) {
+      return [ValueType.BEZIER_CURVE, getBezierCurveFromHermiteInMars(valueData)];
+    }
+
+    return a;
   }
 }
 
@@ -79,6 +96,8 @@ export function ensureColorExpression (a: any, normalized?: boolean): ColorExpre
     } else if (a[0] === 'color') {
       return [ValueType.RGBA_COLOR, colorToArr(a[1], normalized)];
     }
+
+    return a;
   }
 }
 
@@ -160,8 +179,12 @@ export function parsePercent (c: string): number {
   return +c;
 }
 
-export function getGradientColor (color: string | Array<string | number[]>, normalized?: boolean): GradientColor | undefined {
+export function getGradientColor (color: string | Array<string | number[]> | GradientColor, normalized?: boolean): GradientColor | undefined {
   if (Array.isArray(color)) {
+    if (color[0] === ValueType.GRADIENT_COLOR) {
+      return color as GradientColor;
+    }
+
     // @ts-expect-error
     return (color[0] === 'gradient' || color[0] === 'color') && ensureGradient(color[1], normalized);
   } else {
@@ -174,12 +197,36 @@ export function ensureFixedVec3 (a: any): FixedVec3Expression | undefined {
     if (a.length === 3) {
       return [ValueType.CONSTANT_VEC3, a];
     }
-    if (a[0] === 'path') {
-      return [ValueType.LINEAR_PATH, a[1]];
+    const valueType = a[0];
+
+    if (valueType === 'path' || valueType === 'bezier' || valueType === ValueType.BEZIER_PATH || valueType === ValueType.LINEAR_PATH) {
+      const valueData = a[1];
+      const easing = valueData[0];
+      const points = valueData[1];
+      let controlPoints = valueData[2];
+      const bezierEasing = getBezierCurveFromHermiteInMars(easing);
+
+      // linear path没有controlPoints
+      if (!controlPoints) {
+        controlPoints = [];
+        for (let keyframeIndex = 0; keyframeIndex < points.length; keyframeIndex++) {
+          const point = points[keyframeIndex].slice();
+
+          if (keyframeIndex === 0) {
+            controlPoints.push(point);
+          } else if (keyframeIndex < points.length - 1) {
+            controlPoints.push(point);
+            controlPoints.push(point);
+          } else {
+            controlPoints.push(point);
+          }
+        }
+      }
+
+      return [ValueType.BEZIER_CURVE_PATH, [bezierEasing, points, controlPoints]];
     }
-    if (a[0] === 'bezier') {
-      return [ValueType.BEZIER_PATH, a[1]];
-    }
+
+    return a;
   }
 }
 
@@ -258,4 +305,56 @@ export function rotationZYXFromQuat (out: vec3 | number[], quat: vec4): vec3 {
   }
 
   return out as vec3;
+}
+
+function getBezierCurveFromHermite (m0: number, m1: number, p0: number[], p3: number[]) {
+  const xStart = p0[0];
+  const yStart = p0[1];
+  const xEnd = p3[0];
+  const yEnd = p3[1];
+  const dt = xEnd - xStart;
+
+  m0 = m0 * dt;
+  m1 = m1 * dt;
+  const bezierControlPoints = [[xStart + (xEnd - xStart) / 3, yStart + m0 / 3], [xEnd - (xEnd - xStart) / 3, yEnd - m1 / 3]];
+
+  return bezierControlPoints;
+}
+
+export function getBezierCurveFromHermiteInMars (marsHermiteCurves: number[][]): BezierKeyframeValue[] {
+  let ymax = -1000000;
+  let ymin = 1000000;
+
+  for (let i = 0; i < marsHermiteCurves.length; i++) {
+    ymax = Math.max(ymax, marsHermiteCurves[i][1]);
+    ymin = Math.min(ymin, marsHermiteCurves[i][1]);
+  }
+  const marsBezierCurves = [[marsHermiteCurves[0][0], marsHermiteCurves[0][1]]];
+
+  for (let i = 0; i < marsHermiteCurves.length - 1; i++) {
+    const m0 = marsHermiteCurves[i][3] * (ymax - ymin);
+    const m1 = marsHermiteCurves[i + 1][2] * (ymax - ymin);
+    const p0 = [marsHermiteCurves[i][0], marsHermiteCurves[i][1]];
+    const p3 = [marsHermiteCurves[i + 1][0], marsHermiteCurves[i + 1][1]];
+
+    if (p0[0] != p3[0]) {
+      const bezierControlPoints = getBezierCurveFromHermite(m0, m1, p0, p3);
+      const p1 = bezierControlPoints[0];
+      const p2 = bezierControlPoints[1];
+
+      marsBezierCurves[marsBezierCurves.length - 1].push(p1[0]);
+      marsBezierCurves[marsBezierCurves.length - 1].push(p1[1]);
+      marsBezierCurves.push([p2[0], p2[1], p3[0], p3[1]]);
+    } else {
+      marsBezierCurves[marsBezierCurves.length - 1].push(p3[0]);
+      marsBezierCurves[marsBezierCurves.length - 1].push(p3[1]);
+    }
+  }
+
+  // 添加关键帧类型
+  return marsBezierCurves.map((curve, index) => {
+    return index === 0 ? [BezierKeyframeType.EASE_OUT, curve as [number, number, number, number]]
+      : index === marsBezierCurves.length - 1 ? [BezierKeyframeType.EASE_IN, curve as [number, number, number, number]]
+        : [BezierKeyframeType.EASE, curve as [number, number, number, number, number, number]];
+  });
 }

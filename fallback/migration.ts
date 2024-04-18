@@ -1,5 +1,7 @@
 import type { JSONScene } from '../src/scene';
+import type { BaseContent } from '../src';
 import { ItemType, ItemEndBehavior } from '../src';
+import { ensureFixedNumber, ensureFixedVec3 } from './utils';
 
 /**
  * 2.1 以下版本数据适配（mars-player@2.4.0 及以上版本支持 2.1 以下数据的适配）
@@ -39,4 +41,35 @@ export function version22Migration (json: JSONScene): JSONScene {
   });
 
   return json;
+}
+
+/**
+ * 2.5 以下版本 赫尔米特数据转换成贝塞尔数据
+ */
+export function version24Migration (json: JSONScene): JSONScene {
+// 曲线转换成贝塞尔
+  json.compositions.map((comp: any) => {
+    for (const item of comp.items) {
+      convertParam(item.content);
+    }
+  });
+
+  return json;
+}
+
+export function convertParam (content: BaseContent) {
+  for (const key of Object.keys(content)) {
+    const value = content[key];
+    const isArray = Array.isArray(value);
+
+    if (isArray && value.length === 2 && Array.isArray(value[1])) {
+      if (key === 'path') {
+        content[key] = ensureFixedVec3(value);
+      } else {
+        content[key] = ensureFixedNumber(value);
+      }
+    } else if (!isArray && typeof value === 'object') {
+      convertParam(value);
+    }
+  }
 }
