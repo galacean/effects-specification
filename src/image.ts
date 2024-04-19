@@ -1,5 +1,6 @@
 import type { RenderLevel } from './type';
 import type { BinaryPointer } from './binary';
+import type { DataType } from './components';
 
 export interface TextureFormatOptions {
   format?: GLenum,
@@ -8,6 +9,9 @@ export interface TextureFormatOptions {
 }
 
 export interface TextureConfigOptionsBase {
+  generateMipmap?: boolean,
+  id?: string,
+  dataType?: DataType.Texture,
   name?: string,
   wrapS?: GLenum,
   wrapT?: GLenum,
@@ -52,6 +56,15 @@ export type TextureJSONOptions = SerializedTextureSource;
 
 export type TextureDefine = TextureJSONOptions;
 
+/**
+ * 动态换图类型
+ * @since 1.1.0
+ */
+export enum BackgroundType {
+  video = 'video',
+  image = 'image',
+}
+
 export interface TemplateContent {
   variables: Record<string, number | string>,
   /**
@@ -61,6 +74,7 @@ export interface TemplateContent {
   height: number,
   // 绘制 canvas 的背景图片，替换掉原来的那张图片，如果没有就不替换
   background?: {
+    type: BackgroundType,
     name: string,
     url: string,
   },
@@ -116,9 +130,4 @@ export interface CompressedImage extends Image {
     astc?: string, // 安卓
     pvrtc?: string,
   },
-}
-
-export interface VideoImage extends Image {
-  type: 'video',
-  loop?: boolean,
 }

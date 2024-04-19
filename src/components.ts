@@ -29,7 +29,7 @@ export interface DataPath {
 export interface EffectsObjectData {
   id: string,
   name?: string,
-  dataType: string,
+  dataType: DataType,
 }
 
 export interface ComponentData extends EffectsObjectData {

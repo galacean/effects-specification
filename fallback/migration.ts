@@ -58,18 +58,13 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
   // 兼容老版本数据中不存在textures的情况
   result.textures ??= [];
   result.textures.forEach(textureOptions => {
-    textureOptions = {
-      ...textureOptions,
-      // @ts-expect-error
-      id: generateGUID(),
-      dataType: DataType.Texture,
-    };
+    textureOptions.id = generateGUID();
+    textureOptions.dataType = DataType.Texture;
   });
 
   if (result.textures.length < result.images.length) {
     for (let i = result.textures.length; i < result.images.length; i++) {
       result.textures.push({
-        //@ts-expect-error
         id: generateGUID(),
         dataType: DataType.Texture,
         source: i,
@@ -121,7 +116,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
           if (item.content.renderer.texture !== undefined) {
             const oldTextureId = item.content.renderer.texture;
 
-            //@ts-expect-error
             item.content.renderer.texture = { id: result.textures[oldTextureId].id };
           }
         }
@@ -130,7 +124,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
           if (item.content.trails.texture !== undefined) {
             const oldTextureId = item.content.trails.texture;
 
-            //@ts-expect-error
             item.content.trails.texture = { id: result.textures[oldTextureId].id };
           }
         }
