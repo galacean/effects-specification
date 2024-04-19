@@ -1,126 +1,39 @@
+/**
+ * 主要用于测试 filter 字段被过滤掉
+ */
 import { ItemType, ValueType } from '../../../dist/index.mjs';
-import { getStandardItem, deleteEmptyValue, forEach } from '../../../dist/fallback.mjs';
+import { getStandardJSON, deleteEmptyValue, forEach } from '../../../dist/fallback.mjs';
 
 const { expect } = chai;
 
-describe('filter base', () => {
-  it('filter static options', () => {
-    const item = {
-      type: '8',
-      delay: 0.5,
-      id: '3',
-      parentId: '5',
-      content: {
-        options: {
-          'startSize': 1.2,
-          'sizeAspect': 0.5,
-          'duration': 2,
-          'renderLevel': 'S',
-        },
-        renderer: {
-          renderMode: 1,
-          shape: 0,
-          maskMode: 1,
-          side: 2,
-        },
-        transform: {
-          rotation: [0, 90, 0],
-          position: [0, 2, 1],
-          path: [1, 0, 0],
-        },
-        sizeOverLifetime: {
-          size: ['lines', [[0, 1], [0.5, 0], [1, 1]]],
-        },
-        filter: {
-          name: 'gaussian',
-          radius: 30,
-        },
-      },
-    };
-    const neo = getStandardItem(item);
+describe('filter', () => {
+  it('filter 元素被过滤掉', () => {
+    const json = '{"images":[{"url":"https://mdn.alipayobjects.com/mars/afts/img/A*Gf_HTrsSzDsAAAAAAAAAAAAADlB4AQ/original","webp":"https://mdn.alipayobjects.com/mars/afts/img/A*38e1QrhwaiQAAAAAAAAAAAAADlB4AQ/original","renderLevel":"B+"},{"url":"https://mdn.alipayobjects.com/mars/afts/img/A*8e9dTrz9YHoAAAAAAAAAAAAADlB4AQ/original","webp":"https://mdn.alipayobjects.com/mars/afts/img/A*fmxKRbvqN94AAAAAAAAAAAAADlB4AQ/original","renderLevel":"B+"}],"spines":[],"version":"1.5","shapes":[{"g":{"p":[[0.523076923076923,-0.06282055194561309,1.1128206693209133,-0.33461538461538476,-0.0666668231670674,0.20897428072415858],[-0.9153846153846154,0.11666658841646638,-0.8557690987220177,-0.10972656126267621,-0.9181889955814069,0.14354689803562992],[-0.9897437462439904,1.0064102466289815,-0.9897437462439904,0.5556653317332156,-0.1737037249563922,1.0064102466289815],[1,1,0.6194916379724837,1,1,0.09353119090398587],[0.9948716383713943,-0.7012822077824519,0.9948716383713943,-0.22468717446296677,0.16157083885709955,-0.7012822077824519],[0.6217947152944712,-0.7153846153846153,0.9987177922175481,-0.6858975923978363,0.10765047236582011,-0.7352564885066104]],"s":[[0,0.0625,0.125,0.1875,0.25,0.375,0.5,0.75,0.8125,0.875,1],[0,0.5,1],[0,1],[0,1],[0,0.25,0.5,1],[0,0.0625,0.125,0.25,0.375,0.5,0.5625,0.625,0.6875,0.75,0.8125,0.875,0.9375,0.96875,1]]}}],"plugins":[],"type":"mars","compositions":[{"id":"28","name":"欢呼粒子","duration":3,"startTime":0,"endBehavior":2,"previewSize":[750,750],"items":[{"id":"557","name":"face","duration":2,"type":"2","visible":true,"endBehavior":0,"delay":0,"renderLevel":"B+","content":{"shape":{"shape":"Cone","radius":0.6,"arc":360,"arcMode":0,"angle":33,"type":2,"alignSpeedDirection":false,"turbulenceX":[0,0],"turbulenceY":[0,0],"turbulenceZ":[0,0]},"splits":[[0.5400390625,0.0009765625,0.3125,0.078125,0]],"options":{"startColor":[8,[1,1,1,1]],"maxCount":100,"startLifetime":[4,[1,1.4]],"startDelay":[0,0],"startSize":[4,[0.2,0.4]],"sizeAspect":[0,1],"start3DSize":false,"startRotationZ":[4,[0,360]]},"renderer":{"renderMode":1,"texture":0},"emission":{"rateOverTime":[0,0],"burstOffsets":[{"index":0,"x":0,"y":0,"z":0},{"index":1,"x":0,"y":0,"z":0},{"index":2,"x":0,"y":0,"z":0}],"bursts":[{"time":0,"count":22,"cycles":1,"interval":0},{"time":0.5,"count":22,"cycles":1,"interval":0},{"time":1,"count":22,"cycles":1,"interval":0}]},"positionOverLifetime":{"asMovement":false,"speedOverLifetime":[6,[[0,1,0,0],[0.2169,0.8442,-1.3,-1.22],[0.4336,0.1332,-0.4662,-0.5119],[1,0,0,0]]],"linearY":[0,0],"linearX":[0,0],"linearZ":[0,0],"startSpeed":[4,[9,16]],"gravity":[0,-7,0],"gravityOverLifetime":[0,1]},"sizeOverLifetime":{"size":[5,[[0,0.8],[0.2547,1.4018],[1,1.6]]]},"rotationOverLifetime":{"asRotation":false,"z":[4,[260,400]]},"colorOverLifetime":{"opacity":[5,[[0,0],[0.1769,1],[0.8198,1],[1,0]]]},"textureSheetAnimation":{"col":4,"animate":false,"total":0,"row":1}},"transform":{"position":[-0.06231099026667142,-4.154147151879992,0],"rotation":[89.99999999999999,0,0],"scale":[1,1,1]}},{"id":"558","name":"鱼卡","duration":2,"type":"1","parentId":"561","visible":true,"endBehavior":5,"delay":0,"renderLevel":"B+","content":{"options":{"startColor":[1,1,1,1]},"renderer":{"renderMode":1,"texture":1},"positionOverLifetime":{},"splits":[[0.5009765625,0.0009765625,0.267578125,0.37890625,1],[0.0009765625,0.5009765625,0.267578125,0.37890625,0],[0.5009765625,0.2705078125,0.267578125,0.37890625,1],[0.2705078125,0.5400390625,0.267578125,0.37890625,0]]},"transform":{"position":[0,0,0],"rotation":[0,0,0],"scale":[3.117122635624778,4.41402767380443,1]}},{"id":"559","name":"敬业福卡面","duration":2,"type":"1","parentId":"561","visible":true,"endBehavior":5,"delay":0,"renderLevel":"B+","content":{"options":{"startColor":[1,1,1,1]},"renderer":{"renderMode":1,"side":1032,"shape":0,"texture":0,"maskMode":0},"positionOverLifetime":{},"splits":[[0.0009765625,0.0009765625,0.537109375,0.751953125,0]]},"transform":{"position":[-0.07,0,0],"rotation":[0,0,0],"scale":[3.17,4.438,1]}},{"id":"560","name":"福字牌-1","duration":2,"type":"1","parentId":"561","visible":true,"endBehavior":4,"delay":0,"renderLevel":"B+","content":{"options":{"startColor":[1,1,1,1]},"renderer":{"renderMode":1,"texture":1,"maskMode":0},"positionOverLifetime":{},"splits":[[0.0009765625,0.0009765625,0.498046875,0.498046875,0]]},"transform":{"position":[0.02,-0.8255811824343184,-0.0000023182466755145015],"rotation":[0,0,0],"scale":[1.4,1.4,1]}},{"id":"561","name":"牌子节点","duration":4,"type":"3","visible":true,"endBehavior":0,"delay":0,"renderLevel":"B+","content":{"options":{"startColor":[1,1,1,1]},"positionOverLifetime":{"asMovement":true,"linearY":[6,[[0.75,0,-0.065,-0.065],[0.8,1,0,0],[0.999,-10,0.042,0.042]]]},"sizeOverLifetime":{"size":[6,[[0.05,0.002,-0.005,-0.005],[0.092,0.325,11.542,11.542],[0.189,1.11,0,0],[0.329,0.98,-0.082,-0.082],[0.5,1.002,-0.014,-0.014],[0.8,1.002,-0.013,-0.013],[0.878,0.415,-6.729,-6.729],[0.999,0.002,0.001,0.001]]]},"rotationOverLifetime":{"asRotation":true,"separateAxes":true,"y":[6,[[0.05,270,0.022,0.022],[0.12,86.979,-4.195,-4.195],[0.3,4.342,-0.029,-0.029]]]}},"transform":{"position":[0,0,0],"rotation":[0,0,0],"scale":[1,1,1]}},{"id":"562","name":"filter_447","duration":5,"type":"8","visible":true,"endBehavior":0,"delay":0,"renderLevel":"B+","content":{"options":{},"filter":{"name":"bloom","radius":32,"colorThreshold":[220,220,220],"bloomAddon":[0,0.6],"colorAddon":[0,0.7]},"renderer":{"renderMode":0},"positionOverLifetime":{"path":[2,[0,0,0]]}},"transform":{"position":[0,0,-0.000002098084138424383],"rotation":[0,0,0],"scale":[9,9,1]}}],"camera":{"fov":60,"far":20,"near":2,"position":[0,0,8],"rotation":[0,0,0],"clipMode":0}}],"requires":["filter"],"compositionId":"28","bins":[],"textures":[{"source":0,"flipY":true},{"source":1,"flipY":true}]}';
+    const result = getStandardJSON(JSON.parse(json));
+    const filterItems = result.items.filter(item => item.type === '8');
 
-    expect(neo).contains({
-      type: ItemType.filter,
-      delay: 0.5,
-      duration: 2,
-      parentId: '5',
-      id: '3',
-      renderLevel: 'S',
-    });
-    expect(neo.transform).to.deep.equals({
-      scale: [1.2, 2.4, 1],
-      rotation: [0, 90, 0],
-      position: [0, 2, 1],
-    });
-    expect(neo.content.positionOverLifetime).to.deep
-      .equals({ path: [ValueType.CONSTANT_VEC3, [1, 0, 0]] });
-    expect(neo.content.renderer).to.deep.equals({
-      renderMode: 1,
-      shape: 0,
-      maskMode: 1,
-      side: 2,
-    });
-    expect(deleteEmptyValue(neo.content.sizeOverLifetime)).to.deep.equals({
-      size: [ValueType.LINE, [[0, 1], [0.5, 0], [1, 1]]],
-    });
-    expect(neo.content.filter).to.deep.equals({ name: 'gaussian', radius: 30 });
+    expect(filterItems.length).eq(0);
   });
-  it('convert filter content', () => {
-    const item = {
-      'name': 'filter_1',
-      'delay': 0,
-      'id': 2,
-      'type': '8',
-      'content': {
-        'options': { 'duration': 5, 'startSize': 6, 'sizeAspect': 1, 'renderLevel': 'B+' },
-        'renderer': { 'renderMode': 0 },
-        'filter': {
-          'name': 'bloom',
-          'radius': 20,
-          'colorThreshold': ['lines', [[0, 1], [0.5, 0], [1, 1]]],
-          'bloomAddon': ['lines', [[0, 1], [0.5, 0], [1, 1]]],
-          'colorAddon': ['lines', [[0, 1], [0.5, 0], [1, 1]]],
-          feather: ['lines', [[0, 1], [0.5, 0], [1, 1]]],
-        },
-      },
-      'duration': 5,
-    };
-    const neo = getStandardItem(item);
 
-    expect(neo.content.filter).to.exist;
-    const result = {
-      name: 'bloom',
-      radius: 20,
-      colorThreshold: [ValueType.LINE, [[0, 1], [0.5, 0], [1, 1]]],
-      bloomAddon: [ValueType.LINE, [[0, 1], [0.5, 0], [1, 1]]],
-      colorAddon: [ValueType.LINE, [[0, 1], [0.5, 0], [1, 1]]],
-      feather: [ValueType.LINE, [[0, 1], [0.5, 0], [1, 1]]],
-    };
+  it('过滤逻辑不影响不包含 filter 元素的合成', () => {
+    const json = '{"compositionId":3,"requires":[],"compositions":[{"name":"彩色纸片_满屏落下","id":3,"duration":9,"endBehavior":1,"camera":{"fov":60,"far":20,"near":0.1,"position":[0,0,8],"clipMode":0,"z":8},"items":[{"name":"彩色纸片","delay":0,"id":11,"ro":0.1,"particle":{"options":{"startLifetime":["random",[2,3]],"startSize":["random",[0.15,0.2]],"sizeAspect":1.040983606557377,"startSpeed":["random",[1,3]],"startColor":["colors",["rgba(245, 166 , 35 , 1)","rgba(80, 227 , 194 , 1)","rgba(89, 58 , 245 , 1)","rgba(54, 16 , 242 , 1)","rgba(208, 2 , 27 , 1)"]],"duration":9,"maxCount":100,"gravityModifier":1,"gravity":[0,-1,0],"looping":false,"start3DRotation":true,"startRotationZ":4,"startRotationY":3,"startRotationX":4,"renderLevel":"B+"},"emission":{"rateOverTime":["lines",[[0,55],[0.1974,55],[0.3105,0],[1,0]]],"burstOffsets":[{"index":0,"x":0,"y":0,"z":0}],"bursts":[]},"shape":{"shape":"Edge","radius":0.8,"arc":360,"arcMode":0,"angle":32,"width":10},"renderer":{"texture":0},"textureSheetAnimation":{"col":2,"row":2},"transform":{"rotation":[0,0,180],"position":[0,5,0]},"colorOverLifetime":{"opacity":["curve",[[0,0,0,4.3235],[0.1569,0.9994,0,0],[0.72,0.82,-0.98,-1.1],[1,0,-5,7]]]},"rotationOverLifetime":{"angularVelocity":["random",[300,500]]},"splits":[[0.00390625,0.00390625,0.49609375,0.4765625,0]]}}],"meta":{"previewSize":[0,0]}}],"gltf":[],"images":["https://gw.alipayobjects.com/zos/gltf-asset/mars-cli/MNJVBYCSYDWN/760117553-3d179.png"],"version":"0.1.47","shapes":[],"plugins":[],"type":"mars","_imgs":{"3":[0]},"imageTags":["B+"]}';
+    const result = getStandardJSON(JSON.parse(json));
+    const filterItems = result.items.filter(item => item.type === '8');
 
-    forEach(neo.content.filter, (val, name) => {
-      expect(val).to.deep.equals(result[name], name);
+    expect(filterItems.length).eq(0);
+  });
+
+  it('particle filter 被过滤掉', () => {
+    const json = '{"images":[{"url":"https://mdn.alipayobjects.com/mars/afts/img/A*K8wjTLPLe70AAAAAAAAAAAAADlB4AQ/original","webp":"https://mdn.alipayobjects.com/mars/afts/img/A*ZJiYRqCa5bwAAAAAAAAAAAAADlB4AQ/original","renderLevel":"B+"},{"url":"https://mdn.alipayobjects.com/mars/afts/img/A*0uSnT5vW9XgAAAAAAAAAAAAADlB4AQ/original","webp":"https://mdn.alipayobjects.com/mars/afts/img/A*3WtFTLzrybAAAAAAAAAAAAAADlB4AQ/original","renderLevel":"B+"}],"spines":[],"version":"1.5","shapes":[],"plugins":[],"type":"mars","compositions":[{"id":"25","name":"distortion","duration":5,"startTime":0,"endBehavior":0,"previewSize":[0,0],"items":[{"id":"36","name":"distortion","duration":5,"type":"2","visible":true,"endBehavior":4,"delay":0,"renderLevel":"B+","content":{"shape":{"shape":"None","radius":1,"arc":360,"arcMode":0,"type":0},"options":{"startColor":[8,[1,1,1,1]],"maxCount":1,"startLifetime":[0,5],"startDelay":[0,0],"start3DSize":true,"startSizeX":[0,6],"startSizeY":[0,9]},"renderer":{"texture":0,"order":1},"emission":{"rateOverTime":[0,5]},"positionOverLifetime":{"startSpeed":[0,0],"gravityOverLifetime":[0,1]},"rotationOverLifetime":{"asRotation":true,"z":[0,5]},"filter":{"name":"distortion","center":[0.5,0],"direction":[0.2,1],"strength":[0,0.008],"period":[0,6],"waveMovement":[5,[[0,0],[1,6]]]}},"transform":{"position":[1.723219445898673,3.100635886398397,0],"rotation":[0,0,0],"scale":[1,1,1]}},{"id":"37","name":"virus","duration":5,"type":"1","visible":true,"endBehavior":4,"delay":0,"renderLevel":"B+","content":{"options":{"startColor":[1,1,1,1]},"renderer":{"texture":1,"order":2},"positionOverLifetime":{},"splits":[[0.001953125,0.001953125,0.673828125,0.619140625,0]]},"transform":{"position":[-0.14902922818470277,-0.1669679315773056,0],"rotation":[0,0,0],"scale":[3.5,3.2159420289855074,1]}}],"camera":{"fov":60,"far":20,"near":0.1,"position":[0,0,8],"rotation":[0,0,0],"clipMode":0}}],"requires":[],"compositionId":"25","bins":[],"textures":[{"source":0,"flipY":true},{"source":1,"flipY":true}]}';
+    const result = getStandardJSON(JSON.parse(json));
+    const filterItems = result.items.filter(item => {
+      if (item.type === '2' && item.content.filter) {
+        return true;
+      }
+
+      return false;
     });
 
+    expect(filterItems.length).eq(0);
   });
-  it('convert path filter content', () => {
-    const item = {
-      'name': 'filter_4',
-      'delay': 0,
-      'id': 5,
-      'type': '8',
-      'content': {
-        'options': { 'duration': 5, 'startSize': 6, 'sizeAspect': 1, 'renderLevel': 'B+' },
-        'renderer': { 'renderMode': 0 },
-        'filter': {
-          'name': 'cameraMove',
-          'position': ['path', [[[0, 0, 1, 1], [1, 1, 1, 1]], [[0, 0, 0], [1, 0, 0]]]],
-        },
-      },
-      'duration': 5,
-    };
-    const neo = getStandardItem(item);
-
-    expect(neo.content.filter.position).to.eql([ValueType.LINEAR_PATH, [[[0, 0, 1, 1], [1, 1, 1, 1]], [[0, 0, 0], [1, 0, 0]]]]);
-  }
-  );
 });

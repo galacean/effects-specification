@@ -1,9 +1,5 @@
-import type { FilterContent } from './filter-item';
 import {
-  END_BEHAVIOR_DESTROY,
-  END_BEHAVIOR_DESTROY_CHILDREN,
-  END_BEHAVIOR_FREEZE,
-  END_BEHAVIOR_RESTART,
+  END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
 } from '../constants';
 import type { vec3, vec4 } from '../number-expression';
 import type { ItemType, RenderLevel } from '../type';
@@ -145,7 +141,6 @@ export type BaseContent =
   | PluginContent
   | CompositionContent
   | CameraContent
-  | FilterContent
   | TextContent
   | any
   ;
