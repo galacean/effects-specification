@@ -1,22 +1,8 @@
-import type {
-  ParticleContent,
-  ParticleShape,
-  ParticleShapeSphere,
-  ColorOverLifetime,
-  DistortionFilterParams,
-} from '../src';
+import type { ParticleContent, ParticleShape, ParticleShapeSphere, ColorOverLifetime } from '../src';
 import { ShapeType } from '../src';
 import {
-  deleteEmptyValue,
-  ensureColorExpression,
-  ensureFixedNumber,
-  ensureFixedNumberWithRandom,
-  ensureFixedVec3,
-  ensureNumberExpression,
-  getGradientColor,
-  objectValueToNumber,
-  forEach,
-  ensureValueGetter,
+  deleteEmptyValue, ensureColorExpression, ensureFixedNumber, ensureFixedNumberWithRandom,
+  ensureFixedVec3, ensureNumberExpression, getGradientColor, objectValueToNumber,
 } from './utils';
 
 export function getStandardParticleContent (particle: any): ParticleContent {
@@ -83,15 +69,6 @@ export function getStandardParticleContent (particle: any): ParticleContent {
     ret.options.startRotationY = ensureNumberExpression(options.startRotationY);
   }
 
-  if (particle.filter) {
-    const filter = {} as DistortionFilterParams;
-
-    forEach(particle.filter, function (val, key) {
-      // @ts-expect-error
-      filter[key] = ensureValueGetter(val);
-    });
-    ret.filter = filter;
-  }
   if (transform && transform.path) {
     ret.emitterTransform = {
       path: ensureFixedVec3(transform.path),

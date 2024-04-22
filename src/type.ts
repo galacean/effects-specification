@@ -542,10 +542,6 @@ export enum ItemType {
    */
   composition = '7',
   /**
-   * 滤镜图层
-   */
-  filter = '8',
-  /**
    * Spine 元素
    */
   spine = 'spine',

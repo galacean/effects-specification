@@ -16,7 +16,6 @@ export * from './item/particle-shape';
 export * from './item/plugin-item';
 export * from './item/sprite-item';
 export * from './item/spine-item';
-export * from './item/filter-item';
 export * from './item/effect-item';
 export * from './item/text-item';
 export * from './item/model';

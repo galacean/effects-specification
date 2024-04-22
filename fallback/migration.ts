@@ -82,6 +82,24 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
       composition.endBehavior = END_BEHAVIOR_FREEZE;
     }
 
+    // 过滤掉滤镜元素
+    composition.items = composition.items.filter(item => item.type !== '8' as ItemType);
+
+    // 过滤掉粒子滤镜（扭曲）
+    composition.items.forEach(item => {
+      if (item.type === ItemType.particle) {
+        // @ts-expect-error
+        const filterData = item.content['filter'];
+
+        if (filterData) {
+          // @ts-expect-error
+          delete item.content['filter'];
+        }
+      }
+    });
+
+    const itemGuidMap: Record<string, string> = {};
+
     for (const item of composition.items) {
       itemGuidMap[item.id] = generateGUID();
       // TODO: 编辑器测试用，上线后删除
