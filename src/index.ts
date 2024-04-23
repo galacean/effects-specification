@@ -24,3 +24,4 @@ export * from './binary';
 export * from './text';
 export * from './components';
 export * from './vfx-item-data';
+export * from './buitin-object-guid';
