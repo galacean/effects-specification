@@ -1,15 +1,7 @@
 import { getStandardItem, getStandardJSON } from '../../../dist/fallback.mjs';
 import {
-  ItemType,
-  ValueType,
-  END_BEHAVIOR_FREEZE,
-  ShapeType,
-  RenderMode,
-  ParticleOrigin,
-  BlendingMode,
-  MaskMode,
-  SideMode,
-  ParticleInteractionBehavior,
+  ItemType, ValueType, END_BEHAVIOR_FREEZE, ShapeType, RenderMode, ParticleOrigin,
+  BlendingMode, MaskMode, SideMode, ParticleInteractionBehavior,
 } from '../../../dist/index.mjs';
 
 const { expect } = chai;
@@ -1068,56 +1060,5 @@ describe('particle base', () => {
     expect(tsa2.animationDelay[1]).to.eql(0.5, 'animationDelay.value');
     expect(tsa2.animationDuration[0]).to.eql(ValueType.CONSTANT, 'animationDelay.type');
     expect(tsa2.animationDuration[1]).to.eql(2, 'animationDelay.value');
-  });
-
-  it('particle filter content', () => {
-    const item = {
-      'name': 'distortion',
-      'delay': 0,
-      'id': 2,
-      'ro': 0.1,
-      'particle': {
-        'options': {
-          'startLifetime': 5,
-          'startSize': 10,
-          'sizeAspect': 21.818181818181817,
-          'startSpeed': 0,
-          'startColor': ['color', [255, 255, 255]],
-          'duration': 5,
-          'maxCount': 1,
-          'gravityModifier': 1,
-          'endBehavior': 4,
-          'start3DSize': true,
-          'startSizeX': 6,
-          'startSizeY': 9,
-          'startDelay': 0,
-          'renderLevel': 'B+',
-        },
-        'emission': { 'rateOverTime': 5 },
-        'filter': {
-          'name': 'distortion',
-          'center': [0.5, 0],
-          'direction': [0.2, 1],
-          'strength': 0.008,
-          'period': 6,
-          'waveMovement': ['lines', [[0, 0], [1, 6]]],
-        },
-        'renderer': { 'texture': 0, 'order': 1 },
-        'transform': { 'position': [1.723219445898673, 3.100635886398397, 0] },
-        'rotationOverLifetime': { 'asRotation': true, 'angularVelocity': 5 },
-      },
-    };
-    const neo = getStandardItem(item);
-
-    expect(neo.content.filter).to.exist;
-
-    expect(neo.content.filter).to.contains({
-      'name': 'distortion',
-      'strength': 0.008,
-      'period': 6,
-    });
-    expect(neo.content.filter.direction).to.deep.equals([0.2, 1]);
-    expect(neo.content.filter.center).to.deep.equals([0.5, 0]);
-    expect(neo.content.filter.waveMovement).to.deep.equals([ValueType.LINE, [[0, 0], [1, 6]]]);
   });
 });

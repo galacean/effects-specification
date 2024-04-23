@@ -107,7 +107,7 @@ export interface JSONScene {
   /**
    * JSON 版本
    *
-   * 3.0 EC 改造
+   * 3.0 EC 改造、移除滤镜元素
    */
   version: string,
   /**
@@ -150,10 +150,6 @@ export interface JSONScene {
    * 'model@1.0'
    */
   plugins: string[],
-  /**
-   * 保留字段
-   */
-  requires: SceneRequire[],
   /**
    * 字体资源
    * 数据模板下掉可以不要 FontBase[]

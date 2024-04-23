@@ -2,16 +2,11 @@ import type {
   ItemType, RendererOptions, TextureSheetAnimation, BlendingMode, SplitParameter,
 } from '../type';
 import type {
-  FixedNumberExpression,
-  NumberExpression,
-  GradientColor,
-  vec3, FixedVec3Expression,
-  ColorExpression,
-  FunctionExpression,
+  FixedNumberExpression, NumberExpression, GradientColor, vec3, FixedVec3Expression,
+  ColorExpression, FunctionExpression,
 } from '../number-expression';
 import type { BaseItem, ItemEndBehavior } from './base-item';
 import type { ParticleShape } from './particle-shape';
-import type { DistortionFilterParams } from './filter-item';
 import type { ComponentData } from '../components';
 
 /**
@@ -357,7 +352,6 @@ export interface ParticleContent {
      */
     radius?: number,
   },
-  filter?: DistortionFilterParams,
 }
 
 /**
@@ -431,7 +425,6 @@ export interface ParticleSystemData extends ComponentData {
      */
     radius?: number,
   },
-  filter?: DistortionFilterParams,
 }
 
 /**

@@ -1,16 +1,6 @@
 import type {
-  BaseItem,
-  BaseItemTransform,
-  Composition,
-  CompressedImage,
-  Image,
-  JSONScene,
-  ParticleItem,
-  RenderLevel,
-  SpriteItem,
-  TemplateImage,
-  FilterItem,
-  JSONSceneLegacy,
+  BaseItem, BaseItemTransform, Composition, CompressedImage, Image, JSONScene, ParticleItem,
+  RenderLevel, SpriteItem, TemplateImage, JSONSceneLegacy, Item,
 } from '../src';
 import { CAMERA_CLIP_MODE_NORMAL, ItemEndBehavior, ItemType } from '../src';
 import { getStandardParticleContent } from './particle';
@@ -18,7 +8,6 @@ import { getStandardNullContent, getStandardSpriteContent } from './sprite';
 import { getStandardInteractContent } from './interact';
 import { arrAdd, quatFromXYZRotation, rotationZYXFromQuat } from './utils';
 import { getStandardCameraContent } from './camera';
-import { getStandardFilterContent } from './filter';
 import { version21Migration, version22Migration, version30Migration } from './migration';
 
 export * from './utils';
@@ -166,7 +155,7 @@ const tempQuat = [0, 0, 0, 1];
 
 const stdAnchor = 0.5;
 
-export function getStandardItem (item: any, opt: { plugins?: string[], requires?: string[] } = {}): SpriteItem | ParticleItem | BaseItem | FilterItem {
+export function getStandardItem (item: any, opt: { plugins?: string[], requires?: string[] } = {}): SpriteItem | ParticleItem | BaseItem {
   let type: ItemType | string = ItemType.base;
   let transform: BaseItemTransform;
   let originContent;
@@ -190,14 +179,6 @@ export function getStandardItem (item: any, opt: { plugins?: string[], requires?
       duration = item.duration;
     }
     transform = item.transform || getTransform(originContent.transform);
-    if (type === ItemType.filter) {
-      if (currentVersion < '1.1') {
-        currentVersion = '1.1';
-      }
-      content = getStandardSpriteContent(originContent, transform);
-      // @ts-expect-error
-      content.filter = getStandardFilterContent(originContent.filter);
-    }
   } else if (item.particle) {
     type = ItemType.particle;
     originContent = item.particle;
