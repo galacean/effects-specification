@@ -62,6 +62,7 @@ export interface MaterialData extends EffectsObjectData {
   zWrite?: boolean,
   zTest?: boolean,
   stringTags: Record<string, string>,
+  macros: string[],
   ints: Record<string, number>,
   floats: Record<string, number>,
   vector4s: Record<string, Vector4Data>,
