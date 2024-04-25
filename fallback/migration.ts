@@ -55,11 +55,19 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
     geometries: [],
   };
 
+  // image数据添加 guid
+  for (const image of result.images) {
+    // @ts-expect-error
+    image.id = generateGUID();
+  }
+
   // 兼容老版本数据中不存在textures的情况
   result.textures ??= [];
   result.textures.forEach(textureOptions => {
     textureOptions.id = generateGUID();
     textureOptions.dataType = DataType.Texture;
+    // @ts-expect-error
+    textureOptions.source = { id:result.images[textureOptions.source].id };
   });
 
   if (result.textures.length < result.images.length) {
@@ -67,7 +75,8 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
       result.textures.push({
         id: generateGUID(),
         dataType: DataType.Texture,
-        source: i,
+        //@ts-expect-error
+        source: { id:result.images[i].id },
         flipY: true,
       });
     }
