@@ -290,7 +290,6 @@ describe('particle base', () => {
     expect([+r[0].toFixed(1), +r[1].toFixed(1), +r[2].toFixed(1)]).to.deep.equal([90.0, -20.0, 77.0]);
     // @ts-expect-error
     delete item.particle.transform;
-
     const neo2 = getStandardItem(item);
 
     expect(neo2.transform.position, 'position').not.exist;
@@ -416,7 +415,7 @@ describe('particle base', () => {
     };
     const res = getStandardJSON(oldParticle);
     const pt = res.items.find(item => item.id === res.compositions[0].items[0].id);
-    const r2 = pt.transform.rotation;
+    const r2 = pt.transform.eulerHint;
 
     expect([+r2.x.toFixed(1), +r2.y.toFixed(1), +r2.z.toFixed(1)]).to.eql([-90.0, -20.0, 30.0], 'oldParticle rotation');
   });
