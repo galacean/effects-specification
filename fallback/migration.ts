@@ -57,7 +57,10 @@ export function version24Migration (json: JSONScene): JSONScene {
   return json;
 }
 
-export function convertParam (content: BaseContent) {
+export function convertParam (content: BaseContent | undefined | null) {
+  if (!content) {
+    return;
+  }
   for (const key of Object.keys(content)) {
     const value = content[key];
     const isArray = Array.isArray(value);
