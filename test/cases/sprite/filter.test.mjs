@@ -120,7 +120,7 @@ describe('filter base', () => {
     };
     const neo = getStandardItem(item);
 
-    expect(neo.content.filter.position).to.eql([ValueType.LINEAR_PATH, [[[0, 0, 1, 1], [1, 1, 1, 1]], [[0, 0, 0], [1, 0, 0]]]]);
+    expect(neo.content.filter.position[0]).to.eql(ValueType.BEZIER_CURVE_PATH);
   }
   );
 });

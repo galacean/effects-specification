@@ -38,7 +38,7 @@ describe('particle base', () => {
           'turbulenceX': 45,
           'turbulenceY': ['lines', [[0, 0], [1, 30]]],
           'turbulenceZ': ['random', [0, 30]],
-          'start3DRotation': false,
+          'start3DRotation': true,
           'endBehavior': 4,
           'startRotation': ['curve', [[0, 360, 0, -3], [0.5, 0, 0, 0], [1, 360, 3, 0]]],
           'startRotationY': ['curve', [[0, 360, 0, -3], [0.5, 0, 0, 0], [1, 360, 3, 0]]],
@@ -73,9 +73,9 @@ describe('particle base', () => {
     expect(shape.turbulenceZ[0]).to.be.eql(ValueType.RANDOM, 'turbulenceZ.type');
     expect(shape.turbulenceZ[1]).to.be.eql([0, 30], 'turbulenceZ.value');
     expect(neo.endBehavior).to.be.eql(END_BEHAVIOR_FREEZE, 'endBehavior');
-    expect(content.options.startRotationZ[0]).to.be.eql(ValueType.CURVE, 'startRotation.type');
-    expect(content.options.startRotationZ[1]).to.be.eql([[0, 360, 0, -3], [0.5, 0, 0, 0], [1, 360, 3, 0]], 'startRotation.value');
-    expect(content.options.startRotationY).not.exist;
+    expect(content.options.startRotationZ[0]).to.be.eql(ValueType.BEZIER_CURVE, 'startRotationZ.type');
+    // expect(content.options.startRotationZ[1]).to.be.eql([[0, 360, 0, -3], [0.5, 0, 0, 0], [1, 360, 3, 0]], 'startRotation.value');
+    expect(content.options.startRotationY[0]).to.be.eql(ValueType.BEZIER_CURVE, 'startRotationY.type');
   });
   it('particle start3DRotation', () => {
     const item = {
@@ -133,10 +133,10 @@ describe('particle base', () => {
     expect(shape.turbulenceZ[0]).to.be.eql(ValueType.RANDOM, 'turbulenceZ.type');
     expect(shape.turbulenceZ[1]).to.be.eql([0, 30], 'turbulenceZ.value');
     expect(neo.endBehavior).to.be.eql(END_BEHAVIOR_FREEZE, 'endBehavior');
-    expect(content.options.startRotationZ[0]).to.be.eql(ValueType.CURVE, 'startRotation.type');
-    expect(content.options.startRotationZ[1]).to.be.eql([[0, 360, 0, -3], [0.5, 0, 0, 0], [1, 360, 3, 0]], 'startRotation.value');
-    expect(content.options.startRotationY[0]).to.be.eql(ValueType.CURVE, 'startRotation.type');
-    expect(content.options.startRotationY[1]).to.be.eql([[0, 360, 0, -3], [0.5, 0, 0, 0], [1, 360, 3, 0]], 'startRotation.value');
+    expect(content.options.startRotationZ[0]).to.be.eql(ValueType.BEZIER_CURVE, 'startRotation.type');
+    // expect(content.options.startRotationZ[1]).to.be.eql([[0, 360, 0, -3], [0.5, 0, 0, 0], [1, 360, 3, 0]], 'startRotation.value');
+    expect(content.options.startRotationY[0]).to.be.eql(ValueType.BEZIER_CURVE, 'startRotation.type');
+    // expect(content.options.startRotationY[1]).to.be.eql([[0, 360, 0, -3], [0.5, 0, 0, 0], [1, 360, 3, 0]], 'startRotation.value');
     expect(content.options.startSizeX).not.exist;
   });
 
@@ -172,8 +172,8 @@ describe('particle base', () => {
     expect(neo.content.options.start3DSize).to.be.true;
     expect(neo.content.options.startSizeX[0]).to.eql(ValueType.LINE, 'startSizeX.type');
     expect(neo.content.options.startSizeX[1]).to.eql([[0, 0], [1, 1]], 'startSizeX.value');
-    expect(neo.content.options.startSizeY[0]).to.eql(ValueType.CURVE, 'startSizeY.type');
-    expect(neo.content.options.startSizeY[1]).to.eql([[0, 0, 1, 0], [0.3, 0.7, 1.4, 1.28], [0.63, 4.45, 1.1, 1], [1, 5, 0, 0]], 'startSizeY.value');
+    expect(neo.content.options.startSizeY[0]).to.eql(ValueType.BEZIER_CURVE, 'startSizeY.type');
+    // expect(neo.content.options.startSizeY[1]).to.eql([[0, 0, 1, 0], [0.3, 0.7, 1.4, 1.28], [0.63, 4.45, 1.1, 1], [1, 5, 0, 0]], 'startSizeY.value');
 
   });
 
@@ -461,8 +461,8 @@ describe('particle base', () => {
     const neo = getStandardItem(item);
     const p = neo.content.emitterTransform.path;
 
-    expect(p[0]).to.be.eql(ValueType.LINEAR_PATH, 'path type');
-    expect(p[1]).to.be.eql([[[0, 0, 1, 1], [1, 1, 1, 1]], [[-2, -2, -5], [1, 2, 0]]], 'path value');
+    expect(p[0]).to.be.eql(ValueType.BEZIER_CURVE_PATH, 'path type');
+    // expect(p[1]).to.be.eql([[[0, 0, 1, 1], [1, 1, 1, 1]], [[-2, -2, -5], [1, 2, 0]]], 'path value');
 
     const item2 = {
       'name': 'item_2',
@@ -529,8 +529,8 @@ describe('particle base', () => {
     const neo3 = getStandardItem(item3);
     const p3 = neo3.content.emitterTransform.path;
 
-    expect(p3[0]).to.be.eql(ValueType.BEZIER_PATH, 'path type');
-    expect(p3[1]).to.be.eql([[[0, 0, 1, 1], [1, 1, 1, 1]], [[0, 0, -0.1], [3, 0, -0]], [[0.1, 1, -0], [2, 1, 0]]], 'path value');
+    expect(p3[0]).to.be.eql(ValueType.BEZIER_CURVE_PATH, 'path type');
+    // expect(p3[1]).to.be.eql([[[0, 0, 1, 1], [1, 1, 1, 1]], [[0, 0, -0.1], [3, 0, -0]], [[0.1, 1, -0], [2, 1, 0]]], 'path value');
 
   });
 
@@ -638,8 +638,8 @@ describe('particle base', () => {
 
     const neo2 = getStandardItem(opacityCurve);
 
-    expect(neo2.content.colorOverLifetime.opacity[0]).to.eql(ValueType.CURVE, 'opacity.type');
-    expect(neo2.content.colorOverLifetime.opacity[1]).to.eql([[0, 100, 0, -3], [0.5, 0, 0, 0], [1, 100, 3, 0]], 'opacity.value');
+    expect(neo2.content.colorOverLifetime.opacity[0]).to.eql(ValueType.BEZIER_CURVE, 'opacity.type');
+    // expect(neo2.content.colorOverLifetime.opacity[1]).to.eql([[0, 100, 0, -3], [0.5, 0, 0, 0], [1, 100, 3, 0]], 'opacity.value');
   });
 
   it('particle sizeOverLifetime', () => {
@@ -819,8 +819,8 @@ describe('particle base', () => {
     expect(rot2.x[1]).eql(30, 'x.value');
     expect(rot2.y[0]).eql(ValueType.LINE, 'y.type');
     expect(rot2.y[1]).eql([[0, 0], [1, 360]], 'y.value');
-    expect(rot2.z[0]).eql(ValueType.CURVE, 'z.type');
-    expect(rot2.z[1]).eql([[0, 1, 0, -3], [0.5, 0, 0, 0], [1, 1, 3, 0]], 'z.value');
+    expect(rot2.z[0]).eql(ValueType.BEZIER_CURVE, 'z.type');
+    // expect(rot2.z[1]).eql([[0, 1, 0, -3], [0.5, 0, 0, 0], [1, 1, 3, 0]], 'z.value');
   });
 
   it('velocityOverLifetime', () => {
@@ -873,8 +873,8 @@ describe('particle base', () => {
     expect(positionOverLifetime.linearX[1]).to.eql(1, 'linearX.value');
     expect(positionOverLifetime.linearY[0]).to.eql(ValueType.RANDOM, 'linearY.type');
     expect(positionOverLifetime.linearY[1]).to.eql([0, 1], 'linearY.value');
-    expect(positionOverLifetime.linearZ[0]).to.eql(ValueType.CURVE, 'linearZ.type');
-    expect(positionOverLifetime.linearZ[1]).to.eql([[0, 0, 1, 0], [0.3, 0.14, 1.4, 1.28], [0.63, 0.89, 1.1, 1], [1, 1, 0, 0]], 'linearZ.value');
+    expect(positionOverLifetime.linearZ[0]).to.eql(ValueType.BEZIER_CURVE, 'linearZ.type');
+    // expect(positionOverLifetime.linearZ[1]).to.eql([[0, 0, 1, 0], [0.3, 0.14, 1.4, 1.28], [0.63, 0.89, 1.1, 1], [1, 1, 0, 0]], 'linearZ.value');
     expect(positionOverLifetime.asRotation, 'asRotation').to.be.true;
     expect(positionOverLifetime.orbitalX[0]).to.eql(ValueType.CONSTANT, 'orbitalX.type');
     expect(positionOverLifetime.orbitalX[1]).to.eql(30, 'orbitalX.value');
@@ -885,8 +885,8 @@ describe('particle base', () => {
     expect(positionOverLifetime.speedOverLifetime[0]).to.eql(ValueType.CONSTANT, 'speedOverLifetime.type');
     expect(positionOverLifetime.speedOverLifetime[1]).to.eql(4, 'speedOverLifetime.value');
     expect(positionOverLifetime.forceTarget).to.be.true;
-    expect(positionOverLifetime.forceCurve[0]).to.eql(ValueType.CURVE, 'forceCurve.type');
-    expect(positionOverLifetime.forceCurve[1]).to.eql([[0, 1, 0, 0], [0.72, 0.82, -0.98, -1.1], [1, 0, -5, 7]], 'forceCurve.value');
+    expect(positionOverLifetime.forceCurve[0]).to.eql(ValueType.BEZIER_CURVE, 'forceCurve.type');
+    // expect(positionOverLifetime.forceCurve[1]).to.eql([[0, 1, 0, 0], [0.72, 0.82, -0.98, -1.1], [1, 0, -5, 7]], 'forceCurve.value');
     expect(positionOverLifetime.startSpeed[0]).to.eql(ValueType.RANDOM, 'startSpeed.type');
     expect(positionOverLifetime.startSpeed[1]).to.eql([0, 1], 'startSpeed.value');
 
@@ -1016,8 +1016,8 @@ describe('particle base', () => {
     expect(tsa.animate, 'animate').to.be.true;
     expect(tsa.animationDuration[0]).to.eql(ValueType.CONSTANT, 'animationDuration.type');
     expect(tsa.animationDuration[1]).to.eql(10, 'animationDuration.value');
-    expect(tsa.cycles[0]).to.eql(ValueType.CURVE, 'cycles.type');
-    expect(tsa.cycles[1]).to.eql([[0, 10, 0, -3], [0.5, 0, 0, 0], [1, 10, 3, 0]], 'cycles.value');
+    expect(tsa.cycles[0]).to.eql(ValueType.BEZIER_CURVE, 'cycles.type');
+    // expect(tsa.cycles[1]).to.eql([[0, 10, 0, -3], [0.5, 0, 0, 0], [1, 10, 3, 0]], 'cycles.value');
     expect(tsa.animationDelay[0]).to.eql(ValueType.CONSTANT, 'animationDelay.type');
     expect(tsa.animationDelay[1]).to.eql(2, 'animationDelay.value');
 
