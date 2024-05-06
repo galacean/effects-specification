@@ -8,7 +8,7 @@ import { getStandardNullContent, getStandardSpriteContent } from './sprite';
 import { getStandardInteractContent } from './interact';
 import { arrAdd, quatFromXYZRotation, rotationZYXFromQuat } from './utils';
 import { getStandardCameraContent } from './camera';
-import { version21Migration, version22Migration, version30Migration } from './migration';
+import { version21Migration, version22Migration, version24Migration, version30Migration } from './migration';
 
 export * from './utils';
 
@@ -30,10 +30,15 @@ export function getStandardJSON (json: any): JSONScene {
     return version30Migration(version21Migration(getStandardJSONFromV0(json)));
   }
 
-  const mainVersion = standardVersion.exec(json.version)?.[1];
+  const vs = standardVersion.exec(json.version) || [];
+  const mainVersion = Number(vs[1]);
+  const minorVersion = Number(vs[2]);
 
   if (mainVersion) {
-    if (Number(mainVersion) < 3) {
+    if (mainVersion < 2 || (mainVersion === 2 && minorVersion < 4)) {
+      json = version24Migration(json);
+    }
+    if (mainVersion < 3) {
       return version30Migration(version21Migration(json));
     }
 
