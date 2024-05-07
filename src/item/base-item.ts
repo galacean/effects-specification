@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 import type { BinaryEnv } from '../binary';
 import {
   END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
@@ -152,4 +153,5 @@ export type BaseContent =
   | ModelMeshItemContent<BinaryEnv>
   | ModelLightContent
   | SkyboxContent<BinaryEnv>
+  | any
   ;
