@@ -84,6 +84,7 @@ export interface TemplateContent {
  * 纹理贴图属性
  */
 export interface Image {
+  id: string,
   /**
    * 纹理贴图地址
    */
