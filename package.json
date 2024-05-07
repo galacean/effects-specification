@@ -4,14 +4,15 @@
   "description": "Galacean Effects JSON Specification",
   "module": "./es/index.js",
   "main": "./es/index.js",
-  "types": "./es/src/index.d.ts",
+  "types": "./es/index.d.ts",
   "files": [
     "es"
   ],
   "exports": {
-    "./*": {
-      "import": "./*.js",
-      "types": "./*.d.ts"
+    ".": {
+      "import": "./es/index.js",
+      "require": "./es/index.js",
+      "types": "./es/index.d.ts"
     }
   },
   "scripts": {
