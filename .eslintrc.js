@@ -8,11 +8,9 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    mocha: true,
   },
-  globals: { 'chai': true },
   ignorePatterns: [
-    '**/{node_modules,libs}',
+    '**/{node_modules,es}',
     '*.js',
     '*.d.ts',
   ],
@@ -137,13 +135,5 @@ module.exports = {
       },
     ],
     "compat/compat": "error",
-  },
-  overrides: [
-    {
-      "files": ["**/test/**/*.ts", "**/demo/**/*.ts"],
-      "rules": {
-        "compat/compat": "off"
-      }
-    }
-  ]
+  }
 };

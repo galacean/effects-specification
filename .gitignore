@@ -91,7 +91,4 @@ typings/
 
 .idea
 .history
-dist
-dist-rollup
-test/dev/*
-node/index.js
+es
