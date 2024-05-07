@@ -8,15 +8,7 @@
 
 ``` bash
 # 1. Install dependencies (first time)
-npm install
+pnpm install
 # 2. Build
-npm run build
+pnpm run build
 ```
-
-## Testing
-
-``` bash
-npm run test
-```
-
-> Open browser and open: http://localhost:9003/test/

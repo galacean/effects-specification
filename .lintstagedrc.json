@@ -1,5 +1,5 @@
 {
-  "{src,fallback,test}/**/*.{ts,mjs}": [
+  "src/**/*.ts": [
     "eslint --cache --fix",
     "sh -c 'tsc -b tsconfig.check.json'"
   ]

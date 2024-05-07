@@ -23,7 +23,7 @@ export interface VFXItemData extends EffectsObjectData {
    * plugin 模块实现者自由实现命名
    * 2022.12更新: spine: "spine", 陀螺仪: "5"
    */
-  type: ItemType | string,
+  type: ItemType,
   /**
    * 父节点ID
    * 如果父节点无法找到，播放将直接报错

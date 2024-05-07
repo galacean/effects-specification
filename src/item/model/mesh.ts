@@ -5,8 +5,7 @@ import type { GeometryPointer } from './binary';
 import type { vec3 } from '../../number-expression';
 import type { InteractBehavior, ItemType } from '../../type';
 import type { ModelAnimationTrackDataPointer } from './binary';
-import type { ComponentData, DataPath, GeometryData, MaterialData } from '../../components';
-import type { VFXItemData } from 'src/vfx-item-data';
+import type { ComponentData, DataPath } from '../../components';
 
 export type BufferType =
   | WebGLRenderingContext['FLOAT']

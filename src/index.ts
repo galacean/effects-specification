@@ -1,4 +1,3 @@
-export * from 'uuid/dist/esm-browser/v4';
 export * from './type';
 export * from './composition';
 export * from './image';
