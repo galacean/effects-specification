@@ -57,7 +57,6 @@ export function version30Migration (json: JSONSceneLegacy): JSONScene {
 
   // image数据添加 guid
   for (const image of result.images) {
-    // @ts-expect-error
     image.id = generateGUID();
   }
 

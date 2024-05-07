@@ -6,7 +6,7 @@ import { CAMERA_CLIP_MODE_NORMAL, ItemEndBehavior, ItemType } from '../src';
 import { getStandardParticleContent } from './particle';
 import { getStandardNullContent, getStandardSpriteContent } from './sprite';
 import { getStandardInteractContent } from './interact';
-import { arrAdd, quatFromXYZRotation, rotationZYXFromQuat } from './utils';
+import { arrAdd, generateGUID, quatFromXYZRotation, rotationZYXFromQuat } from './utils';
 import { getStandardCameraContent } from './camera';
 import { version21Migration, version22Migration, version30Migration } from './migration';
 
@@ -89,12 +89,14 @@ export function getStandardImage (image: any, index: number, imageTags: RenderLe
 
   if (typeof image === 'string') {
     return {
+      id: generateGUID(),
       renderLevel,
       url: image,
       oriY,
     };
   } else if (image.template) {
     return {
+      id: generateGUID(),
       url: image.url,
       template: image.template,
       webp: image.webp,
@@ -103,6 +105,7 @@ export function getStandardImage (image: any, index: number, imageTags: RenderLe
     };
   } else if (image.compressed) {
     return {
+      id: generateGUID(),
       url: image.url,
       oriY,
       compressed: {
@@ -114,6 +117,7 @@ export function getStandardImage (image: any, index: number, imageTags: RenderLe
     };
   } else if (image.url) {
     return {
+      id: generateGUID(),
       url: image.url,
       webp: image.webp,
       renderLevel,
