@@ -19,6 +19,7 @@ export * from './item/effect-item';
 export * from './item/text-item';
 export * from './item/model';
 export * from './vfx-item-data';
+export * from './animation-clip-data';
 export * from './binary';
 export * from './text';
 export * from './components';
