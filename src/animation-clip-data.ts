@@ -1,6 +1,7 @@
+import type { EffectsObjectData } from './components';
 import type { FixedNumberExpression, FixedVec3Expression } from './number-expression';
 
-export interface AnimationClipData {
+export interface AnimationClipData extends EffectsObjectData {
   positionCurve: PositionCurveData,
   eulerCurve: EulerCurveData,
   scaleCurve: ScaleCurveData,

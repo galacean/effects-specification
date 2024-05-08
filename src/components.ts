@@ -11,6 +11,7 @@ export enum DataType {
   CameraController = 'CameraController',
   Geometry = 'Geometry',
   Texture = 'Texture',
+  AnimationClip = 'AnimationClip',
   TextComponent = 'TextComponent',
 
   // FIXME: 先完成ECS的场景转换，后面移到spec中
