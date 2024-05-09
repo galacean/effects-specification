@@ -111,10 +111,6 @@ export interface MorphData {
 export interface ModelMeshComponentData extends ComponentData {
   hide?: boolean,
   /**
-   * 蒙皮数据
-   */
-  skin?: SkinData,
-  /**
    * 骨骼根节点
    */
   rootBone: DataPath,
@@ -122,6 +118,7 @@ export interface ModelMeshComponentData extends ComponentData {
    * Morph数据
    */
   morph?: MorphData,
-  primitives: PrimitiveData[],
+  geometry: DataPath,
+  materials: DataPath[],
   interaction?: ModelItemBounding,
 }
