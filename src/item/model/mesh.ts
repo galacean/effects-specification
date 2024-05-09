@@ -115,6 +115,10 @@ export interface ModelMeshComponentData extends ComponentData {
    */
   skin?: SkinData,
   /**
+   * 骨骼根节点
+   */
+  rootBone: DataPath,
+  /**
    * Morph数据
    */
   morph?: MorphData,
