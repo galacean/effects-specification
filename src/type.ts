@@ -690,3 +690,14 @@ export interface ShapeGeometry {
    */
   s: ShapeSplits,
 }
+
+export enum RenderType {
+  Opaque = 'Opaque',
+  Transparent = 'Transparent',
+}
+
+export enum RenderFace {
+  Both = 'Both',
+  Back = 'Back',
+  Front = 'Front',
+}
