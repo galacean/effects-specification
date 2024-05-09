@@ -131,13 +131,24 @@ export enum GeometryType {
 
 export interface VertexData {
   vertexCount: number,
-  channels: Record<string, VertexChannel>,  // channel 存放顺序 position, uv, normal
+  channels: Record<string, VertexChannel>, // channel 存放顺序 position, uv, normal
 }
 
 export interface VertexChannel {
   offset: number,
   format: number,
   dimension: number,
+}
+
+export enum GeometryBufferSemantic {
+  Positon = 'position',
+  Uv = 'uv',
+  Uv2 = 'uv2',
+  Normal = 'normal',
+  Tangent = 'tangent',
+  Color = 'color',
+  BoneIndices = 'boneIndices',
+  BoneWeights = 'boneWeights'
 }
 
 export interface ShaderData extends EffectsObjectData {
