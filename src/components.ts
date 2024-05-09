@@ -134,11 +134,22 @@ export interface VertexData {
   channels: VertexChannel[], // channel 存放顺序 position, uv, normal
 }
 
+export enum VertexFormatType {
+  FLOAT,
+  INT,
+  SHORT,
+  BYTE,
+  UNSIGNED_INT,
+  UNSIGNED_SHORT,
+  UNSIGNED_BYTE,
+}
+
 export interface VertexChannel {
   semantic: string,
   offset: number,
-  format: number,
+  format: VertexFormatType,
   dimension: number,
+  normalize?: boolean,
 }
 
 export enum GeometryBufferSemantic {
