@@ -131,10 +131,11 @@ export enum GeometryType {
 
 export interface VertexData {
   vertexCount: number,
-  channels: Record<string, VertexChannel>, // channel 存放顺序 position, uv, normal
+  channels: VertexChannel[], // channel 存放顺序 position, uv, normal
 }
 
 export interface VertexChannel {
+  semantic: string,
   offset: number,
   format: number,
   dimension: number,
