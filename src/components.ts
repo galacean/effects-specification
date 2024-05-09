@@ -134,7 +134,7 @@ export interface VertexData {
   channels: VertexChannel[], // channel 存放顺序 position, uv, normal
 }
 
-export enum FormatType {
+export enum VertexFormatType {
   FLOAT,
   INT,
   SHORT,
@@ -147,7 +147,7 @@ export enum FormatType {
 export interface VertexChannel {
   semantic: string,
   offset: number,
-  format: FormatType,
+  format: VertexFormatType,
   dimension: number,
   normalize?: boolean,
 }
