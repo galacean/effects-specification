@@ -75,6 +75,7 @@ export interface GeometryData extends EffectsObjectData {
   vertexData: VertexData,
   indexFormat: number,
   indexOffset: number,
+  subMeshes: SubMesh[],
   /**
    * 模型绘制模式，默认为 GeometryType.TRIANGLES（三角形）
    * @default GeometryType.TRIANGLES
@@ -84,6 +85,17 @@ export interface GeometryData extends EffectsObjectData {
    * 存放 position, uv, normal, indices 的打包数据
    */
   buffer: string,
+  /**
+   * 所有的骨骼名称
+   */
+  boneNames?: string[],
+  rootBoneName?: string,
+  inverseBindMatrices?: number[],
+}
+
+interface SubMesh {
+  offset: number,
+  count: number,
 }
 
 export enum GeometryType {
@@ -116,15 +128,27 @@ export enum GeometryType {
    */
   TRIANGLE_FAN,
 }
+
 export interface VertexData {
   vertexCount: number,
-  channels: VertexChannel[],  // channel 存放顺序 position, uv, normal
+  channels: Record<string, VertexChannel>, // channel 存放顺序 position, uv, normal
 }
 
 export interface VertexChannel {
   offset: number,
   format: number,
   dimension: number,
+}
+
+export enum GeometryBufferSemantic {
+  Positon = 'position',
+  Uv = 'uv',
+  Uv2 = 'uv2',
+  Normal = 'normal',
+  Tangent = 'tangent',
+  Color = 'color',
+  BoneIndices = 'boneIndices',
+  BoneWeights = 'boneWeights'
 }
 
 export interface ShaderData extends EffectsObjectData {
