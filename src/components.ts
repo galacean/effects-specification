@@ -135,7 +135,7 @@ export interface VertexData {
 }
 
 export interface VertexChannel {
-  semantic: GeometryBufferSemantic,
+  semantic: string,
   offset: number,
   format: number,
   dimension: number,
