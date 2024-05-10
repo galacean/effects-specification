@@ -135,13 +135,16 @@ export interface VertexData {
 }
 
 export enum VertexFormatType {
-  FLOAT,
-  INT,
-  SHORT,
-  BYTE,
-  UNSIGNED_INT,
-  UNSIGNED_SHORT,
-  UNSIGNED_BYTE,
+  Float32,
+  Int16,
+  Int8,
+  UInt16,
+  UInt8,
+}
+
+export enum IndexFormatType {
+  UInt16,
+  UInt32,
 }
 
 export interface VertexChannel {
