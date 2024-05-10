@@ -152,7 +152,7 @@ export interface VertexChannel {
   normalize?: boolean,
 }
 
-export enum GeometryBufferSemantic {
+export enum VertexBufferSemantic {
   Positon = 'position',
   Uv = 'uv',
   Uv2 = 'uv2',
