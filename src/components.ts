@@ -155,15 +155,25 @@ export interface VertexChannel {
   normalize?: boolean,
 }
 
+// BINORMAL[n]	Binormal	float4
+// BLENDINDICES[n]	混合索引	uint
+// BLENDWEIGHT[n]	混合权重	FLOAT
+// COLOR[n]	漫射和反射颜色	float4
+// NORMAL[n]	法向矢量	float4
+// POSITION[n]	对象空间中的顶点位置。	float4
+// POSITIONT	变换的顶点位置。	float4
+// PSIZE[n]	点大小	FLOAT
+// TANGENT[n]	正切	float4
+// TEXCOORD[n]	纹理坐标	float4
 export enum VertexBufferSemantic {
-  Positon = 'position',
-  Uv = 'uv',
-  Uv2 = 'uv2',
-  Normal = 'normal',
-  Tangent = 'tangent',
-  Color = 'color',
-  BoneIndices = 'boneIndices',
-  BoneWeights = 'boneWeights'
+  Positon = 'POSITION',
+  Uv = 'TEXCOORD0',
+  Uv2 = 'TEXCOORD1',
+  Normal = 'NORMAL',
+  Tangent = 'TANGENT',
+  Color = 'COLOR',
+  Joints = 'JOINTS',
+  Weights = 'WEIGHTS'
 }
 
 export interface ShaderData extends EffectsObjectData {
