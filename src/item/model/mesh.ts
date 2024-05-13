@@ -113,7 +113,7 @@ export interface ModelMeshComponentData extends ComponentData {
   /**
    * 骨骼根节点
    */
-  rootBone: DataPath,
+  rootBone?: DataPath,
   /**
    * Morph数据
    */
