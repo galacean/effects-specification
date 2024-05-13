@@ -165,6 +165,9 @@ export interface VertexChannel {
 // PSIZE[n]	点大小	FLOAT
 // TANGENT[n]	正切	float4
 // TEXCOORD[n]	纹理坐标	float4
+// POSITION_BS[n]	Blend Shape 空间中的顶点位置	float4
+// NORMAL_BS[n]	Blend Shape 空间中的法向矢量	float4
+// TANGENT_BS[n]	Blend Shape 空间中的正切矢量	float4
 export enum VertexBufferSemantic {
   Positon = 'POSITION',
   Uv = 'TEXCOORD0',
@@ -173,7 +176,24 @@ export enum VertexBufferSemantic {
   Tangent = 'TANGENT',
   Color = 'COLOR',
   Joints = 'JOINTS',
-  Weights = 'WEIGHTS'
+  Weights = 'WEIGHTS',
+  //
+  PositionBS0 = 'POSITION_BS0',
+  PositionBS1 = 'POSITION_BS1',
+  PositionBS2 = 'POSITION_BS2',
+  PositionBS3 = 'POSITION_BS3',
+  PositionBS4 = 'POSITION_BS4',
+  PositionBS5 = 'POSITION_BS5',
+  PositionBS6 = 'POSITION_BS6',
+  PositionBS7 = 'POSITION_BS7',
+  NormalBS0 = 'NORMAL_BS0',
+  NormalBS1 = 'NORMAL_BS1',
+  NormalBS2 = 'NORMAL_BS2',
+  NormalBS3 = 'NORMAL_BS3',
+  TangentBS0 = 'TANGENT_BS0',
+  TangentBS1 = 'TANGENT_BS1',
+  TangentBS2 = 'TANGENT_BS2',
+  TangentBS3 = 'TANGENT_BS3',
 }
 
 export interface ShaderData extends EffectsObjectData {
