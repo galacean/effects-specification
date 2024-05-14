@@ -169,7 +169,7 @@ export interface VertexChannel {
 // NORMAL_BS[n]	Blend Shape 空间中的法向矢量	float4
 // TANGENT_BS[n]	Blend Shape 空间中的正切矢量	float4
 export enum VertexBufferSemantic {
-  Positon = 'POSITION',
+  Position = 'POSITION',
   Uv = 'TEXCOORD0',
   Uv2 = 'TEXCOORD1',
   Normal = 'NORMAL',
