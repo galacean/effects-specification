@@ -9,23 +9,23 @@ export interface AnimationClipData extends EffectsObjectData {
 }
 
 export interface PositionCurveData {
-  path: string[],
+  path: string,
   keyFrames: FixedVec3Expression,
 }
 
 export interface EulerCurveData {
-  path: string[],
+  path: string,
   keyFrames: FixedVec3Expression,
 }
 
 export interface ScaleCurveData {
-  path: string[],
+  path: string,
   keyFrames: FixedVec3Expression,
 }
 
 export interface FloatCurveData {
-  path: string[],
-  property: string[],
+  path: string,
+  property: string,
   className: string,
   keyFrames: FixedNumberExpression,
 }
