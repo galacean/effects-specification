@@ -3,7 +3,7 @@ import type { ModelAnimationTrackDataPointer } from './binary';
 import type { BaseItem, BaseItemTransform } from '../base-item';
 import type { SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ItemType } from '../../type';
 import type { ComponentData, DataPath } from '../../components';
-import type { AnimationClipData } from 'src/animation-clip-data';
+import type { AnimationClipData } from '../../animation-clip-data';
 
 export interface TreeNodeOptions {
   name?: string,
