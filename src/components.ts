@@ -94,7 +94,7 @@ export interface GeometryData extends EffectsObjectData {
   inverseBindMatrices?: number[],
 }
 
-interface SubMesh {
+export interface SubMesh {
   offset: number,
   indexCount?: number,
   vertexCount: number,
