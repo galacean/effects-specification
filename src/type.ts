@@ -569,6 +569,10 @@ export enum ItemType {
    * 特效元素
    */
   effect = 'effect',
+  /**
+   * 节点元素
+   */
+  node = 'node',
 }
 
 /**
