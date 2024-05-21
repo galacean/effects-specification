@@ -1,9 +1,9 @@
 import type { EffectsObjectData } from './components';
-import type { FixedNumberExpression, FixedVec3Expression } from './number-expression';
+import type { FixedNumberExpression, FixedVec3Expression, FixedQuatExpression } from './number-expression';
 
 export interface AnimationClipData extends EffectsObjectData {
   positionCurves: PositionCurveData[],
-  eulerCurves: EulerCurveData[],
+  rotationCurves: RotationCurveData[],
   scaleCurves: ScaleCurveData[],
   floatCurves: FloatCurveData[],
 }
@@ -13,9 +13,9 @@ export interface PositionCurveData {
   keyFrames: FixedVec3Expression,
 }
 
-export interface EulerCurveData {
+export interface RotationCurveData {
   path: string,
-  keyFrames: FixedVec3Expression,
+  keyFrames: FixedQuatExpression,
 }
 
 export interface ScaleCurveData {

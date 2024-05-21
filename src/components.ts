@@ -21,6 +21,7 @@ export enum DataType {
   CameraComponent = 'CameraComponent',
   ModelPluginComponent = 'ModelPluginComponent',
   TreeComponent = 'TreeComponent',
+  AnimationComponent = 'AnimationComponent',
 }
 
 export interface DataPath {

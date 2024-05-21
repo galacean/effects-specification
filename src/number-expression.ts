@@ -73,6 +73,11 @@ export enum ValueType {
    * 贝塞尔曲线路径
    */
   BEZIER_CURVE_PATH = 22,
+
+  /**
+   * 贝塞尔曲线四元数
+   */
+  BEZIER_CURVE_QUAT = 23,
 }
 
 export type vec2 = [x: number, y: number];
@@ -99,6 +104,8 @@ export type FixedNumberExpression = ConstantNumber | LineValue | CurveValue | Be
 export type NumberExpression = FixedNumberExpression | RandomValue;
 
 export type FixedVec3Expression = ConstantVec3 | BezierPath | LinearPath | BezierCurvePath;
+
+export type FixedQuatExpression = BezierCurveQuat;
 
 /**
  * 常数数值
@@ -269,9 +276,19 @@ export type BezierValue = [type: ValueType.BEZIER_CURVE, value: BezierKeyframeVa
 export type BezierCurvePathValue = [easing: BezierKeyframeValue[], points: vec3[], controlePoints: vec3[]];
 
 /**
+ * 贝塞尔曲线路径关键帧值
+ */
+export type BezierCurveQuatValue = [easing: BezierKeyframeValue[], points: vec4[], controlePoints: vec4[]];
+
+/**
  * 贝塞尔曲线路径关键帧
  */
 export type BezierCurvePath = [type: ValueType.BEZIER_CURVE_PATH, value: BezierCurvePathValue];
+
+/**
+ * 贝塞尔曲线路径关键帧
+ */
+export type BezierCurveQuat = [type: ValueType.BEZIER_CURVE_QUAT, value: BezierCurveQuatValue];
 
 /*********************************************/
 /*               颜色属性参数                 */
