@@ -78,7 +78,11 @@ export interface PluginSpineOption {
    * 动画播放的速度
    */
   speed?: number,
-
+  /**
+   * 是否使用新的默认大小计算规则：相机逆投影 + 固定画布大小
+   * 旧版规则：除以包围盒大小
+   */
+  resizeRule: boolean,
 }
 
 /**
