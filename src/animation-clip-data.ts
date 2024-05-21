@@ -25,7 +25,7 @@ export interface ScaleCurveData {
 
 export interface FloatCurveData {
   path: string,
-  property: string[],
+  property: string,
   className: string,
   keyFrames: FixedNumberExpression,
 }

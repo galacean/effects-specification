@@ -96,7 +96,8 @@ export interface GeometryData extends EffectsObjectData {
 
 interface SubMesh {
   offset: number,
-  count: number,
+  indexCount?: number,
+  vertexCount: number,
 }
 
 export enum GeometryType {
