@@ -3,18 +3,12 @@ import type { FixedNumberExpression, FixedVec3Expression, FixedQuatExpression } 
 
 export interface AnimationClipData extends EffectsObjectData {
   positionCurves: PositionCurveData[],
-  eulerCurves: EulerCurveData[],
   quatCurves: QuatCurveData[],
   scaleCurves: ScaleCurveData[],
   floatCurves: FloatCurveData[],
 }
 
 export interface PositionCurveData {
-  path: string,
-  keyFrames: FixedVec3Expression,
-}
-
-export interface EulerCurveData {
   path: string,
   keyFrames: FixedVec3Expression,
 }
