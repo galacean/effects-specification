@@ -3,7 +3,7 @@ import type { FixedNumberExpression, FixedVec3Expression, FixedQuatExpression } 
 
 export interface AnimationClipData extends EffectsObjectData {
   positionCurves: PositionCurveData[],
-  quatCurves: QuatCurveData[],
+  rotationCurves: RotationCurveData[],
   scaleCurves: ScaleCurveData[],
   floatCurves: FloatCurveData[],
 }
@@ -13,7 +13,7 @@ export interface PositionCurveData {
   keyFrames: FixedVec3Expression,
 }
 
-export interface QuatCurveData {
+export interface RotationCurveData {
   path: string,
   keyFrames: FixedQuatExpression,
 }
