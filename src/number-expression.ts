@@ -65,19 +65,34 @@ export enum ValueType {
   BINARY = 20,
 
   /**
-   * 贝塞尔曲线
+   * 贝塞尔曲线，相对时间
    */
   BEZIER_CURVE = 21,
 
   /**
-   * 贝塞尔曲线路径
+   * 贝塞尔曲线路径，相对时间
    */
   BEZIER_CURVE_PATH = 22,
 
   /**
-   * 贝塞尔曲线四元数
+   * 贝塞尔曲线四元数，相对时间
    */
   BEZIER_CURVE_QUAT = 23,
+
+  /**
+   * 贝塞尔曲线，绝对时间
+   */
+  BEZIER_CURVE_REAL_TIME = 24,
+
+  /**
+   * 贝塞尔曲线路径，绝对时间
+   */
+  BEZIER_CURVE_PATH_REAL_TIME = 25,
+
+  /**
+   * 贝塞尔曲线四元数，绝对时间
+   */
+  BEZIER_CURVE_QUAT_REAL_TIME = 26,
 }
 
 export type vec2 = [x: number, y: number];
