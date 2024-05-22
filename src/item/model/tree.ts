@@ -3,7 +3,6 @@ import type { ModelAnimationTrackDataPointer } from './binary';
 import type { BaseItem, BaseItemTransform } from '../base-item';
 import type { SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ItemType } from '../../type';
 import type { ComponentData, DataPath } from '../../components';
-import type { AnimationClipData } from '../../animation-clip-data';
 
 export interface TreeNodeOptions {
   name?: string,
@@ -105,6 +104,6 @@ export interface AnimationComponentData extends ComponentData {
   /**
    * glTF中所有的动画数据
    */
-  animationClips: AnimationClipData[],
+  animationClips: DataPath[],
 }
 
