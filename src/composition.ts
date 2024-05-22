@@ -1,4 +1,4 @@
-import type { Item } from './item';
+import type { DataPath } from './components';
 import {
   CAMERA_CLIP_MODE_NORMAL,
   CAMERA_CLIP_MODE_VERTICAL,
@@ -9,7 +9,7 @@ import {
   END_BEHAVIOR_PAUSE_AND_DESTROY,
   END_BEHAVIOR_RESTART,
 } from './constants';
-import type { DataPath } from './components';
+import type { Item } from './item';
 
 export enum CameraClipMode {
   /**
@@ -174,4 +174,23 @@ export interface CompositionData {
    * 降级图
    */
   fallbackImage?: string,
+  /**
+   * 时间轴资产（TimelineAssetData）
+   */
+  timelineAsset: DataPath,
+  /**
+   * 轨道的场景绑定
+   */
+  sceneBindings: SceneBindingData[],
+}
+
+export interface SceneBindingData {
+  /**
+   * 绑定的轨道资产（TrackAssetData）
+   */
+  key: DataPath,
+  /**
+   * 被绑定的场景对象（VFXItemData）
+   */
+  value: DataPath,
 }
