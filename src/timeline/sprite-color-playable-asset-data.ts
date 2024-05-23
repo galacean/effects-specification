@@ -1,6 +1,6 @@
-import type { EffectsObjectData } from 'src/components';
-import type { RGBAColorValue } from 'src/number-expression';
-import type { ColorOverLifetime } from 'src/type';
+import type { EffectsObjectData } from '../components';
+import type { RGBAColorValue } from '../number-expression';
+import type { ColorOverLifetime } from '../type';
 
 export interface SpriteColorPlayableAssetData extends EffectsObjectData {
   colorOverLifetime?: ColorOverLifetime,

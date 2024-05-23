@@ -1,5 +1,5 @@
-import type { EffectsObjectData } from 'src/components';
-import type { SizeOverLifetime, RotationOverLifetime, PositionOverLifetime } from 'src/type';
+import type { EffectsObjectData } from '../components';
+import type { SizeOverLifetime, RotationOverLifetime, PositionOverLifetime } from '../type';
 
 export interface TransformAnimationPlayableAssetData extends EffectsObjectData {
   /**

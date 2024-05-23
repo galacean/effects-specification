@@ -1,4 +1,4 @@
-import type { DataPath } from 'src/components';
+import type { DataPath } from '../components';
 
 export interface TimelineClipData {
   start?: number,

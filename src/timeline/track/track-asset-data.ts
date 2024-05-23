@@ -1,4 +1,4 @@
-import type { DataPath, EffectsObjectData } from 'src/components';
+import type { DataPath, EffectsObjectData } from '../../components';
 import type { TimelineClipData } from '../timeline-clip-data';
 
 export interface TrackAssetData extends EffectsObjectData {
