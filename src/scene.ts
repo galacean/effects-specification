@@ -6,6 +6,7 @@ import type { FontBase, FontDefine } from './text';
 import type { BinaryFile } from './binary';
 import type { ComponentData, GeometryData, MaterialData, ShaderData } from './components';
 import type { VFXItemData } from './vfx-item-data';
+import type { AnimationClipData } from './animation-clip-data';
 
 /**
  * runtime 2.0 之前的场景信息
@@ -191,4 +192,8 @@ export interface JSONScene {
    * 几何体数据
    */
   geometries: GeometryData[],
+  /**
+   * 动画数据
+   */
+  animations: AnimationClipData[],
 }
