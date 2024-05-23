@@ -13,6 +13,10 @@ export enum DataType {
   Texture = 'Texture',
   AnimationClip = 'AnimationClip',
   TextComponent = 'TextComponent',
+  TrackAsset = 'TrackAsset',
+  TimelineAsset = 'TimelineAsset',
+  TransformAnimationPlayableAsset = 'TransformAnimationPlayableAsset',
+  SpriteColorPlayableAsset = 'SpriteColorPlayableAsset',
 
   // FIXME: 先完成ECS的场景转换，后面移到spec中
   MeshComponent = 'MeshComponent',
@@ -22,6 +26,9 @@ export enum DataType {
   ModelPluginComponent = 'ModelPluginComponent',
   TreeComponent = 'TreeComponent',
   AnimationComponent = 'AnimationComponent',
+
+  // Non-EffectObject
+  TimelineClip = 'TimelineClip',
 }
 
 export interface DataPath {
