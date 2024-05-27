@@ -74,8 +74,8 @@ export interface MaterialData extends EffectsObjectData {
 
 export interface GeometryData extends EffectsObjectData {
   vertexData: VertexData,
-  indexFormat: number,
-  indexOffset: number,
+  indexFormat?: number,
+  indexOffset?: number,
   subMeshes: SubMesh[],
   /**
    * 模型绘制模式，默认为 GeometryType.TRIANGLES（三角形）
@@ -142,6 +142,7 @@ export enum VertexFormatType {
   Int8,
   UInt16,
   UInt8,
+  UInt32,
 }
 
 export enum IndexFormatType {
