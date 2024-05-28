@@ -15,7 +15,7 @@ export enum DataType {
   TextComponent = 'TextComponent',
   TrackAsset = 'TrackAsset',
   TimelineAsset = 'TimelineAsset',
-  TransformAnimationPlayableAsset = 'TransformAnimationPlayableAsset',
+  TransformPlayableAsset = 'TransformPlayableAsset',
   SpriteColorPlayableAsset = 'SpriteColorPlayableAsset',
 
   // FIXME: 先完成ECS的场景转换，后面移到spec中

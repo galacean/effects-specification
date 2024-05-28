@@ -1,7 +1,7 @@
 import type { EffectsObjectData } from '../components';
 import type { SizeOverLifetime, RotationOverLifetime, PositionOverLifetime } from '../type';
 
-export interface TransformAnimationPlayableAssetData extends EffectsObjectData {
+export interface TransformPlayableAssetData extends EffectsObjectData {
   /**
    * 元素大小变化属性
    */
