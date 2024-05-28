@@ -81,7 +81,7 @@ export interface MaterialData extends EffectsObjectData {
 
 export interface GeometryData extends EffectsObjectData {
   vertexData: VertexData,
-  indexFormat: number,
+  indexFormat: IndexFormatType,
   indexOffset: number,
   subMeshes: SubMesh[],
   /**
@@ -144,14 +144,19 @@ export interface VertexData {
 }
 
 export enum VertexFormatType {
+  Float16,
   Float32,
-  Int16,
   Int8,
-  UInt16,
+  Int16,
+  Int32,
   UInt8,
+  UInt16,
+  UInt32,
 }
 
 export enum IndexFormatType {
+  None = -1,
+  UInt8,
   UInt16,
   UInt32,
 }
