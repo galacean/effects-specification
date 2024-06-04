@@ -2,9 +2,15 @@ import type { BaseItem, ItemEndBehavior } from '../base-item';
 import type { BinaryEnv } from '../../binary';
 import type { SkyboxCubeTexturePointer } from './binary';
 import type { ItemType } from '../../type';
-import type { ComponentData, DataPath } from '../../components';
+import type { ComponentData, DataPath, Vector4Data } from '../../components';
 
 export interface SkyboxOptions<T extends BinaryEnv> {
+  /**
+   * 环境光旋转
+   * UI显示"环境光旋转"
+   * @default { x: 0, y: 0, z: 0, w: 0 }
+   */
+  rotation: Vector4Data,
   // Skybox 是否渲染，UI显示"可见"
   renderable: boolean,
   // Diffuse 强度，UI显示"环境光强度"
