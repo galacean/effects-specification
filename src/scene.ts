@@ -1,4 +1,4 @@
-import type { Composition } from './composition';
+import type { Composition, CompositionData } from './composition';
 import type { SpineResource } from './item/spine-item';
 import type { PlayerVersion, Shape } from './type';
 import type { TemplateImage, Image, CompressedImage, TextureDefine } from './image';
@@ -129,7 +129,7 @@ export interface JSONScene {
   /**
    * 渲染所需合成列表
    */
-  compositions: Composition[],
+  compositions: CompositionData[],
   /******************************** 以下皆为可复用信息，加载在对应 Manager 中 *******************************/
   /**
    * 贴图信息
