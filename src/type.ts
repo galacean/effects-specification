@@ -7,11 +7,11 @@ import type {
  */
 export interface PlayerVersion {
   /**
-   * Web端版本号
+   * Web 端版本号
    */
   web: string,
   /**
-   * Native端版本号
+   * Native 端版本号
    */
   native: string,
 }
@@ -83,15 +83,15 @@ export interface SizeOverLifetime {
    */
   size?: FixedNumberExpression,
   /**
-   * x轴大小变化信息（分轴模式）
+   * x 轴大小变化信息（分轴模式）
    */
   x?: FixedNumberExpression,
   /**
-   * y轴大小变化信息（分轴模式）
+   * y 轴大小变化信息（分轴模式）
    */
   y?: FixedNumberExpression,
   /**
-   * z轴大小变化信息（分轴模式）
+   * z 轴大小变化信息（分轴模式）
    */
   z?: FixedNumberExpression,
 }
@@ -131,15 +131,15 @@ export interface PositionOverLifetime {
    */
   asMovement?: boolean,
   /**
-   * x轴位置变化信息
+   * x 轴位置变化信息
    */
   linearX?: FixedNumberExpression,
   /**
-   * y轴位置变化信息
+   * y 轴位置变化信息
    */
   linearY?: FixedNumberExpression,
   /**
-   * z轴位置变化信息
+   * z 轴位置变化信息
    */
   linearZ?: FixedNumberExpression,
   /**
@@ -147,15 +147,15 @@ export interface PositionOverLifetime {
    */
   asRotation?: boolean,
   /**
-   * x轴环绕角度变化信息
+   * x 轴环绕角度变化信息
    */
   orbitalX?: FixedNumberExpression,
   /**
-   * y轴环绕角度变化信息
+   * y 轴环绕角度变化信息
    */
   orbitalY?: FixedNumberExpression,
   /**
-   * z轴环绕角度变化信息
+   * z 轴环绕角度变化信息
    */
   orbitalZ?: FixedNumberExpression,
   /**
@@ -448,7 +448,6 @@ export enum InteractBehavior {
    * 清除元素
    */
   REMOVE,
-
   /**
    * 暂停播放器
    */

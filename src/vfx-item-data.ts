@@ -4,9 +4,9 @@ import type { ItemType, RenderLevel } from './type';
 
 export interface VFXItemData extends EffectsObjectData {
   /**
-   * 元素 id
-   * 非预合成的元素 id 为 int 类型的数字字符串
-   * 预合成元素 id 为 `'{ref元素id}+{合成内id}'` 字符串
+   * 元素 ID
+   * 非预合成的元素 ID 为 int 类型的数字字符串
+   * 预合成元素 ID 为 `'{ref 元素 ID}+{合成内 ID}'` 字符串
    */
   id: string,
   /**
@@ -18,14 +18,13 @@ export interface VFXItemData extends EffectsObjectData {
    */
   duration: number,
   /**
-   * 元素类型，string 类型
+   * 元素类型，String 类型
    * Galacean Effects 内部元素使用 int 数字字符串
    * plugin 模块实现者自由实现命名
-   * 2022.12更新: spine: "spine", 陀螺仪: "5"
    */
   type: ItemType,
   /**
-   * 父节点ID
+   * 父节点 ID
    * 如果父节点无法找到，播放将直接报错
    */
   parentId?: string,

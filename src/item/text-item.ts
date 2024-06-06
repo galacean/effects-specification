@@ -1,13 +1,7 @@
 import type { BaseItem, ItemEndBehavior } from './base-item';
 import type {
-  SizeOverLifetime,
-  RotationOverLifetime,
-  PositionOverLifetime,
-  ColorOverLifetime,
-  ItemType,
-  TextureSheetAnimation,
-  RendererOptions,
-  InteractBehavior,
+  SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
+  ItemType, TextureSheetAnimation, RendererOptions, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
 import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight } from '../text';
@@ -18,7 +12,7 @@ import type { ComponentData } from '../components';
  */
 export interface TextItem extends BaseItem {
   /**
-   * 元素类型[指定为text]
+   * 元素类型（指定为 text）
    */
   type: ItemType.text,
   /**

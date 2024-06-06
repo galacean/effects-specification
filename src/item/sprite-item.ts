@@ -18,7 +18,7 @@ import type { ComponentData } from '../components';
  */
 export interface SpriteItem extends BaseItem {
   /**
-   * 元素类型[指定为sprite]
+   * 元素类型（指定为 sprite）
    */
   type: ItemType.sprite,
   /**
@@ -35,7 +35,7 @@ export interface SpriteContentOptions {
    */
   startColor?: RGBAColorValue,
   /**
-   * FIXME 元素渲染延时
+   * FIXME: 元素渲染延时
    */
 }
 

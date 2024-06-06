@@ -8,10 +8,9 @@ import type { ModelCameraItem, ModelLightItem, ModelMeshItem, ModelSkyboxItem, M
 import type { CameraItem } from './item/camera-item';
 import type { CompositionItem } from './item/composition-item';
 import type { TextItem } from './item/text-item';
+
 /**
- * Item Interface，
- * 1.0版本
- * 基类，无对应元素
+ * Item 基类，无对应元素
  */
 export type Item =
   | SpriteItem

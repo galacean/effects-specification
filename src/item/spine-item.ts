@@ -63,7 +63,7 @@ export interface PluginSpineOption {
 	 */
   activeSkin: string,
   /**
-	 * 当前使用的动画列表，1.5之前为 string
+	 * 当前使用的动画列表，1.5 之前为 string
 	 */
   activeAnimation: string[] | string,
   /**
