@@ -10,7 +10,7 @@ import type { PositionOverLifetime } from '../type';
  */
 export interface CompositionItem extends BaseItem {
   /**
-   * 元素类型[指定为composition]
+   * 元素类型（指定为 composition）
    */
   type: ItemType.composition,
   /**
@@ -29,7 +29,7 @@ export interface CompositionContent {
    */
   options: {
     /**
-     * 引用的合成id
+     * 引用的合成 ID
      */
     refId: string,
     /**

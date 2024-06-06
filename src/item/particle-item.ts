@@ -28,7 +28,7 @@ export enum ParticleInteractionBehavior {
  */
 export interface ParticleItem extends BaseItem {
   /**
-   * 元素类型[指定为particle]
+   * 元素类型（指定为 particle）
    */
   type: ItemType.particle,
   /**
@@ -65,7 +65,7 @@ export interface ParticleEmission {
      */
     cycles?: number,
     /**
-     * 爆发时间间隔，单位秒
+     * 爆发时间间隔（单位：秒）
      * @default 0
      */
     interval?: number,
@@ -79,15 +79,15 @@ export interface ParticleEmission {
      */
     index: number,
     /**
-     * x方向偏移值
+     * x 方向偏移值
      */
     x: number,
     /**
-     * y方向偏移值
+     * y 方向偏移值
      */
     y: number,
     /**
-     * z方向偏移值
+     * z 方向偏移值
      */
     z: number,
   }[],
@@ -99,15 +99,15 @@ export interface ParticlePositionOverLifetime {
    */
   asMovement?: boolean,
   /**
-   * x轴位置变化信息
+   * x 轴位置变化信息
    */
   linearX?: NumberExpression,
   /**
-   * y轴位置变化信息
+   * y 轴位置变化信息
    */
   linearY?: NumberExpression,
   /**
-   * z轴位置变化信息
+   * z 轴位置变化信息
    */
   linearZ?: NumberExpression,
   /**
@@ -115,15 +115,15 @@ export interface ParticlePositionOverLifetime {
    */
   asRotation?: boolean,
   /**
-   * x轴环绕角度变化信息
+   * x 轴环绕角度变化信息
    */
   orbitalX?: NumberExpression,
   /**
-   * y轴环绕角度变化信息
+   * y 轴环绕角度变化信息
    */
   orbitalY?: NumberExpression,
   /**
-   * z轴环绕角度变化信息
+   * z 轴环绕角度变化信息
    */
   orbitalZ?: NumberExpression,
   /**
@@ -146,7 +146,7 @@ export interface ParticlePositionOverLifetime {
    */
   forceCurve?: FunctionExpression,
   /**
-   * 增加一个初速度，匀速直线运动，direction为运动方向
+   * 增加一个初速度，匀速直线运动，direction 为运动方向
    * @default 0
    */
   startSpeed?: NumberExpression,
@@ -155,7 +155,7 @@ export interface ParticlePositionOverLifetime {
    */
   speedOverLifetime?: FixedNumberExpression,
   /**
-   * 增加一个重力，gravity为重力方向，gravityModifier为重力大小
+   * 增加一个重力，gravity 为重力方向，gravityModifier 为重力大小
    * @default 0
    */
   gravity?: vec3,
@@ -175,15 +175,15 @@ export interface ParticleRotationOverLifetime {
    */
   asRotation?: boolean,
   /**
-   * x轴旋转函数
+   * x 轴旋转函数
    */
   x?: NumberExpression,
   /**
-   * y轴旋转函数
+   * y 轴旋转函数
    */
   y?: NumberExpression,
   /**
-   * z轴旋转函数（不分轴时，变化z）
+   * z 轴旋转函数（不分轴时，变化 z）
    */
   z?: NumberExpression,
 }
@@ -198,11 +198,11 @@ export interface ParticleSizeOverLifetime {
    */
   size?: NumberExpression,
   /**
-   * x轴大小变化信息（分轴模式）
+   * x 轴大小变化信息（分轴模式）
    */
   x?: NumberExpression,
   /**
-   * y轴大小变化信息（分轴模式）
+   * y 轴大小变化信息（分轴模式）
    */
   y?: NumberExpression,
 }

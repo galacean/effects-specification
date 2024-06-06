@@ -55,15 +55,15 @@ export interface CameraContent {
 
 export interface CameraPositionOverLifetime {
   /**
-   * x轴位置变化信息
+   * x 轴位置变化信息
    */
   linearX?: FixedNumberExpression,
   /**
-   * y轴位置变化信息
+   * y 轴位置变化信息
    */
   linearY?: FixedNumberExpression,
   /**
-   * z轴位置变化信息
+   * z 轴位置变化信息
    */
   linearZ?: FixedNumberExpression,
   /**

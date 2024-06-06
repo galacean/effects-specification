@@ -6,7 +6,7 @@ import type { BaseItem, ItemEndBehavior } from './base-item';
  */
 export interface PluginItem extends BaseItem {
   /**
-   * 元素类型[指定为plugin]
+   * 元素类型（指定为 plugin）
    */
   type: ItemType.plugin,
   /**

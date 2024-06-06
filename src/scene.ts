@@ -122,7 +122,7 @@ export interface JSONScene {
   type: string,
   /*************************************** 用于加载 json 后复原合成 **************************************/
   /**
-   * 选中合成ID
+   * 选中合成 ID
    * 如果没有设置，选择合成中的第一个
    */
   compositionId?: string,
@@ -136,11 +136,11 @@ export interface JSONScene {
    */
   images: (TemplateImage | Image | CompressedImage)[],
   /**
-   * 根据合成ID，每个合成用到的 image 的数组索引
+   * 根据合成 ID，每个合成用到的 image 的数组索引
    */
   imgUsage?: Record<string, number[]>,
   /**
-   * 根据合成id，每个合成用到的 bin 的数组索引
+   * 根据合成 ID，每个合成用到的 bin 的数组索引
    */
   binUsage?: Record<string, number[]>,
   /**
@@ -159,17 +159,14 @@ export interface JSONScene {
   fonts?: FontBase[] | FontDefine[],
   /**
    * spine 资源
-   * @version 1.5
    */
   spines?: SpineResource[],
   /**
    * 二进制文件地址
-   * @version 1.3
    */
   bins?: BinaryFile[],
   /**
    * textures 配置
-   * 从 v1.3 开始，images 数组会对应创建 textures 数组
    */
   textures?: TextureDefine[],
   /**

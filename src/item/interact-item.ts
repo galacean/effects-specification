@@ -8,7 +8,7 @@ import type { ComponentData } from '../components';
  */
 export interface InteractItem extends BaseItem {
   /**
-   * 元素类型[指定为interact]
+   * 元素类型（指定为 interact）
    */
   type: ItemType.interact,
   /**

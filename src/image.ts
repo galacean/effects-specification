@@ -90,8 +90,8 @@ export interface Image {
    */
   url: string,
   /**
-   * webp 地址
-   * 如果运行时支持 webp，则尽量使用 webp
+   * WebP 地址
+   * 如果运行时支持 WebP，则优先使用 WebP
    */
   webp?: string,
   /**
@@ -106,8 +106,8 @@ export interface Image {
    */
   mipmap?: boolean,
   /**
-   * 图片Y轴的方向，如果Y轴向上（与OpenGL相同）则为 1
-   * 如果Y轴向下（与OpenGL相反）则为 -1 ，图片再绘制数据模板的时候需要翻转绘制
+   * 图片 Y 轴的方向，如果 Y 轴向上（与 OpenGL 相同）则为 1
+   * 如果 Y 轴向下（与 OpenGL 相反）则为 -1，图片再绘制数据模板的时候需要翻转绘制
    * @default 1
    */
   oriY?: 1 | -1,
@@ -128,7 +128,8 @@ export interface CompressedImage extends Image {
    * 压缩贴图地址
    */
   compressed: {
-    astc?: string, // 安卓
+    // 安卓
+    astc?: string,
     pvrtc?: string,
   },
 }

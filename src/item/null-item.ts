@@ -6,7 +6,7 @@ import type { BaseItem } from './base-item';
  */
 export interface NullItem extends BaseItem {
   /**
-   * 元素类型[指定为null]
+   * 元素类型（指定为 null）
    */
   type: ItemType.null,
   /**
