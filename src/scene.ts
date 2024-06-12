@@ -194,7 +194,7 @@ export interface JSONScene {
    */
   animations: AnimationClipData[],
   /**
-   * 其他的资产数据
+   * 分类外的资产数据
    */
   miscs: EffectsObjectData[],
 }
