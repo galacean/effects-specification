@@ -17,6 +17,7 @@ export enum DataType {
   TimelineAsset = 'TimelineAsset',
   TransformPlayableAsset = 'TransformPlayableAsset',
   SpriteColorPlayableAsset = 'SpriteColorPlayableAsset',
+  BinaryAsset = 'BinaryAsset',
 
   // FIXME: 先完成ECS的场景转换，后面移到spec中
   MeshComponent = 'MeshComponent',
@@ -26,6 +27,7 @@ export enum DataType {
   ModelPluginComponent = 'ModelPluginComponent',
   TreeComponent = 'TreeComponent',
   AnimationComponent = 'AnimationComponent',
+  SpineComponent = 'SpineComponent',
 
   // Non-EffectObject
   TimelineClip = 'TimelineClip',

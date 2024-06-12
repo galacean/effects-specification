@@ -1,3 +1,4 @@
+import type { DataType } from './components';
 import type { RenderLevel } from './type';
 import type { ValueType } from './number-expression';
 
@@ -21,12 +22,12 @@ import type { ValueType } from './number-expression';
 export type BinaryPointerContent = [index: number, start?: number, byteLength?: number, type?: BinaryType];
 export type BinaryPointer = [ValueType.BINARY, BinaryPointerContent];
 export type BinaryType = 'u8' | 'i8' | 'i16' | 'u16' | 'f32' | 'u32' | 'i32' | 'f64' | '';
-
 /**
  * 线上二进制地址
  */
 export interface BinaryFile {
   url: string,
+  dataType: DataType.BinaryAsset,
   renderLevel?: RenderLevel,
 }
 

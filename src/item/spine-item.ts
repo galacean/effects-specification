@@ -1,4 +1,5 @@
 import type { BinaryPointer } from '../binary';
+import type { ComponentData, DataPath, DataType } from '../components';
 import type {
   SizeOverLifetime,
   RotationOverLifetime,
@@ -110,4 +111,22 @@ export interface SpineResource {
 	 * 图像文件在 `scene.textures` 数组中的索引
 	 */
   images: number[],
+}
+
+export interface SpineComponent extends ComponentData {
+  dataType: DataType.SpineComponent,
+  options: PluginSpineOption,
+  resource: {
+    altas: {
+      bins: DataPath,
+      source: [start:number, length?: number],
+    },
+    skeleton: {
+      bins: DataPath,
+      source: [start:number, length?: number],
+    },
+    images: DataPath[],
+    skeletonType: skeletonFileType,
+  },
+
 }

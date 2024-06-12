@@ -157,10 +157,10 @@ export interface JSONScene {
    * 数据模板下掉可以不要 FontBase[]
    */
   fonts?: FontBase[] | FontDefine[],
-  /**
-   * spine 资源
-   */
-  spines?: SpineResource[],
+  // /**
+  //  * spine 资源
+  //  */
+  // spines?: SpineResource[],
   /**
    * 二进制文件地址
    */
