@@ -4,7 +4,7 @@ import type { PlayerVersion, Shape } from './type';
 import type { TemplateImage, Image, CompressedImage, TextureDefine } from './image';
 import type { FontBase, FontDefine } from './text';
 import type { BinaryFile } from './binary';
-import type { ComponentData, GeometryData, MaterialData, ShaderData } from './components';
+import type { ComponentData, EffectsObjectData, GeometryData, MaterialData, ShaderData } from './components';
 import type { VFXItemData } from './vfx-item-data';
 import type { AnimationClipData } from './animation-clip-data';
 
@@ -193,4 +193,8 @@ export interface JSONScene {
    * 动画数据
    */
   animations: AnimationClipData[],
+  /**
+   * 分类外的资产数据
+   */
+  miscs: EffectsObjectData[],
 }
