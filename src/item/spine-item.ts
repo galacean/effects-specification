@@ -1,12 +1,8 @@
 import type { BinaryPointer } from '../binary';
 import type { ComponentData, DataPath, DataType } from '../components';
 import type {
-  SizeOverLifetime,
-  RotationOverLifetime,
-  PositionOverLifetime,
-  ColorOverLifetime,
-  RendererOptions,
-  ItemType,
+  SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
+  RendererOptions, ItemType,
 } from '../type';
 import type { BaseItem, ItemEndBehavior } from './base-item';
 
@@ -15,12 +11,12 @@ import type { BaseItem, ItemEndBehavior } from './base-item';
  */
 export interface SpineItem extends BaseItem {
   /**
-	 * 元素类型 "spine"
-	 */
+   * 元素类型 "spine"
+   */
   type: ItemType.spine,
   /**
-	 * 插件元素渲染信息
-	 */
+   * 插件元素渲染信息
+   */
   content: SpineContent,
   endBehavior: ItemEndBehavior,
 }
@@ -60,16 +56,16 @@ export interface SpineContent {
  */
 export interface PluginSpineOption {
   /**
-	 * 当前使用的皮肤名称
-	 */
+   * 当前使用的皮肤名称
+   */
   activeSkin: string,
   /**
-	 * 当前使用的动画列表，1.5 之前为 string
-	 */
+   * 当前使用的动画列表，1.5 之前为 string
+   */
   activeAnimation: string[] | string,
   /**
-	 * 在 spines 资源数组中的索引
-	 */
+   * 在 spines 资源数组中的索引
+   */
   spine: number,
   /**
    * 默认融合时间
@@ -96,20 +92,20 @@ export type skeletonFileType = 'json' | 'skel';
 
 export interface SpineResource {
   /**
-	 * atlas 文件在 `bins` 中的指针
-	 */
+   * atlas 文件在 `bins` 中的指针
+   */
   atlas: BinaryPointer,
   /**
-	 * 骨骼文件
-	 */
+   * 骨骼文件
+   */
   skeleton: BinaryPointer,
   /**
-	 * skeleton 文件类型, `.skel/.json`
-	 */
+   * skeleton 文件类型, `.skel/.json`
+   */
   skeletonType: skeletonFileType,
   /**
-	 * 图像文件在 `scene.textures` 数组中的索引
-	 */
+   * 图像文件在 `scene.textures` 数组中的索引
+   */
   images: number[],
 }
 
@@ -117,13 +113,13 @@ export interface SpineComponent extends ComponentData {
   dataType: DataType.SpineComponent,
   options: PluginSpineOption,
   resource: {
-    altas: {
+    atlas: {
       bins: DataPath,
-      source: [start:number, length?: number],
+      source: [start: number, length?: number],
     },
     skeleton: {
       bins: DataPath,
-      source: [start:number, length?: number],
+      source: [start: number, length?: number],
     },
     images: DataPath[],
     skeletonType: skeletonFileType,
