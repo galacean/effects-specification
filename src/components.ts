@@ -13,11 +13,20 @@ export enum DataType {
   Texture = 'Texture',
   AnimationClip = 'AnimationClip',
   TextComponent = 'TextComponent',
+  BinaryAsset = 'BinaryAsset',
+
+  // Timeline
   TrackAsset = 'TrackAsset',
   TimelineAsset = 'TimelineAsset',
+  ObjectBindingTrack = 'ObjectBindingTrack',
+  TransformTrack = 'TransformTrack',
+  SpriteColorTrack = 'SpriteColorTrack',
+  ActivationTrack = 'ActivationTrack',
+  SubCompositionTrack = 'SubCompositionTrack',
   TransformPlayableAsset = 'TransformPlayableAsset',
   SpriteColorPlayableAsset = 'SpriteColorPlayableAsset',
-  BinaryAsset = 'BinaryAsset',
+  ActivationPlayableAsset = 'ActivationPlayableAsset',
+  SubCompositionPlayableAsset = 'SubCompositionPlayableAsset',
 
   // FIXME: 先完成ECS的场景转换，后面移到spec中
   MeshComponent = 'MeshComponent',
