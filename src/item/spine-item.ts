@@ -113,9 +113,10 @@ export interface SpineResource {
   images: number[],
 }
 
-export interface SpineComponent extends ComponentData {
+export interface SpineComponent<U, T> extends ComponentData {
   dataType: DataType.SpineComponent,
   options: PluginSpineOption,
+  renderer: RendererOptions,
   resource: {
     altas: {
       bins: DataPath,
@@ -128,5 +129,8 @@ export interface SpineComponent extends ComponentData {
     images: DataPath[],
     skeletonType: skeletonFileType,
   },
-
+  cache?: {
+    atlas: U, // TextureAtlas
+    skeleton: T, // SkeletonData
+  },
 }
