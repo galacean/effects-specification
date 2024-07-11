@@ -1,5 +1,5 @@
 import type { RGBAColorValue } from '../../number-expression';
-import type { BaseItem, ItemEndBehavior } from '../base-item';
+import type { BaseItem, EndBehavior } from '../base-item';
 import type { RotationOverLifetime, PositionOverLifetime, ItemType } from '../../type';
 import type { ColorData, ComponentData } from '../../components';
 
@@ -85,7 +85,7 @@ export interface ModelLightItem extends BaseItem {
   type: ItemType.light,
   pluginName: 'model',
   content: ModelLightContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 export enum LightType {

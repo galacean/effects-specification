@@ -1,4 +1,4 @@
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 import type {
   SizeOverLifetime, RotationOverLifetime, ColorOverLifetime, ItemType,
 } from '../type';
@@ -17,7 +17,7 @@ export interface CompositionItem extends BaseItem {
    * 预合成元素渲染信息
    */
   content: CompositionContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 /**

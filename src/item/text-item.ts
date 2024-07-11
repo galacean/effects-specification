@@ -1,4 +1,4 @@
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 import type {
   SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
   ItemType, TextureSheetAnimation, RendererOptions, InteractBehavior,
@@ -19,7 +19,7 @@ export interface TextItem extends BaseItem {
    * 文本元素渲染信息
    */
   content: TextContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 export interface TextContentOptions {

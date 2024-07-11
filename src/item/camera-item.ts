@@ -1,4 +1,4 @@
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 import type { ItemType, RotationOverLifetime } from '../type';
 import type { FixedNumberExpression, FixedVec3Expression } from '../number-expression';
 import type { CameraClipMode } from '../composition';
@@ -12,7 +12,7 @@ export interface CameraItem extends BaseItem {
    * 相机元素渲染信息
    */
   content: CameraContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 export interface CameraContent {

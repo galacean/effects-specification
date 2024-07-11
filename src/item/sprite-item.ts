@@ -1,4 +1,4 @@
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 import type {
   SizeOverLifetime,
   RotationOverLifetime,
@@ -25,7 +25,7 @@ export interface SpriteItem extends BaseItem {
    * 图层元素渲染信息
    */
   content: SpriteContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 export interface SpriteContentOptions {

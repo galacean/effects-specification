@@ -1,4 +1,4 @@
-import type { BaseItem, ItemEndBehavior } from '../base-item';
+import type { BaseItem, EndBehavior } from '../base-item';
 import type { BinaryEnv } from '../../binary';
 import type { SkyboxCubeTexturePointer } from './binary';
 import type { ItemType } from '../../type';
@@ -40,7 +40,7 @@ export interface ModelSkyboxItem<T extends BinaryEnv> extends BaseItem {
   type: ItemType.skybox,
   pluginName: 'model',
   content: SkyboxContent<T>,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 /**

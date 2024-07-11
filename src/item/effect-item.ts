@@ -1,5 +1,5 @@
 import type { ItemType, PositionOverLifetime, RotationOverLifetime, SizeOverLifetime } from '../type';
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 
 /**
  * 特效元素
@@ -7,7 +7,7 @@ import type { BaseItem, ItemEndBehavior } from './base-item';
 export interface EffectItem extends BaseItem {
   type: ItemType.effect,
   content: EffectContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 /**
