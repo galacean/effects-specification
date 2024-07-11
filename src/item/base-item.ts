@@ -16,11 +16,25 @@ import type { PluginContent } from './plugin-item';
 import type { SpineContent } from './spine-item';
 import type { SpriteContent } from './sprite-item';
 import type { TextContent } from './text-item';
-
+/**
+ * 结束行为
+ */
 export enum EndBehavior {
-  forward = END_BEHAVIOR_FORWARD,
+  /**
+   * 销毁
+   */
   destroy = END_BEHAVIOR_DESTROY,
-  loop = END_BEHAVIOR_RESTART,
+  /**
+   * 重播
+   */
+  restart = END_BEHAVIOR_RESTART,
+  /**
+   * 无限播放
+   */
+  forward = END_BEHAVIOR_FORWARD,
+  /**
+   * 冻结
+   */
   freeze = END_BEHAVIOR_FREEZE,
 }
 
