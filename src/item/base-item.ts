@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 import type { BinaryEnv } from '../binary';
 import {
-  END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FORWARD, END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
+  END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FORWARD,
+  END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
 } from '../constants';
 import type { vec3, vec4 } from '../number-expression';
 import type { ItemType, RenderLevel } from '../type';
@@ -16,6 +17,7 @@ import type { PluginContent } from './plugin-item';
 import type { SpineContent } from './spine-item';
 import type { SpriteContent } from './sprite-item';
 import type { TextContent } from './text-item';
+
 /**
  * 结束行为
  */

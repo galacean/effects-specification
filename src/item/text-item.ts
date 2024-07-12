@@ -1,7 +1,7 @@
 import type { BaseItem, EndBehavior } from './base-item';
 import type {
-  SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
-  ItemType, TextureSheetAnimation, RendererOptions, InteractBehavior,
+  SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime, ItemType,
+  TextureSheetAnimation, RendererOptions, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
 import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight } from '../text';

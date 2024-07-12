@@ -1,10 +1,7 @@
 import type { DataPath } from './components';
-import {
-  CAMERA_CLIP_MODE_NORMAL,
-  CAMERA_CLIP_MODE_VERTICAL,
-} from './constants';
+import { CAMERA_CLIP_MODE_NORMAL, CAMERA_CLIP_MODE_VERTICAL } from './constants';
 import type { Item } from './item';
-import { EndBehavior } from './item/base-item';
+import type { EndBehavior } from './item/base-item';
 
 export enum CameraClipMode {
   /**

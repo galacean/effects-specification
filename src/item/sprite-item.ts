@@ -1,14 +1,7 @@
 import type { BaseItem, EndBehavior } from './base-item';
 import type {
-  SizeOverLifetime,
-  RotationOverLifetime,
-  PositionOverLifetime,
-  ColorOverLifetime,
-  ItemType,
-  TextureSheetAnimation,
-  RendererOptions,
-  SplitParameter,
-  InteractBehavior,
+  SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime, ItemType,
+  TextureSheetAnimation, RendererOptions, SplitParameter, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
 import type { ComponentData } from '../components';
