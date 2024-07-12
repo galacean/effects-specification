@@ -1,4 +1,4 @@
-import type { BaseItem, ItemEndBehavior } from '../base-item';
+import type { BaseItem, EndBehavior } from '../base-item';
 import type { CameraClipMode, CameraOptions } from '../../composition';
 import type { RotationOverLifetime, PositionOverLifetime } from '../../type';
 import type { ComponentData } from '../../components';
@@ -34,7 +34,7 @@ export interface ModelCameraItem extends BaseItem {
   type: 'camera',
   pluginName: 'model',
   content: ModelCameraContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 export enum CameraType {

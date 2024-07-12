@@ -1,5 +1,5 @@
 import type { BinaryEnv } from '../../binary';
-import type { BaseItem, ItemEndBehavior } from '../base-item';
+import type { BaseItem, EndBehavior } from '../base-item';
 import type { MaterialOptions } from './material';
 import type { GeometryPointer } from './binary';
 import type { vec3 } from '../../number-expression';
@@ -88,7 +88,7 @@ export interface ModelMeshItem<T extends BinaryEnv> extends BaseItem {
   type: ItemType.mesh,
   pluginName: 'model',
   content: ModelMeshItemContent<T>,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 export interface PrimitiveData {

@@ -4,7 +4,7 @@ import type {
   SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
   RendererOptions, ItemType,
 } from '../type';
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 
 /**
  * 插件元素
@@ -18,7 +18,7 @@ export interface SpineItem extends BaseItem {
    * 插件元素渲染信息
    */
   content: SpineContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 /**

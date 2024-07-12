@@ -1,15 +1,7 @@
 import type { DataPath } from './components';
-import {
-  CAMERA_CLIP_MODE_NORMAL,
-  CAMERA_CLIP_MODE_VERTICAL,
-  END_BEHAVIOR_DESTROY,
-  END_BEHAVIOR_FORWARD,
-  END_BEHAVIOR_FREEZE,
-  END_BEHAVIOR_PAUSE,
-  END_BEHAVIOR_PAUSE_AND_DESTROY,
-  END_BEHAVIOR_RESTART,
-} from './constants';
+import { CAMERA_CLIP_MODE_NORMAL, CAMERA_CLIP_MODE_VERTICAL } from './constants';
 import type { Item } from './item';
+import type { EndBehavior } from './item/base-item';
 
 export enum CameraClipMode {
   /**
@@ -54,36 +46,6 @@ export interface CameraOptions {
   clipMode: CameraClipMode,
 }
 
-/**
- * 结束行为
- */
-export enum CompositionEndBehavior {
-  /**
-   * 销毁
-   */
-  destroy = END_BEHAVIOR_DESTROY,
-  /**
-   * 暂停
-   */
-  pause = END_BEHAVIOR_PAUSE,
-  /**
-   * 重播
-   */
-  restart = END_BEHAVIOR_RESTART,
-  /**
-   * 无限播放
-   */
-  forward = END_BEHAVIOR_FORWARD,
-  /**
-   * 销毁并保留最后一帧
-   */
-  pause_destroy = END_BEHAVIOR_PAUSE_AND_DESTROY,
-  /**
-   * 冻结
-   */
-  freeze = END_BEHAVIOR_FREEZE,
-}
-
 interface CompositionBase {
   /**
    * 合成ID
@@ -105,7 +67,7 @@ interface CompositionBase {
   /**
    * 合成结束行为
    */
-  endBehavior: CompositionEndBehavior,
+  endBehavior: EndBehavior,
   /**
    * 合成相机信息
    */

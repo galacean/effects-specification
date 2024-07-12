@@ -5,7 +5,7 @@ import type {
   FixedNumberExpression, NumberExpression, GradientColor, vec3, FixedVec3Expression,
   ColorExpression, FunctionExpression,
 } from '../number-expression';
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 import type { ParticleShape } from './particle-shape';
 import type { ComponentData } from '../components';
 
@@ -35,7 +35,7 @@ export interface ParticleItem extends BaseItem {
    * 粒子元素渲染信息
    */
   content: ParticleContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 /**
