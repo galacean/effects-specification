@@ -1,4 +1,4 @@
-import type { DataType } from './components';
+import type { DataType, EffectsObjectData } from './components';
 import type { RenderLevel } from './type';
 import type { ValueType } from './number-expression';
 
@@ -25,7 +25,7 @@ export type BinaryType = 'u8' | 'i8' | 'i16' | 'u16' | 'f32' | 'u32' | 'i32' | '
 /**
  * 线上二进制地址
  */
-export interface BinaryFile {
+export interface BinaryFile extends EffectsObjectData {
   url: string,
   dataType: DataType.BinaryAsset,
   renderLevel?: RenderLevel,
