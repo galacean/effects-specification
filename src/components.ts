@@ -1,3 +1,4 @@
+import type { BinaryDataSegment } from './binary';
 import type { Vector2Data } from './item/base-item';
 
 export enum DataType {
@@ -103,7 +104,11 @@ export interface GeometryData extends EffectsObjectData {
   /**
    * 存放 position, uv, normal, indices 的打包数据
    */
-  buffer: string,
+  buffer?: string,
+  /**
+   * 存放 position, uv, normal, indices 的打包数据二进制资产引用
+   */
+  bufferAsset?: BinaryDataSegment,
   /**
    * 所有的骨骼名称
    */
