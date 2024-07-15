@@ -1,4 +1,4 @@
-import type { EndBehavior } from 'src/item/base-item';
+import type { EndBehavior } from '../item/base-item';
 import type { DataPath } from '../components';
 
 export interface TimelineClipData {

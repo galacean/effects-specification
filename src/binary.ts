@@ -1,4 +1,4 @@
-import type { DataType, EffectsObjectData } from './components';
+import type { DataPath, DataType, EffectsObjectData } from './components';
 import type { RenderLevel } from './type';
 import type { ValueType } from './number-expression';
 
@@ -29,6 +29,12 @@ export interface BinaryFile extends EffectsObjectData {
   url: string,
   dataType: DataType.BinaryAsset,
   renderLevel?: RenderLevel,
+}
+
+export interface BinaryDataSegment {
+  buffer: DataPath,
+  offset: number,
+  length: number,
 }
 
 export type BinaryEnv = 'studio' | 'runtime' | 'json';
