@@ -95,6 +95,12 @@ export interface Image {
    */
   webp?: string,
   /**
+   * AVIF 地址
+   * 如果运行时支持 AVIF，则优先使用 AVIF
+   * @since 2.0.0
+   */
+  avif?: string,
+  /**
    * 纹理贴图渲染等级
    * 如果没有设置，按照 B+ 处理
    */
