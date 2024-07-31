@@ -66,7 +66,6 @@ export enum BackgroundType {
 }
 
 export interface TemplateContent {
-  variables: Record<string, number | string>,
   /**
    * 当 template 宽高和 image 不相同时，会对 template 进行缩放，使其和 image 相同。
    */
@@ -76,9 +75,11 @@ export interface TemplateContent {
   background?: {
     type: BackgroundType,
     name: string,
-    url: string,
+    url: string | HTMLImageElement,
   },
 }
+
+export type TemplateVariables = Record<string, string | string[] | HTMLImageElement | HTMLImageElement[]>;
 
 /**
  * 纹理贴图属性
