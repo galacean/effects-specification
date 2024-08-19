@@ -1,5 +1,5 @@
 import type { DataPath, EffectsObjectData } from './components';
-import type { EndBehavior, ParentItemEndBehavior, BaseContent, TransformData } from './item/base-item';
+import type { EndBehavior, BaseContent, TransformData } from './item/base-item';
 import type { ItemType, RenderLevel } from './type';
 
 export interface VFXItemData extends EffectsObjectData {
@@ -38,7 +38,7 @@ export interface VFXItemData extends EffectsObjectData {
    * 元素结束行为
    * @default destroy
    */
-  endBehavior: EndBehavior | ParentItemEndBehavior,
+  endBehavior: EndBehavior,
   /**
    * 元素播放延时（单位秒）
    * @default 0
