@@ -1,8 +1,8 @@
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 import type {
   SizeOverLifetime, RotationOverLifetime, ColorOverLifetime, ItemType,
 } from '../type';
-import type { RGBAColorValue, vec3 } from '../numberExpression';
+import type { RGBAColorValue, vec3 } from '../number-expression';
 import type { PositionOverLifetime } from '../type';
 
 /**
@@ -10,14 +10,14 @@ import type { PositionOverLifetime } from '../type';
  */
 export interface CompositionItem extends BaseItem {
   /**
-   * 元素类型[指定为composition]
+   * 元素类型（指定为 composition）
    */
   type: ItemType.composition,
   /**
    * 预合成元素渲染信息
    */
   content: CompositionContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 /**
@@ -29,7 +29,7 @@ export interface CompositionContent {
    */
   options: {
     /**
-     * 引用的合成id
+     * 引用的合成 ID
      */
     refId: string,
     /**

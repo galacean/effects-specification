@@ -1,26 +1,37 @@
 import type { InteractBehavior, InteractType, ItemType } from '../type';
-import type { RGBAColor } from '../numberExpression';
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { RGBAColor } from '../number-expression';
+import type { BaseItem, EndBehavior } from './base-item';
+import type { ComponentData } from '../components';
 
 /**
  * 交互元素
  */
 export interface InteractItem extends BaseItem {
   /**
-   * 元素类型[指定为interact]
+   * 元素类型（指定为 interact）
    */
   type: ItemType.interact,
   /**
    * 交互元素渲染信息
    */
   content: InteractContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 /**
  * 交互元素渲染属性
  */
 export interface InteractContent {
+  /**
+   * 交互元素基础属性
+   */
+  options: InteractOption,
+}
+
+/**
+ * 交互元素渲染属性
+ */
+export interface InteractComponentData extends ComponentData {
   /**
    * 交互元素基础属性
    */

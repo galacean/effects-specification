@@ -1,18 +1,12 @@
-import type {
-  SizeOverLifetime,
-  RotationOverLifetime,
-  PositionOverLifetime,
-  ColorOverLifetime,
-  ItemType,
-} from '../type';
-import type { RGBAColorValue } from '../numberExpression';
+import type { RGBAColorValue } from '../number-expression';
+import type { ColorOverLifetime, ItemType, PositionOverLifetime, RotationOverLifetime, SizeOverLifetime } from '../type';
 import type { BaseItem } from './base-item';
 /**
  * 空节点元素
  */
 export interface NullItem extends BaseItem {
   /**
-   * 元素类型[指定为null]
+   * 元素类型（指定为 null）
    */
   type: ItemType.null,
   /**

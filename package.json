@@ -2,34 +2,28 @@
   "name": "@galacean/effects-specification",
   "version": "1.3.0",
   "description": "Galacean Effects JSON Specification",
-  "module": "./dist/index.mjs",
-  "main": "./dist/index.js",
-  "types": "./dist/src/index.d.ts",
+  "module": "./es/index.js",
+  "main": "./es/index.js",
+  "types": "./es/index.d.ts",
   "files": [
-    "dist"
+    "es"
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/src/index.d.ts"
-    },
-    "./dist/fallback": {
-      "import": "./dist/fallback.mjs",
-      "require": "./dist/fallback.js",
-      "types": "./dist/fallback/index.d.ts"
+      "import": "./es/index.js",
+      "require": "./es/index.js",
+      "types": "./es/index.d.ts"
     }
   },
   "scripts": {
     "prebuild": "npm run clean:all",
-    "build": "npm run build:dist",
-    "build:dist": "rollup -c",
-    "lint": "eslint {src,fallback,test} --ext .ts,.mjs",
-    "lint:fix": "eslint {src,fallback,test} --fix --quiet --ext .ts,.mjs",
+    "build": "npm run build:lib",
+    "build:lib": "tsc -b tsconfig.build.json",
+    "lint": "eslint src --ext .ts,.mjs",
+    "lint:fix": "eslint src --fix --quiet --ext .ts,.mjs",
     "check:ts": "tsc -b tsconfig.check.json",
-    "clean:all": "npm run clean:dist",
-    "clean:dist": "rimraf dist/**",
-    "test": "rollup -c --watch --test",
+    "clean:all": "npm run clean:lib",
+    "clean:lib": "rimraf es/**",
     "prepare": "husky install",
     "prepublishOnly": "npm run build"
   },
@@ -38,29 +32,17 @@
   ],
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
-    "@commitlint/config-conventional": "^13.2.0",
-    "@rollup/plugin-commonjs": "^21.0.3",
-    "@rollup/plugin-node-resolve": "^13.1.3",
-    "@rollup/plugin-typescript": "^8.3.1",
-    "@types/chai": "^4.3.0",
-    "@types/chai-spies": "^1.0.0",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^17.0.21",
-    "@typescript-eslint/eslint-plugin": "^5.26.0",
-    "@typescript-eslint/parser": "^5.26.0",
-    "chai": "^4.3.6",
-    "chai-spies": "^1.0.0",
-    "eslint": "^8.13.0",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "eslint": "^8.56.0",
     "eslint-plugin-compat": "^4.2.0",
     "eslint-plugin-promise": "^6.1.1",
-    "husky": "^7.0.4",
+    "husky": "^9.0.11",
     "lint-staged": "^11.2.6",
-    "mocha": "^10.2.0",
+    "pnpm": "^8.15.7",
     "rimraf": "^3.0.2",
-    "rollup": "^2.70.1",
-    "rollup-plugin-livereload": "^2.0.5",
-    "rollup-plugin-serve": "^1.1.0",
-    "typescript": "^4.6.2"
+    "typescript": "^5.3.3"
   },
   "author": "Ant Group CO., Ltd.",
   "license": "MIT",

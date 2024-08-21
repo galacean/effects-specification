@@ -1,13 +1,7 @@
+import type { DataPath } from './components';
+import { CAMERA_CLIP_MODE_NORMAL, CAMERA_CLIP_MODE_VERTICAL } from './constants';
 import type { Item } from './item';
-import {
-  CAMERA_CLIP_MODE_NORMAL,
-  CAMERA_CLIP_MODE_VERTICAL,
-  END_BEHAVIOR_DESTROY,
-  END_BEHAVIOR_FORWARD,
-  END_BEHAVIOR_PAUSE,
-  END_BEHAVIOR_PAUSE_AND_DESTROY,
-  END_BEHAVIOR_RESTART,
-} from './constants';
+import type { EndBehavior } from './item/base-item';
 
 export enum CameraClipMode {
   /**
@@ -52,36 +46,7 @@ export interface CameraOptions {
   clipMode: CameraClipMode,
 }
 
-/**
- * 结束行为
- */
-export enum CompositionEndBehavior {
-  /**
-   * 销毁
-   */
-  destroy = END_BEHAVIOR_DESTROY,
-  /**
-   * 暂停
-   */
-  pause = END_BEHAVIOR_PAUSE,
-  /**
-   * 重播
-   */
-  restart = END_BEHAVIOR_RESTART,
-  /**
-   * 无限播放
-   */
-  forward = END_BEHAVIOR_FORWARD,
-  /**
-   * 销毁并保留最后一帧
-   */
-  pause_destroy = END_BEHAVIOR_PAUSE_AND_DESTROY,
-}
-
-/**
- * 合成信息
- */
-export interface Composition {
+interface CompositionBase {
   /**
    * 合成ID
    */
@@ -94,7 +59,6 @@ export interface Composition {
    * 合成持续时间
    */
   duration: number,
-
   /**
    * 合成开始播放的时间，单位妙
    * @default 0
@@ -103,15 +67,11 @@ export interface Composition {
   /**
    * 合成结束行为
    */
-  endBehavior: CompositionEndBehavior,
+  endBehavior: EndBehavior,
   /**
    * 合成相机信息
    */
   camera: CameraOptions,
-  /**
-   * 元素信息
-   */
-  items: Item[],
   /**
    * 合成视窗预览大小
    * 如果没有提供，默认为 player 的 container 大小
@@ -122,4 +82,43 @@ export interface Composition {
    * 降级图
    */
   fallbackImage?: string,
+}
+
+/**
+ * 合成信息
+ */
+export interface Composition extends CompositionBase {
+  /**
+   * 元素信息
+   */
+  items: Item[],
+}
+
+/**
+ * 合成数据
+ */
+export interface CompositionData extends CompositionBase {
+  /**
+   * 元素信息
+   */
+  items: DataPath[],
+  /**
+   * 时间轴资产（TimelineAssetData）
+   */
+  timelineAsset: DataPath,
+  /**
+   * 轨道的场景绑定
+   */
+  sceneBindings: SceneBindingData[],
+}
+
+export interface SceneBindingData {
+  /**
+   * 绑定的轨道资产（TrackAssetData）
+   */
+  key: DataPath,
+  /**
+   * 被绑定的场景对象（VFXItemData）
+   */
+  value: DataPath,
 }

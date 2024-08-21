@@ -1,6 +1,6 @@
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 import type { ItemType, RotationOverLifetime } from '../type';
-import type { FixedNumberExpression, FixedVec3Expression } from '../numberExpression';
+import type { FixedNumberExpression, FixedVec3Expression } from '../number-expression';
 import type { CameraClipMode } from '../composition';
 
 export interface CameraItem extends BaseItem {
@@ -12,7 +12,7 @@ export interface CameraItem extends BaseItem {
    * 相机元素渲染信息
    */
   content: CameraContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 export interface CameraContent {
@@ -39,7 +39,7 @@ export interface CameraContent {
     clipMode?: CameraClipMode,
 
     /**
-     * 默认不提供，等于canvas width/height
+     * 默认不提供，等于 canvas width/height
      */
     aspect?: number,
   },
@@ -55,15 +55,15 @@ export interface CameraContent {
 
 export interface CameraPositionOverLifetime {
   /**
-   * x轴位置变化信息
+   * x 轴位置变化信息
    */
   linearX?: FixedNumberExpression,
   /**
-   * y轴位置变化信息
+   * y 轴位置变化信息
    */
   linearY?: FixedNumberExpression,
   /**
-   * z轴位置变化信息
+   * z 轴位置变化信息
    */
   linearZ?: FixedNumberExpression,
   /**

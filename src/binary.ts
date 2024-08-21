@@ -1,5 +1,6 @@
+import type { DataType, EffectsObjectData } from './components';
 import type { RenderLevel } from './type';
-import type { ValueType } from './numberExpression';
+import type { ValueType } from './number-expression';
 
 /**
  * index: 指向 json 中 bins 数组
@@ -20,13 +21,13 @@ import type { ValueType } from './numberExpression';
  */
 export type BinaryPointerContent = [index: number, start?: number, byteLength?: number, type?: BinaryType];
 export type BinaryPointer = [ValueType.BINARY, BinaryPointerContent];
-export type BinaryType = 'u8' | 'i8' | 'i16' | 'u16' | 'f32' | 'u32' | 'i32' | 'f64' | string;
-
+export type BinaryType = 'u8' | 'i8' | 'i16' | 'u16' | 'f32' | 'u32' | 'i32' | 'f64' | '';
 /**
  * 线上二进制地址
  */
-export interface BinaryFile {
+export interface BinaryFile extends EffectsObjectData {
   url: string,
+  dataType: DataType.BinaryAsset,
   renderLevel?: RenderLevel,
 }
 

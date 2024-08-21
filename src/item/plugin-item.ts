@@ -1,24 +1,19 @@
-import type {
-  ItemType,
-  PluginGyroscopeTarget,
-  PluginType,
-  RendererOptions,
-} from '../type';
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { ItemType, PluginGyroscopeTarget, PluginType, RendererOptions } from '../type';
+import type { BaseItem, EndBehavior } from './base-item';
 
 /**
  * 插件元素
  */
 export interface PluginItem extends BaseItem {
   /**
-   * 元素类型[指定为plugin]
+   * 元素类型（指定为 plugin）
    */
   type: ItemType.plugin,
   /**
    * 插件元素渲染信息
    */
   content: PluginContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 /**

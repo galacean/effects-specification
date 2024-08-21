@@ -1,32 +1,25 @@
-import type { BaseItem, ItemEndBehavior } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 import type {
-  SizeOverLifetime,
-  RotationOverLifetime,
-  PositionOverLifetime,
-  ColorOverLifetime,
-  ItemType,
-  TextureSheetAnimation,
-  RendererOptions,
-  InteractBehavior,
+  SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime, ItemType,
+  TextureSheetAnimation, RendererOptions, InteractBehavior,
 } from '../type';
-import type {
-  RGBAColorValue,
-} from '../numberExpression';
-import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight } from 'src/text';
+import type { RGBAColorValue } from '../number-expression';
+import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight } from '../text';
+import type { ComponentData } from '../components';
 
 /**
  * 文本元素
  */
 export interface TextItem extends BaseItem {
   /**
-   * 元素类型[指定为text]
+   * 元素类型（指定为 text）
    */
   type: ItemType.text,
   /**
    * 文本元素渲染信息
    */
   content: TextContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
 export interface TextContentOptions {
@@ -147,6 +140,49 @@ export interface TextContentOptions {
  * 文本元素渲染属性
  */
 export interface TextContent {
+  /**
+   * 文本元素基础属性
+   */
+  options: TextContentOptions,
+  /**
+   * 文本元素材质渲染属性
+   */
+  renderer: RendererOptions,
+  /**
+   * 文本元素大小变化属性
+   */
+  sizeOverLifetime?: SizeOverLifetime,
+  /**
+   * 文本元素旋转变化属性
+   */
+  rotationOverLifetime?: RotationOverLifetime,
+  /**
+   * 文本元素位置变化属性
+   */
+  positionOverLifetime?: PositionOverLifetime,
+  /**
+   * 文本元素色彩变化属性
+   */
+  colorOverLifetime?: ColorOverLifetime,
+  /**
+   * 文本元素贴图变化属性
+   */
+  textureSheetAnimation?: TextureSheetAnimation,
+  /**
+   * 图层交互
+   */
+  interaction?: {
+    /**
+     * 交互行为
+     */
+    behavior: InteractBehavior,
+  },
+}
+
+/**
+ * 文本元素渲染属性
+ */
+export interface TextComponentData extends ComponentData {
   /**
    * 文本元素基础属性
    */

@@ -2,6 +2,7 @@ import type { BinaryEnv } from '../../binary';
 import type { ModelAnimationTrackDataPointer } from './binary';
 import type { BaseItem, BaseItemTransform } from '../base-item';
 import type { SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ItemType } from '../../type';
+import type { ComponentData, DataPath } from '../../components';
 
 export interface TreeNodeOptions {
   name?: string,
@@ -70,3 +71,39 @@ export interface ModelTreeItem<T extends BinaryEnv> extends BaseItem {
   type: ItemType.tree,
   content: ModelTreeContent<T>,
 }
+
+export interface ModelAnimationTrackData {
+  item: DataPath,
+  input: number[],
+  output: number[],
+  path: 'translation' | 'rotation' | 'scale' | 'weights',
+  interpolation: 'LINEAR' | 'STEP' | 'CUBICSPLINE',
+}
+
+export interface ModelAnimationData {
+  name?: string,
+  tracks: ModelAnimationTrackData[],
+}
+
+export interface ModelAnimationComponentData extends ComponentData {
+  /**
+   * 默认动画索引，-1表示不播放动画
+   */
+  animation?: number,
+  /**
+   * 3D场景树中所有的动画数据
+   */
+  animations: ModelAnimationData[],
+}
+
+export interface AnimationComponentData extends ComponentData {
+  /**
+   * 默认动画索引，-1表示不播放动画
+   */
+  animation?: number,
+  /**
+   * glTF中所有的动画数据
+   */
+  animationClips: DataPath[],
+}
+

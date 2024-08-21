@@ -1,11 +1,3 @@
-import type { RGBAColor } from './numberExpression';
-
-export interface StringTemplate {
-  fonts: FontBase[],
-  texts: Text[],
-  colors: RGBAColor[], //rgba rgba(0-255), a default 255
-}
-
 /**
  * 字体资源
  * @version 2.3
@@ -61,56 +53,6 @@ export interface FontBase {
   letterSpace?: number,
 }
 
-export interface Text {
-  x: number,
-  y: number,
-  /**
-   * 变量名
-   */
-  n?: string,
-  /**
-   * content,
-   * 文字内容，如果包含 $var$ 样式，内容将被替换
-   */
-  t: string,
-  /**
-   * width, if not provide use canvas.measureText() to get width
-   * 文字最大宽度，如果不设置，由系统进行计算
-   */
-  w?: number,
-  /**
-   * font, index to fonts array
-   * 字体，指向字体数组
-   * @default 0
-   */
-  f?: number,
-  /**
-   * textAlignment
-   * 字体排列
-   * @default 0
-   */
-  a?: TextAlignment,
-  /**
-   * index to color array
-   * 字体颜色，指向数组
-   */
-  c?: number,
-
-  /**
-   * 当文字超过最大宽度时，文字的表现行为
-   * 仅当设置文字最大宽度后生效
-   * @default 0
-   */
-  of?: TextOverflow,
-
-  /**
-   * 当文字overflow为ellipsis时的替换符号
-   * @default ".."
-   */
-  et?: string,
-
-}
-
 export enum TextOverflow {
   /**
    * display 模式下，会显示所有文本，存在文本超过边界框的情况。
@@ -144,7 +86,7 @@ export enum TextBaseline {
 export enum TextAlignment {
   /**
    * text alignment starts from（x,y) to right direction
-   * 从(x,y)开始第一个字符，向右边延伸
+   * 从 (x,y) 开始第一个字符，向右边延伸
    */
   left = 0,
   /**
@@ -154,7 +96,7 @@ export enum TextAlignment {
   middle = 1,
   /**
    * text alignment ends with（x,y) from left direction
-   * 从(x,y)结束最后一个字符，向左边延伸
+   * 从 (x,y) 结束最后一个字符，向左边延伸
    */
   right = 2,
 }

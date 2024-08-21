@@ -52,7 +52,7 @@ export enum ValueType {
    */
   SHAPE_SPLITS = 11,
   /**
-   *直线路径
+   * 直线路径
    */
   LINEAR_PATH = 12,
   /**
@@ -63,16 +63,18 @@ export enum ValueType {
    * 二进制指针
    */
   BINARY = 20,
-
   /**
    * 贝塞尔曲线
    */
   BEZIER_CURVE = 21,
-
   /**
    * 贝塞尔曲线路径
    */
   BEZIER_CURVE_PATH = 22,
+  /**
+   * 贝塞尔曲线四元数
+   */
+  BEZIER_CURVE_QUAT = 23,
 }
 
 export type vec2 = [x: number, y: number];
@@ -88,17 +90,18 @@ export type mat4 = [
   m11: number, m12: number, m13: number, m14: number,
   m21: number, m22: number, m23: number, m24: number,
   m31: number, m32: number, m33: number, m34: number,
-  m41: number, m42: number, m43: number, m44: number
+  m41: number, m42: number, m43: number, m44: number,
 ];
 
 /*********************************************/
-/*               数值属性参数                 */
+/*               数值属性参数                  */
 /*********************************************/
+
 export type FunctionExpression = LineValue | CurveValue | BezierValue;
 export type FixedNumberExpression = ConstantNumber | LineValue | CurveValue | BezierValue;
 export type NumberExpression = FixedNumberExpression | RandomValue;
-
 export type FixedVec3Expression = ConstantVec3 | BezierPath | LinearPath | BezierCurvePath;
+export type FixedQuatExpression = BezierCurveQuat;
 
 /**
  * 常数数值
@@ -125,6 +128,7 @@ export type RandomValue = [type: ValueType.RANDOM, value: [min: number, max: num
 export type LineValue = [type: ValueType.LINE, value: [time: number, value: number][]];
 
 export type CurveEasingPoint = [time: number, value: number, tanIn: number, tanOut: number];
+
 /**
  * 曲线段数值
  */
@@ -246,7 +250,8 @@ export type HoldKeyframeValue =
   | EaseHoldInKeyframeValue
   | LineHoldOutKeyframeValue
   | LineHoldInKeyframeValue
-  | HoldInOutKeyframeValue;
+  | HoldInOutKeyframeValue
+  ;
 
 /**
  * 贝塞尔关键帧值
@@ -256,7 +261,8 @@ export type BezierKeyframeValue =
   | EaseInKeyframeValue
   | EaseOutKeyframeValue
   | LineKeyframeValue
-  | HoldKeyframeValue;
+  | HoldKeyframeValue
+  ;
 
 /**
  * 贝塞尔关键帧
@@ -269,9 +275,19 @@ export type BezierValue = [type: ValueType.BEZIER_CURVE, value: BezierKeyframeVa
 export type BezierCurvePathValue = [easing: BezierKeyframeValue[], points: vec3[], controlePoints: vec3[]];
 
 /**
+ * 贝塞尔曲线路径关键帧值
+ */
+export type BezierCurveQuatValue = [easing: BezierKeyframeValue[], points: vec4[], controlePoints: vec4[]];
+
+/**
  * 贝塞尔曲线路径关键帧
  */
 export type BezierCurvePath = [type: ValueType.BEZIER_CURVE_PATH, value: BezierCurvePathValue];
+
+/**
+ * 贝塞尔曲线路径关键帧
+ */
+export type BezierCurveQuat = [type: ValueType.BEZIER_CURVE_QUAT, value: BezierCurveQuatValue];
 
 /*********************************************/
 /*               颜色属性参数                 */

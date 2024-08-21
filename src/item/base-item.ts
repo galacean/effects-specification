@@ -1,24 +1,42 @@
-import type { ItemType, RenderLevel } from '../type';
-import type { NullContent } from './null-item';
-import type { PluginContent } from './plugin-item';
-import type { SpriteContent } from './sprite-item';
-import type { InteractContent } from './interact-item';
-import type { ParticleContent } from './particle-item';
-import type { CompositionContent } from './composition-item';
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
+import type { BinaryEnv } from '../binary';
 import {
-  END_BEHAVIOR_DESTROY,
-  END_BEHAVIOR_DESTROY_CHILDREN,
-  END_BEHAVIOR_FREEZE,
-  END_BEHAVIOR_RESTART,
+  END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FORWARD,
+  END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
 } from '../constants';
-import type { vec3, vec4 } from '../numberExpression';
+import type { vec3, vec4 } from '../number-expression';
+import type { ItemType, RenderLevel } from '../type';
 import type { CameraContent } from './camera-item';
-import type { FilterContent } from '../../src/item/filter-item';
+import type { CompositionContent } from './composition-item';
+import type { EffectContent } from './effect-item';
+import type { InteractContent } from './interact-item';
+import type { ModelLightContent, ModelMeshItemContent, ModelTreeContent, SkyboxContent } from './model';
+import type { NullContent } from './null-item';
+import type { ParticleContent } from './particle-item';
+import type { PluginContent } from './plugin-item';
+import type { SpineContent } from './spine-item';
+import type { SpriteContent } from './sprite-item';
 import type { TextContent } from './text-item';
 
-export enum ItemEndBehavior {
+/**
+ * 结束行为
+ */
+export enum EndBehavior {
+  /**
+   * 销毁
+   */
   destroy = END_BEHAVIOR_DESTROY,
-  loop = END_BEHAVIOR_RESTART,
+  /**
+   * 重播
+   */
+  restart = END_BEHAVIOR_RESTART,
+  /**
+   * 无限播放
+   */
+  forward = END_BEHAVIOR_FORWARD,
+  /**
+   * 冻结
+   */
   freeze = END_BEHAVIOR_FREEZE,
 }
 
@@ -63,7 +81,7 @@ export interface BaseItem {
    * 元素结束行为
    * @default destroy
    */
-  endBehavior: ItemEndBehavior | ParentItemEndBehavior,
+  endBehavior: EndBehavior | ParentItemEndBehavior,
   /**
    * 元素播放延时（单位秒）
    * @default 0
@@ -118,6 +136,25 @@ export interface BaseItemTransform {
   quat?: vec4,
 }
 
+export interface Vector3Data {
+  x: number,
+  y: number,
+  z: number,
+}
+
+export interface Vector2Data {
+  x: number,
+  y: number,
+}
+
+export interface TransformData {
+  position: Vector3Data,
+  eulerHint: Vector3Data,
+  scale: Vector3Data,
+  size?: Vector2Data,
+  anchor?: Vector2Data,
+}
+
 export type BaseContent =
   | SpriteContent
   | ParticleContent
@@ -126,7 +163,12 @@ export type BaseContent =
   | PluginContent
   | CompositionContent
   | CameraContent
-  | FilterContent
   | TextContent
+  | SpineContent
+  | EffectContent
+  | ModelTreeContent<BinaryEnv>
+  | ModelMeshItemContent<BinaryEnv>
+  | ModelLightContent
+  | SkyboxContent<BinaryEnv>
   | any
   ;

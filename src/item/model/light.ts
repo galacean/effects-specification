@@ -1,6 +1,7 @@
-import type { RGBAColorValue } from '../../numberExpression';
-import type { BaseItem, ItemEndBehavior } from '../base-item';
+import type { RGBAColorValue } from '../../number-expression';
+import type { BaseItem, EndBehavior } from '../base-item';
 import type { RotationOverLifetime, PositionOverLifetime, ItemType } from '../../type';
+import type { ColorData, ComponentData } from '../../components';
 
 export interface ModelLightBaseOptions {
   /**
@@ -84,5 +85,53 @@ export interface ModelLightItem extends BaseItem {
   type: ItemType.light,
   pluginName: 'model',
   content: ModelLightContent,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
+}
+
+export enum LightType {
+  /**
+   * 点光源
+   */
+  point = 'point',
+  /**
+   * 聚光灯
+   */
+  spot = 'spot',
+  /**
+   * 方向光
+   */
+  directional = 'directional',
+  /**
+   * 环境光
+   */
+  ambient = 'ambient',
+}
+
+export interface ModelLightComponentData extends ComponentData {
+  lightType: LightType,
+  /**
+   * 灯光颜色，线性空间
+   * @default [255,255,255]
+   */
+  color: ColorData,
+  /**
+   * 灯光强度
+   * @default 1
+   */
+  intensity: number,
+  /**
+   * 点光源和聚光灯
+   * @default Infinity
+   */
+  range?: number,
+  /**
+   * 聚光灯
+   * @default 0
+   */
+  innerConeAngle?: number,
+  /**
+   * 聚光灯
+   * @default 45度
+   */
+  outerConeAngle?: number,
 }

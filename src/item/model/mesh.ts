@@ -1,10 +1,11 @@
 import type { BinaryEnv } from '../../binary';
-import type { BaseItem, ItemEndBehavior } from '../base-item';
+import type { BaseItem, EndBehavior } from '../base-item';
 import type { MaterialOptions } from './material';
 import type { GeometryPointer } from './binary';
-import type { vec3 } from '../../numberExpression';
+import type { vec3 } from '../../number-expression';
 import type { InteractBehavior, ItemType } from '../../type';
 import type { ModelAnimationTrackDataPointer } from './binary';
+import type { ComponentData, DataPath } from '../../components';
 
 export type BufferType =
   | WebGLRenderingContext['FLOAT']
@@ -87,6 +88,37 @@ export interface ModelMeshItem<T extends BinaryEnv> extends BaseItem {
   type: ItemType.mesh,
   pluginName: 'model',
   content: ModelMeshItemContent<T>,
-  endBehavior: ItemEndBehavior,
+  endBehavior: EndBehavior,
 }
 
+export interface PrimitiveData {
+  geometry: DataPath,
+  material: DataPath,
+}
+
+export interface SkinData {
+  name?: string,
+  joints: DataPath[],
+  skeleton?: DataPath,
+  // 数据量会很大
+  inverseBindMatrices: number[],
+}
+
+export interface MorphData {
+  weights: number[],
+}
+
+export interface ModelMeshComponentData extends ComponentData {
+  hide?: boolean,
+  /**
+   * 骨骼根节点
+   */
+  rootBone?: DataPath,
+  /**
+   * Morph数据
+   */
+  morph?: MorphData,
+  geometry: DataPath,
+  materials: DataPath[],
+  interaction?: ModelItemBounding,
+}
