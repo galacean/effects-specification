@@ -18,6 +18,10 @@ export interface ModelLightBaseOptions {
    * @default 1
    */
   intensity: number,
+  /**
+   * 跟随相机
+   */
+  followCamera?: boolean,
 }
 
 // 点光源
