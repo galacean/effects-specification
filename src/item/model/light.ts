@@ -18,10 +18,6 @@ export interface ModelLightBaseOptions {
    * @default 1
    */
   intensity: number,
-  /**
-   * 跟随相机
-   */
-  followCamera?: boolean,
 }
 
 // 点光源
@@ -138,4 +134,8 @@ export interface ModelLightComponentData extends ComponentData {
    * @default 45度
    */
   outerConeAngle?: number,
+  /**
+   * 跟随相机
+   */
+  followCamera?: boolean,
 }
