@@ -82,6 +82,10 @@ export interface PluginSpineOption {
    * @since 1.3.0
    */
   resizeRule: number,
+  /**
+   * 一组动作结束后是否循环最后一个动作
+   */
+  loopEnd?: boolean,
 }
 
 /**
