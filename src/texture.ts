@@ -54,28 +54,3 @@ export type SerializedTextureSource = SerializedTexture2D | SerializedTextureCub
 export type TextureJSONOptions = SerializedTextureSource;
 
 export type TextureDefine = TextureJSONOptions;
-
-/**
- * 动态换图类型
- * @since 1.1.0
- */
-export enum BackgroundType {
-  video = 'video',
-  image = 'image',
-}
-
-export interface TemplateContent {
-  /**
-   * 当 template 宽高和 image 不相同时，会对 template 进行缩放，使其和 image 相同。
-   */
-  width: number,
-  height: number,
-  // 绘制 canvas 的背景图片，替换掉原来的那张图片，如果没有就不替换
-  background?: {
-    type: BackgroundType,
-    name: string,
-    url: string | HTMLImageElement,
-  },
-}
-
-export type TemplateVariables = Record<string, string | string[] | HTMLImageElement | HTMLImageElement[]>;

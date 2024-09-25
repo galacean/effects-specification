@@ -1,7 +1,7 @@
 import type { Composition, CompositionData } from './composition';
 import type { SpineResource } from './item/spine-item';
 import type { PlayerVersion, Shape } from './type';
-import type { TextureDefine } from './image';
+import type { TextureDefine } from './texture';
 import type { FontBase, FontDefine } from './text';
 import type { BinaryFile } from './binary';
 import type { ComponentData, EffectsObjectData, GeometryData, MaterialData, ShaderData } from './components';
@@ -111,6 +111,7 @@ export interface JSONScene {
    * JSON 版本
    *
    * 3.0 EC 改造、移除滤镜元素
+   * 3.1 音视频
    */
   version: string,
   /**
@@ -160,16 +161,14 @@ export interface JSONScene {
   fonts?: FontBase[] | FontDefine[],
   /**
    * 视频资源
+   * @since 2.0.0
    */
   videos?: AssetBaseOptions[],
   /**
    * 音频资源
+   * @since 2.0.0
    */
   audios?: AssetBaseOptions[],
-  // /**
-  //  * spine 资源
-  //  */
-  // spines?: SpineResource[],
   /**
    * 二进制文件地址
    */

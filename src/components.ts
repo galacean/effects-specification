@@ -233,12 +233,6 @@ export interface ShaderData extends EffectsObjectData {
   properties?: string,
 }
 
-export interface EffectComponentData extends ComponentData {
-  _priority: number,
-  materials: DataPath[],
-  geometry: DataPath,
-}
-
 export interface EffectsPackageData {
   fileSummary: FileSummary,
   exportObjects: EffectsObjectData[],

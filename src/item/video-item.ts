@@ -1,6 +1,9 @@
 import type { ComponentData, DataPath } from '../components';
 import type { RGBAColorValue } from '../number-expression';
-import type { SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime, InteractBehavior, RendererOptions, ItemType } from '../type';
+import type {
+  SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
+  InteractBehavior, RendererOptions, ItemType,
+} from '../type';
 import type { BaseItem, EndBehavior } from './base-item';
 
 /**

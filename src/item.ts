@@ -8,8 +8,8 @@ import type { ModelCameraItem, ModelLightItem, ModelMeshItem, ModelSkyboxItem, M
 import type { CameraItem } from './item/camera-item';
 import type { CompositionItem } from './item/composition-item';
 import type { TextItem } from './item/text-item';
-import type { VideoItem } from './item/video-component';
-import type { AudioItem } from './item/audio-component';
+import type { VideoItem } from './item/video-item';
+import type { AudioItem } from './item/audio-item';
 
 /**
  * Item 基类，无对应元素
