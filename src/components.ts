@@ -37,6 +37,8 @@ export enum DataType {
   TreeComponent = 'TreeComponent',
   AnimationComponent = 'AnimationComponent',
   SpineComponent = 'SpineComponent',
+  VideoComponent = 'VideoComponent',
+  AudioComponent = 'AudioComponent',
 
   // Non-EffectObject
   TimelineClip = 'TimelineClip',
@@ -229,12 +231,6 @@ export interface ShaderData extends EffectsObjectData {
   vertex: string,
   fragment: string,
   properties?: string,
-}
-
-export interface EffectComponentData extends ComponentData {
-  _priority: number,
-  materials: DataPath[],
-  geometry: DataPath,
 }
 
 export interface EffectsPackageData {

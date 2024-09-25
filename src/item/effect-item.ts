@@ -1,3 +1,4 @@
+import type { ComponentData, DataPath } from '../components';
 import type { ItemType, PositionOverLifetime, RotationOverLifetime, SizeOverLifetime } from '../type';
 import type { BaseItem, EndBehavior } from './base-item';
 
@@ -34,4 +35,10 @@ export interface EffectContent {
    * 特效元素位置变化属性
    */
   positionOverLifetime?: PositionOverLifetime,
+}
+
+export interface EffectComponentData extends ComponentData {
+  _priority: number,
+  materials: DataPath[],
+  geometry: DataPath,
 }
