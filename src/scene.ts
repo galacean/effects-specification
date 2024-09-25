@@ -1,12 +1,13 @@
 import type { Composition, CompositionData } from './composition';
 import type { SpineResource } from './item/spine-item';
 import type { PlayerVersion, Shape } from './type';
-import type { TemplateImage, Image, CompressedImage, TextureDefine } from './image';
+import type { TextureDefine } from './image';
 import type { FontBase, FontDefine } from './text';
 import type { BinaryFile } from './binary';
 import type { ComponentData, EffectsObjectData, GeometryData, MaterialData, ShaderData } from './components';
 import type { VFXItemData } from './vfx-item-data';
 import type { AnimationClipData } from './animation-clip-data';
+import type { TemplateImage, Image, CompressedImage, AssetBaseOptions } from './assets';
 
 /**
  * runtime 2.0 之前的场景信息
@@ -157,6 +158,14 @@ export interface JSONScene {
    * 数据模板下掉可以不要 FontBase[]
    */
   fonts?: FontBase[] | FontDefine[],
+  /**
+   * 视频资源
+   */
+  videos?: AssetBaseOptions[],
+  /**
+   * 音频资源
+   */
+  audios?: AssetBaseOptions[],
   // /**
   //  * spine 资源
   //  */

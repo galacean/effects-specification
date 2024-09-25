@@ -572,6 +572,14 @@ export enum ItemType {
    * 节点元素
    */
   node = 'node',
+  /**
+   * 视频元素
+   */
+  video = 'video',
+  /**
+   * 音频元素
+   */
+  audio = 'audio',
 }
 
 /**

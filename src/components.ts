@@ -37,6 +37,8 @@ export enum DataType {
   TreeComponent = 'TreeComponent',
   AnimationComponent = 'AnimationComponent',
   SpineComponent = 'SpineComponent',
+  VideoComponent = 'VideoComponent',
+  AudioComponent = 'AudioComponent',
 
   // Non-EffectObject
   TimelineClip = 'TimelineClip',
