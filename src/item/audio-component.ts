@@ -1,6 +1,6 @@
 import type { ComponentData, DataPath } from '../components';
 import type { ItemType } from '../type';
-import type { BaseItem, EndBehavior } from './base-item';
+import type { BaseItem } from './base-item';
 
 /**
  * 音频元素
@@ -11,10 +11,9 @@ export interface AudioItem extends BaseItem {
    */
   type: ItemType.audio,
   /**
-   * 音频元素渲染信息
+   * 音频元素基础属性
    */
   content: AudioComponentData,
-  endBehavior: EndBehavior,
 }
 
 export interface AudioContentOptions {
@@ -40,11 +39,11 @@ export interface AudioContentOptions {
 }
 
 /**
- * 图层组件属性
+ * 音频组件属性
  */
 export interface AudioComponentData extends ComponentData {
   /**
-   * 视频元素基础属性
+   * 音频元素基础属性
    */
   options: AudioContentOptions,
 }

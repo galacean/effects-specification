@@ -12,7 +12,7 @@ export interface VideoItem extends BaseItem {
    */
   type: ItemType.video,
   /**
-   * 图层元素渲染信息
+   * 视频元素渲染信息
    */
   content: VideoComponentData,
   endBehavior: EndBehavior,
@@ -46,7 +46,7 @@ export interface VideoContentOptions {
 }
 
 /**
- * 图层组件属性
+ * 视频组件属性
  */
 export interface VideoComponentData extends ComponentData {
   /**
