@@ -38,5 +38,9 @@ export enum RenderMode3D {
    * 自发光
    */
   emissive = 'emissive',
+  /**
+   * 漫反射
+   */
+  diffuse = 'diffuse',
 }
 
