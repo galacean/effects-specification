@@ -712,3 +712,5 @@ export enum RenderFace {
   Back = 'Back',
   Front = 'Front',
 }
+
+export type HTMLImageLike = HTMLImageElement | HTMLCanvasElement | HTMLVideoElement;

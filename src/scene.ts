@@ -7,7 +7,7 @@ import type { BinaryFile } from './binary';
 import type { ComponentData, EffectsObjectData, GeometryData, MaterialData, ShaderData } from './components';
 import type { VFXItemData } from './vfx-item-data';
 import type { AnimationClipData } from './animation-clip-data';
-import type { TemplateImage, Image, CompressedImage, AssetBaseOptions } from './assets';
+import type { AssetBase, ImageSource } from './assets';
 
 /**
  * runtime 2.0 之前的场景信息
@@ -52,7 +52,7 @@ export interface JSONSceneLegacy {
   /**
    * 贴图信息
    */
-  images: (TemplateImage | Image | CompressedImage)[],
+  images: ImageSource[],
   /**
    * 根据合成ID，每个合成用到的 image 的数组索引
    */
@@ -136,7 +136,7 @@ export interface JSONScene {
   /**
    * 贴图信息
    */
-  images: (TemplateImage | Image | CompressedImage)[],
+  images: ImageSource[],
   /**
    * 根据合成 ID，每个合成用到的 image 的数组索引
    */
@@ -163,12 +163,12 @@ export interface JSONScene {
    * 视频资源
    * @since 2.0.0
    */
-  videos?: AssetBaseOptions[],
+  videos?: AssetBase[],
   /**
    * 音频资源
    * @since 2.0.0
    */
-  audios?: AssetBaseOptions[],
+  audios?: AssetBase[],
   /**
    * 二进制文件地址
    */
