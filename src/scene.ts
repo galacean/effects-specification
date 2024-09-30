@@ -1,6 +1,6 @@
 import type { Composition, CompositionData } from './composition';
 import type { SpineResource } from './item/spine-item';
-import type { PlayerVersion, Shape } from './type';
+import type { PlayerVersion, ShapeGeometry } from './type';
 import type { TextureDefine } from './texture';
 import type { FontBase, FontDefine } from './text';
 import type { BinaryFile } from './binary';
@@ -64,7 +64,7 @@ export interface JSONSceneLegacy {
   /**
    * 蒙版形状信息
    */
-  shapes: Shape[],
+  shapes: ShapeGeometry[],
   /**
    * 插件类型信息
    * 'model@1.0'
@@ -148,7 +148,7 @@ export interface JSONScene {
   /**
    * 蒙版形状信息
    */
-  shapes: Shape[],
+  shapes: ShapeGeometry[],
   /**
    * 插件类型信息
    * 'model@1.0'
