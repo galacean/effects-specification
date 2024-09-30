@@ -1,3 +1,4 @@
+import type { DataPath } from './components';
 import type {
   FixedVec3Expression, vec2, vec3, GradientColor, ShapePoints, ShapeSplits, FixedNumberExpression,
 } from './number-expression';
@@ -36,20 +37,6 @@ export interface GLTF {
    * 是否复用
    */
   reuse: boolean,
-}
-
-/**
- * 形状属性
- */
-export interface Shape {
-  /**
-   * 形状 ID
-   */
-  id: number,
-  /**
-   * 形状数据
-   */
-  shape: number[],
 }
 
 /**
@@ -484,7 +471,7 @@ export interface RendererOptions {
   /**
    * 贴图，索引到 scene 中的 images 数组
    */
-  texture?: number,
+  texture?: DataPath,
   /**
    * 蒙版模式
    * @default none

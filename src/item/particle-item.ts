@@ -7,7 +7,7 @@ import type {
 } from '../number-expression';
 import type { BaseItem, EndBehavior } from './base-item';
 import type { ParticleShape } from './particle-shape';
-import type { ComponentData } from '../components';
+import type { ComponentData, DataPath } from '../components';
 
 /**
  * 粒子交互行为
@@ -495,7 +495,7 @@ export interface ParticleTrail {
   /**
    * 拖尾贴图
    */
-  texture?: number,
+  texture?: DataPath,
   // TODO
   /**
    * 位置受父节点影响
