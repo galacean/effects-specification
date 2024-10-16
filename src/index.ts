@@ -29,3 +29,4 @@ export * from './vfx-item-data';
 export * from './buitin-object-guid';
 export * from './timeline';
 export * from './assets';
+export * from './render-settings';
