@@ -1,4 +1,4 @@
 export interface RenderSettings {
   enablePostProcessing: boolean,
-  enableHDR: boolean,
+  supportsHDR: boolean,
 }
