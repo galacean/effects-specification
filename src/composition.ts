@@ -2,7 +2,6 @@ import type { DataPath } from './components';
 import { CAMERA_CLIP_MODE_NORMAL, CAMERA_CLIP_MODE_VERTICAL } from './constants';
 import type { Item } from './item';
 import type { EndBehavior } from './item/base-item';
-import type { RenderSettings } from './render-settings';
 
 export enum CameraClipMode {
   /**
@@ -107,10 +106,6 @@ export interface CompositionData extends CompositionBase {
    * 轨道的场景绑定
    */
   sceneBindings: SceneBindingData[],
-  /**
-   * 渲染配置
-   */
-  renderSettings?: RenderSettings,
 }
 
 export interface SceneBindingData {
