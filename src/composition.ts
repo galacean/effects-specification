@@ -78,10 +78,6 @@ interface CompositionBase {
    * @default [0,0]
    */
   previewSize?: [width: number, height: number],
-  /**
-   * 降级图
-   */
-  fallbackImage?: string,
 }
 
 /**
