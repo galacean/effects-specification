@@ -8,7 +8,6 @@ import type { ComponentData, EffectsObjectData, GeometryData, MaterialData, Shad
 import type { VFXItemData } from './vfx-item-data';
 import type { AnimationClipData } from './animation-clip-data';
 import type { AssetBase, ImageSource } from './assets';
-import type { RenderSettings } from './render-settings';
 
 /**
  * runtime 2.0 之前的场景信息
@@ -133,10 +132,6 @@ export interface JSONScene {
    * 渲染所需合成列表
    */
   compositions: CompositionData[],
-  /**
-   * 渲染配置
-   */
-  renderSettings?: RenderSettings,
   /******************************** 以下皆为可复用信息，加载在对应 Manager 中 *******************************/
   /**
    * 贴图信息
