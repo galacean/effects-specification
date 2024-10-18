@@ -23,10 +23,16 @@ export enum DataType {
   SpriteColorTrack = 'SpriteColorTrack',
   ActivationTrack = 'ActivationTrack',
   SubCompositionTrack = 'SubCompositionTrack',
+  FloatPropertyTrack = 'FloatPropertyTrack',
+  ColorPropertyTrack = 'ColorPropertyTrack',
+  Vector4PropertyTrack = 'Vector4PropertyTrack',
+
   TransformPlayableAsset = 'TransformPlayableAsset',
   SpriteColorPlayableAsset = 'SpriteColorPlayableAsset',
   ActivationPlayableAsset = 'ActivationPlayableAsset',
   SubCompositionPlayableAsset = 'SubCompositionPlayableAsset',
+  FloatPropertyPlayableAsset = 'FloatPropertyPlayableAsset',
+  ColorPropertyPlayableAsset = 'ColorPropertyPlayableAsset',
 
   // FIXME: 先完成ECS的场景转换，后面移到spec中
   MeshComponent = 'MeshComponent',
