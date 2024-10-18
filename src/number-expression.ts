@@ -75,6 +75,14 @@ export enum ValueType {
    * 贝塞尔曲线四元数
    */
   BEZIER_CURVE_QUAT = 23,
+  /**
+   * 颜色曲线
+   */
+  COLOR_CURVE = 24,
+  /**
+   * Vector4 曲线
+   */
+  VECTOR4_CURVE = 25,
 }
 
 export type vec2 = [x: number, y: number];
