@@ -1,5 +1,5 @@
 import type { BinaryPointer } from './binary';
-import type { DataType } from './components';
+import type { DataType } from './data-type';
 
 export interface TextureFormatOptions {
   format?: GLenum,

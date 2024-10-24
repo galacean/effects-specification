@@ -1,4 +1,5 @@
-import type { DataPath, EffectsObjectData } from './components';
+import type { DataPath } from './components';
+import type { EffectsObjectData } from './effects-object-data';
 import type { EndBehavior, BaseContent, TransformData } from './item/base-item';
 import type { ItemType, RenderLevel } from './type';
 
