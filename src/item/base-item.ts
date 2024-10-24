@@ -4,6 +4,7 @@ import {
   END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FORWARD,
   END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
 } from '../constants';
+import { Vector2Data, Vector3Data } from '../math';
 import type { vec3, vec4 } from '../number-expression';
 import type { ItemType, RenderLevel } from '../type';
 import type { CameraContent } from './camera-item';
@@ -134,17 +135,6 @@ export interface BaseItemTransform {
    * 编辑器不提供编辑此字段，由程序生成
    */
   quat?: vec4,
-}
-
-export interface Vector3Data {
-  x: number,
-  y: number,
-  z: number,
-}
-
-export interface Vector2Data {
-  x: number,
-  y: number,
 }
 
 export interface TransformData {

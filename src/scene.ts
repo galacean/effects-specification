@@ -4,11 +4,15 @@ import type { PlayerVersion, ShapeGeometry } from './type';
 import type { TextureDefine } from './texture';
 import type { FontBase, FontDefine } from './text';
 import type { BinaryFile } from './binary';
-import type { ComponentData, EffectsObjectData, GeometryData, MaterialData, ShaderData } from './components';
+import type { ComponentData } from './components';
 import type { VFXItemData } from './vfx-item-data';
 import type { AnimationClipData } from './animation-clip-data';
 import type { AssetBase, ImageSource } from './assets';
 import type { RenderSettings } from './render-settings';
+import { EffectsObjectData } from './effects-object-data';
+import { MaterialData } from './material-data';
+import { GeometryData } from './geometry-data';
+import { ShaderData } from './shader-data';
 
 /**
  * runtime 2.0 之前的场景信息
