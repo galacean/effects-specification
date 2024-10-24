@@ -4,7 +4,7 @@ import {
   END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FORWARD,
   END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
 } from '../constants';
-import { Vector2Data, Vector3Data } from '../math';
+import type { Vector2Data, Vector3Data } from '../math';
 import type { vec3, vec4 } from '../number-expression';
 import type { ItemType, RenderLevel } from '../type';
 import type { CameraContent } from './camera-item';

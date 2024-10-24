@@ -1,4 +1,4 @@
-import { EffectsObjectData } from "./effects-object-data";
+import type { EffectsObjectData } from './effects-object-data';
 
 export interface ShaderData extends EffectsObjectData {
   vertex: string,

@@ -1,6 +1,6 @@
 import type { BinaryPointer } from '../binary';
 import type { ComponentData, DataPath } from '../components';
-import { DataType } from '../data-type';
+import type { DataType } from '../data-type';
 import type {
   SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
   RendererOptions, ItemType,

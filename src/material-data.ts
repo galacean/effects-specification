@@ -1,6 +1,6 @@
-import { DataPath } from "./components";
-import { EffectsObjectData } from "./effects-object-data";
-import { Vector4Data, ColorData, Vector2Data } from "./math";
+import type { DataPath } from './components';
+import type { EffectsObjectData } from './effects-object-data';
+import type { Vector4Data, ColorData, Vector2Data } from './math';
 
 export interface MaterialTextureProperty {
   texture: DataPath,

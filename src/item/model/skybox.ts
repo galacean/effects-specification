@@ -3,7 +3,7 @@ import type { BinaryEnv } from '../../binary';
 import type { SkyboxCubeTexturePointer } from './binary';
 import type { ItemType } from '../../type';
 import type { ComponentData, DataPath } from '../../components';
-import { Vector4Data } from '../../math';
+import type { Vector4Data } from '../../math';
 
 export interface SkyboxOptions<T extends BinaryEnv> {
   /**

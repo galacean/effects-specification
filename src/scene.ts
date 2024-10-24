@@ -9,10 +9,10 @@ import type { VFXItemData } from './vfx-item-data';
 import type { AnimationClipData } from './animation-clip-data';
 import type { AssetBase, ImageSource } from './assets';
 import type { RenderSettings } from './render-settings';
-import { EffectsObjectData } from './effects-object-data';
-import { MaterialData } from './material-data';
-import { GeometryData } from './geometry-data';
-import { ShaderData } from './shader-data';
+import type { EffectsObjectData } from './effects-object-data';
+import type { MaterialData } from './material-data';
+import type { GeometryData } from './geometry-data';
+import type { ShaderData } from './shader-data';
 
 /**
  * runtime 2.0 之前的场景信息

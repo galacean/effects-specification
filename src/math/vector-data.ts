@@ -1,4 +1,3 @@
-
 export interface Vector4Data {
   x: number,
   y: number,

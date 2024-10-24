@@ -1,6 +1,6 @@
-import { EffectsObjectData } from '../../effects-object-data';
+import type { EffectsObjectData } from '../../effects-object-data';
 import type { SizeOverLifetime, RotationOverLifetime, PositionOverLifetime } from '../../type';
-import { DataType } from '../../data-type';
+import type { DataType } from '../../data-type';
 
 export interface TransformPlayableAssetData extends EffectsObjectData {
   dataType: DataType.TransformPlayableAsset,

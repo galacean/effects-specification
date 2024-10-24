@@ -33,7 +33,6 @@ export enum DataType {
   FloatPropertyPlayableAsset = 'FloatPropertyPlayableAsset',
   ColorPropertyPlayableAsset = 'ColorPropertyPlayableAsset',
 
-  // FIXME: 先完成ECS的场景转换，后面移到spec中
   MeshComponent = 'MeshComponent',
   SkyboxComponent = 'SkyboxComponent',
   LightComponent = 'LightComponent',
