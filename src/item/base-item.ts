@@ -15,6 +15,7 @@ import type { ModelLightContent, ModelMeshItemContent, ModelTreeContent, SkyboxC
 import type { NullContent } from './null-item';
 import type { ParticleContent } from './particle-item';
 import type { PluginContent } from './plugin-item';
+import type { RichTextContent } from './rich-text-item';
 import type { SpineContent } from './spine-item';
 import type { SpriteContent } from './sprite-item';
 import type { TextContent } from './text-item';
@@ -154,6 +155,7 @@ export type BaseContent =
   | CompositionContent
   | CameraContent
   | TextContent
+  | RichTextContent
   | SpineContent
   | EffectContent
   | ModelTreeContent<BinaryEnv>

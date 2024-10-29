@@ -17,6 +17,7 @@ export * from './item/sprite-item';
 export * from './item/spine-item';
 export * from './item/effect-item';
 export * from './item/text-item';
+export * from './item/rich-text-item';
 export * from './item/video-item';
 export * from './item/audio-item';
 export * from './item/model';
