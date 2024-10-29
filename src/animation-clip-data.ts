@@ -1,4 +1,4 @@
-import { EffectsObjectData } from './effects-object-data';
+import type { EffectsObjectData } from './effects-object-data';
 import type { FixedNumberExpression, FixedVec3Expression, FixedQuatExpression } from './number-expression';
 
 export interface AnimationClipData extends EffectsObjectData {

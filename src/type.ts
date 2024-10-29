@@ -575,6 +575,10 @@ export enum ItemType {
    * 音频元素
    */
   audio = 'audio',
+  /**
+   * 富文本元素
+   */
+  richtext = 'richtext',
 }
 
 /**

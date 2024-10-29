@@ -31,11 +31,7 @@ export interface InteractContent {
 /**
  * 交互元素渲染属性
  */
-export interface InteractComponentData extends ComponentData {
-  /**
-   * 交互元素基础属性
-   */
-  options: InteractOption,
+export interface InteractComponentData extends ComponentData, InteractContent {
 }
 
 /**

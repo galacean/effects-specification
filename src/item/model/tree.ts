@@ -30,42 +30,42 @@ export interface ModelAnimationOptions<T extends BinaryEnv> {
 }
 
 /**
- * 3D场景树属性，包含动画数据
+ * 3D 场景树属性，包含动画数据
  */
 export interface ModelTreeOptions<T extends BinaryEnv> extends TreeOptions {
   /**
-   * 默认动画索引，-1表示不播放动画
+   * 默认动画索引，-1 表示不播放动画
    */
   animation?: number,
   /**
-   * 3D场景树中所有的动画数据
+   * 3D 场景树中所有的动画数据
    */
   animations?: ModelAnimationOptions<T>[],
 }
 
 export interface ModelTreeContent<T extends BinaryEnv> {
   /**
-   * 3D场景树元素基础属性
+   * 3D 场景树元素基础属性
    */
   options: {
     tree: ModelTreeOptions<T>,
   },
   /**
-   * 3D场景树元素大小变化属性
+   * 3D 场景树元素大小变化属性
    */
   sizeOverLifetime?: SizeOverLifetime,
   /**
-   * 3D场景树元素旋转变化属性
+   * 3D 场景树元素旋转变化属性
    */
   rotationOverLifetime?: RotationOverLifetime,
   /**
-   * 3D场景树元素位置变化属性
+   * 3D 场景树元素位置变化属性
    */
   positionOverLifetime?: PositionOverLifetime,
 }
 
 /**
- * 3D场景树元素
+ * 3D 场景树元素
  */
 export interface ModelTreeItem<T extends BinaryEnv> extends BaseItem {
   type: ItemType.tree,
@@ -87,22 +87,22 @@ export interface ModelAnimationData {
 
 export interface ModelAnimationComponentData extends ComponentData {
   /**
-   * 默认动画索引，-1表示不播放动画
+   * 默认动画索引，-1 表示不播放动画
    */
   animation?: number,
   /**
-   * 3D场景树中所有的动画数据
+   * 3D 场景树中所有的动画数据
    */
   animations: ModelAnimationData[],
 }
 
 export interface AnimationComponentData extends ComponentData {
   /**
-   * 默认动画索引，-1表示不播放动画
+   * 默认动画索引，-1 表示不播放动画
    */
   animation?: number,
   /**
-   * glTF中所有的动画数据
+   * glTF 中所有的动画数据
    */
   animationClips: DataPath[],
 }
