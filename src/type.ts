@@ -556,6 +556,14 @@ export enum ItemType {
    */
   effect = 'effect',
   /**
+   * 形状元素
+   */
+  shape = 'shape',
+  /**
+   * 后处理元素
+   */
+  postProcessVolume = 'postProcessVolume',
+  /**
    * 节点元素
    */
   node = 'node',
