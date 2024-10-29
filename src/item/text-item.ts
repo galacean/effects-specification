@@ -190,42 +190,5 @@ export interface TextContent {
 /**
  * 文本元素渲染属性
  */
-export interface TextComponentData extends ComponentData {
-  /**
-   * 文本元素基础属性
-   */
-  options: TextContentOptions,
-  /**
-   * 文本元素材质渲染属性
-   */
-  renderer: RendererOptions,
-  /**
-   * 文本元素大小变化属性
-   */
-  sizeOverLifetime?: SizeOverLifetime,
-  /**
-   * 文本元素旋转变化属性
-   */
-  rotationOverLifetime?: RotationOverLifetime,
-  /**
-   * 文本元素位置变化属性
-   */
-  positionOverLifetime?: PositionOverLifetime,
-  /**
-   * 文本元素色彩变化属性
-   */
-  colorOverLifetime?: ColorOverLifetime,
-  /**
-   * 文本元素贴图变化属性
-   */
-  textureSheetAnimation?: TextureSheetAnimation,
-  /**
-   * 图层交互
-   */
-  interaction?: {
-    /**
-     * 交互行为
-     */
-    behavior: InteractBehavior,
-  },
+export interface TextComponentData extends ComponentData, TextContent {
 }

@@ -4,6 +4,7 @@ export * from './texture';
 export * from './constants';
 export * from './number-expression';
 export * from './scene';
+export * from './math';
 export * from './item';
 export * from './item/base-item';
 export * from './item/camera-item';

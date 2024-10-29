@@ -16,14 +16,13 @@
     }
   },
   "scripts": {
-    "prebuild": "npm run clean:all",
-    "build": "npm run build:lib",
+    "prebuild": "pnpm clean",
+    "build": "pnpm build:lib",
     "build:lib": "tsc -b tsconfig.build.json",
     "lint": "eslint src --ext .ts,.mjs",
     "lint:fix": "eslint src --fix --quiet --ext .ts,.mjs",
     "check:ts": "tsc -b tsconfig.check.json",
-    "clean:all": "npm run clean:lib",
-    "clean:lib": "rimraf es/**",
+    "clean": "rimraf es/**",
     "prepare": "husky install",
     "prepublishOnly": "npm run build"
   },
