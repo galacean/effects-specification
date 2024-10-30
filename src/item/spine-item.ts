@@ -2,7 +2,7 @@ import type { BinaryPointer } from '../binary';
 import type { ComponentData, DataPath, DataType } from '../components';
 import type {
   SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
-  RendererOptions, ItemType,
+  RendererOptions, ItemType, MaskMode, RenderMode,
 } from '../type';
 import type { BaseItem, EndBehavior } from './base-item';
 
@@ -124,5 +124,8 @@ export interface SpineComponent extends ComponentData {
     images: DataPath[],
     skeletonType: skeletonFileType,
   },
-
+  renderer?: {
+    renderMode: RenderMode,
+    maskMode: MaskMode,
+  },
 }
