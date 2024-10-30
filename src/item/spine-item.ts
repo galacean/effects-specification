@@ -3,7 +3,7 @@ import type { ComponentData, DataPath } from '../components';
 import type { DataType } from '../data-type';
 import type {
   SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
-  RendererOptions, ItemType,
+  RendererOptions, ItemType, MaskMode, RenderMode,
 } from '../type';
 import type { BaseItem, EndBehavior } from './base-item';
 
@@ -129,5 +129,8 @@ export interface SpineComponent extends ComponentData {
     images: DataPath[],
     skeletonType: skeletonFileType,
   },
-
+  renderer?: {
+    renderMode: RenderMode,
+    maskMode: MaskMode,
+  },
 }
