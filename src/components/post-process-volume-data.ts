@@ -1,4 +1,6 @@
-export interface PostProcessVolumeData {
+import type { ComponentData } from './component-data';
+
+export interface PostProcessVolumeData extends ComponentData {
   /**
    * 泛光
    */
