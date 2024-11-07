@@ -1,8 +1,8 @@
 import type { BezierValue } from '../number-expression';
 
-export interface ColorCurveData {
+export type ColorCurveData = [
   r: BezierValue,
   g: BezierValue,
   b: BezierValue,
   a: BezierValue,
-}
+];

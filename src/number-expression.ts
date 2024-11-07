@@ -1,7 +1,8 @@
+import type { ColorCurveData, Vector4CurveData } from './curve-data';
+
 /*********************************************/
 /*               基本数值属性参数              */
 /*********************************************/
-
 export enum ValueType {
   /**
    * 常数
@@ -296,6 +297,16 @@ export type BezierCurvePath = [type: ValueType.BEZIER_CURVE_PATH, value: BezierC
  * 贝塞尔曲线路径关键帧
  */
 export type BezierCurveQuat = [type: ValueType.BEZIER_CURVE_QUAT, value: BezierCurveQuatValue];
+
+/**
+ * 颜色贝塞尔曲线
+ */
+export type ColorCurveValue = [type: ValueType.COLOR_CURVE, value: ColorCurveData];
+
+/**
+ * Vector4 贝塞尔曲线
+ */
+export type Vector4CurveValue = [type: ValueType.VECTOR4_CURVE, value: Vector4CurveData];
 
 /*********************************************/
 /*               颜色属性参数                 */
