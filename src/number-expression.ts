@@ -1,4 +1,4 @@
-import { ColorCurveData, Vector4CurveData } from "./curve-data";
+import type { ColorCurveData, Vector4CurveData } from './curve-data';
 
 /*********************************************/
 /*               基本数值属性参数              */
