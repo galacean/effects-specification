@@ -4,8 +4,8 @@ import type { ShapeFillParam } from './shape-fill-param';
 import type { ShapeStrokeParam } from './shape-stroke-param';
 
 /**
-   * 多边形参数
-   */
+ * 多边形参数
+ */
 export interface PolygonData extends ShapeComponentData {
   /**
    * 顶点数

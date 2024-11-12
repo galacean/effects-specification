@@ -4,8 +4,8 @@ import type { ShapeFillParam } from './shape-fill-param';
 import type { ShapeStrokeParam } from './shape-stroke-param';
 
 /**
-   * 星形参数
-   */
+ * 星形参数
+ */
 export interface StarData extends ShapeComponentData {
   /**
    * 顶点数 - 内外顶点同数

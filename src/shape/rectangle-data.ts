@@ -4,8 +4,8 @@ import type { ShapeFillParam } from './shape-fill-param';
 import type { ShapeStrokeParam } from './shape-stroke-param';
 
 /**
-   * 矩形参数
-   */
+ * 矩形参数
+ */
 export interface RectangleData extends ShapeComponentData {
   /**
    * 宽度
