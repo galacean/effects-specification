@@ -29,6 +29,7 @@ export * from './text';
 export * from './components';
 export * from './vfx-item-data';
 export * from './buitin-object-guid';
+export * from './shape';
 export * from './timeline';
 export * from './assets';
 export * from './render-settings';
