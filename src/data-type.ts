@@ -44,6 +44,8 @@ export enum DataType {
   VideoComponent = 'VideoComponent',
   AudioComponent = 'AudioComponent',
   RichTextComponent = 'RichTextComponent',
+  OrientationComponent = 'OrientationComponent',
+  ShapeComponent = 'ShapeComponent',
 
   // Non-EffectObject
   TimelineClip = 'TimelineClip',
