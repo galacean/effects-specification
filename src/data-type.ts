@@ -10,6 +10,7 @@ export enum DataType {
   PostProcessVolume = 'PostProcessVolume',
   Geometry = 'Geometry',
   Texture = 'Texture',
+  Image = 'Image',
   AnimationClip = 'AnimationClip',
   TextComponent = 'TextComponent',
   BinaryAsset = 'BinaryAsset',
@@ -44,6 +45,8 @@ export enum DataType {
   VideoComponent = 'VideoComponent',
   AudioComponent = 'AudioComponent',
   RichTextComponent = 'RichTextComponent',
+  OrientationComponent = 'OrientationComponent',
+  ShapeComponent = 'ShapeComponent',
 
   // Non-EffectObject
   TimelineClip = 'TimelineClip',

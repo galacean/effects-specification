@@ -339,7 +339,7 @@ export enum MaskMode {
 /**
  * 发射器形状
  */
-export enum ShapeType {
+export enum ParticleEmitterShapeType {
   /**
    * 没有类型
    */

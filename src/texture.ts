@@ -33,16 +33,19 @@ export type SerializedTextureCubeMipmap = [
 ];
 
 export interface SerializedTexture2DImageSource extends TextureConfigOptionsBase, TextureFormatOptions {
+  dataType: DataType.Texture,
   target?: WebGLRenderingContext['TEXTURE_2D'],
   source: number,
 }
 
 export interface SerializedTexture2DMipmapSource extends TextureConfigOptionsBase, TextureFormatOptions {
+  dataType: DataType.Texture,
   target?: WebGLRenderingContext['TEXTURE_2D'],
   mipmaps: BinaryPointer[],
 }
 
 export interface SerializedTextureCube extends TextureConfigOptionsBase, TextureFormatOptions {
+  dataType: DataType.Texture,
   target: WebGLRenderingContext['TEXTURE_CUBE_MAP'],
   mipmaps: SerializedTextureCubeMipmap[],
 }
