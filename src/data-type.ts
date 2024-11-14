@@ -10,6 +10,7 @@ export enum DataType {
   PostProcessVolume = 'PostProcessVolume',
   Geometry = 'Geometry',
   Texture = 'Texture',
+  Image = 'Image',
   AnimationClip = 'AnimationClip',
   TextComponent = 'TextComponent',
   BinaryAsset = 'BinaryAsset',
