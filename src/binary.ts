@@ -1,6 +1,7 @@
-import type { DataType, EffectsObjectData } from './components';
 import type { RenderLevel } from './type';
 import type { ValueType } from './number-expression';
+import type { DataType } from './data-type';
+import type { EffectsObjectData } from './effects-object-data';
 
 /**
  * index: 指向 json 中 bins 数组

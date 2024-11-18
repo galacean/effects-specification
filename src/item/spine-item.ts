@@ -1,5 +1,6 @@
 import type { BinaryPointer } from '../binary';
-import type { ComponentData, DataPath, DataType } from '../components';
+import type { ComponentData, DataPath } from '../components';
+import type { DataType } from '../data-type';
 import type {
   SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
   RendererOptions, ItemType, MaskMode, RenderMode,
@@ -82,6 +83,10 @@ export interface PluginSpineOption {
    * @since 1.3.0
    */
   resizeRule: number,
+  /**
+   * 一组动作结束后是否循环最后一个动作
+   */
+  loopEnd?: boolean,
 }
 
 /**

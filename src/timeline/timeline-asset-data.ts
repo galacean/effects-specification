@@ -1,4 +1,6 @@
-import type { EffectsObjectData, DataPath, DataType } from '../components';
+import type { DataPath } from '../components';
+import type { DataType } from '../data-type';
+import type { EffectsObjectData } from '../effects-object-data';
 
 export interface TimelineAssetData extends EffectsObjectData {
   dataType: DataType.TimelineAsset,

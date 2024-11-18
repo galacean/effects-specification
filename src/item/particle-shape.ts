@@ -1,4 +1,4 @@
-import type { ShapeType } from '../type';
+import type { ParticleEmitterShapeType } from '../type';
 import type { NumberExpression, vec3 } from '../number-expression';
 
 export enum ShapeArcMode {
@@ -24,7 +24,7 @@ export interface ParticleShapeBase {
   /**
    * 粒子形状类型
    */
-  type: ShapeType,
+  type: ParticleEmitterShapeType,
   /**
    * 发射模式
    */
@@ -46,7 +46,7 @@ export interface ParticleShapeBase {
 }
 
 export interface ParticleShapeNone {
-  type: ShapeType.NONE,
+  type: ParticleEmitterShapeType.NONE,
   /**
    * 发射方向旋转
    */
@@ -73,7 +73,7 @@ export type ParticleShape =
  * 圆锥发射器
  */
 export interface ParticleShapeCone extends ParticleShapeBase {
-  type: ShapeType.CONE,
+  type: ParticleEmitterShapeType.CONE,
   /**
    * 形状角度
    */
@@ -92,7 +92,7 @@ export interface ParticleShapeCone extends ParticleShapeBase {
  * 圆发射器
  */
 export interface ParticleShapeCircle extends ParticleShapeBase {
-  type: ShapeType.CIRCLE,
+  type: ParticleEmitterShapeType.CIRCLE,
   /**
    * 形状半径
    */
@@ -107,7 +107,7 @@ export interface ParticleShapeCircle extends ParticleShapeBase {
  * 圆球发射器
  */
 export interface ParticleShapeSphere extends ParticleShapeBase {
-  type: ShapeType.SPHERE,
+  type: ParticleEmitterShapeType.SPHERE,
   /**
    * 形状半径
    */
@@ -122,7 +122,7 @@ export interface ParticleShapeSphere extends ParticleShapeBase {
  * 半球发射器
  */
 export interface ParticleShapeHemisphere extends ParticleShapeBase {
-  type: ShapeType.HEMISPHERE,
+  type: ParticleEmitterShapeType.HEMISPHERE,
   /**
    * 形状半径
    */
@@ -137,7 +137,7 @@ export interface ParticleShapeHemisphere extends ParticleShapeBase {
  * 圆环发射器
  */
 export interface ParticleShapeDonut extends ParticleShapeBase {
-  type: ShapeType.DONUT,
+  type: ParticleEmitterShapeType.DONUT,
   /**
    * 形状半径
    */
@@ -156,7 +156,7 @@ export interface ParticleShapeDonut extends ParticleShapeBase {
  * 矩形发射器
  */
 export interface ParticleShapeRect extends ParticleShapeBase {
-  type: ShapeType.RECTANGLE,
+  type: ParticleEmitterShapeType.RECTANGLE,
   /**
    * 宽度
    */
@@ -171,7 +171,7 @@ export interface ParticleShapeRect extends ParticleShapeBase {
  * 矩形框发射器
  */
 export interface ParticleShapeRectEdge extends ParticleShapeBase {
-  type: ShapeType.RECTANGLE_EDGE,
+  type: ParticleEmitterShapeType.RECTANGLE_EDGE,
   /**
    * 宽度
    */
@@ -186,7 +186,7 @@ export interface ParticleShapeRectEdge extends ParticleShapeBase {
  * 直线发射器
  */
 export interface ParticleShapeEdge extends ParticleShapeBase {
-  type: ShapeType.EDGE,
+  type: ParticleEmitterShapeType.EDGE,
   /**
    * 宽度
    */
@@ -197,7 +197,7 @@ export interface ParticleShapeEdge extends ParticleShapeBase {
  * 贴图发射器
  */
 export interface ParticleShapeTexture extends ParticleShapeBase {
-  type: ShapeType.TEXTURE,
+  type: ParticleEmitterShapeType.TEXTURE,
   detail: ParticleTextureShapeDetail,
   /**
    * 贴图随机数

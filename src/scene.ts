@@ -1,12 +1,18 @@
 import type { Composition, CompositionData } from './composition';
 import type { SpineResource } from './item/spine-item';
-import type { PlayerVersion, Shape } from './type';
-import type { TemplateImage, Image, CompressedImage, TextureDefine } from './image';
+import type { PlayerVersion, ShapeGeometry } from './type';
+import type { TextureDefine } from './texture';
 import type { FontBase, FontDefine } from './text';
 import type { BinaryFile } from './binary';
-import type { ComponentData, EffectsObjectData, GeometryData, MaterialData, ShaderData } from './components';
+import type { ComponentData } from './components';
 import type { VFXItemData } from './vfx-item-data';
 import type { AnimationClipData } from './animation-clip-data';
+import type { AssetBase, ImageSource } from './assets';
+import type { RenderSettings } from './render-settings';
+import type { EffectsObjectData } from './effects-object-data';
+import type { MaterialData } from './material-data';
+import type { GeometryData } from './geometry-data';
+import type { ShaderData } from './shader-data';
 
 /**
  * runtime 2.0 之前的场景信息
@@ -51,7 +57,7 @@ export interface JSONSceneLegacy {
   /**
    * 贴图信息
    */
-  images: (TemplateImage | Image | CompressedImage)[],
+  images: ImageSource[],
   /**
    * 根据合成ID，每个合成用到的 image 的数组索引
    */
@@ -63,7 +69,7 @@ export interface JSONSceneLegacy {
   /**
    * 蒙版形状信息
    */
-  shapes: Shape[],
+  shapes: ShapeGeometry[],
   /**
    * 插件类型信息
    * 'model@1.0'
@@ -110,6 +116,7 @@ export interface JSONScene {
    * JSON 版本
    *
    * 3.0 EC 改造、移除滤镜元素
+   * 3.1 音视频
    */
   version: string,
   /**
@@ -130,11 +137,15 @@ export interface JSONScene {
    * 渲染所需合成列表
    */
   compositions: CompositionData[],
+  /**
+   * 渲染配置
+   */
+  renderSettings?: RenderSettings,
   /******************************** 以下皆为可复用信息，加载在对应 Manager 中 *******************************/
   /**
    * 贴图信息
    */
-  images: (TemplateImage | Image | CompressedImage)[],
+  images: ImageSource[],
   /**
    * 根据合成 ID，每个合成用到的 image 的数组索引
    */
@@ -146,7 +157,7 @@ export interface JSONScene {
   /**
    * 蒙版形状信息
    */
-  shapes: Shape[],
+  shapes: ShapeGeometry[],
   /**
    * 插件类型信息
    * 'model@1.0'
@@ -157,10 +168,16 @@ export interface JSONScene {
    * 数据模板下掉可以不要 FontBase[]
    */
   fonts?: FontBase[] | FontDefine[],
-  // /**
-  //  * spine 资源
-  //  */
-  // spines?: SpineResource[],
+  /**
+   * 视频资源
+   * @since 2.0.0
+   */
+  videos?: AssetBase[],
+  /**
+   * 音频资源
+   * @since 2.0.0
+   */
+  audios?: AssetBase[],
   /**
    * 二进制文件地址
    */

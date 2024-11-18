@@ -7,7 +7,7 @@ import type {
 } from '../number-expression';
 import type { BaseItem, EndBehavior } from './base-item';
 import type { ParticleShape } from './particle-shape';
-import type { ComponentData } from '../components';
+import type { ComponentData, DataPath } from '../components';
 
 /**
  * 粒子交互行为
@@ -357,74 +357,7 @@ export interface ParticleContent {
 /**
  * 粒子元素渲染属性
  */
-export interface ParticleSystemData extends ComponentData {
-  // added by loader
-  splits?: SplitParameter[],
-  /**
-   * 粒子元素基础属性
-   */
-  options: ParticleOptions,
-  /**
-   * 粒子元素材质渲染属性
-   */
-  renderer: RendererOptions,
-  /**
-   * 粒子元素发射器形状属性
-   */
-  shape?: ParticleShape,
-  /**
-   * 粒子元素发射参数属性
-   */
-  emission: ParticleEmission,
-  /**
-   * 粒子元素大小变化属性
-   */
-  sizeOverLifetime?: ParticleSizeOverLifetime,
-  /**
-   * 发射器 transform 变化
-   */
-  emitterTransform?: {
-    /**
-     * 位置变化
-     */
-    path?: FixedVec3Expression,
-  },
-
-  positionOverLifetime?: ParticlePositionOverLifetime,
-  /**
-   * 粒子元素旋转变化属性
-   */
-  rotationOverLifetime?: ParticleRotationOverLifetime,
-  /**
-   * 粒子元素色彩变化属性
-   */
-  colorOverLifetime?: ParticleColorOverLifetime,
-  /**
-   * 粒子元素贴图变化属性
-   */
-  textureSheetAnimation?: ParticleTextureSheetAnimation,
-  /**
-   * 粒子元素拖尾参数
-   */
-  trails?: ParticleTrail,
-  /**
-   * 粒子元素交互参数
-   */
-  interaction?: {
-    /**
-     * 交互行为
-     */
-    behavior?: ParticleInteractionBehavior,
-    /**
-     * 重叠元素响应开关
-     */
-    multiple?: boolean,
-    /**
-     * ray cast 射线拾取时 sphere 的半径
-     * @default 0.4
-     */
-    radius?: number,
-  },
+export interface ParticleSystemData extends ComponentData, ParticleContent {
 }
 
 /**
@@ -495,7 +428,7 @@ export interface ParticleTrail {
   /**
    * 拖尾贴图
    */
-  texture?: number,
+  texture?: DataPath,
   // TODO
   /**
    * 位置受父节点影响

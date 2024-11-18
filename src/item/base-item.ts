@@ -4,6 +4,7 @@ import {
   END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FORWARD,
   END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
 } from '../constants';
+import type { Vector2Data, Vector3Data } from '../math';
 import type { vec3, vec4 } from '../number-expression';
 import type { ItemType, RenderLevel } from '../type';
 import type { CameraContent } from './camera-item';
@@ -14,6 +15,7 @@ import type { ModelLightContent, ModelMeshItemContent, ModelTreeContent, SkyboxC
 import type { NullContent } from './null-item';
 import type { ParticleContent } from './particle-item';
 import type { PluginContent } from './plugin-item';
+import type { RichTextContent } from './rich-text-item';
 import type { SpineContent } from './spine-item';
 import type { SpriteContent } from './sprite-item';
 import type { TextContent } from './text-item';
@@ -136,17 +138,6 @@ export interface BaseItemTransform {
   quat?: vec4,
 }
 
-export interface Vector3Data {
-  x: number,
-  y: number,
-  z: number,
-}
-
-export interface Vector2Data {
-  x: number,
-  y: number,
-}
-
 export interface TransformData {
   position: Vector3Data,
   eulerHint: Vector3Data,
@@ -164,6 +155,7 @@ export type BaseContent =
   | CompositionContent
   | CameraContent
   | TextContent
+  | RichTextContent
   | SpineContent
   | EffectContent
   | ModelTreeContent<BinaryEnv>

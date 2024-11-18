@@ -1,3 +1,4 @@
+import type { DataPath } from './components';
 import type {
   FixedVec3Expression, vec2, vec3, GradientColor, ShapePoints, ShapeSplits, FixedNumberExpression,
 } from './number-expression';
@@ -36,20 +37,6 @@ export interface GLTF {
    * 是否复用
    */
   reuse: boolean,
-}
-
-/**
- * 形状属性
- */
-export interface Shape {
-  /**
-   * 形状 ID
-   */
-  id: number,
-  /**
-   * 形状数据
-   */
-  shape: number[],
 }
 
 /**
@@ -352,7 +339,7 @@ export enum MaskMode {
 /**
  * 发射器形状
  */
-export enum ShapeType {
+export enum ParticleEmitterShapeType {
   /**
    * 没有类型
    */
@@ -484,7 +471,7 @@ export interface RendererOptions {
   /**
    * 贴图，索引到 scene 中的 images 数组
    */
-  texture?: number,
+  texture?: DataPath,
   /**
    * 蒙版模式
    * @default none
@@ -569,9 +556,29 @@ export enum ItemType {
    */
   effect = 'effect',
   /**
+   * 形状元素
+   */
+  shape = 'shape',
+  /**
+   * 后处理元素
+   */
+  postProcessVolume = 'postProcessVolume',
+  /**
    * 节点元素
    */
   node = 'node',
+  /**
+   * 视频元素
+   */
+  video = 'video',
+  /**
+   * 音频元素
+   */
+  audio = 'audio',
+  /**
+   * 富文本元素
+   */
+  richtext = 'richtext',
 }
 
 /**
@@ -704,3 +711,5 @@ export enum RenderFace {
   Back = 'Back',
   Front = 'Front',
 }
+
+export type HTMLImageLike = HTMLImageElement | HTMLCanvasElement | HTMLVideoElement;
