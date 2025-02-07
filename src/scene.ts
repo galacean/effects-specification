@@ -106,6 +106,11 @@ export interface JSONSceneLegacy {
  */
 export type SceneRequire = 'filter';
 
+export enum JSONSceneVersion {
+  '3.0' = '3.0',
+  'LATEST' = '3.1',
+}
+
 /**
  * 场景信息
  * 素材信息存放于统一数据结构中
@@ -118,7 +123,7 @@ export interface JSONScene {
    * 3.0 EC 改造、移除滤镜元素
    * 3.1 音视频
    */
-  version: string,
+  version: JSONSceneVersion,
   /**
    * 播放器版本信息
    */

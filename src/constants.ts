@@ -32,5 +32,11 @@ export const END_BEHAVIOR_DESTROY_CHILDREN = 6;
 export const CAMERA_CLIP_MODE_VERTICAL = 1;
 export const CAMERA_CLIP_MODE_NORMAL = 0;
 
+/**
+ * 消息开始
+ */
 export const MESSAGE_ITEM_PHRASE_BEGIN = 2;
+/**
+ * 消息结束
+ */
 export const MESSAGE_ITEM_PHRASE_END = 1;
