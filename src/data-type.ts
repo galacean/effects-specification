@@ -29,6 +29,8 @@ export enum DataType {
   SubCompositionPlayableAsset = 'SubCompositionPlayableAsset',
   FloatPropertyPlayableAsset = 'FloatPropertyPlayableAsset',
   ColorPropertyPlayableAsset = 'ColorPropertyPlayableAsset',
+  Vector2PropertyPlayableAsset = 'Vector2PropertyPlayableAsset',
+  Vector4PropertyPlayableAsset = 'Vector4PropertyPlayableAsset',
 
   // Components
   MeshComponent = 'MeshComponent',
