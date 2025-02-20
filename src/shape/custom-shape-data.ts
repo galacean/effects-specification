@@ -3,7 +3,6 @@ import type { Vector2Data } from '../math';
 import type { ShapeComponentData } from './shape-component-data';
 import type { ShapeFillParam } from './shape-fill-param';
 import type { ShapePrimitiveType } from './shape-primitive-type';
-import type { ShapeStrokeParam } from './shape-stroke-param';
 
 /**
  * 自定义形状点
@@ -39,10 +38,6 @@ export interface CustomShape {
    * 填充属性
    */
   fill?: ShapeFillParam,
-  /**
-   * 描边属性
-   */
-  stroke?: ShapeStrokeParam,
   /**
    * 空间变换
    */

@@ -2,7 +2,6 @@ import type { TransformData } from '../item/base-item';
 import type { ShapeComponentData } from './shape-component-data';
 import type { ShapeFillParam } from './shape-fill-param';
 import type { ShapePrimitiveType } from './shape-primitive-type';
-import type { ShapeStrokeParam } from './shape-stroke-param';
 
 /**
  * 椭圆组件参数
@@ -23,10 +22,6 @@ export interface EllipseData extends ShapeComponentData {
    * 填充属性
    */
   fill?: ShapeFillParam,
-  /**
-   * 描边属性
-   */
-  stroke?: ShapeStrokeParam,
   /**
    * 空间变换
    */

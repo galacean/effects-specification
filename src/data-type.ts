@@ -1,18 +1,13 @@
 export enum DataType {
   VFXItemData = 'VFXItemData',
-  EffectComponent = 'EffectComponent',
+
+  // Assets
   Material = 'Material',
   Shader = 'Shader',
-  SpriteComponent = 'SpriteComponent',
-  ParticleSystem = 'ParticleSystem',
-  InteractComponent = 'InteractComponent',
-  CameraController = 'CameraController',
-  PostProcessVolume = 'PostProcessVolume',
   Geometry = 'Geometry',
   Texture = 'Texture',
   Image = 'Image',
   AnimationClip = 'AnimationClip',
-  TextComponent = 'TextComponent',
   BinaryAsset = 'BinaryAsset',
 
   // Timeline
@@ -25,6 +20,7 @@ export enum DataType {
   SubCompositionTrack = 'SubCompositionTrack',
   FloatPropertyTrack = 'FloatPropertyTrack',
   ColorPropertyTrack = 'ColorPropertyTrack',
+  Vector2PropertyTrack = 'Vector2PropertyTrack',
   Vector4PropertyTrack = 'Vector4PropertyTrack',
 
   TransformPlayableAsset = 'TransformPlayableAsset',
@@ -33,7 +29,10 @@ export enum DataType {
   SubCompositionPlayableAsset = 'SubCompositionPlayableAsset',
   FloatPropertyPlayableAsset = 'FloatPropertyPlayableAsset',
   ColorPropertyPlayableAsset = 'ColorPropertyPlayableAsset',
+  Vector2PropertyPlayableAsset = 'Vector2PropertyPlayableAsset',
+  Vector4PropertyPlayableAsset = 'Vector4PropertyPlayableAsset',
 
+  // Components
   MeshComponent = 'MeshComponent',
   SkyboxComponent = 'SkyboxComponent',
   LightComponent = 'LightComponent',
@@ -47,6 +46,13 @@ export enum DataType {
   RichTextComponent = 'RichTextComponent',
   OrientationComponent = 'OrientationComponent',
   ShapeComponent = 'ShapeComponent',
+  SpriteComponent = 'SpriteComponent',
+  ParticleSystem = 'ParticleSystem',
+  InteractComponent = 'InteractComponent',
+  CameraController = 'CameraController',
+  PostProcessVolume = 'PostProcessVolume',
+  EffectComponent = 'EffectComponent',
+  TextComponent = 'TextComponent',
 
   // Non-EffectObject
   TimelineClip = 'TimelineClip',
