@@ -46,6 +46,11 @@ export interface VideoContentOptions {
    * @default 1
    */
   volume?: number,
+  /**
+   * 是否为透明视频
+   * @default false
+   */
+  opacity?: boolean,
 }
 
 /**
