@@ -50,7 +50,7 @@ export interface VideoContentOptions {
    * 是否为透明视频
    * @default false
    */
-  opacity?: boolean,
+  transparent?: boolean,
 }
 
 /**
