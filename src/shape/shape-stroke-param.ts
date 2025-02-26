@@ -1,12 +1,21 @@
 import type { ColorData } from '../math/color-data';
 
-// 本期无该功能 待补充
-export enum ShapeConnectType {
-
+export enum LineCap {
+  /** 默认值。向线条的每个末端添加平直的边缘 */
+  Butt,
+  /** 向线条的每个末端添加圆形线帽 */
+  Round,
+  /** 向线条的每个末端添加正方形线帽 */
+  Square
 }
 
-// @待补充
-export enum ShapePointType {
+export enum LineJoin {
+  /** 创建圆角 */
+  Round,
+  /** 创建斜角 */
+  Bevel,
+  /** 创建尖角 */
+  Miter
 }
 
 /**
@@ -22,11 +31,11 @@ export interface ShapeStrokeParam {
    */
   color: ColorData,
   /**
-   * 连接类型
+   * 线段端点的样式
    */
-  connectType: ShapeConnectType,
+  cap: LineCap,
   /**
-   * 点类型
+   * 线段连接处的样式
    */
-  pointType: ShapePointType,
+  join: LineJoin,
 }

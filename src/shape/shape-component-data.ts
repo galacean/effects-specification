@@ -1,4 +1,5 @@
 import type { ComponentData } from '../components/component-data';
+import type { ShapeFillParam } from './shape-fill-param';
 import type { ShapePrimitiveType } from './shape-primitive-type';
 import type { ShapeStrokeParam } from './shape-stroke-param';
 
@@ -14,4 +15,8 @@ export interface ShapeComponentData extends ComponentData {
    * 描边属性
    */
   stroke?: ShapeStrokeParam,
+  /**
+   * 填充属性
+   */
+  fill?: ShapeFillParam,
 }

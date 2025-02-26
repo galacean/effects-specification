@@ -1,6 +1,5 @@
 import type { TransformData } from '../item/base-item';
 import type { ShapeComponentData } from './shape-component-data';
-import type { ShapeFillParam } from './shape-fill-param';
 import type { ShapePrimitiveType } from './shape-primitive-type';
 
 /**
@@ -18,10 +17,6 @@ export interface EllipseData extends ShapeComponentData {
    * y 轴半径
    */
   yRadius: number,
-  /**
-   * 填充属性
-   */
-  fill?: ShapeFillParam,
   /**
    * 空间变换
    */
