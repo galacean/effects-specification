@@ -24,11 +24,6 @@ export interface TextItem extends BaseItem {
 
 export interface TextContentOptions extends BaseTextContentOptions {
   /**
-   * 文本间隔
-   * @default 0
-   */
-  letterSpace?: number,
-  /**
    * 文本固定宽度（和自适应宽高冲突）
    * @default 31
    */
@@ -48,15 +43,14 @@ export interface TextContentOptions extends BaseTextContentOptions {
    * @default false
    */
   autoWidth?: boolean,
-  /**
-   * 当文字超过最大宽度时，文字的表现行为
-   * 仅当设置文字最大宽度后生效
-   * @default TextOverflow.display
-   */
-  textOverflow?: TextOverflow,
 }
 
 export interface BaseTextContentOptions {
+  /**
+   * 文本间隔
+   * @default 0
+   */
+  letterSpace?: number,
   /**
    * 文本内容
    */
@@ -99,7 +93,7 @@ export interface BaseTextContentOptions {
   /**
    * 当文字超过最大宽度时，文字的表现行为
    * 仅当设置文字最大宽度后生效
-   * @default TextOverflow.display
+   * @default TextOverflow.clip
    */
   textOverflow?: TextOverflow,
   /**

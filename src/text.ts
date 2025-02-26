@@ -55,7 +55,7 @@ export interface FontBase {
 
 export enum TextOverflow {
   /**
-   * display 模式下，会显示所有文本，存在文本超过边界框的情况。
+   * display 模式下，会显示所有文本，文本大小会根据边界框调整。
    */
   display = 0,
   /**
