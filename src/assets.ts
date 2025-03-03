@@ -76,12 +76,6 @@ export interface Image extends AssetBase {
    * @default false
    */
   mipmap?: boolean,
-  /**
-   * 图片 Y 轴的方向，如果 Y 轴向上（与 OpenGL 相同）则为 1
-   * 如果 Y 轴向下（与 OpenGL 相反）则为 -1，图片再绘制数据模板的时候需要翻转绘制
-   * @default 1
-   */
-  oriY?: 1 | -1,
 }
 
 /**

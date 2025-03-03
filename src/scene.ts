@@ -31,7 +31,8 @@ export enum JSONSceneVersion {
   '2_4' = '2.4', // 支持贝塞尔曲线
   '3_0' = '3.0', // EC 改造、移除滤镜元素
   '3_1' = '3.1', // 音视频
-  'LATEST' = JSONSceneVersion['3_1'],
+  '3_2' = '3.2', // 矢量动画、透明视频、增加富文本属性
+  'LATEST' = JSONSceneVersion['3_2'],
 }
 
 /**
