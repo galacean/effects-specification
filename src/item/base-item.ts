@@ -57,7 +57,7 @@ export interface ObscuredOptions {
 /**
  * 元素的蒙版行为
  */
-export interface maskOptions extends Partial<ObscuredOptions> {
+export interface MaskOptions extends Partial<ObscuredOptions> {
   /**
    * 是否作为蒙版
    */
