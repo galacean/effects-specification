@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 import type { BinaryEnv } from '../binary';
+import type { DataPath } from '../components';
 import {
   END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FORWARD,
   END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
@@ -51,13 +52,13 @@ export enum ParentItemEndBehavior {
  */
 export interface ObscuredOptions {
   mode: ObscuredMode,
-  ref: number,
+  ref: DataPath,
 }
 
 /**
  * 元素的蒙版行为
  */
-export interface MaskOptions extends Partial<ObscuredOptions> {
+export interface MaskOptions {
   /**
    * 是否作为蒙版
    */
