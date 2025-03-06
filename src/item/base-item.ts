@@ -6,7 +6,7 @@ import {
 } from '../constants';
 import type { Vector2Data, Vector3Data } from '../math';
 import type { vec3, vec4 } from '../number-expression';
-import type { ItemType, RenderLevel } from '../type';
+import type { ItemType, ObscuredMode, RenderLevel } from '../type';
 import type { CameraContent } from './camera-item';
 import type { CompositionContent } from './composition-item';
 import type { EffectContent } from './effect-item';
@@ -44,6 +44,24 @@ export enum EndBehavior {
 
 export enum ParentItemEndBehavior {
   destroyChildren = END_BEHAVIOR_DESTROY_CHILDREN
+}
+
+/**
+ * 元素被遮挡/反向遮挡，需要时传入
+ */
+export interface ObscuredOptions {
+  mode: ObscuredMode,
+  ref: number,
+}
+
+/**
+ * 元素的蒙版行为
+ */
+export interface maskOptions extends Partial<ObscuredOptions> {
+  /**
+   * 是否作为蒙版
+   */
+  mask?: boolean,
 }
 
 export interface BaseItem {
