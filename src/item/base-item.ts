@@ -52,6 +52,9 @@ export enum ParentItemEndBehavior {
  */
 export interface ObscuredOptions {
   mode: ObscuredMode,
+  /**
+   * 指向作为蒙版的组件
+   */
   ref: DataPath,
 }
 
