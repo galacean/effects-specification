@@ -1,4 +1,5 @@
 import type { DataPath } from './components';
+import type { ObscuredOptions, MaskOptions } from './item/base-item';
 import type {
   FixedVec3Expression, vec2, vec3, GradientColor, ShapePoints, ShapeSplits, FixedNumberExpression,
 } from './number-expression';
@@ -484,6 +485,10 @@ export interface RendererOptions {
    * 锚点
    */
   anchor?: vec2,
+  /**
+   * 蒙版属性
+   */
+  mask?: MaskOptions | ObscuredOptions,
 }
 
 /**
