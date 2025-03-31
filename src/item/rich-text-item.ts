@@ -1,4 +1,4 @@
-import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 import type { ItemType } from '../type';
 import type { BaseTextContentOptions, TextComponentData, TextContent } from './text-item';
 import type { vec2 } from '../number-expression';
@@ -46,8 +46,4 @@ export interface RichTextComponentData extends Omit<TextComponentData, 'options'
    * 富文本元素基础属性
    */
   options: RichTextContentOptions,
-  /**
-   * 富文本元素蒙版属性，传入表示需要作为蒙版/被遮挡/反向遮挡
-   */
-  mask?: MaskOptions,
 }

@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 import type { BinaryEnv } from '../binary';
-import type { DataPath } from '../components';
 import {
   END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FORWARD,
   END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
 } from '../constants';
 import type { Vector2Data, Vector3Data } from '../math';
 import type { vec3, vec4 } from '../number-expression';
-import type { ItemType, ObscuredMode, RenderLevel } from '../type';
+import type { ItemType, RenderLevel } from '../type';
 import type { CameraContent } from './camera-item';
 import type { CompositionContent } from './composition-item';
 import type { EffectContent } from './effect-item';
@@ -45,27 +44,6 @@ export enum EndBehavior {
 
 export enum ParentItemEndBehavior {
   destroyChildren = END_BEHAVIOR_DESTROY_CHILDREN
-}
-
-/**
- * 元素被遮挡/反向遮挡，需要时传入
- */
-export interface ObscuredOptions {
-  mode: ObscuredMode,
-  /**
-   * 指向作为蒙版的组件
-   */
-  ref: DataPath,
-}
-
-/**
- * 元素的蒙版行为
- */
-export interface MaskOptions {
-  /**
-   * 是否作为蒙版
-   */
-  mask?: boolean,
 }
 
 export interface BaseItem {

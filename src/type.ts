@@ -316,17 +316,17 @@ export enum SideMode {
 }
 
 /**
- *  元素是否被蒙版遮挡/反向遮挡
+ * 蒙版模式
  */
-export enum ObscuredMode {
+export enum MaskMode {
   /**
-   * 无
+   * 无蒙版
    */
-  // NONE = 0,
-  // /**
-  //  * 蒙版
-  //  */
-  // MASK = 1,
+  NONE = 0,
+  /**
+   * 蒙版
+   */
+  MASK = 1,
   /**
    * 被遮挡
    */
@@ -473,6 +473,11 @@ export interface RendererOptions {
    * 贴图，索引到 scene 中的 images 数组
    */
   texture?: DataPath,
+  /**
+   * 蒙版模式
+   * @default none
+   */
+  maskMode?: MaskMode,
   /**
    * 蒙版形状，索引到 scene 的 shapes 中
    */

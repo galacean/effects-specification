@@ -5,7 +5,7 @@ import type {
   FixedNumberExpression, NumberExpression, GradientColor, vec3, FixedVec3Expression,
   ColorExpression, FunctionExpression,
 } from '../number-expression';
-import type { BaseItem, EndBehavior, ObscuredOptions } from './base-item';
+import type { BaseItem, EndBehavior } from './base-item';
 import type { ParticleShape } from './particle-shape';
 import type { ComponentData, DataPath } from '../components';
 
@@ -295,10 +295,6 @@ export interface ParticleContent {
    * 粒子元素材质渲染属性
    */
   renderer: RendererOptions,
-  /**
-   * 粒子元素蒙版属性，传入表示需要被遮挡/反向遮挡
-   */
-  mask?: ObscuredOptions,
   /**
    * 粒子元素发射器形状属性
    */
