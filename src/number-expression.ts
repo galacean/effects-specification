@@ -1,4 +1,4 @@
-import type { ColorCurveData, Vector4CurveData } from './curve-data';
+import type { ColorCurveData, Vector2CurveData, Vector4CurveData } from './curve-data';
 
 /*********************************************/
 /*               基本数值属性参数              */
@@ -84,6 +84,10 @@ export enum ValueType {
    * Vector4 曲线
    */
   VECTOR4_CURVE = 25,
+  /**
+   * Vector2 曲线
+   */
+  VECTOR2_CURVE = 26,
 }
 
 export type vec2 = [x: number, y: number];
@@ -307,6 +311,11 @@ export type ColorCurveValue = [type: ValueType.COLOR_CURVE, value: ColorCurveDat
  * Vector4 贝塞尔曲线
  */
 export type Vector4CurveValue = [type: ValueType.VECTOR4_CURVE, value: Vector4CurveData];
+
+/**
+ * Vector2 贝塞尔曲线
+ */
+export type Vector2CurveValue = [type: ValueType.VECTOR2_CURVE, value: Vector2CurveData];
 
 /*********************************************/
 /*               颜色属性参数                 */

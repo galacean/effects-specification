@@ -1,3 +1,5 @@
+import { JSONSceneVersion } from './scene';
+
 export * from './type';
 export * from './composition';
 export * from './texture';
@@ -39,3 +41,5 @@ export * from './material-data';
 export * from './geometry-data';
 export * from './shader-data';
 export * from './effects-package-data';
+
+export const LATEST_VERSION = JSONSceneVersion.LATEST;
