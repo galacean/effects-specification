@@ -1,4 +1,5 @@
 import type { DataPath } from './components';
+import type { ObscuredOptions, MaskOptions } from './item/base-item';
 import type {
   FixedVec3Expression, vec2, vec3, GradientColor, ShapePoints, ShapeSplits, FixedNumberExpression,
 } from './number-expression';
@@ -315,17 +316,17 @@ export enum SideMode {
 }
 
 /**
- * 蒙版模式
+ *  元素是否被蒙版遮挡/反向遮挡
  */
-export enum MaskMode {
+export enum ObscuredMode {
   /**
-   * 无蒙版
+   * 无
    */
-  NONE = 0,
-  /**
-   * 蒙版
-   */
-  MASK = 1,
+  // NONE = 0,
+  // /**
+  //  * 蒙版
+  //  */
+  // MASK = 1,
   /**
    * 被遮挡
    */
@@ -473,11 +474,6 @@ export interface RendererOptions {
    */
   texture?: DataPath,
   /**
-   * 蒙版模式
-   * @default none
-   */
-  maskMode?: MaskMode,
-  /**
    * 蒙版形状，索引到 scene 的 shapes 中
    */
   shape?: number | ShapeGeometry,
@@ -489,6 +485,10 @@ export interface RendererOptions {
    * 锚点
    */
   anchor?: vec2,
+  /**
+   * 蒙版属性
+   */
+  mask?: MaskOptions | ObscuredOptions,
 }
 
 /**

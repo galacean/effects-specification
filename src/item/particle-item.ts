@@ -1,11 +1,11 @@
 import type {
-  ItemType, RendererOptions, TextureSheetAnimation, BlendingMode, SplitParameter,
+  ItemType, RendererOptions, TextureSheetAnimation, BlendingMode, SplitParameter, ObscuredMode,
 } from '../type';
 import type {
   FixedNumberExpression, NumberExpression, GradientColor, vec3, FixedVec3Expression,
   ColorExpression, FunctionExpression,
 } from '../number-expression';
-import type { BaseItem, EndBehavior } from './base-item';
+import type { BaseItem, EndBehavior, ObscuredOptions } from './base-item';
 import type { ParticleShape } from './particle-shape';
 import type { ComponentData, DataPath } from '../components';
 
@@ -296,6 +296,10 @@ export interface ParticleContent {
    */
   renderer: RendererOptions,
   /**
+   * 粒子元素蒙版属性，传入表示需要被遮挡/反向遮挡
+   */
+  mask?: ObscuredOptions,
+  /**
    * 粒子元素发射器形状属性
    */
   shape?: ParticleShape,
@@ -435,5 +439,9 @@ export interface ParticleTrail {
    * 拖尾+图层绑定同一个父节点时使用
    */
   parentAffectsPosition?: boolean,
+  /**
+   * 拖尾蒙版属性，传入表示需要被遮挡/反向遮挡
+   */
+  mask?: ObscuredMode,
 }
 
