@@ -2,7 +2,7 @@
 import type { BinaryEnv } from '../binary';
 import type { DataPath } from '../components';
 import {
-  END_BEHAVIOR_DESTROY, END_BEHAVIOR_DESTROY_CHILDREN, END_BEHAVIOR_FORWARD,
+  END_BEHAVIOR_DESTROY, END_BEHAVIOR_FORWARD,
   END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
 } from '../constants';
 import type { Vector2Data, Vector3Data } from '../math';
@@ -41,10 +41,6 @@ export enum EndBehavior {
    * 冻结
    */
   freeze = END_BEHAVIOR_FREEZE,
-}
-
-export enum ParentItemEndBehavior {
-  destroyChildren = END_BEHAVIOR_DESTROY_CHILDREN
 }
 
 /**
@@ -105,7 +101,7 @@ export interface BaseItem {
    * 元素结束行为
    * @default destroy
    */
-  endBehavior: EndBehavior | ParentItemEndBehavior,
+  endBehavior: EndBehavior,
   /**
    * 元素播放延时（单位秒）
    * @default 0
