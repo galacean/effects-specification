@@ -7,7 +7,7 @@ import {
 } from '../constants';
 import type { Vector2Data, Vector3Data } from '../math';
 import type { vec3, vec4 } from '../number-expression';
-import type { ItemType, ObscuredMode, RenderLevel } from '../type';
+import type { ItemType, RenderLevel } from '../type';
 import type { CameraContent } from './camera-item';
 import type { CompositionContent } from './composition-item';
 import type { EffectContent } from './effect-item';
@@ -44,24 +44,25 @@ export enum EndBehavior {
 }
 
 /**
- * 元素被遮挡/反向遮挡，需要时传入
- */
-export interface ObscuredOptions {
-  mode: ObscuredMode,
-  /**
-   * 指向作为蒙版的组件
-   */
-  ref: DataPath,
-}
-
-/**
- * 元素的蒙版行为
+ * 元素的蒙版选项
  */
 export interface MaskOptions {
   /**
    * 是否作为蒙版
    */
-  mask?: boolean,
+  isMask?: boolean,
+  /**
+   * 是否反转
+   */
+  inverted?: boolean,
+  /**
+   * 是否开启图片透明蒙版
+   */
+  alphaMaskEnabled?: boolean,
+  /**
+   * 指向作为蒙版的组件
+   */
+  reference: DataPath,
 }
 
 export interface BaseItem {
