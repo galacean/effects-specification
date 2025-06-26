@@ -4,7 +4,7 @@ import type {
   SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
   InteractBehavior, RendererOptions, ItemType,
 } from '../type';
-import type { BaseItem, EndBehavior, ObscuredOptions } from './base-item';
+import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
 
 /**
  * 视频元素
@@ -68,7 +68,7 @@ export interface VideoComponentData extends ComponentData {
   /**
    * 视频元素蒙版属性，传入表示需要被遮挡/反向遮挡
    */
-  mask?: ObscuredOptions,
+  mask?: MaskOptions,
   /**
    * 视频元素大小变化属性
    */

@@ -1,4 +1,4 @@
-import type { BaseItem, EndBehavior, MaskOptions, ObscuredOptions } from './base-item';
+import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
 import type {
   SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime, ItemType,
   TextureSheetAnimation, RendererOptions, SplitParameter, InteractBehavior,
@@ -52,7 +52,7 @@ export interface SpriteContent {
   /**
    * 图层元素蒙版属性，传入表示需要作为蒙版/被遮挡/反向遮挡
    */
-  mask?: MaskOptions | ObscuredOptions,
+  mask?: MaskOptions,
   /**
    * 图层元素大小变化属性
    */
