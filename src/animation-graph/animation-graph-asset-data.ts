@@ -6,7 +6,7 @@ export interface GraphDataSetData {
   resources: DataPath[],
 }
 
-export interface GraphAssetData extends EffectsObjectData {
+export interface AnimationGraphAssetData extends EffectsObjectData {
   nodeDatas: GraphNodeData[],
   graphDataSet: GraphDataSetData,
   rootNodeIndex: number,

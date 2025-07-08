@@ -53,6 +53,7 @@ export enum DataType {
   PostProcessVolume = 'PostProcessVolume',
   EffectComponent = 'EffectComponent',
   TextComponent = 'TextComponent',
+  AnimationGraphAsset = 'AnimationGraphAsset',
   Animator = 'Animator',
 
   // Non-EffectObject
