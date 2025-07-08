@@ -1,3 +1,4 @@
+import type { ColorCurveData } from './curve-data';
 import type { EffectsObjectData } from './effects-object-data';
 import type { FixedNumberExpression, FixedVec3Expression, FixedQuatExpression } from './number-expression';
 
@@ -7,6 +8,7 @@ export interface AnimationClipData extends EffectsObjectData {
   rotationCurves: RotationCurveData[],
   scaleCurves: ScaleCurveData[],
   floatCurves: FloatCurveData[],
+  colorCurves: ColorCurveData[],
 }
 
 export interface PositionCurveData {
