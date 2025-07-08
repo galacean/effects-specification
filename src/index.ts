@@ -31,6 +31,7 @@ export * from './text';
 export * from './components';
 export * from './buitin-object-guid';
 export * from './shape';
+export * from './animation-graph';
 export * from './timeline';
 export * from './assets';
 export * from './render-settings';
