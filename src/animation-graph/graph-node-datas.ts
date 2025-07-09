@@ -59,11 +59,11 @@ export interface AndNodeData extends GraphNodeData {
   conditionNodeIndices: number[],
 }
 
-export interface OrNodeAssetData extends GraphNodeData {
+export interface OrNodeData extends GraphNodeData {
   type: NodeDataType.OrNodeData,
   conditionNodeIndices: number[],
 }
-export interface NotNodeAssetData extends GraphNodeData {
+export interface NotNodeData extends GraphNodeData {
   type: NodeDataType.NotNodeData,
   inputValueNodeIndex: number,
 }
