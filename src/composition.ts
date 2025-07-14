@@ -1,4 +1,4 @@
-import type { DataPath } from './components';
+import type { ComponentData, DataPath } from './components';
 import { CAMERA_CLIP_MODE_NORMAL, CAMERA_CLIP_MODE_VERTICAL } from './constants';
 import type { Item } from './item';
 import type { EndBehavior } from './item/base-item';
@@ -92,8 +92,27 @@ export interface Composition extends CompositionBase {
 
 /**
  * 合成数据
+ * @deprecated Please use CompositionBase instead
  */
 export interface CompositionData extends CompositionBase {
+  /**
+   * 元素信息
+   */
+  items: DataPath[],
+  /**
+   * 时间轴资产（TimelineAssetData）
+   */
+  timelineAsset: DataPath,
+  /**
+   * 轨道的场景绑定
+   */
+  sceneBindings: SceneBindingData[],
+}
+
+/**
+ * 合成组件数据
+ */
+export interface CompositionComponentData extends ComponentData {
   /**
    * 元素信息
    */
