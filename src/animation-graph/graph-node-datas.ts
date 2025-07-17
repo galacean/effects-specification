@@ -2,6 +2,7 @@ export enum NodeDataType {
   AnimationClipNodeData = 'AnimationClipNodeData',
   BlendNodeData = 'BlendNodeData',
   ApplyAdditiveNodeData = 'ApplyAdditiveNodeData',
+  LayerBlendNodeData = 'LayerBlendNodeData',
 
   StateMachineNodeData = 'StateMachineNodeData',
   TransitionNodeData = 'TransitionNodeData',
@@ -52,6 +53,16 @@ export interface ApplyAdditiveNodeData extends GraphNodeData {
   baseNodeIndex: number,
   additiveNodeIndex: number,
   inputParameterValueNodeIndex: number,
+}
+
+export interface LayerData {
+  inputNodeIndex?: number,
+  weightValueNodeIndex?: number,
+}
+
+export interface LayerBlendNodeData extends GraphNodeData {
+  baseNodeIndex?: number,
+  layerDatas?: LayerData[],
 }
 
 export interface AndNodeData extends GraphNodeData {
