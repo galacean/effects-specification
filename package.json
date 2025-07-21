@@ -1,6 +1,6 @@
 {
   "name": "@galacean/effects-specification",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Galacean Effects JSON Specification",
   "module": "./es/index.js",
   "main": "./es/index.js",
