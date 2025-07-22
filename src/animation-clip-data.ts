@@ -1,5 +1,5 @@
 import type { EffectsObjectData } from './effects-object-data';
-import type { FixedNumberExpression, FixedVec3Expression, FixedQuatExpression, ColorCurveValue } from './number-expression';
+import type { ColorCurveValue, Vector3CurveValue, BezierValue, BezierCurvePath, BezierCurveQuat } from './number-expression';
 
 export interface AnimationClipData extends EffectsObjectData {
   duration?: number,
@@ -13,29 +13,29 @@ export interface AnimationClipData extends EffectsObjectData {
 
 export interface PositionCurveData {
   path: string,
-  keyFrames: FixedVec3Expression,
+  keyFrames: BezierCurvePath,
 }
 
 export interface QuaternionRotationCurveData {
   path: string,
-  keyFrames: FixedQuatExpression,
+  keyFrames: BezierCurveQuat,
 }
 
 export interface EulerRotationCurveData {
   path: string,
-  keyFrames: FixedVec3Expression,
+  keyFrames: Vector3CurveValue,
 }
 
 export interface ScaleCurveData {
   path: string,
-  keyFrames: FixedVec3Expression,
+  keyFrames: Vector3CurveValue,
 }
 
 export interface AnimationCurveFloatData {
   path: string,
   property: string,
   className: string,
-  keyFrames: FixedNumberExpression,
+  keyFrames: BezierValue,
 }
 
 export interface AnimationCurveColorData {
