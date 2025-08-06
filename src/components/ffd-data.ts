@@ -5,8 +5,9 @@ export interface FFDComponentData extends ComponentData {
   controlPoints: Vector3Data[],
   boundMin: Vector3Data,
   boundMax: Vector3Data,
-  rest: boolean,
+  reset: boolean,
   additive: boolean,
   rowNum: number,
   colNum: number,
+  presetIndex: number,
 }
