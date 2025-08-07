@@ -165,10 +165,6 @@ export interface JSONScene {
    */
   binUsage?: Record<string, number[]>,
   /**
-   * 蒙版形状信息
-   */
-  shapes: ShapeGeometry[],
-  /**
    * 插件类型信息
    * 'model@1.0'
    */
