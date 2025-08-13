@@ -51,7 +51,7 @@ export interface BaseTextContentOptions {
    * @default 0
    */
   letterSpace?: number,
-    /**
+  /**
   * 文本行间隔
   * @default 0.571
   */
