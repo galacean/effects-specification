@@ -52,9 +52,9 @@ export interface BaseTextContentOptions {
    */
   letterSpace?: number,
   /**
-  * 文本行间隔
-  * @default 0.571
-  */
+   * 文本行间隔
+   * @default 0.571
+   */
   lineGap?: number,
   /**
    * 文本内容
