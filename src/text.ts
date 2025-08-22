@@ -53,19 +53,49 @@ export interface FontBase {
   letterSpace?: number,
 }
 
-export enum TextOverflow {
-  /**
-   * display 模式下，会显示所有文本，文本大小会根据边界框调整。
-   */
-  display = 0,
-  /**
-   * clip 模式下，当文本内容超出边界框时，多余的会被截断。
-   */
-  clip = 1,
-  /**
-   * ellipsis 模式下，会使用（...）来代替超出边界框的内容。
-   */
-  ellipsis = 2,
+export declare enum TextOverflow {
+    /**
+     * visible 模式下，文本内容超出边界框时，仍然会被显示出来。
+     */
+    visible = 0,
+    /**
+     * display 模式下，会显示所有文本，文本大小会根据边界框调整。
+     */
+    display = 1,
+    /**
+     * clip 模式下，当文本内容超出边界框时，多余的会被截断。
+     */
+    clip = 2,
+    /**
+     * ellipsis 模式下，会使用（...）来代替超出边界框的内容。
+     */
+    ellipsis = 3,
+}
+
+export declare enum TextWrapMode {
+    /**
+     * 不换行
+     */
+    NoWrap = "no-wrap",
+    /**
+     * 换行
+     */
+    Wrap = "wrap"
+}
+
+export declare enum TextSizeMode {
+    /**
+     * 自动宽度
+     */
+    AutoWidth = "auto-width",
+    /**
+     * 自动高度
+     */
+    AutoHeight = "auto-height",
+    /**
+     * 固定宽高
+     */
+    Fixed = "fixed"
 }
 
 export enum TextBaseline {

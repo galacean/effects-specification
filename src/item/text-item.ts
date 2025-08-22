@@ -4,7 +4,7 @@ import type {
   TextureSheetAnimation, RendererOptions, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
-import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight } from '../text';
+import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight ,TextSizeMode,TextWrapMode} from '../text';
 import type { ComponentData } from '../components';
 
 /**
@@ -23,26 +23,41 @@ export interface TextItem extends BaseItem {
 }
 
 export interface TextContentOptions extends BaseTextContentOptions {
-  /**
-   * 文本固定宽度（和自适应宽高冲突）
-   * @default 31
-   */
-  textWidth?: number,
-  /**
-   * 文本行高
-   * @default 31
-   */
-  lineHeight?: number,
-  /**
-   * 文本高度
-   * @default 31
-   */
-  textHeight?: number,
-  /**
-   * 自适应宽高开关（和文本固定宽度冲突）
-   * @default false
-   */
-  autoWidth?: boolean,
+    /**
+     * 文本布局模式
+     * auto-width: 宽度自适应内容
+     * auto-height: 高度自适应内容
+     * fixed: 宽高都固定
+     */
+    sizeMode?: TextSizeMode;
+    /**
+     * 自动换行模式
+     * Wrap: 自动换行
+     * NoWrap: 不换行
+     * @default TextWrapMode.Wrap
+     */
+    wrapMode?: TextWrapMode;
+    /**
+     * 文本宽度，仅在 sizeMode 为 'fixed' 或 'auto-height' 时生效
+     * @default 31
+     */
+    textWidth?: number;
+    /**
+     * 文本高度，仅在 sizeMode 为 'fixed' 或 'auto-width' 时生效
+     * @default 31
+     */
+    textHeight?: number;
+    /**
+     * 文本行高
+     * @default 31
+     */
+    lineHeight?: number;
+    /**
+     * @deprecated 请使用 sizeMode 替代
+     * 自适应宽高开关（和文本固定宽度冲突）
+     * @default false
+     */
+    autoWidth?: boolean;
 }
 
 export interface BaseTextContentOptions {
