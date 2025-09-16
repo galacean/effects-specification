@@ -1,4 +1,5 @@
 import type { BinaryPointer } from './binary';
+import type { DataPath } from './components';
 import type { DataType } from './data-type';
 
 export interface TextureFormatOptions {
@@ -35,7 +36,7 @@ export type SerializedTextureCubeMipmap = [
 export interface SerializedTexture2DImageSource extends TextureConfigOptionsBase, TextureFormatOptions {
   dataType: DataType.Texture,
   target?: WebGLRenderingContext['TEXTURE_2D'],
-  source: number,
+  source: number | DataPath,
 }
 
 export interface SerializedTexture2DMipmapSource extends TextureConfigOptionsBase, TextureFormatOptions {
