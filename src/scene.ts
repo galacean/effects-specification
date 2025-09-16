@@ -34,7 +34,8 @@ export enum JSONSceneVersion {
   '3_2' = '3.2', // 矢量动画、透明视频、增加富文本属性
   '3_3' = '3.3', // 指向型蒙版、图片/文字蒙版
   '3_4' = '3.4', // 动画状态机
-  'LATEST' = JSONSceneVersion['3_4'],
+  '3_5' = '3.5', // 网格形状变化动画、矢量图形填充/描边渐变色
+  'LATEST' = JSONSceneVersion['3_5'],
 }
 
 /**

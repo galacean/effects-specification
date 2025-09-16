@@ -118,6 +118,7 @@ export interface GreaterNodeData extends FloatComparisonNodeData {
 
 export interface StateMachineNodeData extends GraphNodeData {
   type: NodeDataType.StateMachineNodeData,
+  machineName: string,
   stateDatas: StateData[],
   defaultStateIndex: number,
 }
@@ -135,6 +136,7 @@ export interface StateData {
 
 export interface StateNodeData extends GraphNodeData {
   type: NodeDataType.StateNodeData,
+  stateName: string,
   childNodeIndex: number,
 }
 
