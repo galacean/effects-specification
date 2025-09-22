@@ -88,7 +88,14 @@ export interface TexturePaintData {
   texture: DataPath,
   scaleMode: TexturePaintScaleMode,
   scalingFactor?: number,
+  textureTransform?: TextureTransformData,
   opacity?: number,
+}
+
+export interface TextureTransformData {
+  offset?: Vector2Data,
+  rotation?: number,
+  scale?: Vector2Data,
 }
 
 export enum TexturePaintScaleMode {
