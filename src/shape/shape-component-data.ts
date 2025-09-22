@@ -91,6 +91,7 @@ export interface TexturePaintData {
   textureTransform?: TextureTransformData,
   opacity?: number,
 }
+
 export interface TextureTransformData {
   offset?: Vector2Data,
   rotation?: number,
