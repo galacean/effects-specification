@@ -4,7 +4,7 @@ import type {
   TextureSheetAnimation, RendererOptions, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
-import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight,TextSizeMode } from '../text';
+import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight, TextSizeMode } from '../text';
 import type { ComponentData } from '../components';
 
 /**
