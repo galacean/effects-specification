@@ -62,7 +62,7 @@ export interface TextContentOptions extends BaseTextContentOptions {
    * 是否开启自动换行
    * @default false
    */
-  warpEnabled?: boolean,
+  wrapEnabled?: boolean,
 }
 
 export interface BaseTextContentOptions {
