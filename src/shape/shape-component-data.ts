@@ -1,4 +1,4 @@
-import type { RenderMode, SideMode, BlendingMode } from '../type';
+import type { SideMode, BlendingMode } from '../type';
 import type { ComponentData, DataPath } from '../components/component-data';
 import type { MaskOptions } from '../item/base-item';
 import type { ShapePrimitiveType } from './shape-primitive-type';
@@ -38,7 +38,6 @@ export interface ShapeComponentData extends ComponentData {
 }
 
 export interface ShapeRendererOptions {
-  renderMode?: RenderMode,
   side?: SideMode,
   occlusion?: boolean,
   transparentOcclusion?: boolean,
