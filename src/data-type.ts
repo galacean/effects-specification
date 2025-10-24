@@ -21,6 +21,7 @@ export enum DataType {
   FloatPropertyTrack = 'FloatPropertyTrack',
   ColorPropertyTrack = 'ColorPropertyTrack',
   Vector2PropertyTrack = 'Vector2PropertyTrack',
+  Vector3PropertyTrack = 'Vector3PropertyTrack',
   Vector4PropertyTrack = 'Vector4PropertyTrack',
 
   TransformPlayableAsset = 'TransformPlayableAsset',
@@ -30,6 +31,7 @@ export enum DataType {
   FloatPropertyPlayableAsset = 'FloatPropertyPlayableAsset',
   ColorPropertyPlayableAsset = 'ColorPropertyPlayableAsset',
   Vector2PropertyPlayableAsset = 'Vector2PropertyPlayableAsset',
+  Vector3PropertyPlayableAsset = 'Vector3PropertyPlayableAsset',
   Vector4PropertyPlayableAsset = 'Vector4PropertyPlayableAsset',
 
   // Components
@@ -54,8 +56,9 @@ export enum DataType {
   EffectComponent = 'EffectComponent',
   TextComponent = 'TextComponent',
   AnimationGraphAsset = 'AnimationGraphAsset',
+  CompositionComponent = 'CompositionComponent',
+  FFDComponent = 'FFDComponent',
   Animator = 'Animator',
-
   // Non-EffectObject
   TimelineClip = 'TimelineClip',
 }

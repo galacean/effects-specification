@@ -4,7 +4,7 @@ import type {
   TextureSheetAnimation, RendererOptions, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
-import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight } from '../text';
+import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight, TextSizeMode } from '../text';
 import type { ComponentData } from '../components';
 
 /**
@@ -43,6 +43,26 @@ export interface TextContentOptions extends BaseTextContentOptions {
    * @default false
    */
   autoWidth?: boolean,
+  /**
+   * 尺寸模式
+   * @default TextSizeMode.autoWidth
+   */
+  sizeMode?: TextSizeMode,
+  /**
+   * 文本框宽度，用来排版和控制文本溢出行为
+   * @default undefined
+   */
+  maxTextWidth?: number,
+  /**
+   * 文本框高度，用来排版和控制文本溢出行为
+   * @default undefined
+   */
+  maxTextHeight?: number,
+  /**
+   * 是否开启自动换行
+   * @default false
+   */
+  wrapEnabled?: boolean,
 }
 
 export interface BaseTextContentOptions {
@@ -51,6 +71,11 @@ export interface BaseTextContentOptions {
    * @default 0
    */
   letterSpace?: number,
+  /**
+   * 文本行间隔
+   * @default 0.571
+   */
+  lineGap?: number,
   /**
    * 文本内容
    */
