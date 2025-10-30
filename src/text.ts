@@ -120,6 +120,21 @@ export enum TextAlignment {
   right = 2,
 }
 
+export enum TextVerticalAlign {
+  /**
+   * 文本顶对齐。
+   */
+  top = 0,
+  /**
+   * 文本垂直居中对齐。
+   */
+  middle = 1,
+  /**
+   * 文本底对齐。
+   */
+  bottom = 2
+}
+
 /**
  * 文本字重
  */
