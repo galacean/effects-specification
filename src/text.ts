@@ -132,7 +132,7 @@ export enum TextVerticalAlign {
   /**
    * 文本底对齐。
    */
-  bottom = 2
+  bottom = 2,
 }
 
 /**
