@@ -90,11 +90,7 @@ export interface TemplateImage extends Image {
  */
 export interface CompressedImage extends Image {
   /**
-   * 压缩贴图地址
+   * KTX2 地址
    */
-  compressed: {
-    // 安卓
-    astc?: string,
-    pvrtc?: string,
-  },
+  ktx2?: string,
 }
