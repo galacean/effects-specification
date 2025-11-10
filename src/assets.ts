@@ -98,3 +98,13 @@ export interface CompressedImage extends Image {
     pvrtc?: string,
   },
 }
+
+/**
+ * ktx2贴图属性
+ */
+export interface KTX2Image extends Image {
+  /**
+   * ktx2贴图地址
+   */
+  ktx2: string,
+}
