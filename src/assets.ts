@@ -53,7 +53,7 @@ export interface TemplateContent {
 
 export type TemplateVariables = Record<string, string | string[] | HTMLImageElement | HTMLImageElement[]>;
 
-export type ImageSource = Image | TemplateImage | CompressedImage;
+export type ImageSource = Image | TemplateImage | CompressedImage | KTX2Image;
 
 /**
  * 纹理贴图属性
