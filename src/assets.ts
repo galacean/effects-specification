@@ -53,7 +53,7 @@ export interface TemplateContent {
 
 export type TemplateVariables = Record<string, string | string[] | HTMLImageElement | HTMLImageElement[]>;
 
-export type ImageSource = Image | TemplateImage | CompressedImage | KTX2Image;
+export type ImageSource = Image | TemplateImage | CompressedImage;
 
 /**
  * 纹理贴图属性
@@ -90,21 +90,7 @@ export interface TemplateImage extends Image {
  */
 export interface CompressedImage extends Image {
   /**
-   * 压缩贴图地址
+   * KTX2 地址
    */
-  compressed: {
-    // 安卓
-    astc?: string,
-    pvrtc?: string,
-  },
-}
-
-/**
- * ktx2贴图属性
- */
-export interface KTX2Image extends Image {
-  /**
-   * ktx2贴图地址
-   */
-  ktx2: string,
+  ktx2?: string,
 }
