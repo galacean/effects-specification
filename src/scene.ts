@@ -7,7 +7,7 @@ import type { BinaryFile } from './binary';
 import type { ComponentData } from './components';
 import type { VFXItemData } from './vfx-item-data';
 import type { AnimationClipData } from './animation-clip-data';
-import type { AssetBase, ImageSource } from './assets';
+import type { AssetBase, ImageSource, VideoInfo } from './assets';
 import type { RenderSettings } from './render-settings';
 import type { EffectsObjectData } from './effects-object-data';
 import type { MaterialData } from './material-data';
@@ -171,7 +171,7 @@ export interface JSONScene {
    * 视频资源
    * @since 2.0.0
    */
-  videos?: AssetBase[],
+  videos?: VideoInfo[],
   /**
    * 音频资源
    * @since 2.0.0

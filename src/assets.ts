@@ -78,6 +78,13 @@ export interface Image extends AssetBase {
   mipmap?: boolean,
 }
 
+export interface VideoInfo extends AssetBase {
+  hevc?: {
+    url: string | HTMLVideoElement,
+    codec: string,
+  },
+}
+
 /**
  * 模板贴图属性
  */
