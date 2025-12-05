@@ -89,8 +89,4 @@ export interface SpriteContent {
  * 图层组件属性
  */
 export interface SpriteComponentData extends ComponentData, SpriteContent {
-  /**
-   * 图层帧动画是否循环播放
-   */
-  loop?: boolean,
 }
