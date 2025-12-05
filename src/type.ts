@@ -216,6 +216,10 @@ export interface TextureSheetAnimation {
    * 帧动画开关
    */
   animate: boolean,
+  /**
+   * 图层帧动画是否循环播放
+   */
+  loop: boolean,
 }
 
 /**
