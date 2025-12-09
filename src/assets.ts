@@ -37,6 +37,17 @@ export enum MultimediaType {
   audio = 'audio',
 }
 
+export enum HevcVideoCodec {
+  L30 = 'hev1.1.0.L30.B0',
+  L60 = 'hev1.1.0.L60.B0',
+  L63 = 'hev1.1.0.L63.B0',
+  L90 = 'hev1.1.0.L90.B0',
+  L93 = 'hev1.1.0.L93.B0',
+  L120 = 'hev1.1.0.L120.B0',
+  L150 = 'hev1.1.0.L150.B0',
+  L180 = 'hev1.1.0.L180.B0',
+}
+
 export interface TemplateContent {
   /**
    * 当 template 宽高和 image 不相同时，会对 template 进行缩放，使其和 image 相同。
@@ -76,6 +87,13 @@ export interface Image extends AssetBase {
    * @default false
    */
   mipmap?: boolean,
+}
+
+export interface VideoInfo extends AssetBase {
+  hevc?: {
+    url: string | HTMLVideoElement,
+    codec: HevcVideoCodec,
+  },
 }
 
 /**
