@@ -7,7 +7,7 @@ import type { BinaryFile } from './binary';
 import type { ComponentData } from './components';
 import type { VFXItemData } from './vfx-item-data';
 import type { AnimationClipData } from './animation-clip-data';
-import type { AssetBase, ImageSource } from './assets';
+import type { AssetBase, ImageSource, VideoInfo } from './assets';
 import type { RenderSettings } from './render-settings';
 import type { EffectsObjectData } from './effects-object-data';
 import type { MaterialData } from './material-data';
@@ -35,7 +35,8 @@ export enum JSONSceneVersion {
   '3_3' = '3.3', // 指向型蒙版、图片/文字蒙版
   '3_4' = '3.4', // 动画状态机
   '3_5' = '3.5', // 网格形状变化动画、矢量图形填充/描边渐变色
-  'LATEST' = JSONSceneVersion['3_5'],
+  '3_6' = '3.6', // 支持 KTX2 纹理、H265 视频格式、文本增强
+  'LATEST' = JSONSceneVersion['3_6'],
 }
 
 /**
@@ -171,7 +172,7 @@ export interface JSONScene {
    * 视频资源
    * @since 2.0.0
    */
-  videos?: AssetBase[],
+  videos?: VideoInfo[],
   /**
    * 音频资源
    * @since 2.0.0

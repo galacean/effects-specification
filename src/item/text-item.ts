@@ -4,7 +4,7 @@ import type {
   TextureSheetAnimation, RendererOptions, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
-import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight, TextSizeMode } from '../text';
+import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight, TextVerticalAlign } from '../text';
 import type { ComponentData } from '../components';
 
 /**
@@ -29,11 +29,6 @@ export interface TextContentOptions extends BaseTextContentOptions {
    */
   textWidth?: number,
   /**
-   * 文本行高
-   * @default 31
-   */
-  lineHeight?: number,
-  /**
    * 文本高度
    * @default 31
    */
@@ -44,25 +39,10 @@ export interface TextContentOptions extends BaseTextContentOptions {
    */
   autoWidth?: boolean,
   /**
-   * 尺寸模式
-   * @default TextSizeMode.autoWidth
-   */
-  sizeMode?: TextSizeMode,
-  /**
-   * 文本框宽度，用来排版和控制文本溢出行为
-   * @default undefined
-   */
-  maxTextWidth?: number,
-  /**
-   * 文本框高度，用来排版和控制文本溢出行为
-   * @default undefined
-   */
-  maxTextHeight?: number,
-  /**
-   * 是否开启自动换行
+   * 自适应宽高开关（和文本固定高度冲突）
    * @default false
    */
-  wrapEnabled?: boolean,
+  autoHeight?: boolean,
 }
 
 export interface BaseTextContentOptions {
@@ -76,6 +56,11 @@ export interface BaseTextContentOptions {
    * @default 0.571
    */
   lineGap?: number,
+  /**
+   * 文本行高
+   * @default 31
+   */
+  lineHeight?: number,
   /**
    * 文本内容
    */
@@ -100,6 +85,11 @@ export interface BaseTextContentOptions {
    * @default TextBaseline.middle
    */
   textBaseline?: TextBaseline,
+  /**
+   * 垂直对齐方式
+   * @default TextVerticalAlign.middle
+   */
+  textVerticalAlign?: TextVerticalAlign,
   /**
    * 左右对齐方式
    * @default TextAlignment.left

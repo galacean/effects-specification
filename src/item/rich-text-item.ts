@@ -2,6 +2,7 @@ import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
 import type { ItemType } from '../type';
 import type { BaseTextContentOptions, TextComponentData, TextContent } from './text-item';
 import type { vec2 } from '../number-expression';
+import type { TextSizeMode } from '../text';
 
 /**
  * 富文本元素
@@ -26,6 +27,25 @@ export interface RichTextContentOptions extends BaseTextContentOptions {
    * 富文本元素大小
    */
   size?: vec2,
+  /**
+   * 文本框宽度，用来排版和控制文本溢出行为
+   */
+  maxTextWidth?: number,
+  /**
+   * 文本框高度，用来排版和控制文本溢出行为
+   * @default undefined
+   */
+  maxTextHeight?: number,
+  /**
+   * 是否开启自动换行
+   * @default false
+   */
+  wrapEnabled?: boolean,
+  /**
+   * 尺寸模式
+   * @default TextSizeMode.autoWidth
+   */
+  sizeMode?: TextSizeMode,
 }
 
 /**
