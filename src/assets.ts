@@ -91,7 +91,7 @@ export interface Image extends AssetBase {
 
 export interface VideoInfo extends AssetBase {
   hevc?: {
-    url: string | HTMLVideoElement,
+    url: string,
     codec: HevcVideoCodec,
   },
 }
