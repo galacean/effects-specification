@@ -1,7 +1,6 @@
 import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
 import type { ItemType } from '../type';
 import type { BaseTextContentOptions, TextComponentData, TextContent } from './text-item';
-import type { vec2 } from '../number-expression';
 import type { TextSizeMode } from '../text';
 
 /**
@@ -23,10 +22,6 @@ export interface RichTextItem extends BaseItem {
  * 富文本元素参数
  */
 export interface RichTextContentOptions extends BaseTextContentOptions {
-  /**
-   * 富文本元素大小
-   */
-  size?: vec2,
   /**
    * 文本框宽度，用来排版和控制文本溢出行为
    */
