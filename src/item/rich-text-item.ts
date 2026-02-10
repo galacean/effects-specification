@@ -45,7 +45,7 @@ export interface RichTextContentOptions extends BaseTextContentOptions {
    * 尺寸模式
    * @default TextSizeMode.autoWidth
    */
-  sizeMode?: TextSizeMode,
+  autoResize?: TextSizeMode,
 }
 
 /**
