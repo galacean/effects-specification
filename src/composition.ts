@@ -83,6 +83,7 @@ interface CompositionBase {
 
 /**
  * 合成信息
+ * @deprecated
  */
 export interface Composition extends CompositionBase {
   /**
@@ -99,6 +100,10 @@ export interface CompositionData extends CompositionBase {
    * @description 组件数据
    */
   components: DataPath[],
+  /**
+   * 合成的子节点列表
+   */
+  children?: DataPath[],
 }
 
 /**

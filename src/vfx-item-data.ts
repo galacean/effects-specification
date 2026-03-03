@@ -25,6 +25,15 @@ export interface VFXItemData extends EffectsObjectData {
    */
   type: ItemType,
   /**
+   * 元素结束行为
+   * @default destroy
+   */
+  endBehavior: EndBehavior,
+  /**
+   * 元素的组件数据
+   */
+  components: DataPath[],
+  /**
    * 父节点 ID
    * 如果父节点无法找到，播放将直接报错
    */
@@ -36,40 +45,43 @@ export interface VFXItemData extends EffectsObjectData {
    */
   visible?: boolean,
   /**
-   * 元素结束行为
-   * @default destroy
-   */
-  endBehavior: EndBehavior,
-  /**
-   * 元素播放延时（单位秒）
-   * @default 0
-   */
-  delay?: number,
-  /**
-   * 元素渲染信息属性
-   */
-  content: BaseContent,
-  /**
    * 元素渲染等级
    */
   renderLevel?: RenderLevel,
-  /**
-   * 元素的插件模块名，如果不指定，则和 type 相同
-   * 从数组的 plugins 中获取 name
-   * 例如：pn:1, plugins:["model@1.0",'spine@1.0']
-   * pn 实际为 spine
-   */
-  pn?: number,
-  /**
-   * 元素的插件模块名, 优先级高于 pn
-   */
-  pluginName?: string,
   /**
    * 元素的基础位置
    */
   transform?: TransformData,
   /**
-   * 元素的组件数据
+   * 元素的子节点列表
    */
-  components: DataPath[],
+  children?: DataPath[],
+
+  // Deprecated
+  //-------------------------------------------------------------------------
+
+  /**
+   * 元素播放延时（单位秒）
+   * @default 0
+   * @deprecated
+   */
+  delay?: number,
+  /**
+   * 元素渲染信息属性
+   * @deprecated
+   */
+  content: BaseContent,
+  /**
+   * 元素的插件模块名，如果不指定，则和 type 相同
+   * 从数组的 plugins 中获取 name
+   * 例如：pn:1, plugins:["model@1.0",'spine@1.0']
+   * pn 实际为 spine
+   * @deprecated
+   */
+  pn?: number,
+  /**
+   * 元素的插件模块名, 优先级高于 pn
+   * @deprecated
+   */
+  pluginName?: string,
 }
