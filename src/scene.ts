@@ -6,13 +6,13 @@ import type { FontBase, FontDefine } from './text';
 import type { BinaryFile } from './binary';
 import type { ComponentData } from './components';
 import type { VFXItemData } from './vfx-item-data';
-import type { AnimationClipData } from './animation-clip-data';
 import type { AssetBase, ImageSource, VideoInfo } from './assets';
 import type { RenderSettings } from './render-settings';
 import type { EffectsObjectData } from './effects-object-data';
 import type { MaterialData } from './material-data';
 import type { GeometryData } from './geometry-data';
 import type { ShaderData } from './shader-data';
+import type { AnimationClipData } from './animation';
 
 /**
  * JSON 版本
