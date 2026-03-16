@@ -25,7 +25,7 @@ export * from './item/video-item';
 export * from './item/audio-item';
 export * from './item/model';
 export * from './vfx-item-data';
-export * from './animation-clip-data';
+export * from './animation';
 export * from './binary';
 export * from './text';
 export * from './components';
