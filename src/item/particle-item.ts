@@ -1,5 +1,5 @@
 import type {
-  ItemType, RendererOptions, TextureSheetAnimation, BlendingMode, SplitParameter, ObscuredMode,
+  ItemType, RendererOptions, TextureSheetAnimation, BlendingMode, SplitParameter,
 } from '../type';
 import type {
   FixedNumberExpression, NumberExpression, GradientColor, vec3, FixedVec3Expression,
@@ -245,6 +245,10 @@ export interface ParticleTextureSheetAnimation extends TextureSheetAnimation {
 
 export interface ParticleOptions {
   /**
+   * 发射循环开关
+   */
+  looping?: boolean,
+  /**
    * 最大粒子数
    */
   maxCount: number,
@@ -439,9 +443,5 @@ export interface ParticleTrail {
    * 拖尾+图层绑定同一个父节点时使用
    */
   parentAffectsPosition?: boolean,
-  /**
-   * 拖尾蒙版属性，传入表示需要被遮挡/反向遮挡
-   */
-  mask?: ObscuredMode,
 }
 
