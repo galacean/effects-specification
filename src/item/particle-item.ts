@@ -444,4 +444,3 @@ export interface ParticleTrail {
    */
   parentAffectsPosition?: boolean,
 }
-
