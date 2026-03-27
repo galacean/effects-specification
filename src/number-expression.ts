@@ -29,11 +29,13 @@ export enum ValueType {
    */
   LINE = 5,
   /**
-   * 曲线
+   * 曲线（Hermite 曲线）
+   * @deprecated 使用 BEZIER_CURVE 替代，此类型仅用于旧数据迁移兼容
    */
   CURVE = 6,
   /**
    * 贝塞尔路径
+   * @deprecated 使用 BEZIER_CURVE_PATH 替代，此类型仅用于旧数据迁移兼容
    */
   BEZIER_PATH = 7,
   /**
@@ -117,6 +119,10 @@ export type mat4 = [
 export type FunctionExpression = LineValue | CurveValue | BezierValue;
 export type FixedNumberExpression = ConstantNumber | LineValue | CurveValue | BezierValue;
 export type NumberExpression = FixedNumberExpression | RandomValue;
+/**
+ * 固定 vec3 表达式
+ * @deprecated BezierPath 和 LinearPath 仅用于旧数据迁移兼容，推荐使用 BezierCurvePath
+ */
 export type FixedVec3Expression = ConstantVec3 | BezierPath | LinearPath | BezierCurvePath;
 export type FixedQuatExpression = BezierCurveQuat;
 
@@ -147,12 +153,14 @@ export type LineValue = [type: ValueType.LINE, value: [time: number, value: numb
 export type CurveEasingPoint = [time: number, value: number, tanIn: number, tanOut: number];
 
 /**
- * 曲线段数值
+ * 曲线段数值（Hermite 曲线）
+ * @deprecated 使用 BezierValue 替代，此类型仅用于旧数据迁移兼容
  */
 export type CurveValue = [type: ValueType.CURVE, value: CurveEasingPoint[]];
 
 /**
  * 贝塞尔路径数值
+ * @deprecated 使用 BezierCurvePath 替代，此类型仅用于旧数据迁移兼容
  */
 export type BezierPath = [type: ValueType.BEZIER_PATH, value: BezierPathValue];
 

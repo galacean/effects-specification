@@ -4,7 +4,7 @@ import type {
   TextureSheetAnimation, RendererOptions, SplitParameter, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
-import type { ComponentData } from '../components';
+import type { ComponentData, DataPath } from '../components';
 
 /**
  * 图层元素
@@ -89,4 +89,8 @@ export interface SpriteContent {
  * 图层组件属性
  */
 export interface SpriteComponentData extends ComponentData, SpriteContent {
+  /**
+   * 自定义几何体数据
+   */
+  geometry?: DataPath,
 }

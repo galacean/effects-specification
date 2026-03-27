@@ -479,6 +479,7 @@ export interface RendererOptions {
   texture?: DataPath,
   /**
    * 蒙版形状，索引到 scene 的 shapes 中
+   * @deprecated runtime 2.0 后迁移到 SpriteComponentData.geometry
    */
   shape?: number | ShapeGeometry,
   /**

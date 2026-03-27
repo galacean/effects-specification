@@ -42,7 +42,7 @@ export enum JSONSceneVersion {
 /**
  * runtime 2.0 之前的场景信息
  * 素材信息存放于统一数据结构中
- * @deprecated
+ * @deprecated 使用 JSONScene 代替
  */
 export interface JSONSceneLegacy {
   /************** 文件版本不是 Player 版本，应用于文件变更后在 editor/player 中加载时的分类处理 **************/
