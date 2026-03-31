@@ -58,6 +58,7 @@ export enum DataType {
   AnimationGraphAsset = 'AnimationGraphAsset',
   CompositionComponent = 'CompositionComponent',
   FFDComponent = 'FFDComponent',
+  FrameComponent = 'FrameComponent',
   Animator = 'Animator',
   // Non-EffectObject
   TimelineClip = 'TimelineClip',
