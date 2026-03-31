@@ -2,6 +2,7 @@ import type { BaseItem, EndBehavior } from './base-item';
 import type { ItemType, RotationOverLifetime } from '../type';
 import type { FixedNumberExpression, FixedVec3Expression } from '../number-expression';
 import type { CameraClipMode } from '../composition';
+import type { ComponentData } from '../components/component-data';
 
 export interface CameraItem extends BaseItem {
   /**
@@ -71,4 +72,7 @@ export interface CameraPositionOverLifetime {
    * @default [0,0,0]
    */
   path?: FixedVec3Expression,
+}
+
+export interface CameraControllerData extends ComponentData, CameraContent {
 }
