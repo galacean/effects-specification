@@ -107,3 +107,6 @@ export interface AnimationComponentData extends ComponentData {
   animationClips: DataPath[],
 }
 
+export interface ModelTreeComponentData<T extends BinaryEnv> extends ComponentData, ModelTreeContent<T> {
+}
+
