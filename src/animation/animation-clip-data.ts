@@ -1,5 +1,6 @@
-import type { EffectsObjectData } from './effects-object-data';
-import type { ColorCurveValue, Vector3CurveValue, BezierValue, BezierCurvePath, BezierCurveQuat } from './number-expression';
+import type { EffectsObjectData } from '../effects-object-data';
+import type { ColorCurveValue, Vector3CurveValue, BezierValue, BezierCurvePath, BezierCurveQuat } from '../number-expression';
+import type { AnimationEventInfoData } from './animation-event';
 
 export interface AnimationClipData extends EffectsObjectData {
   duration?: number,
@@ -9,6 +10,7 @@ export interface AnimationClipData extends EffectsObjectData {
   scaleCurves?: ScaleCurveData[],
   floatCurves?: AnimationCurveFloatData[],
   colorCurves?: AnimationCurveColorData[],
+  events?: AnimationEventInfoData[],
 }
 
 export interface PositionCurveData {

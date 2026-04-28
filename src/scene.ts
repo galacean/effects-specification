@@ -6,13 +6,13 @@ import type { FontBase, FontDefine } from './text';
 import type { BinaryFile } from './binary';
 import type { ComponentData } from './components';
 import type { VFXItemData } from './vfx-item-data';
-import type { AnimationClipData } from './animation-clip-data';
 import type { AssetBase, ImageSource, VideoInfo } from './assets';
 import type { RenderSettings } from './render-settings';
 import type { EffectsObjectData } from './effects-object-data';
 import type { MaterialData } from './material-data';
 import type { GeometryData } from './geometry-data';
 import type { ShaderData } from './shader-data';
+import type { AnimationClipData } from './animation';
 
 /**
  * JSON 版本
@@ -36,13 +36,14 @@ export enum JSONSceneVersion {
   '3_4' = '3.4', // 动画状态机
   '3_5' = '3.5', // 网格形状变化动画、矢量图形填充/描边渐变色
   '3_6' = '3.6', // 支持 KTX2 纹理、H265 视频格式、文本增强
-  'LATEST' = JSONSceneVersion['3_6'],
+  '3_7' = '3.7', // 文本 autoSize、元素子节点
+  'LATEST' = JSONSceneVersion['3_7'],
 }
 
 /**
  * runtime 2.0 之前的场景信息
  * 素材信息存放于统一数据结构中
- * @deprecated
+ * @deprecated 使用 JSONScene 代替
  */
 export interface JSONSceneLegacy {
   /************** 文件版本不是 Player 版本，应用于文件变更后在 editor/player 中加载时的分类处理 **************/

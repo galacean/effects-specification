@@ -4,7 +4,7 @@ import type {
   TextureSheetAnimation, RendererOptions, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
-import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight, TextVerticalAlign } from '../text';
+import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight, TextVerticalAlign, TextSizeMode } from '../text';
 import type { ComponentData } from '../components';
 
 /**
@@ -34,15 +34,10 @@ export interface TextContentOptions extends BaseTextContentOptions {
    */
   textHeight?: number,
   /**
-   * 自适应宽高开关（和文本固定宽度冲突）
-   * @default false
+   * 文本自动调整尺寸模式
+   * @default TextSizeMode.fixed
    */
-  autoWidth?: boolean,
-  /**
-   * 自适应宽高开关（和文本固定高度冲突）
-   * @default false
-   */
-  autoHeight?: boolean,
+  autoResize?: TextSizeMode,
 }
 
 export interface BaseTextContentOptions {
