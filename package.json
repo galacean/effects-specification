@@ -1,6 +1,6 @@
 {
   "name": "@galacean/effects-specification",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "description": "Galacean Effects JSON Specification",
   "module": "./es/index.js",
   "main": "./es/index.js",
@@ -42,10 +42,6 @@
     "pnpm": "^8.15.7",
     "rimraf": "^3.0.2",
     "typescript": "^5.3.3"
-  },
-  "engines": {
-    "node": "18",
-    "pnpm": "8"
   },
   "author": "Ant Group CO., Ltd.",
   "license": "MIT",
