@@ -40,6 +40,7 @@ export interface SpriteContent {
   /**
    * added by loader
    * @default null
+   * @deprecated 2.10.0 Please use Sprite
    */
   splits?: SplitParameter[],
   /**
