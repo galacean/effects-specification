@@ -9,6 +9,7 @@ export enum DataType {
   Image = 'Image',
   AnimationClip = 'AnimationClip',
   BinaryAsset = 'BinaryAsset',
+  Sprite = 'Sprite',
 
   // Timeline
   TrackAsset = 'TrackAsset',
@@ -23,6 +24,7 @@ export enum DataType {
   Vector2PropertyTrack = 'Vector2PropertyTrack',
   Vector3PropertyTrack = 'Vector3PropertyTrack',
   Vector4PropertyTrack = 'Vector4PropertyTrack',
+  SpritePropertyTrack = 'SpritePropertyTrack',
 
   TransformPlayableAsset = 'TransformPlayableAsset',
   SpriteColorPlayableAsset = 'SpriteColorPlayableAsset',
@@ -33,6 +35,7 @@ export enum DataType {
   Vector2PropertyPlayableAsset = 'Vector2PropertyPlayableAsset',
   Vector3PropertyPlayableAsset = 'Vector3PropertyPlayableAsset',
   Vector4PropertyPlayableAsset = 'Vector4PropertyPlayableAsset',
+  SpritePropertyPlayableAsset = 'SpritePropertyPlayableAsset',
 
   // Components
   MeshComponent = 'MeshComponent',
@@ -61,6 +64,7 @@ export enum DataType {
   FrameComponent = 'FrameComponent',
   Animator = 'Animator',
   DomContentComponent = 'DomContentComponent',
+
   // Non-EffectObject
   TimelineClip = 'TimelineClip',
 }

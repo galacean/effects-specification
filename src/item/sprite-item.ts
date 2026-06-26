@@ -93,4 +93,8 @@ export interface SpriteComponentData extends ComponentData, SpriteContent {
    * 自定义几何体数据
    */
   geometry?: DataPath,
+  /**
+   * 引用的 Sprite 资产（新版数据流）；未设置时走旧 renderer.texture + splits 路径
+   */
+  sprite?: DataPath,
 }

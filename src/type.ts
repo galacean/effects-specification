@@ -475,6 +475,7 @@ export interface RendererOptions {
   transparentOcclusion?: boolean,
   /**
    * 贴图，索引到 scene 中的 images 数组
+   * @deprecated 2.10.0 迁移至 sprite.texture
    */
   texture?: DataPath,
   /**
