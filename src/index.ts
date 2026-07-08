@@ -30,6 +30,7 @@ export * from './binary';
 export * from './text';
 export * from './components';
 export * from './buitin-object-guid';
+export * from './sprite';
 export * from './shape';
 export * from './animation-graph';
 export * from './timeline';

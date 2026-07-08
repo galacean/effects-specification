@@ -94,6 +94,10 @@ export enum ValueType {
    * Vector3 曲线
    */
   VECTOR3_CURVE = 27,
+  /**
+   * 对象引用阶梯曲线（不插值）
+   */
+  REFERENCE_CURVE = 28,
 }
 
 export type vec2 = [x: number, y: number];
