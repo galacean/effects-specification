@@ -1,0 +1,12 @@
+export type LayoutAlignment = 0 | 1 | 2;
+export type AspectRatioStretchMode = 0 | 1 | 2 | 3;
+export type ScrollMode = 0 | 1 | 2 | 3 | 4 | 5;
+export type HorizontalAlignment = 0 | 1 | 2 | 3;
+export type VerticalAlignment = 0 | 1 | 2 | 3;
+export type AutowrapMode = 0 | 1 | 2 | 3;
+export type TextOverflow = 0 | 1 | 2;
+export type TextureExpandMode = 0 | 1 | 2 | 3 | 4 | 5;
+export type TextureStretchMode = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+export type AxisStretchMode = 0 | 1 | 2;
+export type ButtonActionMode = 0 | 1;
+export type ProgressFillMode = 0 | 1 | 2 | 3;
