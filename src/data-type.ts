@@ -9,6 +9,7 @@ export enum DataType {
   Image = 'Image',
   AnimationClip = 'AnimationClip',
   BinaryAsset = 'BinaryAsset',
+  Sprite = 'Sprite',
 
   // Timeline
   TrackAsset = 'TrackAsset',
@@ -23,6 +24,7 @@ export enum DataType {
   Vector2PropertyTrack = 'Vector2PropertyTrack',
   Vector3PropertyTrack = 'Vector3PropertyTrack',
   Vector4PropertyTrack = 'Vector4PropertyTrack',
+  SpritePropertyTrack = 'SpritePropertyTrack',
 
   TransformPlayableAsset = 'TransformPlayableAsset',
   SpriteColorPlayableAsset = 'SpriteColorPlayableAsset',
@@ -33,6 +35,7 @@ export enum DataType {
   Vector2PropertyPlayableAsset = 'Vector2PropertyPlayableAsset',
   Vector3PropertyPlayableAsset = 'Vector3PropertyPlayableAsset',
   Vector4PropertyPlayableAsset = 'Vector4PropertyPlayableAsset',
+  SpritePropertyPlayableAsset = 'SpritePropertyPlayableAsset',
 
   // Components
   MeshComponent = 'MeshComponent',
@@ -60,6 +63,44 @@ export enum DataType {
   FFDComponent = 'FFDComponent',
   FrameComponent = 'FrameComponent',
   Animator = 'Animator',
+  DomContentComponent = 'DomContentComponent',
+  UIControl = 'UIControl',
+
+  // GUI Controls
+  Control = 'Control',
+  Container = 'Container',
+  HBoxContainer = 'HBoxContainer',
+  VBoxContainer = 'VBoxContainer',
+  GridContainer = 'GridContainer',
+  PanelContainer = 'PanelContainer',
+  MarginContainer = 'MarginContainer',
+  CenterContainer = 'CenterContainer',
+  AspectRatioContainer = 'AspectRatioContainer',
+  ScrollContainer = 'ScrollContainer',
+  HScrollBar = 'HScrollBar',
+  VScrollBar = 'VScrollBar',
+  HSeparator = 'HSeparator',
+  VSeparator = 'VSeparator',
+  Label = 'Label',
+  LineEdit = 'LineEdit',
+  TextEdit = 'TextEdit',
+  PopupPanel = 'PopupPanel',
+  PopupMenu = 'PopupMenu',
+  MenuButton = 'MenuButton',
+  OptionButton = 'OptionButton',
+  ColorPicker = 'ColorPicker',
+  ColorPickerButton = 'ColorPickerButton',
+  TextureRect = 'TextureRect',
+  NinePatchRect = 'NinePatchRect',
+  ColorRect = 'ColorRect',
+  Panel = 'Panel',
+  ProgressBar = 'ProgressBar',
+  Button = 'Button',
+  Checkbox = 'Checkbox',
+  CheckButton = 'CheckButton',
+  HSlider = 'HSlider',
+  VSlider = 'VSlider',
+
   // Non-EffectObject
   TimelineClip = 'TimelineClip',
 }
