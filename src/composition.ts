@@ -97,7 +97,7 @@ export interface Composition extends CompositionBase {
  */
 export interface CompositionData extends CompositionBase {
   /**
-   * @description 组件数据
+   * 组件数据
    */
   components: DataPath[],
   /**
@@ -111,7 +111,7 @@ export interface CompositionData extends CompositionBase {
  */
 export interface CompositionComponentData extends ComponentData {
   /**
-   * @description 合成组件类型 - 固定为 CompositionComponent
+   * 合成组件类型 - 固定为 CompositionComponent
    */
   dataType: DataType.CompositionComponent,
   /**

@@ -37,7 +37,8 @@ export enum JSONSceneVersion {
   '3_5' = '3.5', // 网格形状变化动画、矢量图形填充/描边渐变色
   '3_6' = '3.6', // 支持 KTX2 纹理、H265 视频格式、文本增强
   '3_7' = '3.7', // 文本 autoSize、元素子节点
-  'LATEST' = JSONSceneVersion['3_7'],
+  '3_8' = '3.8', // 支持 UI Control、Multi-mask
+  'LATEST' = JSONSceneVersion['3_8'],
 }
 
 /**
