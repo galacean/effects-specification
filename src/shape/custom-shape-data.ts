@@ -39,14 +39,8 @@ export interface CustomShape {
   transform?: TransformData,
 }
 
-/**
- * 自定义图形组件
- */
-export interface CustomShapeData extends ShapeComponentData {
-  /**
-   * 矢量类型 - 形状
-   */
-  type: ShapePrimitiveType.Custom,
+/** Indexed contours shared by shapes and layer-owned masks, without paint or renderer state. */
+export interface ShapePathData {
   /**
    * 路径点
    */
@@ -63,4 +57,9 @@ export interface CustomShapeData extends ShapeComponentData {
    * 自定义形状
    */
   shapes: CustomShape[],
+}
+
+/** Custom shapes keep path fields at the component level. */
+export interface CustomShapeData extends ShapeComponentData, ShapePathData {
+  type: ShapePrimitiveType.Custom,
 }

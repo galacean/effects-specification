@@ -1,4 +1,4 @@
-import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
+import type { BaseItem, EndBehavior, MaskOptions, TrackMatteOptions } from './base-item';
 import type { ItemType } from '../type';
 import type { BaseTextContentOptions, TextComponentData, TextContent } from './text-item';
 import type { TextSizeMode } from '../text';
@@ -64,5 +64,7 @@ export interface RichTextComponentData extends Omit<TextComponentData, 'options'
   /**
    * 富文本元素蒙版属性，传入表示需要作为蒙版/被遮挡/反向遮挡
    */
+  /** @deprecated Read legacy track-matte data only. */
   mask?: MaskOptions,
+  trackMatte?: TrackMatteOptions,
 }

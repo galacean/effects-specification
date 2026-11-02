@@ -1,6 +1,6 @@
 import type { ComponentData, DataPath } from '../components';
 import type { ItemType, PositionOverLifetime, RotationOverLifetime, SizeOverLifetime } from '../type';
-import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
+import type { BaseItem, EndBehavior, MaskOptions, TrackMatteOptions } from './base-item';
 
 /**
  * 特效元素
@@ -44,5 +44,7 @@ export interface EffectComponentData extends ComponentData {
   /**
    * 特效元素蒙版属性，传入表示需要被遮挡/反向遮挡
    */
+  /** @deprecated Read legacy track-matte data only. */
   mask?: MaskOptions,
+  trackMatte?: TrackMatteOptions,
 }

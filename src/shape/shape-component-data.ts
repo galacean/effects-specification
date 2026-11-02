@@ -1,6 +1,6 @@
 import type { SideMode, BlendingMode } from '../type';
 import type { ComponentData, DataPath } from '../components/component-data';
-import type { MaskOptions } from '../item/base-item';
+import type { MaskOptions, TrackMatteOptions } from '../item/base-item';
 import type { ShapePrimitiveType } from './shape-primitive-type';
 import type { LineCap, LineJoin } from './shape-stroke-param';
 import type { Vector2Data } from '../math/vector-data';
@@ -30,7 +30,9 @@ export interface ShapeComponentData extends ComponentData {
   /**
    *  蒙版属性，传入表示需要作为蒙版/被遮挡/反向遮挡
    */
+  /** @deprecated Read legacy track-matte data only. */
   mask?: MaskOptions,
+  trackMatte?: TrackMatteOptions,
   /**
    * 图形元素材质渲染属性
    */

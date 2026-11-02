@@ -492,7 +492,7 @@ export interface RendererOptions {
    */
   anchor?: vec2,
   /**
-   * 蒙版属性
+   * @deprecated Legacy track-matte options. Use the component-level trackMatte field.
    */
   mask?: MaskOptions,
 }

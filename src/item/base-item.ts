@@ -43,8 +43,26 @@ export enum EndBehavior {
   freeze = END_BEHAVIOR_FREEZE,
 }
 
+/** A reference to an independent track-matte source component. */
+export interface TrackMatteReferenceData {
+  source: DataPath,
+  inverted?: boolean,
+}
+
+/** Binary track-matte coverage; continuous alpha and luminance are not supported. */
+export interface TrackMatteOptions {
+  /** Marks a track-matte source; its color is hidden unless sourceVisible is true. */
+  isTrackMatte?: boolean,
+  /** Also render the source color when isTrackMatte is true. @default false */
+  sourceVisible?: boolean,
+  /** Discard transparent source texels using the runtime alpha threshold. */
+  alphaClipEnabled?: boolean,
+  /** References are intersected; inverted references exclude their coverage. */
+  references?: TrackMatteReferenceData[],
+}
+
 /**
- * 单个蒙版引用数据，用于多蒙版场景
+ * @deprecated Use TrackMatteReferenceData.
  */
 export interface MaskReferenceData {
   /**
@@ -59,8 +77,7 @@ export interface MaskReferenceData {
 }
 
 /**
- * 元素的蒙版选项
- * 使用 references 数组指定蒙版引用，每个引用可独立设置 inverted 属性。
+ * @deprecated Legacy track-matte input. Use TrackMatteOptions.
  */
 export interface MaskOptions {
   /**
