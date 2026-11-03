@@ -55,8 +55,8 @@ export interface TrackMatteOptions {
   isTrackMatte?: boolean,
   /** Also render the source color when isTrackMatte is true. @default false */
   sourceVisible?: boolean,
-  /** Discard transparent source texels using the runtime alpha threshold. */
-  alphaClipEnabled?: boolean,
+  /** Discards source pixels below the alpha threshold, producing hard-edge coverage. */
+  alphaMaskEnabled?: boolean,
   /** References are intersected; inverted references exclude their coverage. */
   references?: TrackMatteReferenceData[],
 }
@@ -84,9 +84,7 @@ export interface MaskOptions {
    * 是否作为蒙版
    */
   isMask?: boolean,
-  /**
-   * 是否开启图片透明蒙版
-   */
+  /** Discards source pixels below the alpha threshold, producing hard-edge coverage. */
   alphaMaskEnabled?: boolean,
   /**
    * 蒙版引用列表
