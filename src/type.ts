@@ -492,7 +492,8 @@ export interface RendererOptions {
    */
   anchor?: vec2,
   /**
-   * @deprecated Legacy track-matte options. Use the component-level trackMatte field.
+   * 蒙版属性
+   * @deprecated 仅用于兼容旧轨道遮罩数据，请使用组件的 trackMatte 字段
    */
   mask?: MaskOptions,
 }

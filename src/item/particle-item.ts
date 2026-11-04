@@ -301,8 +301,8 @@ export interface ParticleContent {
   renderer: RendererOptions,
   /**
    * 粒子元素蒙版属性，传入表示需要被遮挡/反向遮挡
+   * @deprecated 仅用于兼容旧轨道遮罩数据，请使用 trackMatte
    */
-  /** @deprecated Read legacy track-matte data only. */
   mask?: MaskOptions,
   trackMatte?: TrackMatteOptions,
   /**

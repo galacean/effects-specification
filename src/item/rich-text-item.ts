@@ -63,8 +63,8 @@ export interface RichTextComponentData extends Omit<TextComponentData, 'options'
   options: RichTextContentOptions,
   /**
    * 富文本元素蒙版属性，传入表示需要作为蒙版/被遮挡/反向遮挡
+   * @deprecated 仅用于兼容旧轨道遮罩数据，请使用 trackMatte
    */
-  /** @deprecated Read legacy track-matte data only. */
   mask?: MaskOptions,
   trackMatte?: TrackMatteOptions,
 }

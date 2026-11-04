@@ -43,26 +43,41 @@ export enum EndBehavior {
   freeze = END_BEHAVIOR_FREEZE,
 }
 
-/** A reference to an independent track-matte source component. */
+/**
+ * 独立轨道遮罩来源的组件引用
+ */
 export interface TrackMatteReferenceData {
   source: DataPath,
   inverted?: boolean,
 }
 
-/** Binary track-matte coverage; continuous alpha and luminance are not supported. */
+/**
+ * 轨道遮罩选项，仅支持硬边覆盖，不支持连续透明度和亮度遮罩
+ */
 export interface TrackMatteOptions {
-  /** Marks a track-matte source; its color is hidden unless sourceVisible is true. */
+  /**
+   * 是否作为轨道遮罩来源，默认不绘制来源颜色
+   */
   isTrackMatte?: boolean,
-  /** Also render the source color when isTrackMatte is true. @default false */
+  /**
+   * 作为轨道遮罩来源时，是否同时绘制来源颜色
+   * @default false
+   */
   sourceVisible?: boolean,
-  /** Discards source pixels below the alpha threshold, producing hard-edge coverage. */
+  /**
+   * 是否按透明度阈值裁剪来源，低于阈值的像素不参与遮挡
+   */
   alphaMaskEnabled?: boolean,
-  /** References are intersected; inverted references exclude their coverage. */
+  /**
+   * 轨道遮罩引用列表
+   * 正向引用取交集，反向引用排除对应区域
+   */
   references?: TrackMatteReferenceData[],
 }
 
 /**
- * @deprecated Use TrackMatteReferenceData.
+ * 单个蒙版引用数据，用于多蒙版场景
+ * @deprecated 请使用 TrackMatteReferenceData
  */
 export interface MaskReferenceData {
   /**
@@ -77,14 +92,19 @@ export interface MaskReferenceData {
 }
 
 /**
- * @deprecated Legacy track-matte input. Use TrackMatteOptions.
+ * 元素的蒙版选项
+ * 使用 references 数组指定蒙版引用，每个引用可独立设置 inverted 属性。
+ * @deprecated 仅用于兼容旧轨道遮罩数据，请使用 TrackMatteOptions
  */
 export interface MaskOptions {
   /**
    * 是否作为蒙版
    */
   isMask?: boolean,
-  /** Discards source pixels below the alpha threshold, producing hard-edge coverage. */
+  /**
+   * 是否开启图片透明蒙版
+   * 按透明度阈值裁剪，低于阈值的像素不参与遮挡
+   */
   alphaMaskEnabled?: boolean,
   /**
    * 蒙版引用列表

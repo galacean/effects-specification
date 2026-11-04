@@ -7,26 +7,42 @@ export enum MaskOperation {
   Intersect = 2,
 }
 
-/** A private path owned by one layer or precomposition, not a reference to another layer. */
+/**
+ * 图层或预合成自带的路径蒙版，不引用独立来源图层
+ */
 export interface PathMaskData {
-  /** Stable within the owning component; ordering must not change animation bindings. */
+  /**
+   * 组件内唯一且稳定的标识，用于动画绑定，不随蒙版顺序变化
+   */
   id: string,
   name?: string,
-  /** @default true */
+  /**
+   * 是否启用该路径蒙版
+   * @default true
+   */
   enabled?: boolean,
-  /** @default MaskOperation.Add */
+  /**
+   * 蒙版运算方式
+   * @default MaskOperation.Add
+   */
   operation?: MaskOperation,
-  /** Inverts the path's coverage before applying operation. @default false */
+  /**
+   * 是否在参与运算前反转路径覆盖区域
+   * @default false
+   */
   inverted?: boolean,
   path: ShapePathData,
 }
 
 /**
- * Ordered hard-edge path masks in layer-local coordinates.
- * One component per layer; open paths are ignored.
+ * 图层局部坐标系下的有序硬边路径蒙版
+ * 每个图层仅允许一个组件，忽略未闭合路径
  */
 export interface MaskComponentData extends ComponentData {
-  /** @default true */
+  /**
+   * 是否启用整组路径蒙版
+   * @default true
+   */
   enabled?: boolean,
   masks: PathMaskData[],
 }
