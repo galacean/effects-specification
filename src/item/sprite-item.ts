@@ -4,7 +4,7 @@ import type {
   TextureSheetAnimation, RendererOptions, SplitParameter, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
-import type { ComponentData, DataPath } from '../components';
+import type { DataPath, MaskableGraphicData } from '../components';
 
 /**
  * 图层元素
@@ -89,7 +89,12 @@ export interface SpriteContent {
 /**
  * 图层组件属性
  */
-export interface SpriteComponentData extends ComponentData, SpriteContent {
+export interface SpriteComponentData extends MaskableGraphicData {
+  options: SpriteContentOptions,
+  splits?: SplitParameter[],
+  textureSheetAnimation?: TextureSheetAnimation,
+  interaction?: SpriteContent['interaction'],
+  duration?: number,
   /**
    * 自定义几何体数据
    */

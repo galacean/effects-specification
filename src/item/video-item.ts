@@ -1,10 +1,7 @@
-import type { ComponentData, DataPath } from '../components';
+import type { DataPath, MaskableGraphicData } from '../components';
 import type { RGBAColorValue } from '../number-expression';
-import type {
-  SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
-  InteractBehavior, RendererOptions, ItemType,
-} from '../type';
-import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
+import type { InteractBehavior, ItemType } from '../type';
+import type { BaseItem, EndBehavior } from './base-item';
 
 /**
  * 视频元素
@@ -28,7 +25,7 @@ export interface VideoContentOptions {
    */
   startColor?: RGBAColorValue,
   /**
-   * 视频链接，索引到 scene 中的 videos 数组
+   * 视频资源引用，使用 scene.videos 中资源的 ID
    */
   video: DataPath,
   /**
@@ -56,35 +53,11 @@ export interface VideoContentOptions {
 /**
  * 视频组件属性
  */
-export interface VideoComponentData extends ComponentData {
+export interface VideoComponentData extends MaskableGraphicData {
   /**
    * 视频元素基础属性
    */
   options: VideoContentOptions,
-  /**
-   * 视频元素材质渲染属性
-   */
-  renderer: RendererOptions,
-  /**
-   * 视频元素蒙版属性，传入表示需要被遮挡/反向遮挡
-   */
-  mask?: MaskOptions,
-  /**
-   * 视频元素大小变化属性
-   */
-  sizeOverLifetime?: SizeOverLifetime,
-  /**
-   * 视频元素旋转变化属性
-   */
-  rotationOverLifetime?: RotationOverLifetime,
-  /**
-   * 视频元素位置变化属性
-   */
-  positionOverLifetime?: PositionOverLifetime,
-  /**
-   * 视频元素色彩变化属性
-   */
-  colorOverLifetime?: ColorOverLifetime,
   /**
    * 视频元素交互
    */

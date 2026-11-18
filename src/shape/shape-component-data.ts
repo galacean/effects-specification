@@ -1,8 +1,8 @@
 import type { SideMode, BlendingMode } from '../type';
-import type { ComponentData, DataPath } from '../components/component-data';
-import type { MaskOptions } from '../item/base-item';
+import type { RendererComponentData, DataPath } from '../components/component-data';
+import type { MaskOptions, TransformData } from '../item/base-item';
 import type { ShapePrimitiveType } from './shape-primitive-type';
-import type { LineCap, LineJoin } from './shape-stroke-param';
+import type { LineCap, LineJoin, VariableWidthPoint } from './shape-stroke-param';
 import type { Vector2Data } from '../math/vector-data';
 import type { GradientColor } from '../number-expression';
 import type { ColorData } from '../math/color-data';
@@ -10,14 +10,21 @@ import type { ColorData } from '../math/color-data';
 /**
  * 矢量图形组件
  */
-export interface ShapeComponentData extends ComponentData {
+export interface ShapeComponentData extends RendererComponentData {
   /**
    * 矢量类型
    */
   type: ShapePrimitiveType,
   strokeWidth?: number,
+  /** 闭合路径的描边对齐：0 为外侧，0.5 为居中，1 为内侧。 */
+  strokeAlignment?: number,
   strokeCap?: LineCap,
   strokeJoin?: LineJoin,
+  strokeMiterLimit?: number,
+  transform?: TransformData,
+  variableWidthPoints?: VariableWidthPoint[],
+  strokeTrimPath?: TrimPathData,
+  fillTrimPath?: TrimPathData,
 
   /**
    * 描边属性
@@ -35,6 +42,18 @@ export interface ShapeComponentData extends ComponentData {
    * 图形元素材质渲染属性
    */
   renderer?: ShapeRendererOptions,
+}
+
+export interface TrimPathData {
+  start: number,
+  end: number,
+  offset: number,
+  mode: TrimPathMode,
+}
+
+export enum TrimPathMode {
+  Synchronized,
+  Sequential,
 }
 
 export interface ShapeRendererOptions {

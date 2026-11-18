@@ -7,7 +7,7 @@ import type {
 } from '../number-expression';
 import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
 import type { ParticleShape } from './particle-shape';
-import type { ComponentData, DataPath } from '../components';
+import type { DataPath, RendererComponentData } from '../components';
 
 /**
  * 粒子交互行为
@@ -288,7 +288,7 @@ export interface ParticleOptions {
 /**
  * 粒子元素渲染属性
  */
-export interface ParticleContent {
+export interface ParticleSystemData extends RendererComponentData {
   // added by loader
   splits?: SplitParameter[],
   /**
@@ -315,16 +315,6 @@ export interface ParticleContent {
    * 粒子元素大小变化属性
    */
   sizeOverLifetime?: ParticleSizeOverLifetime,
-  /**
-   * 发射器 transform 变化
-   */
-  emitterTransform?: {
-    /**
-     * 位置变化
-     */
-    path?: FixedVec3Expression,
-  },
-
   positionOverLifetime?: ParticlePositionOverLifetime,
   /**
    * 粒子元素旋转变化属性
@@ -363,9 +353,18 @@ export interface ParticleContent {
 }
 
 /**
- * 粒子元素渲染属性
+ * 旧版粒子元素渲染属性
  */
-export interface ParticleSystemData extends ComponentData, ParticleContent {
+export interface ParticleContent extends Omit<ParticleSystemData, keyof RendererComponentData> {
+  /**
+   * 发射器 transform 变化
+   */
+  emitterTransform?: {
+    /**
+     * 位置变化
+     */
+    path?: FixedVec3Expression,
+  },
 }
 
 /**
