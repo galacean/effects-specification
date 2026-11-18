@@ -1,10 +1,33 @@
 import type { ComponentData } from './component-data';
-import type { ShapePathData } from '../shape/custom-shape-data';
+import type { CustomShape } from '../shape/custom-shape-data';
+import type { Vector2Data } from '../math';
 
 export enum MaskOperation {
   Add = 0,
   Subtract = 1,
   Intersect = 2,
+}
+
+/**
+ * 路径蒙版的路径数据
+ */
+export interface MaskPathData {
+  /**
+   * 路径点
+   */
+  points: Vector2Data[],
+  /**
+   * 入射控制点
+   */
+  easingIns: Vector2Data[],
+  /**
+   * 入射控制点
+   */
+  easingOuts: Vector2Data[],
+  /**
+   * 自定义形状
+   */
+  shapes: CustomShape[],
 }
 
 /**
@@ -31,7 +54,7 @@ export interface PathMaskData {
    * @default false
    */
   inverted?: boolean,
-  path: ShapePathData,
+  path: MaskPathData,
 }
 
 /**

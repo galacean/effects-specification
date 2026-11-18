@@ -40,9 +40,13 @@ export interface CustomShape {
 }
 
 /**
- * 形状与路径蒙版共用的路径数据，不包含填充、描边或渲染配置
+ * 自定义图形组件
  */
-export interface ShapePathData {
+export interface CustomShapeData extends ShapeComponentData {
+  /**
+   * 矢量类型 - 形状
+   */
+  type: ShapePrimitiveType.Custom,
   /**
    * 路径点
    */
@@ -59,14 +63,4 @@ export interface ShapePathData {
    * 自定义形状
    */
   shapes: CustomShape[],
-}
-
-/**
- * 自定义图形组件
- */
-export interface CustomShapeData extends ShapeComponentData, ShapePathData {
-  /**
-   * 矢量类型 - 形状
-   */
-  type: ShapePrimitiveType.Custom,
 }
