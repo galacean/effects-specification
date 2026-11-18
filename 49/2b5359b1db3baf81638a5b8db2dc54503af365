@@ -1,0 +1,26 @@
+src/shape/custom-shape-data.ts
+  s_1959265e50472a::t_32b43953b8684a 66
+  s_1959265e50472a::t_79558a1005e127 45
+  s_1959265e50472a::t_0b1339b91ed593 43,46-49
+src/components/mask-component-data.ts
+  s_1959265e50472a::t_6101e4083146ff 12
+  s_1959265e50472a::t_68e215a460e307 14,57
+  s_1959265e50472a::t_32b43953b8684a 2-3,11,13,15-30
+  s_1959265e50472a::t_8613a44c06b8ec 31-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "492b5359b1db3baf81638a5b8db2dc54503af365",
+  "prompts": {},
+  "sessions": {
+    "s_1959265e50472a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a167e8-3a91-7343-a48b-562f2e9d9a2c",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "澄弈 <chengyi.zzm@gmail.com>"
+    }
+  }
+}
