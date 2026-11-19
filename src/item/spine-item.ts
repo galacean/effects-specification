@@ -5,7 +5,7 @@ import type {
   SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime,
   RendererOptions, ItemType, RenderMode,
 } from '../type';
-import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
+import type { BaseItem, EndBehavior, TrackMatteOptions } from './base-item';
 
 /**
  * 插件元素
@@ -132,8 +132,5 @@ export interface SpineComponent extends ComponentData {
   renderer?: {
     renderMode: RenderMode,
   },
-  /**
-   * Spine 元素蒙版属性，传入表示需要被遮挡/反向遮挡
-   */
-  mask?: MaskOptions,
+  trackMatte?: TrackMatteOptions,
 }

@@ -1,6 +1,6 @@
 import type { SideMode, BlendingMode } from '../type';
 import type { RendererComponentData, DataPath } from '../components/component-data';
-import type { MaskOptions, TransformData } from '../item/base-item';
+import type { TrackMatteOptions, TransformData } from '../item/base-item';
 import type { ShapePrimitiveType } from './shape-primitive-type';
 import type { LineCap, LineJoin, VariableWidthPoint } from './shape-stroke-param';
 import type { Vector2Data } from '../math/vector-data';
@@ -34,10 +34,7 @@ export interface ShapeComponentData extends RendererComponentData {
    * 填充属性
    */
   fills: PaintData[],
-  /**
-   *  蒙版属性，传入表示需要作为蒙版/被遮挡/反向遮挡
-   */
-  mask?: MaskOptions,
+  trackMatte?: TrackMatteOptions,
   /**
    * 图形元素材质渲染属性
    */

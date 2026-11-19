@@ -44,38 +44,35 @@ export enum EndBehavior {
 }
 
 /**
- * 单个蒙版引用数据，用于多蒙版场景
+ * 独立轨道遮罩来源的组件引用
  */
-export interface MaskReferenceData {
-  /**
-   * 指向作为蒙版的组件
-   */
-  mask: DataPath,
-  /**
-   * 是否反向蒙版（true: 反向遮挡，false: 正向遮挡）
-   * @default false
-   */
+export interface TrackMatteReferenceData {
+  source: DataPath,
   inverted?: boolean,
 }
 
 /**
- * 元素的蒙版选项
- * 使用 references 数组指定蒙版引用，每个引用可独立设置 inverted 属性。
+ * 轨道遮罩选项，仅支持硬边覆盖，不支持连续透明度和亮度遮罩
  */
-export interface MaskOptions {
+export interface TrackMatteOptions {
   /**
-   * 是否作为蒙版
+   * 是否作为轨道遮罩来源，默认不绘制来源颜色
    */
-  isMask?: boolean,
+  isTrackMatte?: boolean,
   /**
-   * 是否开启图片透明蒙版
+   * 作为轨道遮罩来源时，是否同时绘制来源颜色
+   * @default false
+   */
+  sourceVisible?: boolean,
+  /**
+   * 是否按透明度阈值裁剪来源，低于阈值的像素不参与遮挡
    */
   alphaMaskEnabled?: boolean,
   /**
-   * 蒙版引用列表
-   * 每个引用指定一个蒙版组件及其是否反向。
+   * 轨道遮罩引用列表
+   * 正向引用取交集，反向引用排除对应区域
    */
-  references?: MaskReferenceData[],
+  references?: TrackMatteReferenceData[],
 }
 
 export interface BaseItem {
