@@ -5,7 +5,7 @@ import type {
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
 import type { FontStyle, TextAlignment, TextBaseline, TextOverflow, TextWeight, TextVerticalAlign, TextSizeMode } from '../text';
-import type { ComponentData } from '../components';
+import type { MaskableGraphicData } from '../components';
 
 /**
  * 文本元素
@@ -25,12 +25,12 @@ export interface TextItem extends BaseItem {
 export interface TextContentOptions extends BaseTextContentOptions {
   /**
    * 文本固定宽度（和自适应宽高冲突）
-   * @default 31
+   * @default 100
    */
   textWidth?: number,
   /**
    * 文本高度
-   * @default 31
+   * @default 100
    */
   textHeight?: number,
   /**
@@ -38,6 +38,11 @@ export interface TextContentOptions extends BaseTextContentOptions {
    * @default TextSizeMode.fixed
    */
   autoResize?: TextSizeMode,
+  /**
+   * 换行时是否优先保留完整单词
+   * @default true
+   */
+  keepWordIntact?: boolean,
 }
 
 export interface BaseTextContentOptions {
@@ -198,5 +203,7 @@ export interface TextContent {
 /**
  * 文本元素渲染属性
  */
-export interface TextComponentData extends ComponentData, TextContent {
+export interface TextComponentData extends MaskableGraphicData {
+  options: Omit<TextContentOptions, 'lineGap' | 'textBaseline'>,
+  interaction?: TextContent['interaction'],
 }

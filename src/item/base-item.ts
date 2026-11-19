@@ -5,7 +5,7 @@ import {
   END_BEHAVIOR_DESTROY, END_BEHAVIOR_FORWARD,
   END_BEHAVIOR_FREEZE, END_BEHAVIOR_RESTART,
 } from '../constants';
-import type { Vector2Data, Vector3Data } from '../math';
+import type { Vector2Data, Vector3Data, Vector4Data } from '../math';
 import type { vec3, vec4 } from '../number-expression';
 import type { ItemType, RenderLevel } from '../type';
 import type { CameraContent } from './camera-item';
@@ -173,6 +173,8 @@ export interface BaseItemTransform {
 export interface TransformData {
   position: Vector3Data,
   eulerHint: Vector3Data,
+  /** 四元数旋转，同时提供时优先于 eulerHint。 */
+  quat?: Vector4Data,
   scale: Vector3Data,
   size?: Vector2Data,
   anchor?: Vector2Data,

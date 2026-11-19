@@ -24,7 +24,8 @@ export enum DataType {
   Vector2PropertyTrack = 'Vector2PropertyTrack',
   Vector3PropertyTrack = 'Vector3PropertyTrack',
   Vector4PropertyTrack = 'Vector4PropertyTrack',
-  SpritePropertyTrack = 'SpritePropertyTrack',
+  ObjectReferencePropertyTrack = 'ObjectReferencePropertyTrack',
+  MaterialTrack = 'MaterialTrack',
 
   TransformPlayableAsset = 'TransformPlayableAsset',
   SpriteColorPlayableAsset = 'SpriteColorPlayableAsset',
@@ -35,7 +36,7 @@ export enum DataType {
   Vector2PropertyPlayableAsset = 'Vector2PropertyPlayableAsset',
   Vector3PropertyPlayableAsset = 'Vector3PropertyPlayableAsset',
   Vector4PropertyPlayableAsset = 'Vector4PropertyPlayableAsset',
-  SpritePropertyPlayableAsset = 'SpritePropertyPlayableAsset',
+  ObjectReferencePropertyPlayableAsset = 'ObjectReferencePropertyPlayableAsset',
 
   // Components
   MeshComponent = 'MeshComponent',
@@ -64,6 +65,8 @@ export enum DataType {
   FrameComponent = 'FrameComponent',
   Animator = 'Animator',
   DomContentComponent = 'DomContentComponent',
+  Fake3DComponent = 'Fake3DComponent',
+  PositionConstraint = 'PositionConstraint',
   UIControl = 'UIControl',
 
   // GUI Controls
@@ -100,7 +103,4 @@ export enum DataType {
   CheckButton = 'CheckButton',
   HSlider = 'HSlider',
   VSlider = 'VSlider',
-
-  // Non-EffectObject
-  TimelineClip = 'TimelineClip',
 }

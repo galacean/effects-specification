@@ -5,9 +5,7 @@ import type { ItemType, RenderLevel } from './type';
 
 export interface VFXItemData extends EffectsObjectData {
   /**
-   * 元素 ID
-   * 非预合成的元素 ID 为 int 类型的数字字符串
-   * 预合成元素 ID 为 `'{ref 元素 ID}+{合成内 ID}'` 字符串
+   * 场景中序列化的元素 ID
    */
   id: string,
   /**
@@ -15,7 +13,7 @@ export interface VFXItemData extends EffectsObjectData {
    */
   name: string,
   /**
-   * 元素时常，单位秒
+   * 元素时长，单位秒
    */
   duration: number,
   /**
@@ -35,15 +33,12 @@ export interface VFXItemData extends EffectsObjectData {
   components: DataPath[],
   /**
    * 父节点 ID
-   * 如果父节点无法找到，播放将直接报错
    */
   parentId?: string,
   /**
-   * 元素可视状态
-   * 如果为 true 或者不存在时，元素可见
-   * 仅当为 false 时，元素不被创建
+   * 引用的预合成 ID
    */
-  visible?: boolean,
+  refId?: string,
   /**
    * 元素渲染等级
    */
@@ -57,31 +52,13 @@ export interface VFXItemData extends EffectsObjectData {
    */
   children?: DataPath[],
 
-  // Deprecated
-  //-------------------------------------------------------------------------
-
   /**
-   * 元素播放延时（单位秒）
+   * 元素播放延时（单位秒），视频组件用它换算合成时间对应的视频位置
    * @default 0
-   * @deprecated
    */
   delay?: number,
   /**
-   * 元素渲染信息属性
-   * @deprecated
+   * 交互组件与编辑器读取的元素扩展信息
    */
-  content: BaseContent,
-  /**
-   * 元素的插件模块名，如果不指定，则和 type 相同
-   * 从数组的 plugins 中获取 name
-   * 例如：pn:1, plugins:["model@1.0",'spine@1.0']
-   * pn 实际为 spine
-   * @deprecated
-   */
-  pn?: number,
-  /**
-   * 元素的插件模块名, 优先级高于 pn
-   * @deprecated
-   */
-  pluginName?: string,
+  content?: BaseContent,
 }
