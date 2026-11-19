@@ -1,5 +1,4 @@
 import type { DataPath } from './components';
-import type { MaskOptions } from './item/base-item';
 import type {
   FixedVec3Expression, vec2, vec3, GradientColor, ShapePoints, ShapeSplits, FixedNumberExpression,
 } from './number-expression';
@@ -491,11 +490,6 @@ export interface RendererOptions {
    * 锚点
    */
   anchor?: vec2,
-  /**
-   * 蒙版属性
-   * @deprecated 仅用于兼容旧轨道遮罩数据，请使用组件的 trackMatte 字段
-   */
-  mask?: MaskOptions,
 }
 
 /**

@@ -75,44 +75,6 @@ export interface TrackMatteOptions {
   references?: TrackMatteReferenceData[],
 }
 
-/**
- * 单个蒙版引用数据，用于多蒙版场景
- * @deprecated 请使用 TrackMatteReferenceData
- */
-export interface MaskReferenceData {
-  /**
-   * 指向作为蒙版的组件
-   */
-  mask: DataPath,
-  /**
-   * 是否反向蒙版（true: 反向遮挡，false: 正向遮挡）
-   * @default false
-   */
-  inverted?: boolean,
-}
-
-/**
- * 元素的蒙版选项
- * 使用 references 数组指定蒙版引用，每个引用可独立设置 inverted 属性。
- * @deprecated 仅用于兼容旧轨道遮罩数据，请使用 TrackMatteOptions
- */
-export interface MaskOptions {
-  /**
-   * 是否作为蒙版
-   */
-  isMask?: boolean,
-  /**
-   * 是否开启图片透明蒙版
-   * 按透明度阈值裁剪，低于阈值的像素不参与遮挡
-   */
-  alphaMaskEnabled?: boolean,
-  /**
-   * 蒙版引用列表
-   * 每个引用指定一个蒙版组件及其是否反向。
-   */
-  references?: MaskReferenceData[],
-}
-
 export interface BaseItem {
   /**
    * 元素 id
