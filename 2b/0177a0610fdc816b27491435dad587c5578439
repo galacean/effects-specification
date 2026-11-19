@@ -1,0 +1,35 @@
+src/item/effect-item.ts
+  s_f733b02a892418::t_a49b4092365a7a 3
+src/components/maskable-graphic-data.ts
+  s_f733b02a892418::t_a49b4092365a7a 3
+src/item/particle-item.ts
+  s_f733b02a892418::t_a49b4092365a7a 8,443
+src/item/sprite-item.ts
+  s_f733b02a892418::t_a49b4092365a7a 1
+src/item/text-item.ts
+  s_f733b02a892418::t_a49b4092365a7a 1
+src/item/rich-text-item.ts
+  s_f733b02a892418::t_a49b4092365a7a 1
+src/item/spine-item.ts
+  s_f733b02a892418::t_a49b4092365a7a 8
+src/item/video-item.ts
+  s_f733b02a892418::t_a49b4092365a7a 7
+src/shape/shape-component-data.ts
+  s_f733b02a892418::t_a49b4092365a7a 3,102
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "2b0177a0610fdc816b27491435dad587c5578439",
+  "prompts": {},
+  "sessions": {
+    "s_f733b02a892418": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f1eb-9633-7ca0-a7b2-1d6458d48ef7",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "澄弈 <chengyi.zzm@gmail.com>"
+    }
+  }
+}
