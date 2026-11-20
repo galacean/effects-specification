@@ -5,7 +5,7 @@ import type {
   FixedNumberExpression, NumberExpression, GradientColor, vec3, FixedVec3Expression,
   ColorExpression, FunctionExpression,
 } from '../number-expression';
-import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
+import type { BaseItem, EndBehavior, TrackMatteOptions } from './base-item';
 import type { ParticleShape } from './particle-shape';
 import type { DataPath, RendererComponentData } from '../components';
 
@@ -299,10 +299,7 @@ export interface ParticleSystemData extends RendererComponentData {
    * 粒子元素材质渲染属性
    */
   renderer: RendererOptions,
-  /**
-   * 粒子元素蒙版属性，传入表示需要被遮挡/反向遮挡
-   */
-  mask?: MaskOptions,
+  trackMatte?: TrackMatteOptions,
   /**
    * 粒子元素发射器形状属性
    */

@@ -52,6 +52,7 @@ export enum DataType {
   RichTextComponent = 'RichTextComponent',
   OrientationComponent = 'OrientationComponent',
   ShapeComponent = 'ShapeComponent',
+  MaskComponent = 'MaskComponent',
   SpriteComponent = 'SpriteComponent',
   ParticleSystem = 'ParticleSystem',
   InteractComponent = 'InteractComponent',
