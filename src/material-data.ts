@@ -10,9 +10,6 @@ export interface MaterialTextureProperty {
 
 export interface MaterialData extends EffectsObjectData {
   shader: DataPath,
-  blending?: boolean,
-  zWrite?: boolean,
-  zTest?: boolean,
   stringTags: Record<string, string>,
   macros: string[],
   ints: Record<string, number>,

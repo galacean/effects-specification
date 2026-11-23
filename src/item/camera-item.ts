@@ -74,5 +74,6 @@ export interface CameraPositionOverLifetime {
   path?: FixedVec3Expression,
 }
 
-export interface CameraControllerData extends ComponentData, CameraContent {
+export interface CameraControllerData extends ComponentData {
+  options: Omit<CameraContent['options'], 'aspect'>,
 }

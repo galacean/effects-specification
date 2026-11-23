@@ -1,12 +1,8 @@
 import type { EndBehavior } from '../item/base-item';
-import type { DataPath } from '../components';
+import type { EffectsObjectData } from '../effects-object-data';
 
-export interface TimelineClipData {
+export interface TimelineClipData extends EffectsObjectData {
   start?: number,
   duration?: number,
   endBehavior?: EndBehavior,
-  /**
-   * 可播放资产（PlayableAssetData）
-   */
-  asset: DataPath,
 }

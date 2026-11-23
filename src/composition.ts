@@ -61,7 +61,7 @@ interface CompositionBase {
    */
   duration: number,
   /**
-   * 合成开始播放的时间，单位妙
+   * 合成开始播放的时间，单位秒
    * @default 0
    */
   startTime?: number,
@@ -115,17 +115,13 @@ export interface CompositionComponentData extends ComponentData {
    */
   dataType: DataType.CompositionComponent,
   /**
-   * 元素信息
-   */
-  items: DataPath[],
-  /**
    * 时间轴资产（TimelineAssetData）
    */
-  timelineAsset: DataPath,
+  timelineAsset?: DataPath,
   /**
    * 轨道的场景绑定
    */
-  sceneBindings: SceneBindingData[],
+  sceneBindings?: SceneBindingData[],
 }
 
 export interface SceneBindingData {
@@ -134,7 +130,7 @@ export interface SceneBindingData {
    */
   key: DataPath,
   /**
-   * 被绑定的场景对象（VFXItemData）
+   * 被绑定的场景对象（如元素或组件）
    */
   value: DataPath,
 }

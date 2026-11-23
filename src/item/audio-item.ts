@@ -18,7 +18,7 @@ export interface AudioItem extends BaseItem {
 
 export interface AudioContentOptions {
   /**
-   * 音频链接，索引到 scene 中的 audios 数组
+   * 音频资源引用，使用 scene.audios 中资源的 ID
    */
   audio: DataPath,
   /**
