@@ -5,9 +5,9 @@ import type {
   FixedNumberExpression, NumberExpression, GradientColor, vec3, FixedVec3Expression,
   ColorExpression, FunctionExpression,
 } from '../number-expression';
-import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
+import type { BaseItem, EndBehavior, TrackMatteOptions } from './base-item';
 import type { ParticleShape } from './particle-shape';
-import type { ComponentData, DataPath } from '../components';
+import type { DataPath, RendererComponentData } from '../components';
 
 /**
  * 粒子交互行为
@@ -288,7 +288,7 @@ export interface ParticleOptions {
 /**
  * 粒子元素渲染属性
  */
-export interface ParticleContent {
+export interface ParticleSystemData extends RendererComponentData {
   // added by loader
   splits?: SplitParameter[],
   /**
@@ -299,10 +299,7 @@ export interface ParticleContent {
    * 粒子元素材质渲染属性
    */
   renderer: RendererOptions,
-  /**
-   * 粒子元素蒙版属性，传入表示需要被遮挡/反向遮挡
-   */
-  mask?: MaskOptions,
+  trackMatte?: TrackMatteOptions,
   /**
    * 粒子元素发射器形状属性
    */
@@ -315,16 +312,6 @@ export interface ParticleContent {
    * 粒子元素大小变化属性
    */
   sizeOverLifetime?: ParticleSizeOverLifetime,
-  /**
-   * 发射器 transform 变化
-   */
-  emitterTransform?: {
-    /**
-     * 位置变化
-     */
-    path?: FixedVec3Expression,
-  },
-
   positionOverLifetime?: ParticlePositionOverLifetime,
   /**
    * 粒子元素旋转变化属性
@@ -363,9 +350,18 @@ export interface ParticleContent {
 }
 
 /**
- * 粒子元素渲染属性
+ * 旧版粒子元素渲染属性
  */
-export interface ParticleSystemData extends ComponentData, ParticleContent {
+export interface ParticleContent extends Omit<ParticleSystemData, keyof RendererComponentData> {
+  /**
+   * 发射器 transform 变化
+   */
+  emitterTransform?: {
+    /**
+     * 位置变化
+     */
+    path?: FixedVec3Expression,
+  },
 }
 
 /**

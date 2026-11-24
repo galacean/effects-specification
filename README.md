@@ -2,7 +2,8 @@
 
 ## Environment Setup
 
-- Node.js `>= 10.0.0`
+- Node.js `>= 24.0.0` (see `.nvmrc`)
+- pnpm `10.33.2` (pinned in `package.json`)
 
 ## Development
 

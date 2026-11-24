@@ -1,6 +1,6 @@
 {
   "name": "@galacean/effects-specification",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "Galacean Effects JSON Specification",
   "module": "./es/index.js",
   "main": "./es/index.js",
@@ -18,30 +18,32 @@
   "scripts": {
     "prebuild": "pnpm clean",
     "build": "pnpm build:lib",
-    "build:lib": "tsc -b tsconfig.build.json",
+    "build:lib": "tsc -p tsconfig.build.json",
     "lint": "eslint src --ext .ts,.mjs",
     "lint:fix": "eslint src --fix --quiet --ext .ts,.mjs",
-    "check:ts": "tsc -b tsconfig.check.json",
+    "check:ts": "tsc -p tsconfig.check.json",
     "clean": "rimraf es/**",
     "prepare": "husky install",
-    "prepublishOnly": "npm run build"
+    "changelog": "print-changelog",
+    "prepublishOnly": "pnpm build"
   },
   "browserslist": [
     "iOS 9"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^13.2.1",
+    "@commitlint/cli": "^18.6.1",
     "@commitlint/config-conventional": "^18.4.3",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
+    "@galacean/release-tools": "^0.0.12",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
     "eslint": "^8.56.0",
     "eslint-plugin-compat": "^4.2.0",
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^9.0.11",
     "lint-staged": "^11.2.6",
-    "pnpm": "^8.15.7",
+    "pnpm": "^10.33.0",
     "rimraf": "^3.0.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.3"
   },
   "author": "Ant Group CO., Ltd.",
   "license": "MIT",

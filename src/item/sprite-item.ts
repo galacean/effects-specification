@@ -1,10 +1,10 @@
-import type { BaseItem, EndBehavior, MaskOptions } from './base-item';
+import type { BaseItem, EndBehavior, TrackMatteOptions } from './base-item';
 import type {
   SizeOverLifetime, RotationOverLifetime, PositionOverLifetime, ColorOverLifetime, ItemType,
   TextureSheetAnimation, RendererOptions, SplitParameter, InteractBehavior,
 } from '../type';
 import type { RGBAColorValue } from '../number-expression';
-import type { ComponentData, DataPath } from '../components';
+import type { DataPath, MaskableGraphicData } from '../components';
 
 /**
  * 图层元素
@@ -51,10 +51,7 @@ export interface SpriteContent {
    * 图层元素材质渲染属性
    */
   renderer: RendererOptions,
-  /**
-   * 图层元素蒙版属性，传入表示需要作为蒙版/被遮挡/反向遮挡
-   */
-  mask?: MaskOptions,
+  trackMatte?: TrackMatteOptions,
   /**
    * 图层元素大小变化属性
    */
@@ -89,7 +86,12 @@ export interface SpriteContent {
 /**
  * 图层组件属性
  */
-export interface SpriteComponentData extends ComponentData, SpriteContent {
+export interface SpriteComponentData extends MaskableGraphicData {
+  options: SpriteContentOptions,
+  splits?: SplitParameter[],
+  textureSheetAnimation?: TextureSheetAnimation,
+  interaction?: SpriteContent['interaction'],
+  duration?: number,
   /**
    * 自定义几何体数据
    */

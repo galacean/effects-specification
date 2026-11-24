@@ -25,19 +25,3 @@ export interface SpriteData extends EffectsObjectData {
   /** UV 旋转方式（0=None, 1=Rotate90） */
   rotation?: SpriteRotation,
 }
-
-/**
- * 对象引用曲线值（createValueGetter 入参 / 序列化形态）：[curveType, keyframes[]]。
- * curveType 为 ValueType.REFERENCE_CURVE。
- * 序列化时 value 为 DataPath（{id}），运行时由 fromData 解析为 EffectsObject 实例。
- */
-export type ReferenceCurveValue = [number, [time: number, value: DataPath][]];
-
-/**
- * Sprite 属性 K 帧 PlayableAsset 数据。
- * curveData 为对象引用阶梯曲线，阶梯采样（不插值）。
- */
-export interface SpritePropertyAssetData extends EffectsObjectData {
-  /** [REFERENCE_CURVE, [time, DataPath][]] */
-  curveData: ReferenceCurveValue,
-}
