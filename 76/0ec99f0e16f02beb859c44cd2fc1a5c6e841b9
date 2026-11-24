@@ -1,0 +1,19 @@
+src/scene.ts
+  s_e49ca8d80eb625::t_bff50977ddef6b 41-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "760ec99f0e16f02beb859c44cd2fc1a5c6e841b9",
+  "prompts": {},
+  "sessions": {
+    "s_e49ca8d80eb625": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a20b7e-591a-7871-83b6-21b32d0e495f",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "wumaolinmaoan <wumaolin1998@outlook.com>"
+    }
+  }
+}
